@@ -1,0 +1,16 @@
+/* Isolated page transition layer. Never moves or transforms page content. */
+#sosPageTransition{position:fixed;inset:0;z-index:2147483000;pointer-events:none;opacity:0;visibility:hidden;overflow:hidden;contain:layout paint style;transition:opacity .22s ease,visibility 0s linear .24s}
+#sosPageTransition.isActive{opacity:1;visibility:visible;transition:opacity .22s ease}
+#sosPageTransition .sosTransitionBackdrop{position:absolute;inset:0;background:#020104}
+#sosPageTransition .sosTransitionVisual{position:absolute;left:50%;top:50%;width:190px;height:190px;transform:translate(-50%,-50%);display:grid;place-items:center}
+.sosTransitionRing{position:absolute;border:1px solid rgba(205,156,255,.55);border-radius:50%;inset:18px;opacity:.8}.sosTransitionRing.r2{inset:44px;border-color:rgba(255,255,255,.35)}
+.sosTransitionCore{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle,#fff 0 6%,#bf75ff 24%,rgba(107,31,194,.2) 62%,transparent 72%);box-shadow:0 0 44px rgba(177,90,255,.7)}
+.sosTransitionScan,.sosTransitionCube{display:none}
+#sosPageTransition[data-mode="stellar"].isActive .sosTransitionRing{animation:sosRing .7s ease-out both}#sosPageTransition[data-mode="stellar"].isActive .r2{animation-delay:.06s}
+#sosPageTransition[data-mode="fade"] .sosTransitionVisual{display:none}#sosPageTransition[data-mode="fade"] .sosTransitionBackdrop{background:#000}
+#sosPageTransition[data-mode="aperture"] .sosTransitionBackdrop{background:linear-gradient(to bottom,#000 0 48%,transparent 48% 52%,#000 52%)}#sosPageTransition[data-mode="aperture"].isActive .sosTransitionBackdrop{animation:sosAperture .4s ease both}
+#sosPageTransition[data-mode="warp"] .sosTransitionVisual{width:100vw;height:100vh;background:repeating-radial-gradient(ellipse at center,transparent 0 12px,rgba(184,113,255,.13) 14px 15px,transparent 17px 29px);animation:sosWarp .42s ease both}
+#sosPageTransition[data-mode="scan"] .sosTransitionScan{display:block;position:absolute;width:100vw;height:3px;background:#d5a6ff;box-shadow:0 0 24px #a855f7;animation:sosScan .34s ease both}
+#sosPageTransition[data-mode="cubes"] .sosTransitionCore,#sosPageTransition[data-mode="cubes"] .sosTransitionRing{display:none}#sosPageTransition[data-mode="cubes"] .sosTransitionCube{display:block;position:absolute;width:24px;height:24px;border:1px solid rgba(255,255,255,.8);background:rgba(144,56,220,.28);animation:sosCube .4s ease both}.c1{--x:-70px;--y:-70px}.c2{--x:70px;--y:-70px}.c3{--x:-70px;--y:70px}.c4{--x:70px;--y:70px}
+@keyframes sosRing{from{transform:scale(.55);opacity:0}to{transform:scale(1.45);opacity:0}}@keyframes sosAperture{from{clip-path:inset(48% 0)}to{clip-path:inset(0)}}@keyframes sosWarp{from{transform:scale(.35);opacity:0}to{transform:scale(2.2);opacity:1}}@keyframes sosScan{from{transform:translateY(-55vh)}to{transform:translateY(55vh)}}@keyframes sosCube{from{transform:translate(0,0) rotate(0);opacity:0}to{transform:translate(var(--x),var(--y)) rotate(180deg);opacity:1}}
+@media(prefers-reduced-motion:reduce){#sosPageTransition *{animation:none!important}}

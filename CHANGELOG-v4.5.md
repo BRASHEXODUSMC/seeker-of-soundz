@@ -26,3 +26,10 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Prevented the legacy cube handler from overriding member choices.
 - Added distinct Stellar, Fade, Aperture, Warp, Scan, Cubes, and Minimal transitions.
 - Removed vertical page movement from the normal transition to eliminate jumping.
+
+## v4.13.4 — Original Forum Presets, Live Preview, Transition and Loader Repair
+- Restored the v4.10.22 forum category, subcategory, suggested-tag, keyword-tag, custom-tag and draft composer behavior.
+- Connected the restored composer to the existing real Supabase forum tables, reactions, replies and Storage uploads.
+- Made Experience Studio controls apply instantly as an unsaved page preview; Save persists and Undo restores.
+- Replaced overlapping page-transition controllers with one isolated overlay that never transforms page content.
+- Restored the stable v4.10.22 loader implementation while preserving later authentication, mobile, profile and Supabase work.

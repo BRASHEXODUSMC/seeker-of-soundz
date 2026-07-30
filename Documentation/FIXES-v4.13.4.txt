@@ -1,0 +1,25 @@
+Seeker Of SoundZ v4.13.4
+
+RESTORED FROM THE v4.10.22 REFERENCE
+- Original forum category presets
+- Original category-specific subcategory presets
+- Original suggested tag maps and keyword suggestions
+- Custom tags, selected tag chips, and draft preservation
+
+SUPABASE
+- The restored composer writes real topics, replies, reactions, images, categories, subcategories, and tags to Supabase.
+- Existing authentication, profiles, avatars, owner role, mobile fixes, and forum database remain intact.
+
+EXPERIENCE STUDIO
+- Dropdowns and switches now apply instantly to the page and preview panel without saving.
+- Save makes the draft permanent; Undo restores the saved appearance.
+
+TRANSITIONS
+- Replaced overlapping legacy transition layers with one isolated fixed overlay.
+- Page content is never transformed, preventing jumps and double-animation glitches.
+
+LOADER
+- Restored the stable v4.10.22 loader JavaScript and CSS.
+
+INSTALL TYPE
+Website files only. No Supabase SQL patch is required.

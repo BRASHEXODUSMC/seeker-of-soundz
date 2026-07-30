@@ -48,3 +48,8 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Supabase-driven forum categories, subcategories, and tag presets.
 - Fixed category validation mismatch.
 - Restored/upgraded cinematic EDM loader, once per session.
+
+## v4.13.10 — Forum Submit Form Reference Fix
+- Fixed `e.currentTarget is null` after asynchronous Supabase topic creation.
+- The submit handler now stores the form element before awaiting database and Storage operations.
+- Preserves category, subcategory, tags, emoji, attachment, and synchronization behavior.

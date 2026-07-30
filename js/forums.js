@@ -91,8 +91,10 @@ function syncSubs(){const catSelect=$('#postCategory'),sub=ensureSubcategoryFiel
 function openComposer(){if(!state.user){toast('Please sign in before creating a discussion.','Members only');location.href='members.html';return}const c=$('#forumComposer');if(c){c.hidden=false;c.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>$('#postForm [name=title]')?.focus(),300)}}
 async function uploadImage(topicId){if(!state.imageFile)return '';const c=supa(),ext=(state.imageFile.name.split('.').pop()||'jpg').toLowerCase(),path=`${state.user.id}/topics/${topicId}.${ext}`;const {error}=await c.storage.from('forum-attachments').upload(path,state.imageFile,{upsert:true,contentType:state.imageFile.type});if(error)throw error;return c.storage.from('forum-attachments').getPublicUrl(path).data.publicUrl}
 async function publish(e){
- e.preventDefault();if(!state.user)return openComposer();
- const c=supa(),f=new FormData(e.currentTarget);let category=categoryByValue(f.get('category'));
+ e.preventDefault();
+ const form=e.currentTarget;
+ if(!form||!state.user)return openComposer();
+ const c=supa(),f=new FormData(form);let category=categoryByValue(f.get('category'));
  if(!category){await loadCategories();category=categoryByValue(f.get('category'))}
  if(!category)return toast('Please choose a valid forum category.','Forum category');
  const selectedSub=String(f.get('subcategory')||'').trim();
@@ -105,7 +107,8 @@ async function publish(e){
    const created=await c.rpc('forum_create_topic',{category_slug_input:categorySlug,subcategory_name_input:selectedSub,title_input:title,body_input:body,tags_input:[...state.selectedTags].slice(0,8),media_url_input:safeUrl(f.get('mediaUrl'))});
    if(created.error)throw created.error;
    const topicId=created.data;
-   if(state.imageFile){const url=await uploadImage(topicId);const {error:u}=await c.from('forum_topics').update({image_url:url}).eq('id',topicId);if(u)throw u}e.currentTarget.reset();state.selectedTags.clear();state.imageFile=null;$('#imagePreview').hidden=true;$('#imagePreview').innerHTML='';populateCategorySelect();$('#forumComposer').hidden=true;await refresh();toast('Your discussion is now live.','Post published')}catch(err){toast(err.message||'Could not publish this discussion.','Forum error')}
+   if(state.imageFile){const url=await uploadImage(topicId);const {error:u}=await c.from('forum_topics').update({image_url:url}).eq('id',topicId);if(u)throw u}
+   form.reset();state.selectedTags.clear();state.imageFile=null;$('#imagePreview').hidden=true;$('#imagePreview').innerHTML='';populateCategorySelect();$('#forumComposer').hidden=true;await refresh();toast('Your discussion is now live.','Post published')}catch(err){toast(err.message||'Could not publish this discussion.','Forum error')}
 }
 async function refresh(){try{await Promise.all([getAuth(),loadCategories()]);await loadTopics();render()}catch(err){console.error(err);toast(err.message||'The forum could not load.','Forum connection')}}
 function bind(){

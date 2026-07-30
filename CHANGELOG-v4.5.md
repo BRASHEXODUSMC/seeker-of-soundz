@@ -38,3 +38,9 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Replaced the stacked emoji-picker behavior with one guarded controller.
 - Prevented duplicate listeners, observer stacking, and scroll-position recalculation lag.
 - Restored reliable quick emoji insertion, category browsing, search, close controls, and mobile behavior.
+
+
+## v4.13.7
+- Supabase-driven forum categories, subcategories, and tag presets.
+- Fixed category validation mismatch.
+- Restored/upgraded cinematic EDM loader, once per session.

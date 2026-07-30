@@ -1,0 +1,22 @@
+SEEKER OF SOUNDZ v4.13.7 INSTALLATION
+
+UPDATE TYPE: WEBSITE + ONE SUPABASE PATCH
+
+WEBSITE:
+1. Replace the repository files with this version.
+2. Commit and push with GitHub Desktop.
+
+SUPABASE:
+Run ONLY: supabase/patch-v4.13.7-forum-presets.sql
+Do NOT rerun schema.sql, policies.sql, storage-policies.sql, or older patches.
+
+WHAT THE PATCH ADDS:
+- forum_subcategories table
+- forum_tag_presets table
+- all original Seeker Of SoundZ categories, subcategories, and suggested tags
+- public read RLS policies for these preset tables
+
+LOADER:
+- cinematic EDM loader
+- stable fixed logo stage
+- appears once per browser tab session

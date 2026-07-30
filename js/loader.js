@@ -1,64 +1,13 @@
-/* Seeker Of SoundZ v4.13.5 — stable once-per-session loader */
-(()=>{
-  'use strict';
-  window.__SOS_LOADER_V4135__=true;
-  const KEY='sos_loader_seen_v4_13_5';
-  const loader=document.getElementById('loader');
-  if(!loader)return;
-
-  const hideImmediately=()=>{
-    loader.classList.add('loaded');
-    loader.setAttribute('aria-hidden','true');
-  };
-
-  if(sessionStorage.getItem(KEY)==='1'){
-    hideImmediately();
-    return;
-  }
-
-  // Mark this session immediately so page-to-page navigation never flashes the loader.
-  sessionStorage.setItem(KEY,'1');
-  document.documentElement.classList.add('sosLoaderRunning');
-  loader.classList.remove('loaded','loaderComplete');
-  loader.setAttribute('aria-hidden','false');
-
-  const bar=loader.querySelector('.loaderProgress');
-  const percent=loader.querySelector('.loaderPercent');
-  const logo=loader.querySelector('.loaderLogoImage');
-  const duration=1250;
-  const started=performance.now();
-  let finished=false;
-
-  function setProgress(value){
-    const n=Math.max(0,Math.min(100,Math.round(value)));
-    if(bar)bar.style.width=n+'%';
-    if(percent)percent.textContent=n+'%';
-    loader.style.setProperty('--loader-progress',String(n/100));
-  }
-
-  function finish(){
-    if(finished)return;
-    finished=true;
-    setProgress(100);
-    loader.classList.add('loaderComplete');
-    setTimeout(()=>{
-      loader.classList.add('loaded');
-      loader.setAttribute('aria-hidden','true');
-      document.documentElement.classList.remove('sosLoaderRunning');
-    },220);
-  }
-
-  function frame(now){
-    if(finished)return;
-    const elapsed=now-started;
-    const linear=Math.min(1,elapsed/duration);
-    const eased=1-Math.pow(1-linear,3);
-    setProgress(eased*100);
-    if(linear>=1)finish(); else requestAnimationFrame(frame);
-  }
-
-  // Decode the logo before animating where supported; fixed dimensions prevent layout movement.
-  if(logo?.decode)logo.decode().catch(()=>{}).finally(()=>requestAnimationFrame(frame));
-  else requestAnimationFrame(frame);
-  setTimeout(finish,2200);
+/* Seeker Of SoundZ v4.13.7 — cinematic EDM ignition loader, once per tab session */
+(()=>{'use strict';const KEY='sos_loader_seen_v4_13_7',loader=document.getElementById('loader');if(!loader)return;
+const instant=()=>{loader.classList.add('loaded');loader.setAttribute('aria-hidden','true');document.documentElement.classList.add('sosLoaderSeen')};
+try{if(sessionStorage.getItem(KEY)==='1'){instant();return}sessionStorage.setItem(KEY,'1')}catch(e){}
+loader.classList.remove('loaded','loaderComplete');loader.setAttribute('aria-hidden','false');document.documentElement.classList.add('sosLoaderRunning');
+if(!loader.querySelector('.loaderEqualizer')){const eq=document.createElement('div');eq.className='loaderEqualizer';eq.setAttribute('aria-hidden','true');eq.innerHTML=Array.from({length:28},(_,i)=>`<i style="--i:${i}"></i>`).join('');loader.querySelector('.loaderLogoStage')?.append(eq)}
+if(!loader.querySelector('.loaderPulseRing')){const r=document.createElement('div');r.className='loaderPulseRing';loader.querySelector('.loaderLogoStage')?.prepend(r)}
+const bar=loader.querySelector('.loaderProgress'),pct=loader.querySelector('.loaderPercent'),status=loader.querySelector('.loaderStatus span');const labels=['Tuning frequencies','Syncing the signal','Charging the soundstage','Opening the frequency'];let start=performance.now(),done=false;
+function set(v){const n=Math.min(100,Math.max(0,Math.round(v)));if(bar)bar.style.width=n+'%';if(pct)pct.textContent=n+'%';if(status)status.textContent=labels[Math.min(labels.length-1,Math.floor(n/26))]}
+function finish(){if(done)return;done=true;set(100);loader.classList.add('loaderComplete');setTimeout(()=>{loader.classList.add('loaded');loader.setAttribute('aria-hidden','true');document.documentElement.classList.remove('sosLoaderRunning');document.documentElement.classList.add('sosLoaderSeen')},650)}
+function frame(now){const p=Math.min(1,(now-start)/1850),e=1-Math.pow(1-p,3);set(e*100);if(p<1)requestAnimationFrame(frame);else finish()}
+requestAnimationFrame(frame);setTimeout(finish,3200);
 })();

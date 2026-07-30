@@ -1,0 +1,22 @@
+/* Seeker Of SoundZ v4.13.3 — stable overlay-only transitions. */
+#cubeTransition{position:fixed!important;inset:0!important;z-index:90000!important;width:100vw!important;height:100dvh!important;display:grid!important;place-items:center!important;overflow:hidden!important;pointer-events:none!important;visibility:hidden!important;opacity:0!important;transform:none!important;margin:0!important;background:#030106!important;transition:opacity .16s ease,visibility 0s linear .16s!important;contain:strict!important}
+#cubeTransition.active.sos-transition-running{visibility:visible!important;opacity:1!important;transition:opacity .16s ease,visibility 0s!important}
+#cubeTransition .cubeScene{position:relative!important;inset:auto!important;width:min(52vw,220px)!important;height:min(52vw,220px)!important;margin:0!important;display:grid!important;place-items:center!important;transform:none!important}
+#cubeTransition .transitionLogo{position:relative!important;inset:auto!important;width:min(25vw,100px)!important;height:auto!important;margin:0!important;object-fit:contain!important;transform:none!important;opacity:1!important}
+#cubeTransition .transitionCube,#cubeTransition .transitionGalaxy,#cubeTransition .transitionStarCloud,#cubeTransition .transitionSignalLock,#cubeTransition .transitionOrbitRing,#cubeTransition .transitionFrequencySweep,#cubeTransition .transitionStarTunnel{animation:none!important}
+#cubeTransition[data-transition-mode="fade"] .cubeScene{display:none!important}
+#cubeTransition[data-transition-mode="stellar"]{background:radial-gradient(circle at 50% 50%,rgba(151,70,224,.22),transparent 34%),#030106!important}
+#cubeTransition[data-transition-mode="stellar"].active .transitionLogo{animation:sosStableLogo .36s ease-out both!important}
+#cubeTransition[data-transition-mode="aperture"]{clip-path:inset(50% 0 50% 0);transition:clip-path .36s cubic-bezier(.65,0,.25,1),opacity .05s linear,visibility 0s!important}
+#cubeTransition[data-transition-mode="aperture"].active{clip-path:inset(0 0 0 0)}
+#cubeTransition[data-transition-mode="warp"]{background:radial-gradient(circle,#170325,#020103 68%)!important}
+#cubeTransition[data-transition-mode="warp"].active .transitionStarCloud{opacity:.7!important;animation:sosStableWarp .38s ease-out both!important}
+#cubeTransition[data-transition-mode="scan"]::after{content:"";position:absolute;left:0;right:0;top:-4px;height:3px;background:#fff;box-shadow:0 0 18px #fff,0 0 45px rgba(170,86,255,.9)}
+#cubeTransition[data-transition-mode="scan"].active::after{animation:sosStableScan .33s linear both}
+#cubeTransition[data-transition-mode="cubes"] .transitionCube{opacity:1!important}
+#cubeTransition[data-transition-mode="cubes"].active .transitionCube{animation:cubeOrbit .75s linear infinite!important}
+@keyframes sosStableLogo{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes sosStableWarp{from{opacity:0;transform:scale(.5)}to{opacity:.12;transform:scale(1.8)}}
+@keyframes sosStableScan{from{top:-4px}to{top:100%}}
+html.sos-page-leaving body{overflow:hidden!important}
+@media(prefers-reduced-motion:reduce){#cubeTransition,#cubeTransition *{animation:none!important;transition:none!important}}

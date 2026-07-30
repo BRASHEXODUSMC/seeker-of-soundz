@@ -241,6 +241,9 @@
     if(!anchor||anchor.target==="_blank"||anchor.hasAttribute("download")||anchor.getAttribute("href").startsWith("#")||anchor.href.startsWith("mailto:")||anchor.href.startsWith("tel:"))return;
     const destination=new URL(anchor.href,location.href);
     if(destination.origin!==location.origin)return;
+    // v4.13.3: the member-aware controller owns internal navigation.
+    // Prevent the original cube handler from launching a second transition.
+    if(window.SOSTransitions?.play)return;
     event.preventDefault();
     const transition=document.getElementById("cubeTransition");
     transition.classList.remove("active");

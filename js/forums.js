@@ -6,6 +6,7 @@ const toast=(m,t='Forums')=>window.SOS?.toast?.(m,{title:t})||alert(m);
 const client=()=>window.SOS_SUPABASE?.client;
 const state={categories:[],topics:[],replies:new Map(),reactions:[],active:'all',tag:'',query:'',sort:'newest',replying:'',selectedTags:new Set(),file:null,user:null,profile:null};
 const defaultAvatar='assets/images/sos-logo.png';
+const FALLBACK_CATEGORY_NAMES=['General Discussion','EDM Community','Music Production','DJ Tips','Events','Help & FAQ','Feedback','Off Topic'];
 const SUBCATEGORIES={
  'General Discussion':['Introductions','Community News','General Chat'],
  'EDM Community':['House','Techno','Dubstep & Bass','Trance','Drum & Bass','Future Bass','EDM Releases','Festival Talk'],
@@ -64,10 +65,14 @@ async function load(){
 }
 function categoryName(){const s=$('#postCategory');return s?.selectedOptions?.[0]?.textContent?.trim()||'';}
 function syncCategorySelect(){
- const s=$('#postCategory');if(!s)return;
- const previous=s.value;
- s.innerHTML=state.categories.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');
- if([...s.options].some(o=>o.value===previous))s.value=previous;
+ const select=$('#postCategory');if(!select)return;
+ const previousValue=select.value;
+ const previousName=select.selectedOptions?.[0]?.textContent?.trim();
+ const categories=state.categories.length?state.categories:FALLBACK_CATEGORY_NAMES.map(name=>({id:name,name}));
+ select.innerHTML=categories.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
+ const byValue=[...select.options].find(o=>o.value===previousValue);
+ const byName=[...select.options].find(o=>o.textContent.trim()===previousName);
+ if(byValue)select.value=byValue.value;else if(byName)select.value=byName.value;
  syncSubcategories();syncSuggestedTags();
 }
 function syncSubcategories(){
@@ -100,7 +105,28 @@ async function upload(file,topicId){if(!file)return null;const ext=(file.name.sp
 async function createTopic(e){e.preventDefault();if(!state.user)return toast('Please sign in before creating a post.','Members only');const f=new FormData(e.currentTarget),title=String(f.get('title')||'').trim(),body=String(f.get('body')||'').trim();try{const {data,error}=await client().from('forum_topics').insert({category_id:f.get('category'),author_id:state.user.id,title,body,tags:[...state.selectedTags],subcategory:f.get('subcategory')||'',media_url:f.get('mediaUrl')||null}).select().single();if(error)throw error;if(state.file){const image=await upload(state.file,data.id);const {error:u}=await client().from('forum_topics').update({image_url:image}).eq('id',data.id);if(u)throw u;}localStorage.removeItem('sos_forum_draft_v2');e.currentTarget.reset();state.selectedTags.clear();state.file=null;syncSubcategories();renderSelected();syncSuggestedTags();$('#forumComposer').hidden=true;toast('Your discussion is now live.','Post published');state.replies.clear();await load();}catch(err){console.error(err);toast(err.message,'Could not publish');}}
 async function act(target){const id=target.dataset.like||target.dataset.delete||target.dataset.reply||target.dataset.pin||target.dataset.lock;if(target.dataset.reply){if(!state.user)return toast('Sign in to reply.','Members only');state.replying=state.replying===id?'':id;return draw();}if(target.dataset.like){if(!state.user)return toast('Sign in to react.','Members only');const row=state.reactions.find(r=>r.topic_id===id&&r.user_id===state.user.id);const q=row?client().from('forum_reactions').delete().eq('id',row.id):client().from('forum_reactions').insert({user_id:state.user.id,topic_id:id,reaction:'heart'});const {error}=await q;if(error)return toast(error.message,'Reaction failed');return load();}if(target.dataset.delete){if(!confirm('Delete this discussion and all replies?'))return;const {error}=await client().from('forum_topics').delete().eq('id',id);if(error)return toast(error.message,'Delete failed');return load();}if(target.dataset.pin||target.dataset.lock){const topic=state.topics.find(t=>t.id===id),changes=target.dataset.pin?{is_pinned:!topic.is_pinned}:{is_locked:!topic.is_locked};const {error}=await client().rpc('forum_set_topic_moderation',{target_topic:id,pin_value:target.dataset.pin?changes.is_pinned:null,lock_value:target.dataset.lock?changes.is_locked:null});if(error)return toast(error.message,'Moderation failed');return load();}if(target.dataset.deleteReply){if(!confirm('Delete this reply?'))return;const {error}=await client().from('forum_replies').delete().eq('id',target.dataset.deleteReply);if(error)return toast(error.message,'Delete failed');state.replies.clear();return load();}}
 async function submitReply(form){if(!state.user)return toast('Sign in to reply.','Members only');const topic=state.topics.find(t=>t.id===form.dataset.replyForm),body=$('textarea',form).value.trim();if(topic?.is_locked&&!canStaff())return toast('This topic is locked.','Replies unavailable');const {error}=await client().from('forum_replies').insert({topic_id:topic.id,author_id:state.user.id,body});if(error)return toast(error.message,'Reply failed');await client().from('forum_topics').update({last_activity_at:new Date().toISOString()}).eq('id',topic.id);state.replying='';state.replies.clear();toast('Your reply is now live.','Reply posted');load();}
+function ensureComposerControls(){
+ const form=$('#postForm');if(!form)return;
+ let category=$('#postCategory');
+ if(!category){
+  const row=form.querySelector('.formRow');
+  row?.insertAdjacentHTML('afterbegin',`<label>Forum section<select id="postCategory" name="category"></select></label>`);
+  category=$('#postCategory');
+ }
+ let sub=$('#postSubcategory');
+ if(!sub){
+  const row=category?.closest('.formRow');
+  row?.insertAdjacentHTML('beforeend',`<label>Subcategory<select id="postSubcategory" name="subcategory"></select></label>`);
+ }
+ let picker=$('#suggestedTagButtons');
+ if(!picker){
+  const title=form.querySelector('input[name="title"]')?.closest('label');
+  title?.insertAdjacentHTML('beforebegin',`<div class="tagPicker"><div class="tagPickerHead"><strong>Suggested tags</strong><span>Tags update from your category, subcategory, title, and post.</span></div><div class="suggestedTagButtons" id="suggestedTagButtons"></div><div class="selectedTagChips" id="selectedTagChips"></div><input id="postTags" name="tags" type="hidden"></div>`);
+ }
+ syncCategorySelect();renderSelected();syncSuggestedTags();
+}
 function bind(){
+ ensureComposerControls();
  $('#newPostButton').onclick=()=>{if(!state.user)return toast('Please sign in before creating a post.','Members only');$('#forumComposer').hidden=false;$('#forumComposer').scrollIntoView({behavior:'smooth'});};$('#closeComposer').onclick=()=>$('#forumComposer').hidden=true;$('#postForm').onsubmit=createTopic;
  $('#postImage').onchange=e=>{state.file=e.target.files[0]||null;const p=$('#imagePreview');if(state.file){p.hidden=false;p.innerHTML=`<strong>${esc(state.file.name)}</strong><p class="postMeta">Ready to upload securely to Supabase Storage.</p>`}else p.hidden=true;};
  $('#forumCategories').onclick=e=>{const b=e.target.closest('[data-category]');if(b){state.active=b.dataset.category;draw();}};$('#forumTagCloud').onclick=e=>{const b=e.target.closest('[data-tag]');if(b){state.tag=b.dataset.tag;draw();}};$('#activeTagRow').onclick=e=>{if(e.target.closest('[data-clear-tag]')){state.tag='';draw();}};$('#forumSearch').oninput=e=>{state.query=e.target.value;draw();};$('#forumSort').onchange=e=>{state.sort=e.target.value;draw();};
@@ -118,5 +144,5 @@ function bind(){
  syncSubcategories();syncSuggestedTags();
 }
 function renderSelected(){$('#selectedTagChips').innerHTML=state.selectedTags.size?[...state.selectedTags].map(t=>`<span class="selectedTagChip"><span>#${esc(t)}</span><button type="button" data-remove-tag="${esc(t)}" aria-label="Remove #${esc(t)}">×</button></span>`).join(''):'<span class="postMeta">Select up to 8 tags.</span>';$('#postTags').value=[...state.selectedTags].join(',');}
-document.addEventListener('DOMContentLoaded',async()=>{bind();renderSelected();await load();client().auth.onAuthStateChange(()=>{state.replies.clear();load();});client().channel('forum-live').on('postgres_changes',{event:'*',schema:'public',table:'forum_topics'},()=>{state.replies.clear();load();}).on('postgres_changes',{event:'*',schema:'public',table:'forum_replies'},()=>{state.replies.clear();load();}).subscribe();});
+document.addEventListener('DOMContentLoaded',async()=>{bind();renderSelected();await load();new MutationObserver(()=>ensureComposerControls()).observe($('#forumComposer')||document.body,{childList:true,subtree:true});client().auth.onAuthStateChange(()=>{state.replies.clear();load();});client().channel('forum-live').on('postgres_changes',{event:'*',schema:'public',table:'forum_topics'},()=>{state.replies.clear();load();}).on('postgres_changes',{event:'*',schema:'public',table:'forum_replies'},()=>{state.replies.clear();load();}).subscribe();});
 })();

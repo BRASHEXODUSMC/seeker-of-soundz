@@ -1,0 +1,9 @@
+Seeker Of SoundZ v4.13.3
+
+WEBSITE UPDATE ONLY
+- Live Experience Studio preview now reacts immediately to controls before Save.
+- Forum category, subcategory, suggested tags, and selected tag controls are restored defensively.
+- Member-selected page transitions now have one navigation owner; the legacy handler no longer runs a second transition.
+- Default transition uses overlay-only animation and no page/body arrival animation.
+
+SUPABASE: No SQL patch required. Do not rerun schema or policies.

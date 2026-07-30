@@ -15,3 +15,26 @@ html.sosLoaderSeen #loader{display:none!important}html.sosLoaderRunning{overflow
 @keyframes sosLogoIgnition{0%{opacity:0;filter:blur(10px);transform:scale(.82)}60%{opacity:1;filter:blur(0);transform:scale(1.035)}100%{transform:scale(1)}}@keyframes sosLogoExit{to{opacity:0;transform:scale(1.08);filter:blur(5px)}}@keyframes sosGlowBeat{0%,100%{opacity:.42;transform:scale(.91)}50%{opacity:1;transform:scale(1.1)}}@keyframes sosPulseRing{0%{opacity:.8;transform:scale(.72)}100%{opacity:0;transform:scale(1.28)}}@keyframes sosOrbit{to{transform:rotate(360deg)}}@keyframes sosOrbitReverse{to{transform:rotate(-360deg)}}@keyframes sosEq{to{height:calc(15px + (var(--i) % 9)*4px);opacity:1}}@keyframes sosEqExit{to{opacity:0;transform:translateX(-50%) scaleX(.4)}}
 @media(max-width:600px){#loader .loaderLogoStage{width:clamp(190px,62vw,255px)!important;height:clamp(190px,62vw,255px)!important}.loaderEqualizer{height:42px}.loaderEqualizer i{width:2px}}
 @media(prefers-reduced-motion:reduce){#loader *{animation:none!important}}
+
+
+/* v4.13.8 dubstep waveform and loader hardening */
+html.sosLoaderRunning,html.sosLoaderRunning body{cursor:none!important;overflow:hidden!important}
+html.sosLoaderRunning #cursor,html.sosLoaderRunning #cursorDot,html.sosLoaderRunning #cursorRing,html.sosLoaderRunning .customCursor,html.sosLoaderRunning [data-custom-cursor]{opacity:0!important;visibility:hidden!important;display:none!important}
+#loader,#loader *{cursor:none!important}
+#loader .loaderScan{position:absolute!important;left:0!important;right:0!important;top:-18%!important;height:2px!important;background:linear-gradient(90deg,transparent,rgba(197,148,255,.9),#fff,rgba(109,45,210,.85),transparent)!important;box-shadow:0 0 18px rgba(188,131,255,.85),0 0 42px rgba(116,45,215,.55)!important;opacity:.85!important;animation:sosVerticalScan 2.8s linear infinite!important}
+.loaderWaveformRing{position:absolute;inset:0;z-index:4;border-radius:50%;pointer-events:none;animation:sosWaveRotate 18s linear infinite}
+.loaderWaveformRing i{position:absolute;left:50%;top:50%;width:3px;height:clamp(15px,3.2vw,34px);border-radius:5px;transform-origin:50% calc(clamp(105px,15vw,165px));transform:translate(-50%,-100%) rotate(calc(var(--i)*5deg)) translateY(calc(clamp(-112px,-15.8vw,-174px)));background:linear-gradient(to top,rgba(110,35,209,.08),rgba(185,117,255,.78),#fff);box-shadow:0 0 9px rgba(196,147,255,.72);animation:sosWaveBar .58s cubic-bezier(.4,0,.2,1) calc(var(--i)*-.037s) infinite alternate}
+.loaderBassPulse{position:absolute;inset:4%;z-index:3;border-radius:50%;border:2px solid rgba(182,116,255,.28);box-shadow:0 0 32px rgba(127,47,224,.35),inset 0 0 28px rgba(190,130,255,.14);animation:sosBassPulse 1.05s ease-out infinite;pointer-events:none}
+#loader .loaderBar{width:min(460px,82vw)!important;height:8px!important;border-radius:999px!important;overflow:visible!important}
+#loader .loaderProgress{border-radius:999px!important;transition:width .09s linear!important}
+#loader .loaderStatus{min-height:34px!important;align-items:center!important}
+#loader .loaderStatus span:first-child{letter-spacing:.08em!important;text-transform:uppercase!important;font-size:.78rem!important;color:rgba(240,230,255,.82)!important}
+#loader .loaderStatus span.statusPulse{animation:sosStatusPulse .38s ease both!important}
+#loader .loaderBrandName{transition:letter-spacing .6s ease,text-shadow .6s ease,transform .6s ease!important}
+#loader .loaderBrandName.brandFinal{letter-spacing:.34rem!important;text-shadow:0 0 18px #fff,0 0 42px rgba(176,107,255,.8)!important;transform:scale(1.04)!important}
+@keyframes sosVerticalScan{0%{top:-12%;opacity:0}8%{opacity:.9}88%{opacity:.75}100%{top:112%;opacity:0}}
+@keyframes sosWaveRotate{to{transform:rotate(360deg)}}
+@keyframes sosWaveBar{0%{height:10px;opacity:.42}35%{height:calc(12px + var(--r)*1.4px)}100%{height:calc(22px + var(--r)*2px);opacity:1}}
+@keyframes sosBassPulse{0%{transform:scale(.72);opacity:.88}100%{transform:scale(1.18);opacity:0}}
+@keyframes sosStatusPulse{0%{opacity:0;transform:translateY(8px);filter:blur(4px)}100%{opacity:1;transform:none;filter:none}}
+@media(max-width:600px){.loaderWaveformRing i{transform-origin:50% clamp(94px,31vw,126px);transform:translate(-50%,-100%) rotate(calc(var(--i)*5deg)) translateY(clamp(-102px,-33vw,-136px));width:2px}.loaderWaveformRing{inset:2%}}

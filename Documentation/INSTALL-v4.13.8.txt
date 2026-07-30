@@ -1,0 +1,16 @@
+Seeker Of SoundZ v4.13.8
+
+UPDATE TYPE: WEBSITE ONLY
+
+FIXES
+- Restores the forum Subcategory dropdown even when Supabase preset loading is delayed.
+- Uses built-in Seeker Of SoundZ subcategory presets as a visible fallback.
+- Keeps Supabase validation when publishing.
+- Adds a dubstep waveform ring around the loader logo.
+- Slows the loader and adds staged EDM status phrases ending with Seeker Of SoundZ.
+- Adds a vertical scan line moving down the loading screen.
+- Hides the custom and system cursor during loading.
+- Loader remains once per browser tab session.
+
+SUPABASE
+No SQL patch required. Do not rerun schema or policy files.

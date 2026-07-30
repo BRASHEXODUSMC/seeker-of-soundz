@@ -76,3 +76,8 @@ background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75
 .selectedTagChip{display:inline-flex;align-items:center;gap:7px}
 .selectedTagChip button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0 2px;line-height:1}
 @media(max-width:700px){.formRow{grid-template-columns:1fr!important}.tagChoice{min-height:42px}}
+
+/* v4.13.8 subcategory field safeguard */
+.forumSubcategoryField,#postSubcategory{display:grid!important;visibility:visible!important;opacity:1!important;min-width:0!important}
+#postSubcategory{width:100%!important;min-height:48px!important}
+@media(max-width:700px){#postForm .formRow{grid-template-columns:1fr!important}.forumSubcategoryField{width:100%!important}}

@@ -13,3 +13,10 @@ Important: the payment code is a secure integration starter, not a preconfigured
 ## v4.6 Member Command Center
 - Complete members dashboard overhaul with access badges, quick actions, activity, achievements and current projects.
 - Replaced cramped administrator-only access boxes with clean dashboard modules.
+
+## v4.12.1 - Supabase Avatar Profile Fix
+- Fixed avatars uploading to Storage without appearing in the active member profile.
+- Added safe profile upsert behavior when a signup profile row is missing.
+- Added immediate avatar/session refresh and cache-busting.
+- Added compatibility synchronization for older member/forum profile components.
+- Added a one-time Supabase SQL patch for profile inserts and avatar Storage policies.

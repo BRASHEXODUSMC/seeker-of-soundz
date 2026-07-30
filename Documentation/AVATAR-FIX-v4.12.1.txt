@@ -1,0 +1,18 @@
+SEEKER OF SOUNDZ v4.12.1 - AVATAR PROFILE FIX
+
+1. Upload this version to GitHub Desktop and push it.
+2. In Supabase, open SQL Editor and create a New Query.
+3. Open supabase/patch-v4.12.1-avatar-profile.sql from this package.
+4. Copy all SQL into the query and click Run once.
+5. In Supabase Storage, open the avatars bucket and confirm Public bucket is enabled.
+6. Open the live members page and press Ctrl+F5.
+7. Sign in, choose a JPG/PNG/WebP under 5 MB, and select Save Public Profile.
+
+The updated code now:
+- verifies the selected image format and size;
+- uploads to a stable per-user avatar path;
+- creates the profile row if the signup trigger missed it;
+- updates existing profile rows;
+- reloads the Supabase session profile;
+- refreshes the dashboard avatar immediately;
+- updates compatibility data used by older profile/forum components.

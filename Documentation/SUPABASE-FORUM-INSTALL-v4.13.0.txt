@@ -1,0 +1,21 @@
+SEEKER OF SOUNDZ v4.13.0 — REAL SUPABASE FORUMS
+
+UPDATE TYPE: WEBSITE + ONE SUPABASE PATCH
+
+GITHUB:
+1. Replace the website files with this version.
+2. Commit to main.
+3. Push origin.
+
+SUPABASE:
+Run ONLY: supabase/patch-v4.13.0-real-forums.sql
+
+DO NOT rerun:
+- schema.sql
+- policies.sql
+- storage-policies.sql
+- patch-v4.12.1-avatar-profile.sql
+
+STORAGE:
+Confirm the existing forum-attachments bucket is Public.
+No new bucket is required.

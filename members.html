@@ -152,27 +152,10 @@
         <button class="secondaryButton" id="resetPassword" type="button">
          Reset Password
         </button>
-        <div class="demoLoginBox">
-         <strong>
-          Two test logins
-         </strong>
-         <p>
-          Use either account, then sign out to test the other.
-         </p>
-         <div class="demoLoginButtons">
-          <button class="smallAction" data-demo-login="admin" type="button">
-           Load Admin Login
-          </button>
-          <button class="smallAction" data-demo-login="member" type="button">
-           Load Member Login
-          </button>
-         </div>
-         <small>
-          Admin: admin@seeker.local / admin123
-          <br/>
-          Member: member@seeker.local / member123
-         </small>
-        </div>
+        <label class="rememberLoginRow">
+         <input checked="" name="remember" type="checkbox"/>
+         Keep me signed in on this device
+        </label>
         <p class="formMessage" id="loginMessage">
         </p>
        </form>
@@ -180,6 +163,11 @@
         <label>
          Display name
          <input maxlength="30" name="displayName" required=""/>
+        </label>
+        <label>
+         Username
+         <input autocomplete="username" maxlength="24" minlength="3" name="username" pattern="[A-Za-z0-9_]{3,24}" required=""/>
+         <small>Use 3–24 letters, numbers, or underscores.</small>
         </label>
         <label>
          Email
@@ -374,7 +362,8 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase/supabase-client.js?v=4.11.0"></script>
-  <script src="js/supabase/supabase-services.js?v=4.11.0"></script>
+  <script src="js/supabase/supabase-services.js?v=4.12.0"></script>
+  <script src="js/supabase/auth-bridge.js?v=4.12.0"></script>
   <script src="js/app.js">
   </script>
   <script src="js/shared-navigation.js">
@@ -392,9 +381,9 @@
   <script src="js/app-shell.js">
   </script>
   <script src="js/site-v3.6.js"></script>
-  <script src="js/members.js">
+  <script src="js/members.js?v=4.12.0">
   </script>
-  <script src="js/member-profile-studio.js">
+  <script src="js/member-profile-studio.js?v=4.12.0">
   </script>
   <script src="js/production-v4.5.js"></script>
   <script src="js/dashboard-v4.6.js?v=4.6.1"></script>

@@ -22,3 +22,6 @@ html,body{
 background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
 }
 .star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}
+
+/* v4.12 real Supabase authentication */
+.rememberLoginRow{display:flex!important;align-items:center;gap:.65rem;cursor:pointer}.rememberLoginRow input{width:auto!important;margin:0}.formMessage[data-state="error"]{color:#ff9b9b}.formMessage[data-state="success"]{color:#9dffc1}.auth-access-denied body{visibility:hidden}

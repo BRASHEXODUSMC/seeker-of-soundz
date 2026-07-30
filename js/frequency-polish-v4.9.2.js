@@ -2,6 +2,7 @@
   'use strict';
 
   function enhanceTransition() {
+    if (window.SOSTransitions || window.__SOS_TRANSITION_V4135__) return;
     const transition = document.getElementById('cubeTransition');
     const scene = transition?.querySelector('.cubeScene');
     if (!transition || !scene || scene.querySelector('.transitionStarTunnel')) return;
@@ -76,6 +77,7 @@
   }
 
   function enhanceLoader() {
+    if (window.__SOS_LOADER_V4135__) return;
     const loader = document.getElementById('loader');
     const stage = loader?.querySelector('.loaderLogoStage');
     if (!loader || !stage) return;

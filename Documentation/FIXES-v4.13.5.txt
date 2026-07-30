@@ -1,0 +1,16 @@
+SEEKER OF SOUNDZ v4.13.5
+
+UPDATE TYPE: WEBSITE ONLY
+
+FIXED
+- Only the selected member page transition now runs.
+- All legacy cube/Logo transition layers are removed.
+- The faint SOS logo no longer appears between pages.
+- Transition DOM is rebuilt for exactly one selected effect per navigation.
+- The loader was rewritten with a fixed logo stage and time-based progress.
+- The loader appears only once per browser tab/session.
+- Subsequent pages hide the loader before body paint to prevent flashing.
+
+SUPABASE
+- No SQL patch required.
+- Do not rerun schema.sql, policies.sql, storage-policies.sql, or earlier patches.

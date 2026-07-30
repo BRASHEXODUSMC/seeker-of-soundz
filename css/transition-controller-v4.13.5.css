@@ -1,0 +1,31 @@
+/* Seeker Of SoundZ v4.13.5 — one exclusive transition at a time */
+#cubeTransition,.cubeTransition,.transitionLogo,.transitionGalaxy,.transitionStarCloud{display:none!important}
+#sosPageTransition{position:fixed;inset:0;z-index:2147483000;pointer-events:none;opacity:0;visibility:hidden;overflow:hidden;background:transparent;contain:strict}
+#sosPageTransition.isActive{opacity:1;visibility:visible}
+#sosPageTransition .sosFx{position:absolute;inset:0;background:#030107}
+#sosPageTransition .sosFxFade{animation:sos135Fade .25s ease-out both}
+#sosPageTransition .sosFxStellar{display:grid;place-items:center;animation:sos135Backdrop .36s ease-out both}
+#sosPageTransition .sosFxStellar .ring{position:absolute;width:90px;height:90px;border:1px solid rgba(213,171,255,.75);border-radius:50%;box-shadow:0 0 28px rgba(155,77,230,.2);animation:sos135Ring .36s ease-out both}
+#sosPageTransition .sosFxStellar .ring.two{width:44px;height:44px;animation-delay:.035s}
+#sosPageTransition .sosFxStellar .core{width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 22px #ba70ff;animation:sos135Core .32s ease-out both}
+#sosPageTransition .sosFxAperture{background:transparent;display:grid;grid-template-rows:1fr 1fr}
+#sosPageTransition .sosFxAperture i{display:block;background:#030107;animation:sos135ApertureTop .36s cubic-bezier(.4,0,.2,1) both}
+#sosPageTransition .sosFxAperture i+ i{animation-name:sos135ApertureBottom}
+#sosPageTransition .sosFxWarp{perspective:600px;display:grid;place-items:center;background:#030107}
+#sosPageTransition .sosFxWarp i{position:absolute;width:2px;height:32vh;background:linear-gradient(transparent,#d7b1ff,transparent);transform-origin:center;animation:sos135Warp .39s ease-in both}
+#sosPageTransition .sosFxWarp i:nth-child(2){transform:rotate(30deg);animation-delay:.02s}#sosPageTransition .sosFxWarp i:nth-child(3){transform:rotate(60deg);animation-delay:.04s}#sosPageTransition .sosFxWarp i:nth-child(4){transform:rotate(90deg);animation-delay:.01s}#sosPageTransition .sosFxWarp i:nth-child(5){transform:rotate(120deg);animation-delay:.03s}#sosPageTransition .sosFxWarp i:nth-child(6){transform:rotate(150deg);animation-delay:.05s}
+#sosPageTransition .sosFxScan{background:#030107}
+#sosPageTransition .sosFxScan i{position:absolute;left:0;right:0;height:2px;top:0;background:#e1c1ff;box-shadow:0 0 24px #a54cff;animation:sos135Scan .33s ease-in both}
+#sosPageTransition .sosFxCubes{display:grid;place-items:center;background:#030107}
+#sosPageTransition .sosFxCubes i{position:absolute;width:22px;height:22px;border:1px solid rgba(230,205,255,.8);background:rgba(145,72,210,.18);animation:sos135Cube .38s ease-out both}
+#sosPageTransition .sosFxCubes i:nth-child(1){--x:-72px;--y:-54px}#sosPageTransition .sosFxCubes i:nth-child(2){--x:72px;--y:-54px}#sosPageTransition .sosFxCubes i:nth-child(3){--x:-72px;--y:54px}#sosPageTransition .sosFxCubes i:nth-child(4){--x:72px;--y:54px}
+@keyframes sos135Fade{from{opacity:0}to{opacity:1}}
+@keyframes sos135Backdrop{from{opacity:0}to{opacity:1}}
+@keyframes sos135Ring{0%{transform:scale(.35);opacity:0}55%{opacity:1}100%{transform:scale(4.4);opacity:0}}
+@keyframes sos135Core{0%{transform:scale(.3);opacity:0}45%{opacity:1}100%{transform:scale(5);opacity:0}}
+@keyframes sos135ApertureTop{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+@keyframes sos135ApertureBottom{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes sos135Warp{0%{opacity:0;transform:translateZ(-500px) scale(.1)}35%{opacity:1}100%{opacity:0;transform:translateZ(300px) scale(4)}}
+@keyframes sos135Scan{from{transform:translateY(-5vh)}to{transform:translateY(105vh)}}
+@keyframes sos135Cube{0%{opacity:0;transform:translate(0,0) rotate(0) scale(.4)}70%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(180deg) scale(1.15)}}
+@media(prefers-reduced-motion:reduce){#sosPageTransition *{animation:none!important}}

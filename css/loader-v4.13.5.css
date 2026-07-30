@@ -1,0 +1,13 @@
+/* v4.13.5 stable loader override */
+html.sosLoaderSeen #loader{display:none!important}
+#loader{position:fixed!important;inset:0!important;display:grid!important;place-items:center!important;opacity:1;visibility:visible;transition:opacity .22s ease,visibility 0s linear .22s;contain:layout paint style;transform:none!important}
+#loader.loaded{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+#loader .loaderContent{position:relative!important;transform:none!important;animation:none!important;min-height:0}
+#loader .loaderLogoStage{width:clamp(190px,29vw,310px)!important;aspect-ratio:1!important;display:grid!important;place-items:center!important;transform:none!important;animation:none!important}
+#loader .loaderLogoImage{width:72%!important;height:auto!important;aspect-ratio:1/1!important;object-fit:contain!important;transform:none!important;animation:none!important;opacity:1!important}
+#loader .loaderLogoGlow{transform:none!important;animation:sos135LoaderGlow 2.4s ease-in-out infinite!important}
+#loader.loaderComplete .loaderContent{transform:none!important;animation:none!important}
+#loader.loaderComplete .loaderLogoImage{transform:none!important;animation:none!important}
+@keyframes sos135LoaderGlow{0%,100%{opacity:.42}50%{opacity:.78}}
+@media(max-width:600px){#loader .loaderLogoStage{width:clamp(175px,58vw,240px)!important}}
+@media(prefers-reduced-motion:reduce){#loader *{animation:none!important}}

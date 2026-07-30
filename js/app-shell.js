@@ -107,13 +107,7 @@
       <div class="drawerHeader"><h2>Account</h2><button class="drawerClose" data-close="account">×</button></div>
       <div id="accountContent"></div>
     </aside>
-    <div class="cubeTransition" id="cubeTransition">
-      <div class="cubeScene">
-        <img class="transitionLogo" src="assets/images/sos-logo.png" alt="">
-        <i class="transitionCube"></i><i class="transitionCube"></i><i class="transitionCube"></i>
-        <i class="transitionCube"></i><i class="transitionCube"></i><i class="transitionCube"></i>
-      </div>
-    </div>`;
+    `;
   document.body.append(...shell.children);
 
   function decoratePageLogos(){
@@ -235,20 +229,7 @@
   });
 
   document.getElementById("checkoutButton")?.addEventListener("click",()=>toast("Connect Stripe or PayPal to activate secure checkout.",{title:"Checkout preview"}));
+  // v4.13.5: all internal navigation is owned exclusively by SOSTransitions.
+  // No legacy page-transition listener is registered here.
 
-  document.addEventListener("click",event=>{
-    const anchor=event.target.closest("a[href]");
-    if(!anchor||anchor.target==="_blank"||anchor.hasAttribute("download")||anchor.getAttribute("href").startsWith("#")||anchor.href.startsWith("mailto:")||anchor.href.startsWith("tel:"))return;
-    const destination=new URL(anchor.href,location.href);
-    if(destination.origin!==location.origin)return;
-    // v4.13.3: the member-aware controller owns internal navigation.
-    // Prevent the original cube handler from launching a second transition.
-    if(window.SOSTransitions?.play)return;
-    event.preventDefault();
-    const transition=document.getElementById("cubeTransition");
-    transition.classList.remove("active");
-    void transition.offsetWidth;
-    transition.classList.add("active");
-    setTimeout(()=>location.href=destination.href,780);
-  });
 })();

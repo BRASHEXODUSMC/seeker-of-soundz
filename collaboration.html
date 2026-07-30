@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Collaboration Studio | Seeker Of SoundZ
+  </title>
+  <link href="css/variables.css" rel="stylesheet"/>
+  <link href="css/reset.css" rel="stylesheet"/>
+  <link href="css/layout.css" rel="stylesheet"/>
+  <link href="css/navigation.css" rel="stylesheet"/>
+  <link href="css/hero.css?v=4.7.3" rel="stylesheet"/>
+  <link href="css/pages.css" rel="stylesheet"/>
+  <link href="css/buttons.css" rel="stylesheet"/>
+  <link href="css/loader.css" rel="stylesheet"/>
+  <link href="css/cursor.css?v=4.7.3" rel="stylesheet"/>
+  <link href="css/animations.css" rel="stylesheet"/>
+  <link href="css/responsive.css" rel="stylesheet"/>
+  <link href="css/app-shell.css" rel="stylesheet"/>
+  <link href="css/upgrade-v2.4.css" rel="stylesheet"/>
+  <link href="css/upgrade-v3.0.css" rel="stylesheet"/>
+   <link href="css/upgrade-v3.3.css" rel="stylesheet"/>
+   <link href="css/upgrade-v3.6.css" rel="stylesheet"/>
+  <link href="css/upgrade-v3.7.css" rel="stylesheet"/>
+   <link rel="stylesheet" href="css/upgrade-v4.3.css">
+   <link rel="stylesheet" href="css/upgrade-v4.4.css">
+  <link href="css/upgrade-v4.4.1.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/upgrade-v4.5.css">
+  <link rel="stylesheet" href="css/upgrade-v4.6.3.css?v=4.6.5">
+  <link rel="stylesheet" href="css/upgrade-v4.6.8.css?v=4.6.8">
+  <link rel="stylesheet" href="css/upgrade-v4.7.9.css?v=4.7.9">
+  <link rel="stylesheet" href="css/upgrade-v4.7.11.css?v=4.7.11">
+  <link rel="stylesheet" href="css/upgrade-v4.8.css?v=4.8.1">
+  <link rel="stylesheet" href="css/starfield-v4.8.7.css?v=4.8.7">
+   <link rel="stylesheet" href="css/frequency-interface-v4.9.css?v=4.9">
+   <link rel="stylesheet" href="css/frequency-navigation-v4.9.1.css?v=4.9.1">
+   <link rel="stylesheet" href="css/frequency-polish-v4.9.2.css?v=4.9.3">
+   <link rel="stylesheet" href="css/upgrade-v4.9.5.css?v=4.9.5">
+   <link rel="stylesheet" href="css/upgrade-v4.9.8.css?v=4.9.8">
+   <link rel="stylesheet" href="css/upgrade-v4.10.css?v=4.10.3">
+   <link rel="stylesheet" href="css/upgrade-v4.10.4.css?v=4.10.4">
+  <link rel="stylesheet" href="css/upgrade-v4.10.5.css?v=4.10.5">
+   <link rel="stylesheet" href="css/upgrade-v4.10.10.css?v=4.10.10">
+   <link rel="stylesheet" href="css/upgrade-v4.10.17.css?v=4.10.18">
+ </head>
+ <body class="collaborationPage">
+  <div id="loader">
+   <div class="loaderBackgroundGlow">
+   </div>
+   <div class="loaderScan">
+   </div>
+   <div class="loaderParticles">
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+   </div>
+   <div class="loaderContent">
+    <div class="loaderLogoStage">
+     <div class="loaderOrbit loaderOrbitOuter">
+     </div>
+     <div class="loaderOrbit loaderOrbitInner">
+     </div>
+     <div class="loaderLogoGlow">
+     </div>
+     <img alt="Seeker Of SoundZ" class="loaderLogoImage" src="assets/images/sos-logo.png"/>
+    </div>
+    <h1 class="loaderBrandName">
+     Seeker Of SoundZ
+    </h1>
+    <p class="loaderSubtitle">
+     CREATOR COLLABORATION STUDIO
+    </p>
+    <div class="loaderStatus">
+     <span>
+      Connecting Artists
+     </span>
+     <span class="loaderPercent">
+      0%
+     </span>
+    </div>
+    <div class="loaderBar">
+     <div class="loaderProgress">
+     </div>
+     <div class="loaderBarGlow">
+     </div>
+    </div>
+   </div>
+  </div>
+  <div id="cursor">
+   <div id="cursorDot">
+   </div>
+   <div id="cursorRing">
+   </div>
+  </div>
+<div id="sharedNavigation">
+  </div>
+  <main>
+   <section class="pageHero">
+    <div class="container">
+     <div class="pageHeroContent">
+      <p class="sectionEyebrow">
+       Private Creator Workspace
+      </p>
+      <h1>
+       Collaboration Studio
+      </h1>
+      <p>
+       Plan releases, track production stages, exchange feedback, and share project media with your collaborators.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="section">
+    <div class="container">
+     <div class="authCard collabGate" hidden="" id="collabGate">
+      <h2>
+       Member access required
+      </h2>
+      <p>
+       Sign in to open your private collaboration workspace.
+      </p>
+      <a class="primaryButton" href="members.html">
+       Open Member Login
+      </a>
+     </div>
+     <div class="collabShell" hidden="" id="collabApp">
+      <aside class="collabSidebar">
+       <div class="adminSectionHead">
+        <div>
+         <p class="sectionEyebrow">
+          Direct Messages
+         </p>
+         <h3>
+          Artists
+         </h3>
+        </div>
+        <button class="smallAction" id="newProjectButton" type="button">
+         + Project
+        </button>
+       </div>
+       <div id="contactList">
+       </div>
+       <hr/>
+       <h3>
+        Projects
+       </h3>
+       <div id="projectList">
+       </div>
+       <div class="backendNotice">
+        <strong>
+         Local preview mode
+        </strong>
+        <br/>
+        Messages and small files are stored in this browser. Connect the included backend adapter to Supabase or Firebase before using this for real private communication.
+       </div>
+      </aside>
+      <section class="collabMain">
+       <header class="collabTopbar">
+        <div>
+         <p class="sectionEyebrow">
+          One-to-One Workspace
+         </p>
+         <h2 id="conversationTitle">
+          Choose an artist
+         </h2>
+         <small id="conversationSubtitle">
+          Select a member to start collaborating.
+         </small>
+        </div>
+        <span class="statusPill" id="activeProjectStatus">
+         No project selected
+        </span>
+       </header>
+       <div class="collabMessages" id="collabMessages">
+        <div class="collabEmpty">
+         Choose an artist or project to begin.
+        </div>
+       </div>
+       <form class="collabComposer" id="messageForm">
+        <textarea maxlength="2500" name="message" placeholder="Write feedback, production notes, or a private message…"></textarea>
+        <div class="composerActions">
+         <label class="fileDropMini">
+          Attach audio version
+          <input accept="audio/*,.mp3,.wav,.wave,.flac,.ogg,.oga,.m4a,.aac,.aiff,.aif,.opus,.wma,.alac,.mid,.midi" id="messageFile" type="file"/>
+         </label>
+         <span class="attachmentPreview" id="attachmentPreview">
+          No audio selected
+         </span>
+         <button class="primaryButton" type="submit">
+          Send
+         </button>
+        </div>
+       </form>
+      </section>
+      <aside class="collabInspector">
+       <div>
+        <p class="sectionEyebrow">
+         Production Tracker
+        </p>
+        <h3 id="projectTitle">
+         Project Details
+        </h3>
+        <div class="statusGrid" id="statusGrid">
+        </div>
+        <label>
+         Shared project notes
+         <textarea class="collabNotes" id="projectNotes" placeholder="Arrangement ideas, mix revisions, release notes…"></textarea>
+        </label>
+        <button class="smallAction" id="saveNotes" type="button">
+         Save Notes
+        </button>
+       </div>
+       <div>
+        <h3>
+         Collaborators
+        </h3>
+        <div class="memberChips" id="projectMembers">
+        </div>
+        <h3 style="margin-top:20px">
+         Audio version history
+        </h3>
+        <div class="adminList" id="projectFiles">
+        </div>
+       </div>
+      </aside>
+     </div>
+    </div>
+   </section>
+  </main>
+  <button aria-label="Scroll to top" id="scrollTopBtn" type="button">
+   ↑
+  </button>
+  <footer id="siteFooter">
+   <div class="container">
+    <div class="footerTop">
+     <div class="footerBrand">
+      <a class="footerLogo" href="index.html">
+       SEEKER OF SOUNDZ
+      </a>
+      <p>
+       DJ • Producer • Creator
+      </p>
+      <span>
+       Experience the frequency.
+      </span>
+     </div>
+     <div class="footerNavigation">
+      <div class="footerColumn">
+       <h3>
+        Explore
+       </h3>
+       <a href="music.html">
+        Music
+       </a>
+       <a href="producer-hub.html">
+        Plugins
+       </a>
+       <a href="collaboration.html">
+        Collaboration
+       </a>
+      </div>
+      <div class="footerColumn">
+       <h3>
+        Community
+       </h3>
+       <a href="forums.html">
+        Forums
+       </a>
+       <a href="members.html">
+        Members
+       </a>
+       <a href="contact.html">
+        Contact
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="footerDivider">
+    </div>
+    <div class="footerBottom">
+     <p>
+      ©
+      <span id="footerYear">
+       2026
+      </span>
+      Seeker Of SoundZ.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script src="js/performance-v4.6.8.js?v=4.6.8"></script>
+  <script src="js/image-tools.js">
+  </script>
+  <script src="js/backend-config.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase/supabase-client.js?v=4.11.0"></script>
+  <script src="js/supabase/supabase-services.js?v=4.11.0"></script>
+  <script src="js/app.js">
+  </script>
+  <script src="js/shared-navigation.js">
+  </script>
+  <script src="js/navigation.js">
+  </script>
+  <script src="js/loader.js?v=4.8">
+  </script>
+  <script src="js/cursor.js?v=4.7.3">
+  </script>
+<script src="js/transitions.js?v=4.8">
+  </script>
+  <script src="js/scroll.js">
+  </script>
+  <script src="js/app-shell.js">
+  </script>
+  <script src="js/site-v3.6.js"></script>
+  <script src="js/collaboration.js?v=4.6.7">
+  </script>
+  <script src="js/production-v4.5.js"></script>
+  <script src="js/starfield-v4.8.7.js?v=4.8.7"></script>
+   <script src="js/frequency-interface-v4.9.js?v=4.9"></script>
+   <script src="js/frequency-navigation-v4.9.1.js?v=4.9.1"></script>
+   <script src="js/frequency-polish-v4.9.2.js?v=4.9.3"></script>
+   <script src="js/experience-v4.10.js?v=4.10.8"></script>
+  <script src="js/global-search-v4.10.js?v=4.10"></script>
+   <script src="js/member-visibility-v4.10.19.js?v=4.10.19"></script>
+ </body>
+</html>

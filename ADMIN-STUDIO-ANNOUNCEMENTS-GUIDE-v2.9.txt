@@ -1,0 +1,23 @@
+SEEKER OF SOUNDZ v2.9 — ADMIN STUDIO GUIDE
+
+ADMIN ANNOUNCEMENTS
+1. Sign in with an account whose role is Admin.
+2. Open admin.html.
+3. Select Announcements in the left menu.
+4. Type a title, icon and message.
+5. Add an optional page link and button text.
+6. Choose Homepage center + notification, then Publish Announcement.
+
+Active homepage announcements appear directly below the main hero and rotate every 4 minutes. Visitors can also choose an announcement using the small dots.
+
+DASHBOARD STATISTICS
+Overview shows members, paid members, forum topics, forum replies, unique tags, store products, music releases and active announcements. These totals are read from the browser's localStorage.
+
+DRAG AND DROP APPAREL
+Admin > Merch Store > drag an image into the apparel drop zone. The browser automatically compresses the image before storing it locally. Fill in product name, price, sizes and colors, then click Add Item.
+
+DRAG AND DROP MUSIC
+Admin > Music Manager > drag cover art into the artwork zone. Drag a small MP3/WAV preview under 4 MB into the preview zone. Fill in the remaining track information, then click Publish Music.
+
+LOCAL PREVIEW LIMITATIONS
+This package uses localStorage, so data is saved only in the browser/device where it was entered. Large audio, real paid downloads, shared accounts and production uploads require a backend and storage service.

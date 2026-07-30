@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Seeker Of SoundZ
+  </title>
+  <link href="css/variables.css" rel="stylesheet"/>
+  <link href="css/reset.css" rel="stylesheet"/>
+  <link href="css/layout.css" rel="stylesheet"/>
+  <link href="css/navigation.css" rel="stylesheet"/>
+  <link href="css/hero.css?v=4.7.3" rel="stylesheet"/>
+  <link href="css/pages.css" rel="stylesheet"/>
+  <link href="css/buttons.css" rel="stylesheet"/>
+  <link href="css/loader.css" rel="stylesheet"/>
+  <link href="css/cursor.css?v=4.7.3" rel="stylesheet"/>
+  <link href="css/animations.css" rel="stylesheet"/>
+  <link href="css/responsive.css" rel="stylesheet"/>
+  <style>
+   /* ==================================================
+   SEEKER OF SOUNDZ LOGO UPDATE
+================================================== */
+
+.loaderLogo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.loaderLogo img{
+    width:clamp(130px,18vw,210px);
+    height:auto;
+    display:block;
+    filter:drop-shadow(0 0 26px rgba(255,255,255,.28));
+    animation:loaderLogoFloat 3s ease-in-out infinite;
+}
+
+@keyframes loaderLogoFloat{
+    0%,100%{transform:translateY(0) scale(1);}
+    50%{transform:translateY(-8px) scale(1.025);}
+}
+
+#mainNav > .logo{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+}
+
+.navLogoImage{
+    width:42px;
+    height:auto;
+    display:block;
+    filter:drop-shadow(0 0 10px rgba(255,255,255,.18));
+}
+
+.navLogoText{
+    color:inherit;
+    font:inherit;
+    letter-spacing:inherit;
+    white-space:nowrap;
+}
+
+.heroContent{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.heroLogo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 24px;
+}
+
+.heroLogo img{
+    width:clamp(210px,31vw,470px);
+    height:auto;
+    display:block;
+    filter:drop-shadow(0 0 24px rgba(255,255,255,.2));
+    animation:heroLogoFloat 5s ease-in-out infinite;
+}
+
+@keyframes heroLogoFloat{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-10px) rotate(.6deg);}
+}
+
+.heroLogoText{
+    margin:0 0 14px;
+    font-size:clamp(2rem,5vw,4.7rem);
+    line-height:1;
+    letter-spacing:.12em;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+@media(max-width:700px){
+    .navLogoText{display:none;}
+    .navLogoImage{width:38px;}
+    .heroLogo img{width:clamp(190px,64vw,330px);}
+    .heroLogoText{font-size:clamp(1.7rem,9vw,3rem);letter-spacing:.08em;}
+}
+  </style>
+  <link href="css/app-shell.css" rel="stylesheet"/>
+  <link href="css/upgrade-v2.4.css" rel="stylesheet"/>
+  <link href="css/upgrade-v2.9.css" rel="stylesheet"/>
+  <link href="css/upgrade-v3.0.css" rel="stylesheet"/>
+   <link href="css/upgrade-v3.3.css" rel="stylesheet"/>
+   <link href="css/upgrade-v3.6.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/upgrade-v4.5.css">
+  <link rel="stylesheet" href="css/upgrade-v4.6.3.css?v=4.6.3">
+  <link rel="stylesheet" href="css/upgrade-v4.6.8.css?v=4.6.8">
+  <link rel="stylesheet" href="css/upgrade-v4.7.9.css?v=4.7.9">
+  <link rel="stylesheet" href="css/upgrade-v4.7.11.css?v=4.7.11">
+  <link rel="stylesheet" href="css/upgrade-v4.8.css?v=4.8.1">
+  <link rel="stylesheet" href="css/starfield-v4.8.7.css?v=4.8.7">
+   <link rel="stylesheet" href="css/frequency-interface-v4.9.css?v=4.9">
+   <link rel="stylesheet" href="css/frequency-navigation-v4.9.1.css?v=4.9.1">
+   <link rel="stylesheet" href="css/frequency-polish-v4.9.2.css?v=4.9.3">
+   <link rel="stylesheet" href="css/upgrade-v4.9.5.css?v=4.9.5">
+   <link rel="stylesheet" href="css/upgrade-v4.9.8.css?v=4.9.8">
+   <link rel="stylesheet" href="css/upgrade-v4.10.css?v=4.10.3">
+   <link rel="stylesheet" href="css/upgrade-v4.10.4.css?v=4.10.4">
+  <link rel="stylesheet" href="css/upgrade-v4.10.5.css?v=4.10.5">
+   <link rel="stylesheet" href="css/upgrade-v4.10.10.css?v=4.10.10">
+   <link rel="stylesheet" href="css/upgrade-v4.10.17.css?v=4.10.18">
+ </head>
+ <body>
+  <!-- Loader -->
+  <!-- ==================================================
+     CINEMATIC LOGO LOADER
+================================================== -->
+  <!-- ==================================================
+     CINEMATIC LOGO LOADER
+================================================== -->
+  <div id="loader">
+   <div class="loaderBackgroundGlow">
+   </div>
+   <div class="loaderScan">
+   </div>
+   <div aria-hidden="true" class="loaderParticles">
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+   </div>
+   <div class="loaderContent">
+    <div class="loaderLogoStage">
+     <div class="loaderOrbit loaderOrbitOuter">
+     </div>
+     <div class="loaderOrbit loaderOrbitInner">
+     </div>
+     <div class="loaderLogoGlow">
+     </div>
+     <img alt="Seeker Of SoundZ" class="loaderLogoImage" src="assets/images/sos-logo.png"/>
+    </div>
+    <h1 class="loaderBrandName">
+     Seeker Of SoundZ
+    </h1>
+    <p class="loaderSubtitle">
+     DJ • PRODUCER • CREATOR
+    </p>
+    <div class="loaderStatus">
+     <span>
+      Initializing Frequency
+     </span>
+     <span class="loaderPercent">
+      0%
+     </span>
+    </div>
+    <div class="loaderBar">
+     <div class="loaderProgress">
+     </div>
+     <div class="loaderBarGlow">
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Custom Cursor -->
+  <div id="cursor">
+   <div id="cursorDot">
+   </div>
+   <div id="cursorRing">
+   </div>
+  </div>
+  <!-- Snow -->
+<!-- Hero Canvas -->
+  <!-- Navigation -->
+  <!-- Shared Navigation -->
+  <div id="sharedNavigation">
+  </div>
+  <main>
+   <!-- Hero -->
+   <section id="hero">
+    <div class="heroContent">
+     <p class="heroTag">
+      DJ • Producer • Creator
+     </p>
+     <div class="heroLogo">
+      <img alt="Seeker Of SoundZ logo" src="assets/images/sos-logo.png"/>
+     </div>
+     <h1 class="heroLogoText">
+      Seeker Of SoundZ
+     </h1>
+     <h2>
+      Experience The Frequency
+     </h2>
+     <div class="heroButtons">
+      <a class="primaryButton" href="music.html">
+       Listen Now
+      </a>
+      <a class="secondaryButton" href="videos.html">
+       Watch Live
+      </a>
+     </div>
+    </div>
+   </section>
+   <section class="section reveal">
+    <div class="container">
+     <h2 class="section-title">
+      About
+     </h2>
+    </div>
+   </section>
+   <!-- ==================================================
+     FEATURED MUSIC
+================================================== -->
+   <section class="section reveal" id="musicPreview">
+    <div class="container">
+     <div class="sectionHeading">
+      <div>
+       <p class="sectionEyebrow">
+        Latest Sounds
+       </p>
+       <h2 class="section-title section-title-left">
+        Featured Music
+       </h2>
+      </div>
+      <a class="secondaryButton" href="music.html">
+       View All Music
+      </a>
+     </div>
+     <div class="musicPreviewGrid">
+      <article class="featuredTrack card">
+       <div class="featuredTrackArtwork">
+        <img alt="Featured Seeker Of SoundZ track artwork" loading="lazy" src="assets/images/featured-track-cover.jpg"/>
+        <button aria-label="Play featured track" class="trackPlayButton" type="button">
+         ▶
+        </button>
+       </div>
+       <div class="featuredTrackContent">
+        <p class="trackStatus">
+         Latest Release
+        </p>
+        <h3>
+         Frequency Unknown
+        </h3>
+        <p>
+         A cinematic electronic track built around dark atmosphere,
+                        evolving textures, and driving energy.
+        </p>
+        <div class="trackMeta">
+         <span>
+          Electronic
+         </span>
+         <span>
+          2026
+         </span>
+         <span>
+          4:18
+         </span>
+        </div>
+        <div class="trackActions">
+         <a class="primaryButton" href="#">
+          Listen Now
+         </a>
+         <a class="secondaryButton" href="music.html">
+          Track Details
+         </a>
+        </div>
+       </div>
+      </article>
+      <div class="musicSideList">
+       <article class="musicMiniCard card">
+        <div class="musicMiniNumber">
+         01
+        </div>
+        <div>
+         <p class="trackStatus">
+          Work in Progress
+         </p>
+         <h3>
+          Midnight Signal
+         </h3>
+         <div class="trackProgress">
+          <span style="width:72%">
+          </span>
+         </div>
+         <small>
+          Production progress: 72%
+         </small>
+        </div>
+       </article>
+       <article class="musicMiniCard card">
+        <div class="musicMiniNumber">
+         02
+        </div>
+        <div>
+         <p class="trackStatus">
+          Upcoming
+         </p>
+         <h3>
+          Echo Chamber
+         </h3>
+         <div class="trackProgress">
+          <span style="width:48%">
+          </span>
+         </div>
+         <small>
+          Production progress: 48%
+         </small>
+        </div>
+       </article>
+       <article class="musicMiniCard card">
+        <div class="musicMiniNumber">
+         03
+        </div>
+        <div>
+         <p class="trackStatus">
+          Members Exclusive
+         </p>
+         <h3>
+          After Hours Edit
+         </h3>
+         <p class="musicMiniText">
+          Private early-access mix for Seeker members.
+         </p>
+        </div>
+       </article>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- ==================================================
+     LATEST VIDEO
+================================================== -->
+   <section class="section reveal" id="videoPreview">
+    <div class="container">
+     <div class="sectionHeading">
+      <div>
+       <p class="sectionEyebrow">
+        Latest Visual
+       </p>
+       <h2 class="section-title section-title-left">
+        Featured Video
+       </h2>
+      </div>
+      <a class="secondaryButton" href="videos.html">
+       View All Videos
+      </a>
+     </div>
+     <div class="videoFeature">
+      <article class="videoPlayerCard">
+       <div class="videoFrame">
+        <img alt="Featured Seeker Of SoundZ video" loading="lazy" src="assets/images/featured-video-cover.jpg"/>
+        <div class="videoFrameOverlay">
+        </div>
+        <button aria-label="Play featured video" class="videoPlayButton" type="button">
+         <span>
+          ▶
+         </span>
+        </button>
+        <div class="videoDuration">
+         08:42
+        </div>
+       </div>
+      </article>
+      <div class="videoDetails">
+       <p class="trackStatus">
+        Featured Performance
+       </p>
+       <h3>
+        Inside the Frequency
+       </h3>
+       <p class="videoDescription">
+        Step behind the scenes with Seeker Of SoundZ for a
+                    cinematic look at live performance energy, music
+                    production, creative preparation, and the moments that
+                    happen beyond the stage.
+       </p>
+       <div class="videoCategories">
+        <span>
+         DJing
+        </span>
+        <span>
+         Events
+        </span>
+        <span>
+         Production
+        </span>
+        <span>
+         Behind the Scenes
+        </span>
+       </div>
+       <div class="videoMeta">
+        <div>
+         <strong>
+          2026
+         </strong>
+         <span>
+          Published
+         </span>
+        </div>
+        <div>
+         <strong>
+          4K
+         </strong>
+         <span>
+          Video Quality
+         </span>
+        </div>
+        <div>
+         <strong>
+          08:42
+         </strong>
+         <span>
+          Runtime
+         </span>
+        </div>
+       </div>
+       <div class="videoActions">
+        <a class="primaryButton" href="#">
+         Watch Now
+        </a>
+        <a class="secondaryButton" href="videos.html">
+         Explore Videos
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- ==================================================
+     GALLERY HIGHLIGHTS
+================================================== -->
+   <section class="section reveal" id="galleryPreview">
+    <div class="container">
+     <div class="sectionHeading">
+      <div>
+       <p class="sectionEyebrow">
+        Visual Archive
+       </p>
+       <h2 class="section-title section-title-left">
+        Gallery Highlights
+       </h2>
+      </div>
+      <a class="secondaryButton" href="gallery.html">
+       Explore Gallery
+      </a>
+     </div>
+     <div class="galleryPreviewGrid">
+      <a class="galleryPreviewItem galleryPreviewLarge" href="gallery.html">
+       <img alt="Seeker Of SoundZ performing at a live event" loading="lazy" src="assets/images/gallery-event-01.jpg"/>
+       <div class="galleryPreviewOverlay">
+        <p>
+         Live Events
+        </p>
+        <h3>
+         Energy Beyond the Stage
+        </h3>
+        <span>
+         View Collection →
+        </span>
+       </div>
+      </a>
+      <a class="galleryPreviewItem" href="gallery.html">
+       <img alt="Seeker Of SoundZ artist headshot" loading="lazy" src="assets/images/gallery-headshot-01.jpg"/>
+       <div class="galleryPreviewOverlay">
+        <p>
+         Headshots
+        </p>
+        <h3>
+         Artist Portraits
+        </h3>
+       </div>
+      </a>
+      <a class="galleryPreviewItem" href="gallery.html">
+       <img alt="Seeker Of SoundZ producing music in the studio" loading="lazy" src="assets/images/gallery-production-01.jpg"/>
+       <div class="galleryPreviewOverlay">
+        <p>
+         Production
+        </p>
+        <h3>
+         Inside the Studio
+        </h3>
+       </div>
+      </a>
+      <a class="galleryPreviewItem galleryPreviewWide" href="gallery.html">
+       <img alt="Behind-the-scenes moment from Seeker Of SoundZ" loading="lazy" src="assets/images/gallery-random-01.jpg"/>
+       <div class="galleryPreviewOverlay">
+        <p>
+         Behind the Scenes
+        </p>
+        <h3>
+         Life Between the Frequencies
+        </h3>
+        <span>
+         Discover More →
+        </span>
+       </div>
+      </a>
+     </div>
+    </div>
+   </section>
+   <!-- ==================================================
+     UPCOMING EVENTS
+================================================== -->
+   <section class="section reveal" id="eventsPreview">
+    <div class="container">
+     <div class="sectionHeading">
+      <div>
+       <p class="sectionEyebrow">
+        Live Experiences
+       </p>
+       <h2 class="section-title section-title-left">
+        Upcoming Events
+       </h2>
+      </div>
+      <a class="secondaryButton" href="events.html">
+       View All Events
+      </a>
+     </div>
+     <div class="eventsPreviewGrid">
+      <article class="featuredEvent">
+       <div class="featuredEventImage">
+        <img alt="Seeker Of SoundZ featured upcoming event" loading="lazy" src="assets/images/event-featured-01.jpg"/>
+        <div class="featuredEventOverlay">
+        </div>
+        <div class="eventBadge">
+         Featured Event
+        </div>
+        <div class="eventCountdown">
+         <div>
+          <strong data-countdown-days="">
+           00
+          </strong>
+          <span>
+           Days
+          </span>
+         </div>
+         <div>
+          <strong data-countdown-hours="">
+           00
+          </strong>
+          <span>
+           Hours
+          </span>
+         </div>
+         <div>
+          <strong data-countdown-minutes="">
+           00
+          </strong>
+          <span>
+           Minutes
+          </span>
+         </div>
+        </div>
+       </div>
+       <div class="featuredEventContent">
+        <p class="trackStatus">
+         Live Performance
+        </p>
+        <h3>
+         Frequency Night
+        </h3>
+        <div class="eventDetails">
+         <div>
+          <span>
+           Date
+          </span>
+          <strong>
+           October 24, 2026
+          </strong>
+         </div>
+         <div>
+          <span>
+           Location
+          </span>
+          <strong>
+           Venue Name • City, State
+          </strong>
+         </div>
+         <div>
+          <span>
+           Doors Open
+          </span>
+          <strong>
+           8:00 PM
+          </strong>
+         </div>
+        </div>
+        <p class="eventDescription">
+         Join Seeker Of SoundZ for a full night of electronic
+                        music, immersive visuals, live energy, and unforgettable
+                        moments.
+        </p>
+        <div class="eventActions">
+         <a class="primaryButton" href="#">
+          Get Tickets
+         </a>
+         <a class="secondaryButton" href="events.html">
+          Event Details
+         </a>
+        </div>
+       </div>
+      </article>
+      <div class="eventList">
+       <article class="eventCard">
+        <div class="eventDate">
+         <strong>
+          12
+         </strong>
+         <span>
+          DEC
+         </span>
+        </div>
+        <div class="eventCardContent">
+         <p class="trackStatus">
+          DJ Set
+         </p>
+         <h3>
+          Winter Frequency
+         </h3>
+         <p>
+          City, State • 9:00 PM
+         </p>
+        </div>
+        <a aria-label="View Winter Frequency event" class="eventArrow" href="events.html">
+         →
+        </a>
+       </article>
+       <article class="eventCard">
+        <div class="eventDate">
+         <strong>
+          19
+         </strong>
+         <span>
+          FEB
+         </span>
+        </div>
+        <div class="eventCardContent">
+         <p class="trackStatus">
+          Special Event
+         </p>
+         <h3>
+          Signals After Dark
+         </h3>
+         <p>
+          City, State • 10:00 PM
+         </p>
+        </div>
+        <a aria-label="View Signals After Dark event" class="eventArrow" href="events.html">
+         →
+        </a>
+       </article>
+       <article class="eventCard">
+        <div class="eventDate">
+         <strong>
+          08
+         </strong>
+         <span>
+          APR
+         </span>
+        </div>
+        <div class="eventCardContent">
+         <p class="trackStatus">
+          Live Showcase
+         </p>
+         <h3>
+          Electric Atmosphere
+         </h3>
+         <p>
+          City, State • 8:30 PM
+         </p>
+        </div>
+        <a aria-label="View Electric Atmosphere event" class="eventArrow" href="events.html">
+         →
+        </a>
+       </article>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- ==================================================
+     SOCIAL HUB
+================================================== -->
+   <section class="section reveal" id="socialPreview">
+    <div class="container">
+     <div class="socialIntro">
+      <p class="sectionEyebrow">
+       Stay Connected
+      </p>
+      <h2 class="section-title">
+       Follow the Frequency
+      </h2>
+      <p class="section-subtitle">
+       Follow Seeker Of SoundZ for new music, live performances,
+                production content, behind-the-scenes updates, streams,
+                announcements, and exclusive releases.
+      </p>
+     </div>
+     <div class="socialGrid">
+      <a aria-label="Visit Seeker Of SoundZ on YouTube" class="socialCard" href="#" rel="noopener noreferrer" target="_blank">
+       <div class="socialCardTop">
+        <span class="socialIcon">
+         YT
+        </span>
+        <span class="socialArrow">
+         ↗
+        </span>
+       </div>
+       <div class="socialCardContent">
+        <p>
+         Videos • DJ Sets • Reels
+        </p>
+        <h3>
+         YouTube
+        </h3>
+        <span>
+         Watch the latest content
+        </span>
+       </div>
+      </a>
+      <a aria-label="Visit Seeker Of SoundZ on Instagram" class="socialCard" href="#" rel="noopener noreferrer" target="_blank">
+       <div class="socialCardTop">
+        <span class="socialIcon">
+         IG
+        </span>
+        <span class="socialArrow">
+         ↗
+        </span>
+       </div>
+       <div class="socialCardContent">
+        <p>
+         Photos • Events • Updates
+        </p>
+        <h3>
+         Instagram
+        </h3>
+        <span>
+         Follow the visual journey
+        </span>
+       </div>
+      </a>
+      <a aria-label="Visit Seeker Of SoundZ on SoundCloud" class="socialCard" href="#" rel="noopener noreferrer" target="_blank">
+       <div class="socialCardTop">
+        <span class="socialIcon">
+         SC
+        </span>
+        <span class="socialArrow">
+         ↗
+        </span>
+       </div>
+       <div class="socialCardContent">
+        <p>
+         Tracks • Mixes • Previews
+        </p>
+        <h3>
+         SoundCloud
+        </h3>
+        <span>
+         Stream new sounds
+        </span>
+       </div>
+      </a>
+      <a aria-label="Visit Seeker Of SoundZ on Twitch" class="socialCard" href="#" rel="noopener noreferrer" target="_blank">
+       <div class="socialCardTop">
+        <span class="socialIcon">
+         TW
+        </span>
+        <span class="socialArrow">
+         ↗
+        </span>
+       </div>
+       <div class="socialCardContent">
+        <p>
+         Live Streams • Production
+        </p>
+        <h3>
+         Twitch
+        </h3>
+        <span>
+         Join live sessions
+        </span>
+       </div>
+      </a>
+      <a aria-label="Visit Seeker Of SoundZ on Facebook" class="socialCard" href="#" rel="noopener noreferrer" target="_blank">
+       <div class="socialCardTop">
+        <span class="socialIcon">
+         FB
+        </span>
+        <span class="socialArrow">
+         ↗
+        </span>
+       </div>
+       <div class="socialCardContent">
+        <p>
+         Events • News • Community
+        </p>
+        <h3>
+         Facebook
+        </h3>
+        <span>
+         Follow event updates
+        </span>
+       </div>
+      </a>
+      <a aria-label="Open the Seeker Of SoundZ Linktree" class="socialCard socialCardFeatured" href="#" rel="noopener noreferrer" target="_blank">
+       <div class="socialCardTop">
+        <span class="socialIcon">
+         +
+        </span>
+        <span class="socialArrow">
+         ↗
+        </span>
+       </div>
+       <div class="socialCardContent">
+        <p>
+         Everything in One Place
+        </p>
+        <h3>
+         Linktree
+        </h3>
+        <span>
+         Explore every official link
+        </span>
+       </div>
+      </a>
+     </div>
+     <div class="socialFooterAction">
+      <a class="primaryButton" href="socials.html">
+       Explore All Socials
+      </a>
+     </div>
+    </div>
+   </section>
+   <!-- ==================================================
+     ABOUT SEEKER OF SOUNDZ
+================================================== -->
+   <section class="section reveal" id="aboutPreview">
+    <div class="container">
+     <div class="aboutLayout">
+      <div class="aboutImages">
+       <figure class="aboutPhoto aboutPhotoPrimary">
+        <img alt="Seeker Of SoundZ artist headshot" loading="lazy" src="assets/images/seeker-headshot-01.jpg"/>
+       </figure>
+       <figure class="aboutPhoto aboutPhotoSecondary">
+        <img alt="Seeker Of SoundZ performing at a live event" loading="lazy" src="assets/images/seeker-event-01.jpg"/>
+       </figure>
+       <div class="aboutImageGlow">
+       </div>
+      </div>
+      <div class="aboutContent">
+       <p class="sectionEyebrow">
+        About the Artist
+       </p>
+       <h2 class="aboutTitle">
+        Chasing emotion through sound, energy, and atmosphere.
+       </h2>
+       <p class="aboutText">
+        Seeker Of SoundZ is a DJ, electronic music producer,
+                    artist, and content creator focused on building immersive
+                    experiences through music and visual storytelling.
+       </p>
+       <p class="aboutText">
+        From live performances and original productions to
+                    behind-the-scenes creative content, every project is
+                    designed to connect with listeners and turn sound into
+                    something unforgettable.
+       </p>
+       <div class="aboutStats">
+        <div class="aboutStat">
+         <strong>
+          Live
+         </strong>
+         <span>
+          DJ Performances
+         </span>
+        </div>
+        <div class="aboutStat">
+         <strong>
+          Original
+         </strong>
+         <span>
+          Music Production
+         </span>
+        </div>
+        <div class="aboutStat">
+         <strong>
+          Visual
+         </strong>
+         <span>
+          Creative Content
+         </span>
+        </div>
+       </div>
+       <div class="aboutActions">
+        <a class="primaryButton" href="about.html">
+         Discover My Story
+        </a>
+        <a class="secondaryButton" href="gallery.html">
+         View Gallery
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <button id="scrollTopBtn">
+   ↑
+  </button>
+  <!-- ==================================================
+     SITE FOOTER
+================================================== -->
+  <footer id="siteFooter">
+   <div class="container">
+    <div class="footerTop">
+     <div class="footerBrand">
+      <a class="footerLogo" href="index.html">
+       SEEKER OF SOUNDZ
+      </a>
+      <p>
+       DJ • Producer • Creator
+      </p>
+      <span>
+       Experience the frequency.
+      </span>
+     </div>
+     <div class="footerNavigation">
+      <div class="footerColumn">
+       <h3>
+        Explore
+       </h3>
+       <a href="about.html">
+        About
+       </a>
+       <a href="music.html">
+        Music
+       </a>
+       <a href="gallery.html">
+        Gallery
+       </a>
+       <a href="videos.html">
+        Videos
+       </a>
+      </div>
+      <div class="footerColumn">
+       <h3>
+        Connect
+       </h3>
+       <a href="events.html">
+        Events
+       </a>
+       <a href="socials.html">
+        Socials
+       </a>
+       <a href="contact.html">
+        Contact
+       </a>
+       <a href="members.html">
+        Members
+       </a>
+      </div>
+      <div class="footerColumn">
+       <h3>
+        Follow
+       </h3>
+       <a href="#" rel="noopener noreferrer" target="_blank">
+        YouTube
+       </a>
+       <a href="#" rel="noopener noreferrer" target="_blank">
+        Instagram
+       </a>
+       <a href="#" rel="noopener noreferrer" target="_blank">
+        SoundCloud
+       </a>
+       <a href="#" rel="noopener noreferrer" target="_blank">
+        Twitch
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="footerDivider">
+    </div>
+    <div class="footerBottom">
+     <p>
+      ©
+      <span id="footerYear">
+       2026
+      </span>
+      Seeker Of SoundZ. All rights reserved.
+     </p>
+     <div class="footerBottomLinks">
+      <a href="contact.html">
+       Contact
+      </a>
+      <a href="members.html">
+       Members
+      </a>
+      <a href="#hero">
+       Back to Top
+      </a>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script src="js/performance-v4.6.8.js?v=4.6.8"></script>
+  <script src="js/image-tools.js">
+  </script>
+  <script src="js/backend-config.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase/supabase-client.js?v=4.11.0"></script>
+  <script src="js/supabase/supabase-services.js?v=4.11.0"></script>
+  <script src="js/app.js">
+  </script>
+  <script src="js/shared-navigation.js">
+  </script>
+  <script src="js/navigation.js">
+  </script>
+  <script src="js/loader.js?v=4.8">
+  </script>
+  <script src="js/cursor.js?v=4.7.3">
+  </script>
+<script src="js/transitions.js?v=4.8">
+  </script>
+  <script src="js/scroll.js">
+  </script>
+  <script src="js/app-shell.js">
+  </script>
+  <script src="js/site-v3.6.js"></script>
+  <script src="js/production-v4.5.js"></script>
+  <script src="js/starfield-v4.8.7.js?v=4.8.7"></script>
+   <script src="js/frequency-interface-v4.9.js?v=4.9"></script>
+   <script src="js/frequency-navigation-v4.9.1.js?v=4.9.1"></script>
+   <script src="js/frequency-polish-v4.9.2.js?v=4.9.3"></script>
+   <script src="js/experience-v4.10.js?v=4.10.8"></script>
+  <script src="js/global-search-v4.10.js?v=4.10"></script>
+   <script src="js/member-visibility-v4.10.19.js?v=4.10.19"></script>
+ </body>
+</html>

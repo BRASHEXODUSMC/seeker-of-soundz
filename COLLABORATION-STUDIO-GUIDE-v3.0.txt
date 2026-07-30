@@ -1,0 +1,53 @@
+SEEKER OF SOUNDZ v3.0 — COSMIC COLLABORATION STUDIO
+=====================================================
+
+WHAT CHANGED
+------------
+1. The old snow background is now a layered nebula starfield with twinkling stars,
+   cosmic dust, mouse parallax, and occasional shooting stars.
+2. The custom cursor has been simplified. The oversized halo/glow and click ripple
+   were removed while preserving the navbar cursor toggle.
+3. collaboration.html is a new private creator workspace for signed-in members.
+
+COLLABORATION STUDIO FEATURES
+-----------------------------
+- One-to-one member conversations
+- Images, audio, video, MIDI, FLP, ZIP, PDF, and document attachments
+- Audio/video/image previews inside the conversation
+- Downloadable shared attachments
+- Project creation and collaborator assignment
+- Production statuses:
+  Idea, Writing, Recording, Production, Sound Design, Arrangement, Mixing,
+  Mastering, Review, Approved, Ready for Release, Released, On Hold, Archived
+- Shared project notes
+- Version/media history
+- Responsive desktop and mobile layout
+
+HOW TO TEST
+-----------
+1. Open members.html and sign in using either included test account.
+2. Open collaboration.html or click Collab in the navbar.
+3. Choose the other test member and send a message.
+4. Create a project, select a production status, add notes, and attach a small file.
+5. Sign out and switch accounts to view the other side of the conversation in the
+   same browser.
+
+IMPORTANT: LOCAL PREVIEW LIMITS
+-------------------------------
+This version is a fully interactive front-end prototype. Messages, projects, and
+small attachments are saved in localStorage in the current browser. They are not
+synchronized across different computers or browsers. The demo attachment limit is
+2.5 MB to avoid overflowing browser storage.
+
+FOR REAL PRIVATE MESSAGING
+--------------------------
+Connect the same interface to a secure backend before publishing it as a live
+private collaboration service. Recommended pieces:
+- Supabase Auth or Firebase Authentication
+- PostgreSQL/Firestore for conversations, projects, and statuses
+- Supabase Storage/Firebase Storage for uploaded media and project files
+- Row-level security so only conversation participants can read messages/files
+- Realtime subscriptions for instant messages
+- Signed URLs, file scanning, upload limits, and audit logs
+
+Do not place service-role keys or private API keys in browser JavaScript.

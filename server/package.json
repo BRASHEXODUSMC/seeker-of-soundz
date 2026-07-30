@@ -1,0 +1,15 @@
+{
+  "name": "seeker-of-soundz-membership-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node payment-membership-server.js",
+    "dev": "node --watch payment-membership-server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0",
+    "stripe": "^17.7.0"
+  }
+}

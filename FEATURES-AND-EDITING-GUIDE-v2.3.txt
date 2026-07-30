@@ -1,0 +1,27 @@
+SEEKER OF SOUNDZ v2.3 - COMMUNITY + ADMIN CONTENT GUIDE
+
+STARTING THE SITE
+1. Extract the complete ZIP.
+2. Keep every file and folder together.
+3. Open index.html. A local web server such as VS Code Live Server is recommended.
+
+ADMIN ACCOUNT
+The first account registered in the browser-local preview becomes the admin. Sign in on members.html, then open admin.html.
+
+FORUM IMAGE UPLOADS
+Members must sign in before creating a post. On forums.html choose Create Post. Add a title, category, comma-separated tags, body, optional image, and optional media/external URL. Images are stored in browser localStorage for this demo, so keep each image under 1.5 MB. Real public uploads require Supabase Storage or another backend.
+
+FORUM SEARCH AND TAGS
+Use the main search box to search titles, bodies, authors, categories, and tags. Click any tag to filter by it. Use the sort menu for newest, most liked, or most replied.
+
+ANNOUNCEMENTS
+Admin > Announcements lets the owner enter a title, message, icon, optional page link, and expiration date. Published announcements appear as the existing aesthetic top-right toast on pages and then disappear. Hide, show, or delete announcements in the same panel.
+
+MERCH + MUSIC EDITOR
+Admin > Merch & Music lets the owner add Apparel, Music, Digital, or Accessory items. Enter category, name, price, description, image path/URL, and an optional external purchase/stream link. Featured items appear before the built-in store items. Press Alt+N while this panel is open to jump to the item name field.
+
+ADDING LOCAL PRODUCT IMAGES
+Put an image in assets/images, for example assets/images/new-hoodie.jpg. In the admin form enter exactly: assets/images/new-hoodie.jpg
+
+LOCAL DEMO LIMITATIONS
+Accounts, posts, images, products, announcements, messages, and the cart are stored only in the current browser. Clearing browser data removes them. They are not shared between visitors or devices. For production, connect Supabase Auth + Database + Storage, an email provider such as Resend, and Stripe/PayPal for payments. Never place private service keys in browser JavaScript.

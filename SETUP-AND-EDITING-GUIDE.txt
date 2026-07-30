@@ -1,0 +1,46 @@
+SEEKER OF SOUNDZ v2.1 — SETUP AND EDITING GUIDE
+
+IMPORTANT
+This download works immediately as a local preview. Accounts, forum posts, messages, profile images, and cart data are stored in the current browser using localStorage. This is convenient for testing, but it is not a production-secure backend.
+
+1. RUN LOCALLY
+Extract the ZIP. Open the main project folder in VS Code. Use the Live Server extension and open index.html. A local server is recommended because some browser features are restricted when opening files directly.
+
+2. MEMBER LOGIN
+Open members.html. The first account created receives the local admin role. Later accounts receive the member role. Profile images are saved in the current browser. For production, connect Supabase Auth and Storage.
+
+3. ADMIN
+Sign in using the first account, then open admin.html. The local admin can review contact messages, members, and forum posts. Production security requires server-side authentication and database rules. Never place an admin password or Supabase service-role key in JavaScript.
+
+4. FORUMS
+Open forums.html. Signed-in members can create posts and replies. Categories are located in js/forums.js in the cats array and in the post form select menu. Add or rename categories in both places.
+
+5. SHARED CART
+The cart is injected by js/app-shell.js and appears on every page. Products are currently defined in js/merch.js. Each product has: id, name, price, category. Add products by copying an item in the products array. The cart is stored under sos_cart_v2 in localStorage.
+
+6. CONTACT MESSAGES
+contact.html saves messages into the local admin inbox. To also deliver email, create a Formspree form or a Supabase Edge Function connected to Resend. Put only the public Formspree endpoint in js/backend-config.js. Secret email API keys belong in server-side environment variables.
+
+7. SUPABASE PRODUCTION UPGRADE
+Create a Supabase project. Enable email authentication. Create tables for profiles, forum_posts, forum_replies, contact_messages, products, carts, and cart_items. Enable Row Level Security. Use the public anon key in js/backend-config.js. Keep the service-role key secret. Replace localStorage operations in members.js, forums.js, contact.js, admin.js, and app-shell.js with Supabase queries.
+
+Suggested tables:
+profiles: id uuid, display_name text, avatar_url text, role text
+forum_posts: id uuid, user_id uuid, category text, title text, body text, created_at timestamp
+forum_replies: id uuid, post_id uuid, user_id uuid, body text, created_at timestamp
+contact_messages: id uuid, name text, email text, type text, subject text, message text, status text
+products: id text, name text, price numeric, category text, active boolean
+carts: id uuid, user_id uuid
+cart_items: cart_id uuid, product_id text, quantity integer
+
+8. CUBE LOADER AND PAGE TRANSITIONS
+The startup loader cube styles are in css/app-shell.css under .loaderCube. The page transition is created by js/app-shell.js and uses .cubeTransition. Change animation speed in the cubeOrbit and loaderCubeOrbit keyframes.
+
+9. ADDING PAGES
+Copy an existing page. Keep sharedNavigation, the loader, snowCanvas, cursor markup, footer, app-shell.css, and app-shell.js. Add the new page to the items array in js/shared-navigation.js.
+
+10. RESET DEMO DATA
+Open browser developer tools, go to Application or Storage, choose Local Storage, and remove keys beginning with sos_. Reload the page.
+
+11. PRODUCTION SERVICES
+Recommended free-start setup: Supabase for authentication/database/storage, Resend through a Supabase Edge Function for email, and Stripe Checkout for payments. These services are separate behind the scenes but remain integrated into your website interface.

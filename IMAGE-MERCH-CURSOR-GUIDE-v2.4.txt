@@ -1,0 +1,32 @@
+SEEKER OF SOUNDZ v2.4 — IMAGE, MERCH & CURSOR GUIDE
+
+SMART IMAGE UPLOADS
+1. Open Members, Forums, or Admin > Store Editor.
+2. Choose a JPG, PNG, or WebP image.
+3. The browser automatically resizes and compresses it before saving.
+4. The preview reports original and optimized dimensions/file size.
+
+RECOMMENDED IMAGE SIZES
+- Profile image: square, 800 x 800.
+- Forum image: up to 4000 x 4000; it will be reduced to a maximum of 1400px.
+- Merch square: 1400 x 1400.
+- Merch portrait: 1600 x 2000.
+- JPG/WebP are best for photographs. PNG is useful for transparent art.
+- Animated GIFs are not recompressed and must already be small.
+
+WHY LOCAL STORAGE CAN STILL FILL UP
+Browser localStorage is commonly limited to only a few megabytes. This upgrade makes images much smaller, but a large public forum or catalog still needs cloud storage such as Supabase Storage.
+
+ADDING MERCH
+1. Sign in with the first account created (local demo admin).
+2. Open Admin > Store Editor.
+3. Enter type, category, name, price, description, sizes, colors, stock and optional external link.
+4. Upload an image or provide a path/URL.
+5. Click Add Item.
+6. Open Merch and use Quick View to select size, color and quantity.
+
+CURSOR TOGGLE
+Use the Cursor switch in the navigation. The setting is saved in the browser and follows the visitor across all pages.
+
+SCROLL BUTTON
+The ring around the bottom-right arrow fills as the page is scrolled. It glows when the bottom is reached.

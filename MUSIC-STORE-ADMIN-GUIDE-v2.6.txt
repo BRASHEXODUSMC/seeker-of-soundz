@@ -1,0 +1,24 @@
+SEEKER OF SOUNDZ v2.6 — MUSIC STORE & MEMBERS VAULT
+
+ADMIN ANNOUNCEMENTS
+1. Register the first local account. It becomes the admin account.
+2. Sign in, open admin.html, and click Announcements in the left menu.
+3. Enter a title, message, icon, optional link, and expiration date.
+4. Click Publish Announcement.
+
+MUSIC MANAGER
+1. Open admin.html and click Music Manager.
+2. Add the track title, genre, price, BPM/key, description, artwork, preview path, full/download path, formats, and access level.
+3. Access options: Purchase, All signed-in members, Paid members only, or Free public download.
+4. Click Publish Music. It appears in the Music Store section on music.html.
+
+AUDIO FILES
+Create assets/audio inside the website folder. Put short previews and download files there, then use paths such as:
+assets/audio/my-track-preview.mp3
+assets/audio/my-track-full.wav
+
+PAID MEMBER ACCESS — LOCAL DEMO
+Open Admin → Members and click Grant Paid Access beside a member. This is a browser-local demonstration. It is not secure payment verification.
+
+IMPORTANT FOR A LIVE WEBSITE
+Use Stripe or PayPal plus a real backend/database for purchases and memberships. Store protected full tracks in private cloud storage and generate time-limited download links after payment verification. Do not rely on localStorage or public asset paths for valuable paid audio.

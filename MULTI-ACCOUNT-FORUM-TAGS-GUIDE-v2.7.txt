@@ -1,0 +1,48 @@
+SEEKER OF SOUNDZ v2.7 — MULTIPLE ACCOUNTS + FORUM TAGS
+========================================================
+
+TWO BUILT-IN TEST LOGINS
+------------------------
+Open members.html and use either test login:
+
+Admin account
+Email: admin@seeker.local
+Password: admin123
+
+Member account
+Email: member@seeker.local
+Password: member123
+
+The login page has buttons that automatically fill either account.
+Sign out before testing the other account. A browser tab can only have one active
+session at a time, but the project can store many separate accounts.
+
+CREATE MORE TEST ACCOUNTS AS ADMIN
+----------------------------------
+1. Sign in with the Admin account.
+2. Open admin.html.
+3. Select Members in the left admin menu.
+4. Fill in Display name, Email, Password, Role and Paid access.
+5. Click Create Test Login.
+
+You can also delete test users and grant/remove paid vault access there.
+The currently signed-in admin cannot delete their own account.
+
+FORUM TAGS
+----------
+When creating a forum post:
+1. Choose a category.
+2. Suggested tags automatically appear for that category.
+3. As you type a title or post, more relevant tags can appear automatically.
+4. Click suggested tags to select or deselect them.
+5. Type your own custom tag and press Enter or click Add.
+6. Click a selected tag chip to remove it.
+
+Up to 8 tags can be attached to one post. Spaces in custom tags are converted to
+hyphens, for example "new release" becomes #new-release.
+
+LOCAL TESTING NOTE
+------------------
+Accounts are stored in your browser localStorage. This is suitable for local demos,
+but a public website needs a secure backend (such as Supabase/Firebase/custom server)
+for real passwords, simultaneous users, payments and protected downloads.

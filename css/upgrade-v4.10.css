@@ -1,0 +1,132 @@
+/* Seeker Of SoundZ v4.10 — Experience previews, themes, transitions, global search */
+:root{--sos-theme-top:#110018;--sos-theme-mid:#050008;--sos-theme-bottom:#000;--sos-accent:155,74,255}
+html.sos-theme-original{--sos-theme-top:#160020;--sos-theme-mid:#07000c;--sos-theme-bottom:#000;--sos-accent:155,74,255}
+html.sos-theme-black{--sos-theme-top:#030303;--sos-theme-mid:#010101;--sos-theme-bottom:#000;--sos-accent:210,210,225}
+html.sos-theme-violet{--sos-theme-top:#1a0328;--sos-theme-mid:#09010f;--sos-theme-bottom:#000;--sos-accent:191,99,255}
+html.sos-theme-blue{--sos-theme-top:#020c1e;--sos-theme-mid:#01040b;--sos-theme-bottom:#000;--sos-accent:78,150,255}
+html.sos-theme-crimson{--sos-theme-top:#1b020b;--sos-theme-mid:#080104;--sos-theme-bottom:#000;--sos-accent:255,72,113}
+html.sos-theme-emerald{--sos-theme-top:#021711;--sos-theme-mid:#010806;--sos-theme-bottom:#000;--sos-accent:63,230,177}
+html.sos-theme-monochrome{--sos-theme-top:#101014;--sos-theme-mid:#050507;--sos-theme-bottom:#000;--sos-accent:235,235,245}
+html body{background:linear-gradient(180deg,var(--sos-theme-top) 0%,var(--sos-theme-mid) 44%,var(--sos-theme-bottom) 100%) fixed!important}
+html.sos-contrast-soft{--frequency-border:rgba(255,255,255,.08)}html.sos-contrast-high{--frequency-border:rgba(var(--sos-accent),.42)}
+.experienceStudioV410{overflow:hidden}.experienceStudioLayout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:24px;align-items:start}.experiencePreview{position:sticky;top:115px;border:1px solid rgba(var(--sos-accent),.24);border-radius:22px;overflow:hidden;background:#020204;box-shadow:0 24px 70px rgba(0,0,0,.48)}.experiencePreviewSky{height:210px;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--preview-top,#170021),#000 78%)}.experiencePreview[data-theme=black]{--preview-top:#050505}.experiencePreview[data-theme=violet]{--preview-top:#25043a}.experiencePreview[data-theme=blue]{--preview-top:#031630}.experiencePreview[data-theme=crimson]{--preview-top:#2c0610}.experiencePreview[data-theme=emerald]{--preview-top:#03251b}.experiencePreview[data-theme=monochrome]{--preview-top:#17171c}.previewNebula{position:absolute;inset:-20%;opacity:0;filter:blur(18px);background:radial-gradient(circle at 30% 40%,rgba(var(--sos-accent),.34),transparent 38%),radial-gradient(circle at 75% 30%,rgba(90,130,255,.18),transparent 32%);transition:.4s}.experiencePreview.hasNebula .previewNebula{opacity:.7}.previewStar{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff;animation:previewTwinkle 2.6s infinite ease-in-out}.p1{left:15%;top:20%}.p2{left:75%;top:16%;animation-delay:.7s}.p3{left:62%;top:66%;animation-delay:1.2s}.p4{left:30%;top:73%;animation-delay:1.7s}.experiencePreview[data-stars=off] .previewStar{display:none}.experiencePreview[data-stars=crazy] .previewStar{box-shadow:0 0 16px #fff,0 0 30px rgba(var(--sos-accent),.7)}@keyframes previewTwinkle{50%{opacity:.22;transform:scale(.55)}}.previewLogoRing{position:absolute;inset:50% auto auto 50%;width:112px;height:112px;transform:translate(-50%,-50%);display:grid;place-items:center;border:1px solid rgba(var(--sos-accent),.28);border-radius:50%;box-shadow:0 0 45px rgba(var(--sos-accent),.16)}.previewLogoRing img{width:70px;filter:drop-shadow(0 0 16px rgba(var(--sos-accent),.6))}.experiencePreviewNav{height:38px;display:flex;align-items:center;gap:15px;padding:0 15px;border-block:1px solid rgba(255,255,255,.07);background:rgba(8,8,12,.94);font-size:8px;letter-spacing:.18em}.experiencePreviewNav i{width:8px;height:8px;border-radius:50%;background:rgb(var(--sos-accent));box-shadow:0 0 12px rgba(var(--sos-accent),.8)}.experiencePreviewCard{margin:14px;padding:15px;border:1px solid rgba(var(--sos-accent),.2);border-radius:14px;background:rgba(255,255,255,.025)}.experiencePreviewCard p{font-size:9px;letter-spacing:.2em;color:rgba(var(--sos-accent),.9)}.experiencePreviewCard h3{font-size:16px;margin:5px 0 14px}.previewActions{display:flex;gap:7px}.previewActions b{height:5px;border-radius:9px;background:rgba(var(--sos-accent),.75);width:44%}.previewActions b+ b{width:27%;background:rgba(255,255,255,.14)}.previewCaption{display:block;padding:0 15px 15px;color:rgba(255,255,255,.48)}.experiencePreview.isPreviewing .previewLogoRing{animation:previewTransition 1.1s ease both}.experiencePreview.isPreviewing .experiencePreviewSky:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(var(--sos-accent),.33),transparent);animation:previewScan 1s ease both}@keyframes previewTransition{0%{opacity:.15;transform:translate(-50%,-50%) scale(.55)}55%{opacity:1;transform:translate(-50%,-50%) scale(1.12)}100%{transform:translate(-50%,-50%) scale(1)}}@keyframes previewScan{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.sosGlobalSearch[hidden]{display:none}.sosGlobalSearch{position:fixed;inset:0;z-index:2147483500;opacity:0;transition:opacity .2s}.sosGlobalSearch.open{opacity:1}.globalSearchBackdrop{position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(13px)}.globalSearchPanel{position:relative;width:min(760px,calc(100% - 28px));max-height:min(760px,calc(100vh - 70px));margin:7vh auto 0;display:flex;flex-direction:column;padding:22px;border:1px solid rgba(var(--sos-accent),.28);border-radius:24px;background:linear-gradient(160deg,rgba(14,10,20,.98),rgba(2,2,5,.99));box-shadow:0 35px 110px rgba(0,0,0,.72),0 0 55px rgba(var(--sos-accent),.11);transform:translateY(-18px) scale(.97);transition:transform .25s}.sosGlobalSearch.open .globalSearchPanel{transform:none}.globalSearchHead{display:flex;justify-content:space-between;align-items:flex-start}.globalSearchHead h2{margin:2px 0 15px}.globalSearchClose{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:#08080c;color:#fff;font-size:24px}.globalSearchClose:hover{border-color:rgba(255,72,100,.65);color:#ff6681;box-shadow:0 0 20px rgba(255,50,80,.2)}.globalSearchInput{height:62px;display:flex;align-items:center;gap:13px;padding:0 17px;border:1px solid rgba(var(--sos-accent),.32);border-radius:16px;background:rgba(255,255,255,.035);box-shadow:inset 0 1px rgba(255,255,255,.04)}.globalSearchInput>span{font-size:26px;color:rgb(var(--sos-accent))}.globalSearchInput input{flex:1;border:0!important;background:transparent!important;outline:0;color:#fff;font-size:17px}.globalSearchInput kbd{padding:5px 8px;border:1px solid rgba(255,255,255,.12);border-radius:7px;color:#aaa;background:#08080b}.globalSearchHints{display:flex;gap:8px;flex-wrap:wrap;padding:13px 0}.globalSearchHints button{padding:7px 11px;border-radius:9px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.025);color:#bbb}.globalSearchHints button:hover{color:#fff;border-color:rgba(var(--sos-accent),.4);box-shadow:0 0 14px rgba(var(--sos-accent),.12)}.globalSearchResults{overflow:auto;min-height:180px;padding-right:4px}.globalSearchResult{display:grid;grid-template-columns:38px 1fr 20px;gap:12px;align-items:center;padding:12px 13px;border:1px solid transparent;border-radius:13px;text-decoration:none;color:#fff}.globalSearchResult:hover,.globalSearchResult.active{background:rgba(var(--sos-accent),.09);border-color:rgba(var(--sos-accent),.25);transform:translateX(3px)}.resultIcon{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:rgba(var(--sos-accent),.1);color:rgb(var(--sos-accent));font-size:18px}.globalSearchResult strong,.globalSearchResult small{display:block}.globalSearchResult small{margin-top:3px;color:#8f8f9b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.globalSearchResult>b{color:rgba(var(--sos-accent),.8)}.globalSearchPanel footer{display:flex;gap:16px;padding-top:13px;margin-top:10px;border-top:1px solid rgba(255,255,255,.07);font-size:11px;color:#777}.globalSearchEmpty{text-align:center;padding:45px 15px;color:#888}.globalSearchEmpty span{font-size:35px;color:rgb(var(--sos-accent))}.globalSearchButton{width:auto!important;padding:0 11px!important;gap:6px}.globalSearchButton em{font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.globalSearchOpen{overflow:hidden}
+html.sos-card-glow .card:hover,html.sos-card-glow article:hover{--card-edge:rgba(var(--sos-accent),.25)}
+@media(max-width:850px){.experienceStudioLayout{grid-template-columns:1fr}.experiencePreview{position:relative;top:auto}.globalSearchButton em{display:none}.globalSearchPanel{margin-top:15px;max-height:calc(100vh - 30px);padding:16px}.globalSearchInput{height:56px}.globalSearchPanel footer{display:none}}
+@media(prefers-reduced-motion:reduce){.experiencePreview *,.sosGlobalSearch *{animation:none!important;transition:none!important}}
+
+/* =========================================================
+   v4.10.1 — Navbar search button containment fix
+   Keeps the Search label inside its control at every width.
+========================================================= */
+#mainNav .navUtility .globalSearchButton{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex:0 0 auto!important;
+  width:auto!important;
+  min-width:92px!important;
+  max-width:112px!important;
+  height:42px!important;
+  padding:0 13px!important;
+  gap:7px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  white-space:nowrap!important;
+  line-height:1!important;
+}
+#mainNav .navUtility .globalSearchButton > span{
+  display:grid!important;
+  place-items:center!important;
+  flex:0 0 auto!important;
+  width:18px!important;
+  min-width:18px!important;
+  font-size:1rem!important;
+  line-height:1!important;
+}
+#mainNav .navUtility .globalSearchButton > em{
+  display:block!important;
+  min-width:0!important;
+  max-width:66px!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+  line-height:1!important;
+}
+
+/* Preserve room for the full navigation on medium desktop widths. */
+@media (max-width:1240px){
+  #mainNav .navUtility .globalSearchButton{
+    width:42px!important;
+    min-width:42px!important;
+    max-width:42px!important;
+    padding:0!important;
+    gap:0!important;
+  }
+  #mainNav .navUtility .globalSearchButton > em{display:none!important}
+}
+
+@media (max-width:900px){
+  #mainNav .navUtility .globalSearchButton{
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+    height:40px!important;
+  }
+}
+
+
+/* v4.10.2 — true live transition preset preview */
+.experiencePreviewSky{isolation:isolate}
+.previewTransitionLayer{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.previewLogoRing{z-index:5;will-change:transform,opacity,filter,clip-path}
+.previewTransitionName{position:absolute;left:50%;bottom:12px;z-index:7;transform:translateX(-50%);padding:6px 10px;border:1px solid rgba(var(--sos-accent),.22);border-radius:999px;background:rgba(0,0,0,.58);backdrop-filter:blur(8px);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.72);white-space:nowrap}
+.previewOrbit{position:absolute;inset:4px;border:1px solid rgba(var(--sos-accent),.28);border-radius:50%;opacity:0}.previewOrbit.two{inset:-9px;border-style:dashed}
+.previewWarpLine{position:absolute;left:50%;top:50%;width:2px;height:2px;background:#fff;box-shadow:0 0 10px #fff;opacity:0;transform-origin:left center}.w1{transform:rotate(18deg)}.w2{transform:rotate(164deg)}.w3{transform:rotate(286deg)}
+.previewScanLine{position:absolute;left:-25%;top:49%;width:150%;height:2px;background:linear-gradient(90deg,transparent,rgba(var(--sos-accent),.95),#fff,rgba(var(--sos-accent),.95),transparent);box-shadow:0 0 16px rgba(var(--sos-accent),.8);opacity:0}
+.previewAperture{position:absolute;left:0;width:100%;height:51%;background:#010103;z-index:4}.apTop{top:0}.apBottom{bottom:0}
+.previewCube{position:absolute;width:13px;height:13px;border:1px solid rgba(var(--sos-accent),.85);box-shadow:0 0 14px rgba(var(--sos-accent),.35);opacity:0}.c1{left:22%;top:25%}.c2{right:22%;top:27%}.c3{left:25%;bottom:24%}.c4{right:25%;bottom:22%}
+.p5{left:48%;top:14%;animation-delay:.25s}.p6{left:88%;top:57%;animation-delay:1.45s}
+/* reset every preset before playback */
+.experiencePreview.isPreviewing .previewLogoRing,.experiencePreview.isPreviewing .previewOrbit,.experiencePreview.isPreviewing .previewWarpLine,.experiencePreview.isPreviewing .previewScanLine,.experiencePreview.isPreviewing .previewAperture,.experiencePreview.isPreviewing .previewCube{animation:none}
+/* Stellar Signal Jump */
+.experiencePreview[data-transition=stellar].isPreviewing .previewLogoRing{animation:v4102StellarLogo 1.35s cubic-bezier(.2,.8,.2,1) both}
+.experiencePreview[data-transition=stellar].isPreviewing .previewOrbit.one{animation:v4102Orbit 1.2s ease both}
+.experiencePreview[data-transition=stellar].isPreviewing .previewOrbit.two{animation:v4102OrbitReverse 1.2s ease both}
+.experiencePreview[data-transition=stellar].isPreviewing .previewWarpLine{animation:v4102Warp .9s ease-out both}
+.experiencePreview[data-transition=stellar].isPreviewing .w2{animation-delay:.08s}.experiencePreview[data-transition=stellar].isPreviewing .w3{animation-delay:.15s}
+@keyframes v4102StellarLogo{0%{opacity:0;transform:translate(-50%,-50%) scale(.25);filter:brightness(2)}45%{opacity:1;transform:translate(-50%,-50%) scale(1.18);filter:brightness(1.8)}100%{transform:translate(-50%,-50%) scale(1);filter:none}}
+@keyframes v4102Warp{0%{opacity:0;transform:var(--r,rotate(18deg)) scaleX(0)}35%{opacity:1}100%{opacity:0;transform:var(--r,rotate(18deg)) scaleX(80)}}
+.w1{--r:rotate(18deg)}.w2{--r:rotate(164deg)}.w3{--r:rotate(286deg)}
+/* Soft Fade */
+.experiencePreview[data-transition=fade].isPreviewing .previewLogoRing{animation:v4102Fade 1.15s ease both}@keyframes v4102Fade{0%{opacity:0;transform:translate(-50%,-44%) scale(.94)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+/* Aperture */
+.experiencePreview[data-transition=aperture] .previewAperture{display:block}
+.experiencePreview:not([data-transition=aperture]) .previewAperture{display:none}
+.experiencePreview[data-transition=aperture].isPreviewing .apTop{animation:v4102ApertureTop 1.25s ease both}.experiencePreview[data-transition=aperture].isPreviewing .apBottom{animation:v4102ApertureBottom 1.25s ease both}.experiencePreview[data-transition=aperture].isPreviewing .previewLogoRing{animation:v4102ApertureLogo 1.25s ease both}
+@keyframes v4102ApertureTop{0%{transform:translateY(0)}55%,100%{transform:translateY(-102%)}}@keyframes v4102ApertureBottom{0%{transform:translateY(0)}55%,100%{transform:translateY(102%)}}@keyframes v4102ApertureLogo{0%,25%{opacity:0;transform:translate(-50%,-50%) scale(.8)}70%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+/* Star Warp */
+.experiencePreview[data-transition=warp].isPreviewing .previewStar{animation:v4102StarWarp 1.15s ease both}.experiencePreview[data-transition=warp].isPreviewing .previewLogoRing{animation:v4102WarpLogo 1.15s ease both}@keyframes v4102StarWarp{0%{opacity:.1;transform:scale(.2)}45%{opacity:1;box-shadow:0 0 4px #fff,0 0 20px #fff;transform:scale(4)}100%{opacity:1;transform:scale(1)}}@keyframes v4102WarpLogo{0%{opacity:0;transform:translate(-50%,-50%) scale(.35)}65%{opacity:1;transform:translate(-50%,-50%) scale(1.12)}100%{transform:translate(-50%,-50%) scale(1)}}
+/* Signal Scan */
+.experiencePreview[data-transition=scan].isPreviewing .previewScanLine{animation:v4102Scan 1.15s ease both}.experiencePreview[data-transition=scan].isPreviewing .previewLogoRing{animation:v4102ScanLogo 1.15s steps(8,end) both}@keyframes v4102Scan{0%{opacity:0;transform:translateX(-55%)}20%{opacity:1}80%{opacity:1}100%{opacity:0;transform:translateX(55%)}}@keyframes v4102ScanLogo{0%{opacity:.08;filter:contrast(2) brightness(2);transform:translate(-50%,-50%) scaleX(.3)}55%{opacity:1;transform:translate(-50%,-50%) scaleX(1.08)}100%{filter:none;transform:translate(-50%,-50%) scale(1)}}
+/* Orbiting Cubes */
+.experiencePreview[data-transition=cubes].isPreviewing .previewCube{animation:v4102Cube 1.35s ease both}.experiencePreview[data-transition=cubes].isPreviewing .c2{animation-delay:.08s}.experiencePreview[data-transition=cubes].isPreviewing .c3{animation-delay:.16s}.experiencePreview[data-transition=cubes].isPreviewing .c4{animation-delay:.24s}.experiencePreview[data-transition=cubes].isPreviewing .previewLogoRing{animation:v4102CubeLogo 1.35s ease both}@keyframes v4102Cube{0%{opacity:0;transform:rotate(0) scale(.2)}35%{opacity:1}75%{opacity:1;transform:rotate(220deg) scale(1)}100%{opacity:0;transform:rotate(360deg) scale(.4)}}@keyframes v4102CubeLogo{0%,18%{opacity:0;transform:translate(-50%,-50%) scale(.65)}55%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+/* Minimal */
+.experiencePreview[data-transition=minimal].isPreviewing .previewLogoRing{animation:v4102Minimal .35s linear both}@keyframes v4102Minimal{from{opacity:0}to{opacity:1}}
+@keyframes v4102Orbit{0%{opacity:0;transform:rotate(0) scale(.6)}40%{opacity:1}100%{opacity:0;transform:rotate(300deg) scale(1.18)}}@keyframes v4102OrbitReverse{0%{opacity:0;transform:rotate(0) scale(.7)}40%{opacity:.8}100%{opacity:0;transform:rotate(-260deg) scale(1.25)}}
+.experienceActions [data-experience-preview]{position:relative;overflow:hidden}.experienceActions [data-experience-preview]:after{content:'▶';margin-left:8px;color:rgb(var(--sos-accent))}
+
+
+/* v4.10.3 — explicit member Experience save/apply workflow */
+.experienceActions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.experienceApplyButton{min-width:190px;position:relative;overflow:hidden}
+.experienceApplyButton:before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.18) 46%,transparent 72%);transform:translateX(-130%)}
+.experienceApplyButton:hover:before,.experienceApplyButton.isApplying:before{animation:sosExperienceApplySweep .8s ease}
+@keyframes sosExperienceApplySweep{to{transform:translateX(130%)}}
+.experienceStudio.hasUnsavedExperience{border-color:rgba(var(--sos-accent),.38);box-shadow:0 0 0 1px rgba(var(--sos-accent),.08),0 24px 80px rgba(0,0,0,.28)}
+[data-experience-status]{margin-left:auto;padding:7px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.58);transition:.25s}
+[data-experience-status][data-state="dirty"]{color:#e8d8ff;border-color:rgba(var(--sos-accent),.35);background:rgba(var(--sos-accent),.09);box-shadow:0 0 18px rgba(var(--sos-accent),.08)}
+[data-experience-status][data-state="saved"]{color:#bfffe3;border-color:rgba(78,255,176,.25);background:rgba(78,255,176,.06)}
+html.sosExperienceJustApplied body:after{content:"EXPERIENCE APPLIED";position:fixed;left:50%;bottom:28px;z-index:2147483000;transform:translateX(-50%);padding:11px 18px;border:1px solid rgba(var(--sos-accent),.42);border-radius:999px;background:rgba(3,3,7,.94);box-shadow:0 0 30px rgba(var(--sos-accent),.22);color:#fff;font-size:11px;letter-spacing:.2em;animation:sosAppliedToast .85s ease both;pointer-events:none}
+@keyframes sosAppliedToast{0%{opacity:0;transform:translate(-50%,12px) scale(.96)}25%,75%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-8px) scale(.98)}}
+@media(max-width:700px){.experienceActions>*{width:100%}.experienceApplyButton{min-width:0}[data-experience-status]{margin-left:0;text-align:center}}

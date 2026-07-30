@@ -1,0 +1,124 @@
+/* Seeker Of SoundZ v4.6 — Member Command Center */
+.memberDashboard{overflow:hidden}
+.memberDashboard .profilePreview{min-height:190px;padding:clamp(24px,4vw,40px);align-items:center;background:radial-gradient(circle at 12% 15%,rgba(158,91,255,.3),transparent 38%),radial-gradient(circle at 88% 80%,rgba(92,40,180,.22),transparent 42%),linear-gradient(125deg,rgba(255,255,255,.075),rgba(255,255,255,.018))}
+.memberDashboard .profilePreview>div{position:relative;z-index:1;min-width:0}.memberDashboard .profilePreview .avatar{width:112px;height:112px;border-radius:30px}
+.profileWelcomeV46{font-size:clamp(1.9rem,4vw,3.4rem)!important;line-height:1.02;margin:.15rem 0 .4rem!important}.profileWelcomeV46 span{display:block;color:#fff}.profileWelcomeV46 small{display:block;margin-top:8px;font-size:.75rem;color:rgba(235,222,250,.7);font-weight:600;letter-spacing:.04em}
+.profileStatusLine{position:relative;z-index:1}.profileStatusLine span{display:inline-flex;align-items:center;gap:6px;padding:7px 11px}.profileStatusLine .statusOnline{color:#c9ffe0;border-color:rgba(93,255,157,.2);background:rgba(45,186,103,.09)}
+.profileStatsV46{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:18px 0}.profileStatV46{position:relative;overflow:hidden;padding:18px 14px;border-radius:19px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.023));border:1px solid rgba(255,255,255,.08);text-align:center}.profileStatV46:after{content:"";position:absolute;inset:auto -20px -42px auto;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(153,88,248,.16),transparent 70%)}.profileStatV46 strong{display:block;font-size:clamp(1.15rem,2vw,1.65rem);line-height:1.1;color:#fff}.profileStatV46 small{display:block;margin-top:6px;color:rgba(235,225,247,.66);font-size:.72rem;letter-spacing:.055em;text-transform:uppercase}
+.profileCommandGridV46{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0 0 18px}.profilePanelV46{padding:22px;border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.058),rgba(255,255,255,.022));border:1px solid rgba(255,255,255,.08);box-shadow:0 14px 38px rgba(0,0,0,.16)}.profilePanelHeadV46{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:16px}.profilePanelHeadV46 h3{margin:3px 0 0;font-size:1.18rem}.profilePanelHeadV46 p{margin:0;color:rgba(235,225,247,.66);font-size:.8rem}.profilePanelIconV46{width:45px;height:45px;display:grid;place-items:center;border-radius:15px;background:rgba(157,91,255,.13);border:1px solid rgba(196,151,255,.17);font-size:1.15rem}
+.accessLevelsV46{display:grid;gap:10px}.accessLevelV46{display:flex;align-items:center;gap:12px;padding:12px 13px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.065)}.accessLevelV46 .accessDotV46{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:rgba(255,255,255,.055)}.accessLevelV46 div{min-width:0;flex:1}.accessLevelV46 strong,.accessLevelV46 small{display:block}.accessLevelV46 small{margin-top:2px;color:rgba(234,223,247,.62);font-size:.74rem}.accessLevelV46 em{font-style:normal;font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:5px 8px;border-radius:999px;background:rgba(126,78,210,.14);color:#d9bfff}.accessLevelV46.active em{background:rgba(62,195,112,.11);color:#adf4c8}.accessLevelV46.admin em{background:rgba(239,87,131,.11);color:#ffb6cb}.accessLevelV46.founder em{background:rgba(244,191,75,.11);color:#ffe0a0}
+.quickActionsV46{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quickActionV46{min-height:82px;padding:13px;border-radius:15px;text-decoration:none;color:#fff;background:rgba(255,255,255,.036);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:11px;transition:transform .2s ease,border-color .2s ease,background .2s ease}.quickActionV46:hover{transform:translateY(-2px);border-color:rgba(186,132,255,.32);background:rgba(135,78,217,.1)}.quickActionV46>span{width:38px;height:38px;flex:0 0 auto;display:grid;place-items:center;border-radius:12px;background:rgba(158,92,255,.12)}.quickActionV46 strong,.quickActionV46 small{display:block}.quickActionV46 small{margin-top:3px;color:rgba(236,226,248,.62);font-size:.7rem;line-height:1.35}
+.profileLowerGridV46{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;margin-bottom:18px}.activityListV46{display:grid;gap:8px}.activityItemV46{display:grid;grid-template-columns:36px minmax(0,1fr) auto;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.055)}.activityItemV46:last-child{border:0}.activityItemV46>span{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:rgba(154,91,244,.1)}.activityItemV46 strong,.activityItemV46 small{display:block}.activityItemV46 small{margin-top:2px;color:rgba(235,225,247,.58);font-size:.72rem}.activityItemV46 time{font-size:.68rem;color:rgba(235,225,247,.48);white-space:nowrap}
+.featuredAchievementV46{min-height:100%;display:flex;flex-direction:column}.achievementOrbV46{width:76px;height:76px;display:grid;place-items:center;border-radius:24px;background:radial-gradient(circle at 35% 30%,rgba(229,199,255,.25),rgba(124,61,219,.14));border:1px solid rgba(208,167,255,.2);font-size:2rem;box-shadow:0 0 35px rgba(139,75,231,.17);margin:8px 0 15px}.featuredAchievementV46 h4{font-size:1.1rem;margin:0 0 6px}.featuredAchievementV46 p{color:rgba(235,225,247,.63);font-size:.8rem;line-height:1.55}.achievementProgressV46{height:8px;border-radius:999px;background:rgba(255,255,255,.055);overflow:hidden;margin-top:auto}.achievementProgressV46 i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#7d3ddd,#c795ff)}.achievementProgressTextV46{display:flex;justify-content:space-between;margin-top:8px;font-size:.68rem;color:rgba(235,225,247,.58)}
+.currentProjectsV46{margin-bottom:18px}.projectCardsV46{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.projectMiniV46{padding:15px;border-radius:17px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.068);text-decoration:none;color:#fff}.projectMiniV46 header{display:flex;justify-content:space-between;gap:10px}.projectMiniV46 h4{margin:0;font-size:.92rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.projectMiniV46 header span{font-size:.65rem;color:#d7b8ff;white-space:nowrap}.projectMiniV46 p{margin:8px 0;color:rgba(235,225,247,.58);font-size:.72rem}.projectBarV46{height:7px;border-radius:99px;background:rgba(255,255,255,.055);overflow:hidden}.projectBarV46 i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#7338ce,#bb80ff)}
+.memberDashboard .memberSpecialAccess{display:none!important}.memberDashboard>.dashboardGrid{margin-top:0}.memberDashboard>.dashboardGrid:before{content:"Member shortcuts";grid-column:1/-1;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(222,194,255,.7);margin:3px 0 -4px}.memberDashboard>.dashboardGrid .dashboardCard{min-height:175px!important;display:flex;flex-direction:column}.memberDashboard>.dashboardGrid .dashboardCard .secondaryButton{margin-top:auto}
+.profileStudio{margin-top:20px}
+@media(max-width:980px){.profileStatsV46{grid-template-columns:repeat(3,1fr)}.profileCommandGridV46,.profileLowerGridV46{grid-template-columns:1fr}.projectCardsV46{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.memberDashboard .profilePreview{align-items:flex-start}.memberDashboard .profilePreview .avatar{width:78px;height:78px;border-radius:22px}.profileStatsV46{grid-template-columns:repeat(2,1fr)}.quickActionsV46{grid-template-columns:1fr}.projectCardsV46{grid-template-columns:1fr}.activityItemV46{grid-template-columns:34px minmax(0,1fr)}.activityItemV46 time{grid-column:2}.profileCommandGridV46{gap:13px}.profilePanelV46{padding:18px}}
+
+/* v4.6.2 Forum emoji, reply deletion, and cursor-layer stability */
+.emojiToolbar,
+.emojiToolbar.compact{
+  display:flex!important;
+  align-items:center!important;
+  flex-wrap:nowrap!important;
+  gap:7px!important;
+  min-width:0;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  white-space:nowrap!important;
+  scrollbar-width:thin;
+  -webkit-overflow-scrolling:touch;
+}
+.emojiToolbar>span,
+.emojiToolbar>button{
+  flex:0 0 auto!important;
+}
+.emojiToolbar button{
+  display:inline-grid!important;
+  place-items:center!important;
+  width:auto!important;
+  min-width:36px!important;
+  height:34px!important;
+  margin:0!important;
+  line-height:1!important;
+}
+.emojiToolbar .emojiMoreButton{
+  min-width:max-content!important;
+  padding-inline:12px!important;
+  font-size:.76rem!important;
+}
+.forumReplyContent{min-width:0;flex:1}
+.forumReplyHeading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:5px}
+.replyDeleteButton{
+  flex:0 0 auto;
+  padding:6px 10px;
+  border:1px solid rgba(255,92,118,.24);
+  border-radius:999px;
+  background:rgba(255,43,78,.07);
+  color:#ff9aad;
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;
+}
+.replyDeleteButton:hover,.replyDeleteButton:focus-visible{transform:translateY(-1px);border-color:rgba(255,92,118,.65);background:rgba(255,43,78,.14);box-shadow:0 0 22px rgba(255,43,78,.16)}
+.emojiPickerModal{z-index:180000!important}
+.emojiPicker{z-index:180001!important}
+.forumDeleteModal{z-index:190000!important}
+#cursor{z-index:2147483647!important;isolation:isolate!important}
+#cursorDot,#cursorRing{z-index:2147483647!important}
+@media(max-width:600px){
+  .replyEditorFooter .emojiToolbar.compact{width:100%;max-width:100%}
+  .forumReplyHeading{align-items:flex-start}
+}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}
+
+/* v4.7.8 — reply moderation action */
+.forumReplyIdentity{display:flex;align-items:center;gap:9px;min-width:0;flex-wrap:wrap}
+.forumReplyDate{color:rgba(255,255,255,.42);font-size:.68rem;letter-spacing:.02em;white-space:nowrap}
+.replyDeleteButton{
+  position:relative;
+  z-index:4;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:32px;
+  padding:7px 11px;
+  pointer-events:auto!important;
+  cursor:pointer;
+  border:1px solid rgba(255,104,132,.28);
+  border-radius:11px;
+  background:linear-gradient(145deg,rgba(255,61,96,.11),rgba(73,12,32,.18));
+  color:#ffb1bf;
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+  transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease,box-shadow .18s ease;
+}
+.replyDeleteIcon{display:grid;place-items:center;width:18px;height:18px;border-radius:6px;background:rgba(255,71,105,.12);font-size:.88rem;line-height:1;transition:transform .18s ease,background .18s ease}
+.replyDeleteButton:hover,.replyDeleteButton:focus-visible{
+  transform:translateY(-2px);
+  color:#fff;
+  border-color:rgba(255,99,129,.78);
+  background:linear-gradient(145deg,rgba(255,56,94,.24),rgba(120,14,49,.28));
+  box-shadow:0 0 0 1px rgba(255,79,113,.12),0 0 24px rgba(255,45,85,.22),0 8px 22px rgba(0,0,0,.28);
+  outline:none;
+}
+.replyDeleteButton:hover .replyDeleteIcon,.replyDeleteButton:focus-visible .replyDeleteIcon{transform:rotate(-8deg) scale(1.08);background:rgba(255,77,112,.25)}
+.replyDeleteButton:active{transform:translateY(0) scale(.97)}
+@media(max-width:600px){
+  .forumReplyHeading{gap:9px}
+  .forumReplyIdentity{align-items:flex-start;flex-direction:column;gap:3px}
+  .replyDeleteButton{min-height:36px;padding:8px 10px}
+}

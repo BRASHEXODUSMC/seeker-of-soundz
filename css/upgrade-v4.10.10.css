@@ -1,0 +1,11 @@
+/* v4.10.10 — signed-out forum interaction guard */
+body:not(.member-authenticated) .forumHeartReaction,
+body:not(.member-authenticated) .replyReactionButton {
+  opacity: .72;
+}
+body:not(.member-authenticated) .forumHeartReaction:hover,
+body:not(.member-authenticated) .replyReactionButton:hover {
+  opacity: 1;
+  border-color: rgba(176, 112, 255, .55);
+  box-shadow: 0 0 18px rgba(125, 65, 210, .2);
+}

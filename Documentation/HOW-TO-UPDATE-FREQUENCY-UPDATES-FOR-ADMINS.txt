@@ -1,0 +1,85 @@
+SEEKER OF SOUNDZ — HOW TO UPDATE FREQUENCY UPDATES FOR ADMINS
+Version 4.10.18
+============================================================
+
+OVERVIEW
+--------
+“Frequency Updates” are managed through the Announcements area of the Admin Hub.
+Active announcements appear inside the compact Updates control and, depending on
+placement, may also appear as a homepage banner or priority banner.
+
+HOW TO CREATE A FREQUENCY UPDATE
+--------------------------------
+1. Open admin.html through your local server or hosted website.
+2. Sign in with an administrator account.
+3. Open the Admin Hub navigation.
+4. Select “Announcements.”
+5. Complete the announcement form:
+   - Title: short headline for the update.
+   - Icon: emoji or short symbol displayed with the update.
+   - Message: full announcement text.
+   - Optional page link: page visitors should open, such as music.html.
+   - Button text: call-to-action text, such as “Listen now.”
+   - Expiration date: optional date when the update should stop displaying.
+   - Placement:
+       • Homepage center + notification center
+       • Notification center only
+       • Priority banner + notification center
+   - Announcement style:
+       • Information
+       • New Release
+       • Event
+       • VIP / Members
+       • Important
+   - Priority:
+       • Normal
+       • High
+       • Pinned
+   - Audience:
+       • Everyone
+       • Signed-in members
+       • VIP members
+       • Administrators
+   - Visitors may dismiss: allows members to hide that individual update.
+6. Review the live preview.
+7. Select “Publish Announcement.”
+
+HOW TO HIDE OR SHOW AN EXISTING UPDATE
+--------------------------------------
+1. Open Admin Hub → Announcements.
+2. Find the update in the announcement list.
+3. Select “Hide” to temporarily remove it from the site.
+4. Select “Show” to activate it again.
+
+HOW TO DELETE AN UPDATE
+-----------------------
+1. Open Admin Hub → Announcements.
+2. Find the update you no longer need.
+3. Select “Delete.”
+4. Confirm the deletion in the confirmation module.
+
+MEMBER VISIBILITY SETTINGS
+--------------------------
+Each signed-in member can choose “Hide Frequency Updates” in the Member
+Experience Studio. This only changes that member’s personal view. It does not
+hide or delete the admin announcement for other visitors.
+
+Members can also choose “Hide announcement banners.” This hides homepage,
+profile, priority, and announcement-center banners for that signed-in account.
+
+IMPORTANT LOCAL-STORAGE NOTE
+----------------------------
+This static preview stores announcements and member preferences in the current
+browser’s localStorage. Changes made in one browser or computer do not
+synchronize to other devices unless the site is connected to a real backend and
+database.
+
+TROUBLESHOOTING
+---------------
+- If a new update does not appear, confirm it is marked Active and has not expired.
+- Confirm the selected Audience includes the account currently testing it.
+- Confirm the member has not enabled “Hide Frequency Updates” or
+  “Hide announcement banners.”
+- Restart Live Server and press Ctrl + Shift + R after replacing website files.
+- For a completely clean local test, back up needed browser data before clearing
+  localStorage.

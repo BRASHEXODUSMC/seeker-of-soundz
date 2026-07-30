@@ -1,0 +1,109 @@
+/* Seeker Of SoundZ v4.6.9 — resilient lightweight custom cursor */
+/* The native cursor remains available until cursor.js confirms initialization. */
+@media (pointer:fine) and (hover:hover){
+  html.customCursorActive:not(.nativeCursor),
+  html.customCursorActive:not(.nativeCursor) body,
+  html.customCursorActive:not(.nativeCursor) a,
+  html.customCursorActive:not(.nativeCursor) button,
+  html.customCursorActive:not(.nativeCursor) input,
+  html.customCursorActive:not(.nativeCursor) textarea,
+  html.customCursorActive:not(.nativeCursor) select,
+  html.customCursorActive:not(.nativeCursor) label,
+  html.customCursorActive:not(.nativeCursor) [role="button"]{
+    cursor:none!important;
+  }
+
+  #cursor{
+    position:fixed!important;
+    inset:0!important;
+    width:0!important;
+    height:0!important;
+    z-index:2147483647!important;
+    pointer-events:none!important;
+    opacity:0;
+    visibility:hidden;
+    display:block;
+    transition:opacity .1s ease,visibility .1s ease;
+    contain:layout style;
+    isolation:isolate;
+  }
+  #cursor.is-visible{opacity:1!important;visibility:visible!important}
+
+  #cursorDot,#cursorRing{
+    position:fixed!important;
+    left:0;
+    top:0;
+    pointer-events:none!important;
+    transform:translate3d(-50%,-50%,0);
+    will-change:left,top;
+    mix-blend-mode:normal!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+  #cursorDot{
+    width:6px;
+    height:6px;
+    z-index:2147483647!important;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 8px rgba(255,255,255,.8)!important;
+    transition:width .14s ease,height .14s ease,background-color .14s ease,box-shadow .14s ease;
+  }
+  #cursorRing{
+    width:28px;
+    height:28px;
+    z-index:2147483646!important;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.82);
+    background:rgba(255,255,255,.015)!important;
+    box-shadow:0 0 10px rgba(255,255,255,.18)!important;
+    transition:width .16s ease,height .16s ease,border-color .16s ease,box-shadow .16s ease;
+  }
+
+  body.cursorHover #cursorDot{width:5px;height:5px}
+  body.cursorHover #cursorRing{width:38px;height:38px;border-color:#fff;box-shadow:0 0 16px rgba(255,255,255,.32)!important}
+  body.cursorPressed #cursorRing{width:21px;height:21px}
+  body.cursorDangerHover #cursorDot{background:#ff3434;box-shadow:0 0 12px rgba(255,40,40,.95)!important}
+  body.cursorDangerHover #cursorRing{border-color:#ff3434;box-shadow:0 0 20px rgba(255,35,35,.75)!important}
+
+  #cursorDot::before,#cursorDot::after,#cursorRing::before,#cursorRing::after{content:none!important;display:none!important}
+  .cursorRipple,.cursorGlow,.cursorLight,.mouseGlow,.mouseLight,.pointerGlow{display:none!important;opacity:0!important;visibility:hidden!important}
+}
+
+@media (pointer:coarse),(hover:none){
+  #cursor{display:none!important}
+  html,body,a,button,input,textarea,select,label,[role="button"]{cursor:auto!important}
+}
+
+/* v4.7.3 — brighter, softly glowing cursor treatment */
+@media (pointer:fine) and (hover:hover){
+  #cursorDot{
+    background:#fff!important;
+    box-shadow:
+      0 0 7px rgba(255,255,255,.95),
+      0 0 14px rgba(198,132,255,.72),
+      0 0 24px rgba(123,48,214,.34)!important;
+  }
+  #cursorRing{
+    border-color:rgba(226,199,255,.92)!important;
+    background:radial-gradient(circle,rgba(199,132,255,.075),rgba(110,43,191,.018) 62%,transparent 72%)!important;
+    box-shadow:
+      0 0 10px rgba(255,255,255,.2),
+      0 0 18px rgba(185,105,255,.42),
+      inset 0 0 10px rgba(214,170,255,.1)!important;
+  }
+  body.cursorHover #cursorRing{
+    border-color:#ead7ff!important;
+    box-shadow:
+      0 0 14px rgba(255,255,255,.38),
+      0 0 26px rgba(186,105,255,.58),
+      inset 0 0 12px rgba(220,179,255,.13)!important;
+  }
+}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

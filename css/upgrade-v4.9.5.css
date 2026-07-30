@@ -1,0 +1,77 @@
+/* Seeker Of SoundZ v4.9.5 — forum replies, tag controls, shell and transition polish */
+
+/* Keep the index identity line clear of the fixed navigation. */
+body:has(#hero) #hero{padding-top:clamp(108px,12vh,150px);box-sizing:border-box}
+body:has(#hero) .heroTag{position:relative;z-index:2;margin-top:0}
+
+/* Guarantee the SOS mark is crisp and visible in every page transition. */
+#cubeTransition .transitionLogo{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  clip-path:none!important;
+  -webkit-clip-path:none!important;
+  mask:none!important;
+  -webkit-mask:none!important;
+  transform:scale(.78)!important;
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.3)) drop-shadow(0 0 25px rgba(151,78,205,.38))!important;
+}
+#cubeTransition.active .transitionLogo{animation:sos495LogoArrival .72s cubic-bezier(.18,.82,.18,1) both!important}
+@keyframes sos495LogoArrival{
+  0%{opacity:0!important;transform:scale(.58) rotate(-2deg)!important;filter:drop-shadow(0 0 0 transparent)!important}
+  34%{opacity:.9!important;transform:scale(.9) rotate(1deg)!important;filter:drop-shadow(0 0 9px rgba(255,255,255,.28)) drop-shadow(0 0 20px rgba(151,78,205,.3))!important}
+  62%{opacity:1!important;transform:scale(1.1)!important;filter:drop-shadow(0 0 16px rgba(255,255,255,.46)) drop-shadow(0 0 38px rgba(151,78,205,.5))!important}
+  100%{opacity:1!important;transform:scale(1)!important;filter:drop-shadow(0 0 9px rgba(255,255,255,.28)) drop-shadow(0 0 23px rgba(151,78,205,.35))!important}
+}
+
+/* Selected tags: make the removal affordance a real, isolated click target. */
+.selectedTagChip{padding:7px 8px 7px 12px!important;overflow:visible!important}
+.selectedTagChip .selectedTagRemove{
+  display:grid;place-items:center;flex:0 0 22px;width:22px;height:22px;margin-left:2px;
+  border:1px solid rgba(255,255,255,.1);border-radius:50%;background:rgba(255,255,255,.055);
+  color:rgba(255,255,255,.8);font-size:16px;font-weight:500;line-height:1;pointer-events:auto;
+  transition:background .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.selectedTagChip:hover .selectedTagRemove,.selectedTagChip:focus-visible .selectedTagRemove{
+  color:#fff;border-color:rgba(255,78,113,.66);background:rgba(255,48,91,.14);
+  box-shadow:0 0 15px rgba(255,48,91,.22);transform:rotate(90deg)
+}
+
+/* Reply reaction bar. */
+.replyReactionBar{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.055)}
+.replyReactionButton{
+  min-width:39px;height:34px;padding:0 9px;border:1px solid rgba(255,255,255,.1);border-radius:999px;
+  background:rgba(255,255,255,.025);color:#fff;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  font-size:.92rem;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.replyReactionButton span:last-child{font-size:.68rem;font-weight:800;color:rgba(255,255,255,.58)}
+.replyReactionButton:hover{transform:translateY(-2px) scale(1.04);border-color:rgba(166,103,255,.5);background:rgba(146,82,226,.1);box-shadow:0 0 18px rgba(132,67,214,.15)}
+.replyReactionButton.is-reacted{border-color:rgba(182,122,255,.72);background:linear-gradient(135deg,rgba(148,80,229,.23),rgba(83,42,129,.15));box-shadow:0 0 17px rgba(139,72,220,.18)}
+.replyReactionButton:active{transform:scale(.94)}
+.replyReactionHint{font-size:.67rem;color:rgba(255,255,255,.42);letter-spacing:.04em;margin-right:2px}
+
+/* Make the account/dashboard utility drawer breathe instead of appearing crammed. */
+.accountDrawer,.cartDrawer{padding:26px!important}
+.accountDrawer .drawerHeader,.cartDrawer .drawerHeader{position:sticky;top:-26px;z-index:3;margin:-26px -26px 20px;padding:22px 22px 16px;background:linear-gradient(180deg,rgba(9,7,13,.99) 72%,rgba(9,7,13,.88));backdrop-filter:blur(18px);border-bottom:1px solid rgba(163,100,245,.12)}
+.accountDrawer #accountContent{display:grid;gap:16px}
+.accountDrawer #accountContent>.accountMini,.accountDrawer #accountContent>div{min-width:0}
+.accountMini{display:grid!important;grid-template-columns:54px minmax(0,1fr)!important;gap:14px!important;align-items:center!important;padding:15px!important;border:1px solid rgba(255,255,255,.075)!important;border-radius:18px!important;background:rgba(255,255,255,.025)!important}
+.accountMini img{width:54px!important;height:54px!important;border-radius:16px!important;object-fit:cover}
+.accountMini strong,.accountMini span{min-width:0;overflow-wrap:anywhere}
+.accountDrawer .drawerActions{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
+.accountDrawer .drawerActions a,.accountDrawer .drawerActions button{width:100%!important;min-height:44px!important;justify-content:flex-start!important;text-align:left!important;padding-inline:15px!important}
+.drawerClose{position:relative;z-index:5;flex:0 0 38px}
+
+@media(max-width:640px){
+  body:has(#hero) #hero{padding-top:112px}
+  .accountDrawer,.cartDrawer{padding:20px!important}
+  .accountDrawer .drawerHeader,.cartDrawer .drawerHeader{top:-20px;margin:-20px -20px 17px;padding:18px 17px 14px}
+  .replyReactionBar{gap:6px}.replyReactionButton{height:36px;min-width:42px}
+}
+
+/* Account drawer's actual generated profile markup. */
+.accountDrawer .profilePreview{display:grid!important;grid-template-columns:58px minmax(0,1fr)!important;align-items:center!important;gap:14px!important;margin:0!important;padding:16px!important;border:1px solid rgba(255,255,255,.075)!important;border-radius:19px!important;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.015))!important}
+.accountDrawer .profilePreview .avatar{width:58px!important;height:58px!important;border-radius:17px!important}
+.accountDrawer .profilePreview>div{min-width:0}.accountDrawer .profilePreview strong{display:block;overflow-wrap:anywhere}.accountDrawer .profilePreview p{margin:4px 0 0;color:rgba(220,197,236,.62);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em}
+.accountDrawer #accountContent>a,.accountDrawer #accountContent>button{display:flex!important;width:100%!important;min-height:46px!important;align-items:center!important;justify-content:space-between!important;margin:0!important;padding:12px 15px!important;border-radius:14px!important}
+.accountDrawer #accountContent>a::after{content:"→";opacity:.5;transition:transform .2s ease,opacity .2s ease}.accountDrawer #accountContent>a:hover::after{transform:translateX(3px);opacity:1}

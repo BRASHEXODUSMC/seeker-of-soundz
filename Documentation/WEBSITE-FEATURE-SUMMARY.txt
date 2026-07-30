@@ -1,0 +1,71 @@
+SEEKER OF SOUNDZ — COMPLETE WEBSITE FEATURE SUMMARY
+Version: 4.10.17
+
+1. CORE BRAND & VISUAL EXPERIENCE
+- Seeker Of SoundZ artist/DJ identity, shared SOS logo, cinematic loaders and page transitions.
+- Frequency Interface visual language with animated navigation, responsive cards, cursor effects, and star particles.
+- Account-specific Experience Studio with backgrounds, starfield levels, transitions, loader styles, motion, contrast, cursor glow, and card glow.
+- Guest defaults restore on sign-out; each member's visual profile restores at sign-in.
+- Member visibility preferences can hide Frequency Updates and announcement banners.
+
+2. NAVIGATION & SEARCH
+- Shared responsive navigation across pages.
+- Animated active-page indicator, hover frequency line, glowing account/cart controls.
+- Universal expandable search for pages, forums, merch, music, videos/YouTube, plugins, members, events, and administration.
+- Keyboard support including Escape, arrows, Enter, and Ctrl/Cmd+K.
+
+3. MEMBERS & PROFILES
+- Registration/login demonstration, profile dashboard, badges, achievements, activity, VIP and collaboration access.
+- Personal Experience Studio with live previews and Save & Apply behavior.
+- Per-account settings storage and guest-default restoration.
+- Optional hiding of site update controls and announcement banners.
+
+4. FORUMS
+- Topic creation, categories, subcategories, tags, custom tags, images, emoji tools, search and sorting.
+- Replies, likes, multi-emoji reply reactions, add/remove reaction behavior, moderation, pin/lock/hide/solve.
+- Member profiles, roles, badges, achievements, reputation, view counts and delete confirmations.
+- Signed-out users remain on the forum and receive a sign-in notice instead of being redirected.
+
+5. MUSIC & LIVE FREQUENCY DJ STAGE
+- Music releases, previews, access tiers, purchase links, full-release files and metadata.
+- Members-only DJ concert stage with selectable waveforms and visualizers.
+- Playlist, previous/next, loop-current, stop-after-current, and full-queue modes.
+- Blackout focus mode, lasers, moving spotlights, LED wall, fog, bass rings, sparks, confetti, crowd glow and accessibility-conscious strobe controls.
+- Multiple concert presets, reset controls, test track, performance-mode integration.
+- Laser color designer supporting random multi-color or solid violet, cyan, magenta, green, gold, red, blue, or white beams.
+
+6. MERCH STORE
+- Apparel and digital/music product categories, quick view, image zoom, sizes, colors, quantity and cart.
+- Category-aware admin editor: music/digital products hide clothing sizes/colors; apparel retains them.
+- Featured, limited, seasonal, new release, preorder and members-only badges.
+
+7. COLLABORATION STUDIO
+- Private collaboration access, projects, stages, progress, team management, messages, audio/version uploads and storage recovery tools.
+- Admin collaboration moderation and deep links to specific project messages.
+- Performance safeguards for large browser-stored audio/chat histories.
+
+8. ADMIN HUB
+- Dashboard analytics and management for users, forums, announcements, merch, music, gallery, videos, events and collaboration teams.
+- Announcement targeting, styles, priorities, placements, dismissibility and expiration.
+- Performance/storage diagnostics and cleanup/export tools.
+- Site Experience defaults for guests/new accounts.
+
+9. MEDIA, EVENTS & SOCIAL
+- Gallery categories and lightbox-style presentation.
+- Videos, featured media and admin-managed embeds.
+- Events, upcoming/past appearances and event management.
+- Social hub and contact/booking pages.
+- Producer Hub with a large searchable FL Studio/DJ resource directory.
+
+10. PERFORMANCE & ACCESSIBILITY
+- Performance Mode disables star particles and heavier audio-reactive effects.
+- Reduced-motion handling, page visibility pausing, capped animation workloads and lazy media behavior.
+- Responsive mobile layouts, touch targets, keyboard focus, modal layering and custom-cursor fallbacks.
+
+11. STORAGE & PRODUCTION FOUNDATION
+- Browser-based demo storage for accounts, profiles, posts, reactions, catalog, music, announcements and collaboration data.
+- Export/import and storage-management tools.
+- Documentation and example backend/payment webhook foundation for production migration.
+
+IMPORTANT
+This package remains primarily a static/browser-storage demonstration. Real secure authentication, shared multi-user data, payments, durable uploads and production administration require a server-side backend and database.

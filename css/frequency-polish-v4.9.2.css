@@ -1,0 +1,255 @@
+/* =========================================================
+   Seeker Of SoundZ v4.9.2 — transition, loader, navbar and drawer polish
+   ========================================================= */
+
+/* Keep the fixed navigation visually separate from page copy. */
+#sharedNavigation{position:relative!important;z-index:50000!important}
+#siteHeader{z-index:50000!important;isolation:isolate}
+#mainNav{
+  background:linear-gradient(120deg,rgba(3,3,6,.985),rgba(10,6,14,.97) 48%,rgba(3,3,6,.985))!important;
+  box-shadow:0 18px 55px rgba(0,0,0,.72),inset 0 1px 0 rgba(255,255,255,.065),0 0 0 1px rgba(133,76,163,.045)!important;
+}
+#mainNav::after{
+  content:"";position:absolute;inset:1px;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:linear-gradient(180deg,rgba(255,255,255,.018),transparent 44%);
+}
+body>main{position:relative!important;z-index:10!important}
+
+/* Link-by-link underline and purple signal glow. */
+.navLinks a{position:relative!important;overflow:visible!important}
+.navLinks a::after{
+  content:""!important;display:block!important;position:absolute!important;left:50%!important;right:auto!important;bottom:14px!important;
+  width:0!important;height:2px!important;border-radius:999px!important;transform:translateX(-50%)!important;
+  background:linear-gradient(90deg,transparent,#c992ed 22%,#f1d9ff 50%,#c992ed 78%,transparent)!important;
+  box-shadow:0 0 8px rgba(197,126,237,.72),0 0 18px rgba(116,54,151,.52)!important;
+  opacity:0!important;transition:width .32s cubic-bezier(.2,.8,.2,1),opacity .24s ease!important;
+}
+.navLinks a:hover::after,.navLinks a:focus-visible::after,.navLinks a.active::after{width:78%!important;opacity:1!important}
+.navLinks a:hover,.navLinks a:focus-visible{
+  color:#fff!important;text-shadow:0 0 8px rgba(224,188,244,.72),0 0 18px rgba(134,67,169,.58)!important;
+}
+
+/* Staff/account/cart controls receive the same visual language. */
+.navIconButton,.cursorSwitch{
+  transition:transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease,color .25s ease!important;
+}
+.navIconButton:hover,.navIconButton:focus-visible,.cursorSwitch:hover,.cursorSwitch:focus-within{
+  transform:translateY(-2px) scale(1.035)!important;
+  color:#fff!important;border-color:rgba(213,164,241,.42)!important;
+  background:rgba(117,54,151,.14)!important;
+  box-shadow:0 0 0 1px rgba(193,125,232,.08),0 0 18px rgba(166,84,205,.28),inset 0 0 18px rgba(168,94,203,.06)!important;
+}
+.navIconButton::after{
+  content:"";position:absolute;left:50%;bottom:4px;width:0;height:1px;border-radius:99px;transform:translateX(-50%);
+  background:#d6a5f3;box-shadow:0 0 8px rgba(200,127,239,.8);transition:width .25s ease;
+}
+.navIconButton:hover::after,.navIconButton:focus-visible::after{width:48%}
+
+/* Drawers always sit above the update center, with accessible close controls. */
+.cartDrawer,.accountDrawer{z-index:70000!important;top:96px!important}
+.cartDrawer.open,.accountDrawer.open{isolation:isolate}
+.drawerClose{
+  z-index:5!important;display:grid!important;place-items:center!important;flex:0 0 auto!important;
+  background:rgba(5,5,8,.92)!important;border-color:rgba(220,181,241,.18)!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.35)!important;
+}
+.drawerClose:hover,.drawerClose:focus-visible{
+  color:#fff!important;border-color:rgba(226,171,255,.55)!important;
+  box-shadow:0 0 18px rgba(190,102,233,.32),0 8px 22px rgba(0,0,0,.45)!important;
+}
+html.sos-drawer-open .sosNoticeCenter{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateY(-8px)!important}
+.sosNoticeCenter{z-index:45000!important;transition:opacity .2s ease,visibility .2s ease,transform .2s ease}
+
+/* Page transition: half-faded SOS logo resolves into a bright signal lock. */
+#cubeTransition{z-index:2147482000!important;background:rgba(1,1,3,.985)!important;overflow:hidden!important}
+#cubeTransition::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 50% 50%,rgba(126,62,157,.16),transparent 28%),radial-gradient(circle at 50% 50%,rgba(255,255,255,.035),transparent 48%);
+}
+#cubeTransition.active::after{animation:sosTransitionAtmosphere .62s ease both}
+#cubeTransition .cubeScene{width:220px!important;height:220px!important}
+#cubeTransition .transitionLogo{
+  position:relative;z-index:5;width:110px!important;opacity:.16;transform:scale(.82);filter:blur(5px) grayscale(.35) drop-shadow(0 0 0 transparent)!important;
+}
+#cubeTransition.active .transitionLogo{animation:sosLogoAcquire .62s cubic-bezier(.16,.82,.22,1) both!important}
+#cubeTransition .transitionCube{z-index:4;border-color:rgba(221,183,242,.72)!important;background:rgba(118,58,149,.11)!important;box-shadow:0 0 12px rgba(173,91,214,.22)}
+#cubeTransition.active .transitionCube{animation-duration:.74s!important}
+#cubeTransition .transitionStarCloud{inset:-50%!important;opacity:.78!important}
+#cubeTransition .transitionGalaxy{inset:-25%!important;opacity:.7!important}
+#cubeTransition .transitionSignalLock{
+  position:absolute;inset:16%;z-index:3;border-radius:50%;border:1px solid rgba(202,151,231,.12);opacity:0;transform:scale(.45);
+  box-shadow:inset 0 0 24px rgba(130,66,162,.08),0 0 28px rgba(127,60,160,.08);
+}
+#cubeTransition.active .transitionSignalLock{animation:sosSignalLock .62s ease both}
+@keyframes sosLogoAcquire{
+  0%{opacity:.12;transform:scale(.8);filter:blur(6px) grayscale(.45) drop-shadow(0 0 0 transparent)}
+  42%{opacity:.55;transform:scale(.94);filter:blur(1.5px) grayscale(.15) drop-shadow(0 0 18px rgba(169,94,207,.26))}
+  72%{opacity:1;transform:scale(1.08);filter:blur(0) grayscale(0) drop-shadow(0 0 22px rgba(255,255,255,.3)) drop-shadow(0 0 44px rgba(159,79,199,.42))}
+  100%{opacity:.96;transform:scale(1);filter:blur(0) grayscale(0) drop-shadow(0 0 14px rgba(255,255,255,.25)) drop-shadow(0 0 34px rgba(145,69,181,.34))}
+}
+@keyframes sosSignalLock{0%{opacity:0;transform:scale(.45)}55%{opacity:.65;transform:scale(1.14)}100%{opacity:.18;transform:scale(1)}}
+@keyframes sosTransitionAtmosphere{0%{opacity:0}45%{opacity:1}100%{opacity:.45}}
+
+/* Main loader keeps its structure, but gains a seamless copy of the live page starfield. */
+#loader{z-index:2147483000!important;background:#010103!important;isolation:isolate}
+#loader .loaderCosmos,#loader .loaderStarField,#loader .loaderNebula,#loader .loaderGalaxyBand{display:none!important}
+.loaderSeamlessStars{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:1;transition:opacity .75s ease}
+.loaderSignalAcquisition{z-index:2!important}
+.loaderContent{z-index:6!important}
+.loaderLogoStage{isolation:isolate}
+.loaderMiniCube{
+  position:absolute;left:50%;top:50%;z-index:4;width:13px;height:13px;margin:-6.5px;border:1px solid rgba(222,183,244,.7);
+  background:rgba(119,59,150,.1);box-shadow:0 0 11px rgba(175,91,215,.22);opacity:0;
+  transform:rotate(calc(var(--i)*60deg)) translateX(120px) rotate(calc(var(--i)*-60deg)) scale(.55);
+}
+#loader.loaderCubesActive .loaderMiniCube{opacity:1;animation:loaderMiniCubeOrbit 1.45s linear infinite;animation-delay:calc(var(--i)*-.16s)}
+.loaderFrequencyGate{
+  position:absolute;left:8%;right:8%;top:50%;height:1px;z-index:3;opacity:.25;transform:scaleX(.12);
+  background:linear-gradient(90deg,transparent,rgba(191,128,225,.8),#fff,rgba(191,128,225,.8),transparent);
+  box-shadow:0 0 10px rgba(181,102,221,.5),0 0 26px rgba(124,59,154,.26);
+}
+#loader.loaderSignalLock .loaderFrequencyGate{animation:loaderGateLock .72s ease forwards}
+#loader.loaderComplete .loaderSeamlessStars{opacity:0}
+#loader.loaderComplete .loaderContent{animation:loaderContentExit .72s cubic-bezier(.2,.75,.2,1) both}
+@keyframes loaderMiniCubeOrbit{to{transform:rotate(calc(var(--i)*60deg + 360deg)) translateX(120px) rotate(calc(var(--i)*-60deg - 360deg)) scale(.8)}}
+@keyframes loaderGateLock{0%{opacity:.2;transform:scaleX(.12)}55%{opacity:1;transform:scaleX(1)}100%{opacity:.15;transform:scaleX(.2)}}
+@keyframes loaderContentExit{to{opacity:0;transform:scale(1.08);filter:blur(6px)}}
+
+/* Prevent top-of-page copy from visually leaking through the fixed glass nav. */
+@media(min-width:1001px){
+  .pageHero,.heroContent,#hero{scroll-margin-top:calc(var(--nav-height,70px) + 36px)}
+}
+@media(max-width:1000px){
+  .navLinks a::after{bottom:7px!important}
+  .cartDrawer,.accountDrawer{top:82px!important;right:10px!important;width:min(420px,calc(100vw - 20px))!important;max-height:calc(100vh - 94px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #cubeTransition.active .transitionLogo,.loaderMiniCube,#loader.loaderComplete .loaderContent{animation:none!important}
+}
+html.performance-mode .loaderMiniCube{display:none!important}
+
+/* =========================================================
+   v4.9.3 — Stellar Signal Jump page transition
+   Crisp logo acquisition, star warp and frequency lock.
+   ========================================================= */
+#cubeTransition{
+  background:
+    radial-gradient(circle at 50% 50%,rgba(73,29,96,.14),transparent 28%),
+    linear-gradient(180deg,#010103,#000)!important;
+  transition:opacity .2s ease,visibility .2s ease!important;
+}
+#cubeTransition .cubeScene{
+  width:280px!important;
+  height:280px!important;
+  isolation:isolate;
+  transform:translateZ(0);
+}
+#cubeTransition .transitionGalaxy{display:none!important}
+#cubeTransition .transitionStarCloud{opacity:.42!important;filter:none!important}
+#cubeTransition .transitionLogo{
+  width:118px!important;
+  opacity:0!important;
+  transform:scale(.72)!important;
+  clip-path:inset(48% 0 48% 0 round 12px);
+  filter:drop-shadow(0 0 0 transparent)!important;
+  will-change:transform,opacity,clip-path,filter;
+}
+#cubeTransition.active .transitionLogo{
+  animation:sosStellarLogoResolve .78s cubic-bezier(.16,.82,.22,1) both!important;
+}
+#cubeTransition .transitionCube{
+  width:16px!important;height:16px!important;
+  border-color:rgba(224,194,241,.78)!important;
+  background:rgba(124,65,154,.08)!important;
+  box-shadow:0 0 10px rgba(193,119,229,.2),inset 0 0 8px rgba(255,255,255,.03)!important;
+  opacity:0;
+}
+#cubeTransition.active .transitionCube{
+  opacity:1;
+  animation-name:sosCubeStarOrbit!important;
+  animation-duration:.78s!important;
+  animation-timing-function:cubic-bezier(.2,.75,.2,1)!important;
+  animation-iteration-count:1!important;
+}
+#cubeTransition .transitionSignalLock{
+  inset:23%!important;
+  border-color:rgba(207,158,235,.2)!important;
+  box-shadow:inset 0 0 30px rgba(155,79,192,.08),0 0 28px rgba(148,70,184,.12)!important;
+}
+#cubeTransition.active .transitionSignalLock{animation:sosStellarLock .78s ease both!important}
+.transitionOrbitRing{
+  position:absolute;left:50%;top:50%;z-index:2;border-radius:50%;pointer-events:none;
+  border:1px solid transparent;opacity:0;transform:translate(-50%,-50%) scale(.45);
+}
+.transitionOrbitRingA{
+  width:174px;height:174px;
+  border-top-color:rgba(227,196,244,.48);border-right-color:rgba(141,72,176,.18);
+}
+.transitionOrbitRingB{
+  width:218px;height:218px;
+  border-bottom-color:rgba(187,117,222,.34);border-left-color:rgba(255,255,255,.13);
+}
+#cubeTransition.active .transitionOrbitRingA{animation:sosOrbitRingA .78s cubic-bezier(.2,.8,.2,1) both}
+#cubeTransition.active .transitionOrbitRingB{animation:sosOrbitRingB .78s cubic-bezier(.2,.8,.2,1) both}
+.transitionFrequencySweep{
+  position:absolute;left:-55vw;right:-55vw;top:50%;z-index:1;height:1px;opacity:0;pointer-events:none;
+  background:linear-gradient(90deg,transparent 0%,rgba(142,74,176,.08) 34%,rgba(216,172,239,.65) 48%,#fff 50%,rgba(216,172,239,.65) 52%,rgba(142,74,176,.08) 66%,transparent 100%);
+  box-shadow:0 0 12px rgba(188,113,224,.38),0 0 34px rgba(111,48,142,.2);
+  transform:translateY(-50%) scaleX(.04);
+}
+#cubeTransition.active .transitionFrequencySweep{animation:sosFrequencyJump .78s ease both}
+.transitionStarTunnel{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:visible}
+.transitionStarTunnel i{
+  position:absolute;left:50%;top:50%;width:var(--size);height:var(--size);border-radius:999px;
+  background:#fff;opacity:0;box-shadow:0 0 5px rgba(255,255,255,.9),0 0 10px rgba(186,126,222,.4);
+  transform-origin:0 50%;transform:rotate(var(--angle)) translateX(26px) scaleX(.25);
+}
+#cubeTransition.active .transitionStarTunnel i{
+  animation:sosStarTunnel .66s cubic-bezier(.15,.72,.2,1) var(--delay) both;
+}
+.transitionDestination{
+  position:absolute;left:50%;top:calc(50% + 102px);z-index:8;transform:translateX(-50%) translateY(8px);
+  width:max-content;max-width:min(78vw,360px);opacity:0;color:rgba(232,211,244,.72);
+  font-size:.62rem;font-weight:800;letter-spacing:.19em;text-transform:uppercase;text-align:center;
+  text-shadow:0 0 12px rgba(169,95,207,.26);
+}
+#cubeTransition.active .transitionDestination{animation:sosDestinationIn .78s ease both}
+#cubeTransition.active::after{animation:sosStellarAtmosphere .78s ease both!important}
+
+@keyframes sosStellarLogoResolve{
+  0%{opacity:0;transform:scale(.72);clip-path:inset(48% 0 48% 0 round 12px);filter:drop-shadow(0 0 0 transparent)}
+  24%{opacity:.65;transform:scale(.88);clip-path:inset(31% 0 31% 0 round 10px);filter:drop-shadow(0 0 8px rgba(171,100,207,.2))}
+  52%{opacity:1;transform:scale(1.08);clip-path:inset(0 0 0 0 round 0);filter:drop-shadow(0 0 12px rgba(255,255,255,.3)) drop-shadow(0 0 30px rgba(167,87,205,.38))}
+  76%{opacity:1;transform:scale(.98);clip-path:inset(0);filter:drop-shadow(0 0 9px rgba(255,255,255,.24)) drop-shadow(0 0 22px rgba(155,76,193,.3))}
+  100%{opacity:1;transform:scale(1);clip-path:inset(0);filter:drop-shadow(0 0 8px rgba(255,255,255,.22)) drop-shadow(0 0 18px rgba(149,70,185,.26))}
+}
+@keyframes sosStarTunnel{
+  0%{opacity:0;transform:rotate(var(--angle)) translateX(22px) scaleX(.2)}
+  18%{opacity:.9}
+  72%{opacity:.82;transform:rotate(var(--angle)) translateX(var(--distance)) scaleX(3.4)}
+  100%{opacity:0;transform:rotate(var(--angle)) translateX(calc(var(--distance) + 48px)) scaleX(5.6)}
+}
+@keyframes sosCubeStarOrbit{
+  0%{opacity:0;transform:rotate(0deg) translateX(46px) rotate(0deg) scale(.35)}
+  38%{opacity:1;transform:rotate(145deg) translateX(92px) rotate(-145deg) scale(1)}
+  74%{opacity:.95;transform:rotate(300deg) translateX(76px) rotate(-300deg) scale(.8)}
+  100%{opacity:0;transform:rotate(420deg) translateX(118px) rotate(-420deg) scale(.35)}
+}
+@keyframes sosOrbitRingA{0%{opacity:0;transform:translate(-50%,-50%) scale(.42) rotate(-70deg)}40%{opacity:.78}100%{opacity:.08;transform:translate(-50%,-50%) scale(1.18) rotate(170deg)}}
+@keyframes sosOrbitRingB{0%{opacity:0;transform:translate(-50%,-50%) scale(.35) rotate(80deg)}44%{opacity:.52}100%{opacity:.06;transform:translate(-50%,-50%) scale(1.06) rotate(-150deg)}}
+@keyframes sosStellarLock{0%{opacity:0;transform:scale(.5)}45%{opacity:.62;transform:scale(1.12)}70%{opacity:.24;transform:scale(.98)}100%{opacity:.08;transform:scale(1)}}
+@keyframes sosFrequencyJump{0%{opacity:0;transform:translateY(-50%) scaleX(.03)}34%{opacity:.25}52%{opacity:1;transform:translateY(-50%) scaleX(1)}68%{opacity:.24}100%{opacity:0;transform:translateY(-50%) scaleX(.12)}}
+@keyframes sosDestinationIn{0%,38%{opacity:0;transform:translateX(-50%) translateY(8px)}62%{opacity:.8;transform:translateX(-50%) translateY(0)}100%{opacity:.45;transform:translateX(-50%) translateY(-2px)}}
+@keyframes sosStellarAtmosphere{0%{opacity:0}42%{opacity:.72}100%{opacity:.22}}
+
+@media(max-width:600px){
+  #cubeTransition .cubeScene{width:230px!important;height:230px!important}
+  #cubeTransition .transitionLogo{width:100px!important}
+  .transitionOrbitRingA{width:150px;height:150px}.transitionOrbitRingB{width:190px;height:190px}
+  .transitionDestination{top:calc(50% + 88px);font-size:.55rem;letter-spacing:.14em}
+}
+@media(prefers-reduced-motion:reduce){
+  #cubeTransition.active .transitionLogo{animation:sosStellarLogoResolve .25s ease both!important}
+  #cubeTransition.active .transitionStarTunnel i,#cubeTransition.active .transitionOrbitRing,#cubeTransition.active .transitionFrequencySweep{animation:none!important;display:none!important}
+}
+html.performance-mode #cubeTransition .transitionStarTunnel i:nth-child(n+13){display:none}

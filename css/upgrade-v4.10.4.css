@@ -1,0 +1,14 @@
+/* v4.10.4 live apply + seamless forum reactions */
+html.sosExperienceRepaint body{transform:translateZ(0)}
+html.sosExperienceJustApplied body{animation:sosAppliedFlash .55s ease both}
+@keyframes sosAppliedFlash{0%{filter:brightness(1)}45%{filter:brightness(1.07)}100%{filter:brightness(1)}}
+.replyReactionBar{display:flex;align-items:center;gap:.42rem;flex-wrap:wrap;margin-top:.7rem;padding:.48rem .56rem;border:1px solid rgba(165,115,222,.16);background:rgba(5,3,10,.52);border-radius:12px}
+.replyReactionHint{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(235,225,248,.55);margin-right:.12rem}
+.replyReactionButton{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:.28rem;min-width:40px;height:34px;padding:0 .55rem;border-radius:10px;border:1px solid rgba(177,126,236,.2);background:rgba(14,8,22,.78);color:#fff;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;overflow:hidden}
+.replyReactionButton:hover,.replyReactionButton:focus-visible{transform:translateY(-2px);border-color:rgba(195,139,255,.62);background:rgba(72,28,108,.5);box-shadow:0 0 16px rgba(151,75,222,.22)}
+.replyReactionButton.is-reacted{border-color:rgba(207,153,255,.82);background:linear-gradient(135deg,rgba(96,38,143,.78),rgba(45,16,70,.82));box-shadow:0 0 18px rgba(164,83,238,.28)}
+.replyReactionEmoji{font-size:1rem;line-height:1}.replyReactionCount{font-size:.72rem;font-weight:800;min-width:.45rem}
+.replyReactionButton.reaction-added{animation:sosReactionAdd .34s ease}.replyReactionButton.reaction-removed{animation:sosReactionRemove .3s ease}
+@keyframes sosReactionAdd{0%{transform:scale(.85)}55%{transform:scale(1.16)}100%{transform:scale(1)}}
+@keyframes sosReactionRemove{0%{transform:scale(1)}55%{transform:scale(.82);opacity:.62}100%{transform:scale(1);opacity:1}}
+@media(max-width:600px){.replyReactionBar{gap:.34rem}.replyReactionButton{min-width:38px;height:36px;padding:0 .48rem}.replyReactionHint{width:100%}}

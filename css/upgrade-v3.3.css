@@ -1,0 +1,287 @@
+/* v3.3 Private collaboration, premium compact navigation, native pointer, stable emoji picker */
+#mainNav{position:relative;isolation:isolate;overflow:visible;background:linear-gradient(120deg,rgba(9,8,17,.88),rgba(19,12,31,.78) 52%,rgba(7,9,18,.9));border-color:rgba(192,139,255,.18);box-shadow:0 18px 55px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.08)}
+#mainNav::before{content:"";position:absolute;inset:-1px;border-radius:25px;padding:1px;background:linear-gradient(105deg,rgba(255,255,255,.22),rgba(158,80,255,.48),rgba(80,174,255,.22),rgba(255,255,255,.08));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.72}
+.navLinks{gap:clamp(10px,1.35vw,23px)}
+.navLinks a{position:relative;height:48px;padding:0 4px;font-size:clamp(.72rem,.72vw,.88rem);letter-spacing:.055rem}
+.navLinks a::after{bottom:7px;height:3px;background:linear-gradient(90deg,#fff,#bb78ff);box-shadow:0 0 14px rgba(187,120,255,.6)}
+.logoImageOnly{display:grid;place-items:center;width:54px;height:54px;border-radius:18px;background:radial-gradient(circle at 50% 40%,rgba(177,104,255,.16),transparent 68%);transition:transform .25s ease,background .25s ease}
+.logoImageOnly:hover{transform:translateY(-2px) rotate(-2deg);background:radial-gradient(circle at 50% 40%,rgba(177,104,255,.25),transparent 70%)}
+.navUtility{gap:8px}
+.navIconButton,.cursorSwitch{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:14px}
+html.nativeCursor #mainNav,html.nativeCursor #mainNav *{cursor:default!important;user-select:none}
+html.nativeCursor #mainNav a,html.nativeCursor #mainNav button,html.nativeCursor #mainNav label,html.nativeCursor #mainNav input{cursor:pointer!important}
+.collabAccessGate{padding-top:170px;min-height:80vh}.collabGateCard{max-width:760px;margin:auto;text-align:center;padding:clamp(28px,5vw,64px);background:radial-gradient(circle at top,rgba(151,75,255,.16),transparent 48%),rgba(8,8,14,.88)}.collabGateCard h1{font-size:clamp(2rem,5vw,4.3rem);line-height:1.02;margin:12px 0 20px}.collabGateActions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}
+.emojiPicker{width:min(560px,calc(100vw - 24px))!important;max-height:min(390px,calc(100vh - 24px))!important;padding:14px!important}.emojiPicker header h3{margin:2px 0 5px}.emojiPicker nav{padding:7px 0!important}.emojiGrid{max-height:205px!important;overscroll-behavior:contain}.emojiSearch{padding:8px 10px!important}.emojiPickerModal{overscroll-behavior:none}
+.inlineReplyComposer{scroll-margin-top:120px}.inlineReplyComposer .emojiToolbar{position:relative;z-index:2}
+@media(max-width:1180px){#siteHeader{width:min(98%,1400px)}#mainNav{padding:0 16px}.navLinks{gap:11px}.cursorSwitchText{display:none}}
+
+/* v3.4 Stable emoji search and upgraded forum reply editor */
+.emojiSearchLabel{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+.emojiSearch{
+  position:relative;
+  z-index:4;
+  cursor:text!important;
+  user-select:text!important;
+}
+.emojiGrid{
+  min-height:118px;
+}
+.emojiEmptyState{
+  grid-column:1/-1;
+  margin:0;
+  padding:38px 18px;
+  text-align:center;
+  color:rgba(255,255,255,.55);
+}
+.emojiPicker{
+  transform-origin:top center;
+  animation:emojiPickerIn .22s cubic-bezier(.2,.8,.2,1);
+}
+.emojiPicker.is-closing{
+  pointer-events:none!important;
+  animation:emojiPickerOut .24s ease forwards;
+}
+.emojiPickerClose,
+.replyCloseButton{
+  transition:transform .32s cubic-bezier(.2,.8,.2,1),color .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease!important;
+}
+.emojiPickerClose:hover,
+.emojiPickerClose:focus-visible,
+.replyCloseButton:hover,
+.replyCloseButton:focus-visible{
+  transform:rotate(135deg) scale(1.12)!important;
+  color:#fff!important;
+  border-color:rgba(255,68,88,.85)!important;
+  background:rgba(255,35,63,.16)!important;
+  box-shadow:0 0 10px rgba(255,40,70,.7),0 0 28px rgba(255,40,70,.42),inset 0 0 10px rgba(255,40,70,.18)!important;
+  text-shadow:0 0 9px #ff3858!important;
+}
+@keyframes emojiPickerIn{
+  from{opacity:0;transform:translateY(8px) scale(.97)}
+  to{opacity:1;transform:none}
+}
+@keyframes emojiPickerOut{
+  to{opacity:0;transform:translateY(8px) scale(.96)}
+}
+.inlineReplyComposer{
+  position:relative;
+  overflow:hidden;
+  margin:18px 0 0 52px!important;
+  padding:0!important;
+  border:1px solid rgba(194,139,255,.2)!important;
+  border-radius:22px!important;
+  background:linear-gradient(145deg,rgba(19,15,28,.96),rgba(8,8,12,.98))!important;
+  box-shadow:0 20px 55px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.045);
+  animation:replyComposerIn .3s cubic-bezier(.2,.8,.2,1);
+}
+.inlineReplyComposer::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:3px;
+  background:linear-gradient(180deg,#d4a4ff,#7958ff,transparent);
+  box-shadow:0 0 18px rgba(171,99,255,.55);
+}
+.inlineReplyComposer.is-closing{
+  pointer-events:none;
+  animation:replyComposerOut .26s ease forwards;
+}
+.replyComposerHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:16px 17px 13px 18px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.018);
+}
+.replyComposerHeader>div{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  min-width:0;
+}
+.replyComposerHeader strong{
+  display:block;
+  color:#fff;
+  font-size:.94rem;
+}
+.replyComposerHeader small{
+  display:block;
+  margin-top:3px;
+  color:rgba(255,255,255,.48);
+  font-size:.72rem;
+}
+.replyComposerIcon{
+  display:grid;
+  place-items:center;
+  flex:0 0 34px;
+  width:34px;
+  height:34px;
+  border:1px solid rgba(193,137,255,.22);
+  border-radius:11px;
+  background:rgba(150,78,255,.1);
+  color:#d8b4ff;
+  font-size:1.08rem;
+}
+.replyCloseButton{
+  display:grid;
+  place-items:center;
+  flex:0 0 36px;
+  width:36px;
+  height:36px;
+  padding:0;
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:50%;
+  background:rgba(255,255,255,.025);
+  color:rgba(255,255,255,.72);
+  font-size:1.35rem;
+  line-height:1;
+  cursor:pointer;
+}
+.replyEditorSurface{
+  margin:15px 16px 0;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;
+  background:rgba(0,0,0,.22);
+  transition:border-color .22s ease,box-shadow .22s ease;
+}
+.replyEditorSurface:focus-within{
+  border-color:rgba(192,130,255,.55);
+  box-shadow:0 0 0 3px rgba(163,85,255,.1),0 0 28px rgba(123,69,211,.12);
+}
+.replyEditorSurface textarea{
+  display:block;
+  width:100%;
+  min-height:126px!important;
+  resize:vertical;
+  padding:16px 17px!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  background:transparent!important;
+  color:#fff;
+  line-height:1.65;
+}
+.replyEditorSurface textarea::placeholder{
+  color:rgba(255,255,255,.32);
+}
+.replyEditorFooter{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 10px 9px;
+  border-top:1px solid rgba(255,255,255,.065);
+  background:rgba(255,255,255,.015);
+}
+.replyEditorFooter .emojiToolbar.compact{
+  flex:1;
+  padding:0!important;
+  border:0!important;
+}
+.replyCharacterCount{
+  flex:0 0 auto;
+  padding:0 4px 5px 0;
+  color:rgba(255,255,255,.42);
+  font-size:.68rem;
+  font-variant-numeric:tabular-nums;
+}
+.inlineReplyActions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin:0!important;
+  padding:14px 16px 16px;
+}
+.replyCancelButton{
+  border-color:rgba(255,255,255,.1)!important;
+}
+.replyCancelButton:hover{
+  color:#ffb0bb!important;
+  border-color:rgba(255,68,88,.42)!important;
+  background:rgba(255,40,65,.08)!important;
+}
+.replySubmitButton{
+  display:inline-flex!important;
+  align-items:center;
+  gap:10px;
+  min-width:142px;
+  justify-content:center;
+  padding:10px 17px!important;
+}
+.replySubmitButton b{
+  transition:transform .22s ease;
+}
+.replySubmitButton:hover b{
+  transform:translateX(4px);
+}
+@keyframes replyComposerIn{
+  from{opacity:0;transform:translateY(-8px) scale(.985)}
+  to{opacity:1;transform:none}
+}
+@keyframes replyComposerOut{
+  to{opacity:0;transform:translateY(-8px) scale(.98);max-height:0;margin-top:0!important}
+}
+@media(max-width:700px){
+  .inlineReplyComposer{margin-left:0!important}
+  .replyComposerHeader small{display:none}
+  .replyEditorFooter{align-items:stretch;flex-direction:column}
+  .replyCharacterCount{align-self:flex-end}
+  .inlineReplyActions{display:grid;grid-template-columns:1fr 1fr}
+  .replySubmitButton{min-width:0}
+}
+
+/* v4.1 Emoji category visibility fix */
+.emojiPicker nav{
+  display:flex!important;
+  flex:0 0 auto!important;
+  width:100%!important;
+  min-height:46px!important;
+  padding:8px 2px 10px!important;
+  gap:8px!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  scrollbar-width:thin;
+  scroll-padding-inline:4px;
+  -webkit-overflow-scrolling:touch;
+}
+.emojiPicker nav button{
+  flex:0 0 auto!important;
+  min-width:max-content!important;
+  height:34px!important;
+  padding:7px 12px!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+}
+.emojiPicker header{
+  flex:0 0 auto!important;
+}
+.emojiPicker .emojiGrid{
+  flex:1 1 auto!important;
+  min-height:128px!important;
+}
+@media(max-width:560px){
+  .emojiPicker nav{min-height:44px!important;padding-bottom:9px!important}
+  .emojiPicker nav button{height:32px!important;padding:6px 10px!important;font-size:.72rem!important}
+}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

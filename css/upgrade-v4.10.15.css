@@ -1,0 +1,34 @@
+/* v4.10.15 — Members-only DJ concert, expanded effects, admin preview commerce */
+.djMemberGate{position:relative;overflow:hidden;padding:34px;border:1px solid rgba(154,112,255,.34);border-radius:24px;background:linear-gradient(145deg,rgba(10,8,18,.96),rgba(2,2,6,.98));box-shadow:0 24px 70px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.05);text-align:center}
+.djMemberGate::before{content:"";position:absolute;inset:-35%;background:radial-gradient(circle,rgba(122,70,255,.18),transparent 48%);animation:djGatePulse 7s ease-in-out infinite;pointer-events:none}
+.djMemberGate>*{position:relative;z-index:1}.djMemberGateIcon{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 16px;border-radius:50%;border:1px solid rgba(174,142,255,.42);background:rgba(128,76,255,.12);font-size:30px;box-shadow:0 0 32px rgba(131,77,255,.2)}
+.djMemberGate h3{margin:.2rem 0 .7rem;font-size:clamp(1.45rem,3vw,2.15rem)}.djMemberGate p{max-width:680px;margin:0 auto 20px;color:rgba(238,232,255,.75)}
+@keyframes djGatePulse{50%{transform:scale(1.12);opacity:.65}}
+
+/* stronger and visible concert layers */
+.liveFrequencyStage{isolation:isolate}.djStageViewport{isolation:isolate}.djStrobe{pointer-events:none;opacity:0;mix-blend-mode:screen}
+.liveFrequencyStage.is-playing.strobe-on .djStrobe{opacity:1;animation:djStrobeEnhanced var(--dj-strobe-speed,2.8s) steps(1,end) infinite}
+@keyframes djStrobeEnhanced{0%,74%,100%{background:transparent}75%{background:rgba(255,255,255,calc(.16 * var(--dj-strobe-brightness,1)))}77%{background:transparent}82%{background:radial-gradient(circle at 50% 38%,rgba(255,255,255,calc(.5 * var(--dj-strobe-brightness,1))),rgba(var(--dj-primary),.14) 28%,transparent 66%)}84%{background:transparent}}
+.djExtraFx{position:absolute;inset:0;z-index:6;pointer-events:none;overflow:hidden}.djLedWall,.djFogLayer,.djBeamGrid,.djSparkLayer,.djConfettiLayer,.djBassPulse{position:absolute;inset:0;opacity:0;transition:opacity .3s ease}
+.liveFrequencyStage.is-playing.fx-led-on .djLedWall{opacity:.72;background:repeating-linear-gradient(90deg,transparent 0 24px,rgba(var(--dj-primary),.13) 25px 27px),repeating-linear-gradient(0deg,transparent 0 20px,rgba(255,255,255,.06) 21px 22px);mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 72%);animation:djLedChase 3.5s linear infinite}
+@keyframes djLedChase{to{background-position:54px 0,0 44px}}
+.liveFrequencyStage.is-playing.fx-fog-on .djFogLayer{opacity:.68;background:radial-gradient(ellipse at 20% 85%,rgba(215,205,255,.12),transparent 48%),radial-gradient(ellipse at 75% 78%,rgba(var(--dj-primary),.15),transparent 50%);filter:blur(22px);animation:djFogDrift 8s ease-in-out infinite alternate}
+@keyframes djFogDrift{to{transform:translate3d(5%,-2%,0) scale(1.08)}}
+.liveFrequencyStage.is-playing.fx-grid-on .djBeamGrid{opacity:.55;background:linear-gradient(72deg,transparent 42%,rgba(var(--dj-primary),.22) 44%,transparent 47%),linear-gradient(108deg,transparent 42%,rgba(255,255,255,.13) 44%,transparent 47%);background-size:130px 100%,170px 100%;animation:djGridMove 4s linear infinite}
+@keyframes djGridMove{to{background-position:260px 0,-340px 0}}
+.liveFrequencyStage.is-playing.fx-bass-on .djBassPulse{opacity:1;background:radial-gradient(circle at 50% 72%,transparent 0 18%,rgba(var(--dj-primary),.18) 19%,transparent 24%);animation:djBassPulse 1.25s ease-out infinite}
+@keyframes djBassPulse{from{transform:scale(.72);opacity:.8}to{transform:scale(1.45);opacity:0}}
+.liveFrequencyStage.is-playing.fx-sparks-on .djSparkLayer{opacity:1;background-image:radial-gradient(circle,rgba(255,245,190,.95) 0 1px,transparent 2px),radial-gradient(circle,rgba(var(--dj-primary),.9) 0 1px,transparent 2px);background-size:31px 43px,47px 59px;background-position:10% 110%,90% 110%;mask-image:linear-gradient(to top,#000,transparent 55%);animation:djSparks 1.7s linear infinite}
+@keyframes djSparks{to{background-position:18% -10%,82% -25%}}
+.liveFrequencyStage.is-playing.fx-confetti-on .djConfettiLayer{opacity:.65;background-image:linear-gradient(35deg,#ff3fcf 0 2px,transparent 3px),linear-gradient(-35deg,#3beaff 0 2px,transparent 3px),linear-gradient(70deg,#fff 0 2px,transparent 3px);background-size:47px 53px,61px 49px,73px 67px;animation:djConfettiFall 5s linear infinite}
+@keyframes djConfettiFall{to{background-position:70px 100%, -80px 100%, 45px 100%}}
+.djEffectConsole{margin-top:16px}.djEffectPresetRow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.djPresetButton{min-height:42px;border:1px solid rgba(169,137,255,.24);border-radius:12px;background:rgba(10,8,18,.78);color:#eee8ff;transition:.22s ease}.djPresetButton:hover,.djPresetButton.is-active{border-color:rgba(177,139,255,.7);box-shadow:0 0 22px rgba(128,76,255,.2);transform:translateY(-2px)}
+.djEffectToggleGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px;margin-top:12px}.djEffectToggle{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border:1px solid rgba(169,137,255,.18);border-radius:14px;background:rgba(5,5,10,.72);color:#ddd4f5}.djEffectToggle[aria-pressed="true"]{border-color:rgba(166,118,255,.58);box-shadow:inset 0 0 20px rgba(113,69,205,.12)}
+.djEffectToggle i{width:9px;height:9px;border-radius:50%;background:#554d62}.djEffectToggle[aria-pressed="true"] i{background:#b789ff;box-shadow:0 0 12px #9b62ff}
+html.performance-mode .djExtraFx{display:none!important}
+
+/* admin music purchase preview polish */
+.musicCommerceConfig{padding:16px;border:1px solid rgba(151,112,255,.2);border-radius:16px;background:rgba(8,7,14,.62)}
+.musicAdminPreviewCard{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center}.musicAdminPreviewCard img{width:72px;height:72px;object-fit:cover;border-radius:13px}.musicAdminPreviewMeta{display:flex;gap:7px;flex-wrap:wrap}.musicAdminPreviewMeta span{padding:4px 8px;border-radius:999px;background:rgba(125,78,220,.13);border:1px solid rgba(165,125,255,.18);font-size:.72rem}
+.musicPurchaseLink{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}.musicReleaseDetails{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.musicReleaseDetails span{font-size:.72rem;padding:5px 9px;border:1px solid rgba(160,130,230,.18);border-radius:999px;color:rgba(238,232,255,.75)}
+@media(max-width:680px){.musicAdminPreviewCard{grid-template-columns:58px 1fr}.musicAdminPreviewCard .adminItemActions{grid-column:1/-1}.djEffectToggleGrid{grid-template-columns:1fr 1fr}}

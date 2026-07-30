@@ -1,0 +1,45 @@
+/* Seeker Of SoundZ v4.9.6 — responsive frequency tags */
+.tagPicker{overflow:visible!important}
+.suggestedTagButtons,.selectedTagChips{display:flex!important;flex-wrap:wrap!important;gap:10px!important;align-items:center!important}
+.tagChoice{
+  --tag-accent:rgba(157,91,239,.78);
+  position:relative!important;display:inline-flex!important;align-items:center!important;gap:9px!important;
+  min-height:38px!important;padding:8px 11px!important;border:1px solid rgba(182,153,207,.18)!important;
+  border-radius:9px 3px 9px 3px!important;background:linear-gradient(145deg,rgba(16,12,22,.94),rgba(7,6,10,.92))!important;
+  color:rgba(234,222,244,.74)!important;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.025)!important;overflow:hidden!important;
+}
+.tagChoice::after{content:none!important}
+.tagChoiceSignal{width:3px;height:18px;flex:0 0 3px;border-radius:3px;background:rgba(167,102,246,.3);box-shadow:0 0 0 transparent;transition:.2s ease}
+.tagChoice b{display:grid;place-items:center;width:20px;height:20px;margin-left:1px;border:1px solid rgba(255,255,255,.1);border-radius:5px;background:rgba(255,255,255,.035);font-size:.76rem;line-height:1;color:rgba(255,255,255,.56);transition:.2s ease}
+.tagChoice:hover{color:#fff!important;border-color:rgba(164,101,242,.58)!important;transform:translateY(-2px)!important;box-shadow:0 10px 25px rgba(47,17,76,.24),0 0 18px rgba(141,74,218,.13)!important}
+.tagChoice:hover .tagChoiceSignal{background:#b77aff;box-shadow:0 0 12px rgba(174,102,255,.75)}
+.tagChoice.selected{color:#fff!important;border-color:rgba(177,112,250,.72)!important;background:linear-gradient(145deg,rgba(83,39,127,.46),rgba(15,10,24,.96))!important;box-shadow:inset 3px 0 rgba(181,113,255,.82),0 0 20px rgba(117,56,183,.17)!important}
+.tagChoice.selected .tagChoiceSignal{background:#c18bff;box-shadow:0 0 13px rgba(190,128,255,.82)}
+.tagChoice.selected b{color:#fff;border-color:rgba(190,131,255,.48);background:rgba(151,82,224,.22);box-shadow:0 0 11px rgba(151,82,224,.18)}
+.selectedTagChips{margin-top:15px!important;padding:15px 0 0!important;border-top:1px solid rgba(255,255,255,.07)!important}
+.selectedTagsLabel{flex:1 0 100%;margin-bottom:1px;color:rgba(221,198,239,.54)!important;font-size:.66rem!important;font-weight:800;text-transform:uppercase;letter-spacing:.14em}
+.selectedTagChip{
+  position:relative;display:inline-flex!important;align-items:center!important;gap:7px!important;min-height:36px!important;
+  padding:6px 6px 6px 11px!important;border:1px solid rgba(170,104,239,.35)!important;border-radius:8px 2px 8px 2px!important;
+  background:linear-gradient(145deg,rgba(66,31,100,.34),rgba(10,8,14,.92))!important;color:#f1e9f8!important;
+  clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,7px 100%,0 calc(100% - 7px))!important;
+  box-shadow:inset 2px 0 rgba(181,113,255,.64),0 8px 18px rgba(0,0,0,.12)!important;
+}
+.selectedTagName{font-size:.76rem;line-height:1;letter-spacing:.025em;white-space:nowrap}
+.selectedTagRemove{
+  position:relative!important;z-index:3!important;display:grid!important;place-items:center!important;flex:0 0 23px!important;
+  width:23px!important;height:23px!important;margin:0!important;padding:0!important;border:1px solid rgba(255,255,255,.1)!important;
+  border-radius:6px!important;background:rgba(255,255,255,.04)!important;color:rgba(255,255,255,.7)!important;
+  font:500 17px/1 Arial,sans-serif!important;cursor:pointer!important;pointer-events:auto!important;clip-path:none!important;
+}
+.selectedTagRemove::before{content:none!important}
+.selectedTagRemove:hover,.selectedTagRemove:focus-visible{color:#fff!important;border-color:rgba(255,75,111,.75)!important;background:rgba(255,40,78,.18)!important;box-shadow:0 0 16px rgba(255,42,82,.28)!important;transform:rotate(90deg) scale(1.05)!important;outline:none!important}
+.selectedTagChip:has(.selectedTagRemove:hover){border-color:rgba(255,75,111,.45)!important;box-shadow:inset 2px 0 rgba(255,75,111,.7),0 0 18px rgba(255,42,82,.1)!important}
+.tagPickerEmpty{display:block;padding:5px 0;color:rgba(255,255,255,.42)!important}
+@media(max-width:620px){
+ .suggestedTagButtons,.selectedTagChips{gap:8px!important}
+ .tagChoice{min-height:40px!important;padding:8px 10px!important;font-size:.75rem!important}
+ .selectedTagChip{max-width:100%}.selectedTagName{overflow:hidden;text-overflow:ellipsis;max-width:190px}
+}
+@media(prefers-reduced-motion:reduce){.tagChoice,.tagChoiceSignal,.tagChoice b,.selectedTagRemove{transition:none!important}}

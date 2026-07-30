@@ -1,0 +1,46 @@
+/* Seeker Of SoundZ v4.10.17 */
+html.memberHideFrequencyUpdates .sosAnnouncementCenter,html.memberHideFrequencyUpdates .sosNoticeCenter,html.memberHideFrequencyUpdates [data-sos-announcement-center]{display:none!important}
+html.memberHideAnnouncements .homeAnnouncementRail,html.memberHideAnnouncements .memberAnnouncement,html.memberHideAnnouncements .profileAnnouncement,html.memberHideAnnouncements [data-member-announcement]{display:none!important}
+.experienceSubheading{grid-column:1/-1;margin-top:10px;padding:14px 16px;border:1px solid rgba(177,122,255,.16);border-radius:14px;background:linear-gradient(135deg,rgba(106,46,170,.12),rgba(255,255,255,.018))}.experienceSubheading span{display:block;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.experienceSubheading small{display:block;margin-top:5px;color:rgba(255,255,255,.58)}
+.djLaserColorDesigner{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:16px;border:1px solid rgba(173,112,255,.2);border-radius:18px;background:rgba(8,5,14,.72)}.djLaserColorDesigner .djControlGroup{min-width:0}.djLaserColorPreview{height:34px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:linear-gradient(90deg,var(--laser-one,#a768ff),var(--laser-two,#53d9ff),var(--laser-three,#ff4fce));box-shadow:0 0 24px rgba(157,82,255,.25)}
+.liveFrequencyStage[data-laser-color-mode="solid"] .djLaser{background:linear-gradient(to bottom,rgba(var(--dj-laser-solid-rgb),0),rgba(var(--dj-laser-solid-rgb),.98) 18%,rgba(var(--dj-laser-solid-rgb),.25));box-shadow:0 0 7px rgba(var(--dj-laser-solid-rgb),1),0 0 24px rgba(var(--dj-laser-solid-rgb),.95),0 0 55px rgba(var(--dj-laser-solid-rgb),.62)}
+.liveFrequencyStage[data-laser-color-mode="random"] .djLaser:nth-child(6n+1){--beam-rgb:167,104,255}.liveFrequencyStage[data-laser-color-mode="random"] .djLaser:nth-child(6n+2){--beam-rgb:66,220,255}.liveFrequencyStage[data-laser-color-mode="random"] .djLaser:nth-child(6n+3){--beam-rgb:255,71,196}.liveFrequencyStage[data-laser-color-mode="random"] .djLaser:nth-child(6n+4){--beam-rgb:92,255,154}.liveFrequencyStage[data-laser-color-mode="random"] .djLaser:nth-child(6n+5){--beam-rgb:255,226,82}.liveFrequencyStage[data-laser-color-mode="random"] .djLaser:nth-child(6n+6){--beam-rgb:255,90,70}.liveFrequencyStage[data-laser-color-mode="random"] .djLaser{background:linear-gradient(to bottom,rgba(var(--beam-rgb),0),rgba(var(--beam-rgb),.98) 18%,rgba(var(--beam-rgb),.22));box-shadow:0 0 7px rgba(var(--beam-rgb),1),0 0 22px rgba(var(--beam-rgb),.92),0 0 52px rgba(var(--beam-rgb),.58)}
+@media(max-width:760px){.djLaserColorDesigner{grid-template-columns:1fr}}
+
+/* v4.10.18 visibility reliability overrides */
+html.memberHideFrequencyUpdates .sosNoticeCenter,
+html.memberHideFrequencyUpdates .sosAnnouncementCenter,
+html.memberHideFrequencyUpdates [data-sos-announcement-center],
+html.memberHideFrequencyUpdates [data-frequency-updates],
+html.memberHideFrequencyUpdates .frequencyUpdates,
+html.memberHideFrequencyUpdates .frequencyUpdateCenter,
+html.memberHideFrequencyUpdates #frequencyUpdates,
+html.memberHideFrequencyUpdates #announcementCenter{display:none!important;visibility:hidden!important;pointer-events:none!important}
+html.memberHideAnnouncements .homeAnnouncementRail,
+html.memberHideAnnouncements .memberAnnouncement,
+html.memberHideAnnouncements .profileAnnouncement,
+html.memberHideAnnouncements [data-member-announcement],
+html.memberHideAnnouncements [data-home-announcement],
+html.memberHideAnnouncements .announcementCenterPanel,
+html.memberHideAnnouncements .announcementPanel,
+html.memberHideAnnouncements .modernAnnouncementCenter,
+html.memberHideAnnouncements .priorityAnnouncementBanner,
+html.memberHideAnnouncements .siteAnnouncementBanner{display:none!important;visibility:hidden!important;pointer-events:none!important}
+
+/* v4.10.19 definitive visibility controller */
+[data-sos-member-hidden]{display:none!important;visibility:hidden!important;pointer-events:none!important}
+html[data-hide-frequency-updates="true"] .sosNoticeCenter,
+html[data-hide-frequency-updates="true"] .sosAnnouncementCenter,
+html[data-hide-frequency-updates="true"] [data-sos-announcement-center],
+html[data-hide-frequency-updates="true"] [data-frequency-updates],
+html[data-hide-frequency-updates="true"] #sosNoticePanel,
+html[data-hide-frequency-updates="true"] .sosNoticeToggle{display:none!important;visibility:hidden!important;pointer-events:none!important}
+html[data-hide-announcements="true"] .homeAnnouncementRail,
+html[data-hide-announcements="true"] .memberAnnouncement,
+html[data-hide-announcements="true"] .profileAnnouncement,
+html[data-hide-announcements="true"] [data-member-announcement],
+html[data-hide-announcements="true"] [data-home-announcement],
+html[data-hide-announcements="true"] .priorityAnnouncementBanner,
+html[data-hide-announcements="true"] .siteAnnouncementBanner,
+html[data-hide-announcements="true"] .announcementBanner,
+html[data-hide-announcements="true"] [data-announcement-banner]{display:none!important;visibility:hidden!important;pointer-events:none!important}

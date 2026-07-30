@@ -1,0 +1,358 @@
+/*==================================================
+    SEEKER OF SOUNDZ v2
+    NAVIGATION
+==================================================*/
+
+/*==============================
+HEADER
+==============================*/
+
+#siteHeader{
+
+    position:fixed;
+
+    top:18px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(1400px,95%);
+
+    z-index:var(--z-navigation);
+
+    transition:all .4s ease;
+
+}
+
+/*==============================
+NAVIGATION
+==============================*/
+
+#mainNav{
+
+    height:var(--nav-height);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 28px;
+
+    border-radius:24px;
+
+    background:rgba(12,12,12,.65);
+
+    backdrop-filter:blur(22px);
+
+    -webkit-backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+/*==============================
+LOGO
+==============================*/
+
+.logo{
+
+    font-size:1.1rem;
+
+    font-weight:800;
+
+    letter-spacing:.35rem;
+
+    color:var(--color-white);
+
+    user-select:none;
+
+    white-space:nowrap;
+
+}
+
+/*==============================
+LINKS
+==============================*/
+
+.navLinks{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:32px;
+
+}
+
+.navLinks li{
+
+    position:relative;
+
+}
+
+.navLinks a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    height:var(--nav-height);
+
+    color:var(--color-light);
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    letter-spacing:.08rem;
+
+    transition:all var(--speed-normal);
+
+}
+
+/*==============================
+UNDERLINE
+==============================*/
+
+.navLinks a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:18px;
+
+    transform:translateX(-50%);
+
+    width:0;
+
+    height:2px;
+
+    background:var(--color-white);
+
+    border-radius:20px;
+
+    transition:.35s;
+
+}
+
+.navLinks a:hover{
+
+    color:white;
+
+    transform:translateY(-2px);
+
+}
+
+.navLinks a:hover::after{
+
+    width:100%;
+
+}
+
+/*==============================
+ACTIVE PAGE
+==============================*/
+
+.navLinks a.active{
+
+    color:white;
+
+}
+
+.navLinks a.active::after{
+
+    width:100%;
+
+}
+
+/*==============================
+MENU BUTTON
+==============================*/
+
+#menuToggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+}
+
+/*==============================
+SCROLLED
+==============================*/
+
+#siteHeader.scrolled{
+
+    top:10px;
+
+}
+
+#siteHeader.scrolled #mainNav{
+
+    background:rgba(8,8,8,.88);
+
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media(max-width:1000px){
+
+#menuToggle{
+
+    display:block;
+
+}
+
+.navLinks{
+
+    position:fixed;
+
+    top:95px;
+
+    left:50%;
+
+    transform:translateX(-50%) scale(.96);
+
+    width:min(420px,92%);
+
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:30px;
+
+    border-radius:26px;
+
+    background:rgba(15,15,15,.94);
+
+    backdrop-filter:blur(20px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s;
+
+}
+
+.navLinks.active{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:translateX(-50%) scale(1);
+
+}
+
+.navLinks a{
+
+    height:auto;
+
+    padding:10px;
+
+}
+
+}
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    text-decoration:none;
+
+}
+
+.navLogo{
+
+    width:46px;
+
+    height:auto;
+
+    display:block;
+
+    flex-shrink:0;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,255,255,.15)
+        );
+
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+
+}
+
+.logo span{
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    letter-spacing:.12rem;
+
+    text-transform:uppercase;
+
+}
+
+.logo:hover .navLogo{
+
+    transform:
+        rotate(-8deg)
+        scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(255,255,255,.4)
+        );
+
+}
+@media(max-width:600px){
+
+    .navLogo{
+
+        width:40px;
+
+    }
+
+    .logo span{
+
+        font-size:.78rem;
+
+        letter-spacing:.08rem;
+
+    }
+
+}
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

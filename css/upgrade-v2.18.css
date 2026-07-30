@@ -1,0 +1,43 @@
+/* v2.18 — reliable forum avatar profile interactions */
+.forumAvatarButton{
+  appearance:none;
+  -webkit-appearance:none;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  width:46px;
+  height:46px;
+  padding:0;
+  margin:0;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  position:relative;
+  z-index:6;
+  pointer-events:auto!important;
+  cursor:pointer;
+  overflow:visible;
+}
+.forumReplyAvatarButton{width:38px;height:38px}
+.forumAvatarButton .avatar{
+  width:100%!important;
+  height:100%!important;
+  display:block;
+  pointer-events:none!important;
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+.forumAvatarButton:hover .avatar,
+.forumAvatarButton:focus-visible .avatar{
+  transform:scale(1.1);
+  filter:brightness(1.12);
+  box-shadow:0 0 0 3px rgba(173,99,255,.26),0 0 28px rgba(173,99,255,.5);
+}
+.forumAvatarButton:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.postTop,.forumReply{position:relative}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

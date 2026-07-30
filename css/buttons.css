@@ -1,0 +1,358 @@
+/*==================================================
+    SEEKER OF SOUNDZ v2
+    BUTTON SYSTEM
+==================================================*/
+
+/*==============================
+BASE BUTTON
+==============================*/
+
+.btn,
+.primaryButton,
+.secondaryButton,
+.iconButton{
+
+    position:relative;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    min-height:54px;
+
+    padding:16px 30px;
+
+    border-radius:var(--border-radius);
+
+    border:1px solid transparent;
+
+    font-weight:700;
+
+    letter-spacing:.08rem;
+
+    text-transform:uppercase;
+
+    overflow:hidden;
+
+    isolation:isolate;
+
+    transition:
+        transform var(--speed-normal),
+        background var(--speed-normal),
+        border-color var(--speed-normal),
+        box-shadow var(--speed-normal),
+        color var(--speed-normal);
+
+}
+
+/*==============================
+LIGHT SWEEP
+==============================*/
+
+.btn::before,
+.primaryButton::before,
+.secondaryButton::before,
+.iconButton::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-50%;
+
+    left:-120%;
+
+    width:70%;
+
+    height:200%;
+
+    transform:rotate(18deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
+    transition:left .75s ease;
+
+    z-index:-1;
+
+}
+
+.btn:hover::before,
+.primaryButton:hover::before,
+.secondaryButton:hover::before,
+.iconButton:hover::before{
+
+    left:150%;
+
+}
+
+/*==============================
+PRIMARY BUTTON
+==============================*/
+
+.primaryButton,
+.btn-primary{
+
+    background:var(--color-white);
+
+    color:#050505;
+
+    border-color:rgba(255,255,255,.9);
+
+    box-shadow:
+        0 16px 40px rgba(255,255,255,.14),
+        inset 0 1px 0 rgba(255,255,255,.85);
+
+}
+
+.primaryButton:hover,
+.btn-primary:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.025);
+
+    box-shadow:
+        0 24px 55px rgba(255,255,255,.2),
+        0 0 35px rgba(255,255,255,.12);
+
+}
+
+/*==============================
+SECONDARY BUTTON
+==============================*/
+
+.secondaryButton,
+.btn-secondary{
+
+    background:rgba(255,255,255,.045);
+
+    color:var(--color-white);
+
+    border-color:var(--color-border);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 12px 35px rgba(0,0,0,.28);
+
+}
+
+.secondaryButton:hover,
+.btn-secondary:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.025);
+
+    background:rgba(255,255,255,.09);
+
+    border-color:rgba(255,255,255,.22);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.42),
+        0 0 30px rgba(255,255,255,.08);
+
+}
+
+/*==============================
+GHOST BUTTON
+==============================*/
+
+.btn-ghost{
+
+    background:transparent;
+
+    color:var(--color-light);
+
+    border-color:rgba(255,255,255,.08);
+
+}
+
+.btn-ghost:hover{
+
+    color:white;
+
+    border-color:rgba(255,255,255,.25);
+
+    background:rgba(255,255,255,.04);
+
+    transform:translateY(-4px);
+
+}
+
+/*==============================
+ICON BUTTON
+==============================*/
+
+.iconButton{
+
+    width:54px;
+
+    min-width:54px;
+
+    height:54px;
+
+    padding:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+    border-color:var(--color-border);
+
+    backdrop-filter:blur(18px);
+
+}
+
+.iconButton:hover{
+
+    transform:
+        translateY(-4px)
+        rotate(4deg);
+
+    background:rgba(255,255,255,.1);
+
+    border-color:rgba(255,255,255,.22);
+
+    box-shadow:
+        0 0 30px rgba(255,255,255,.1);
+
+}
+
+/*==============================
+BUTTON GLOW RING
+==============================*/
+
+.primaryButton::after,
+.secondaryButton::after,
+.btn::after,
+.iconButton::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    border:1px solid rgba(255,255,255,0);
+
+    transition:
+        transform .45s ease,
+        opacity .45s ease,
+        border-color .45s ease;
+
+    opacity:0;
+
+}
+
+.primaryButton:hover::after,
+.secondaryButton:hover::after,
+.btn:hover::after,
+.iconButton:hover::after{
+
+    transform:scale(1.08);
+
+    opacity:1;
+
+    border-color:rgba(255,255,255,.14);
+
+}
+
+/*==============================
+ACTIVE PRESS
+==============================*/
+
+.btn:active,
+.primaryButton:active,
+.secondaryButton:active,
+.iconButton:active{
+
+    transform:
+        translateY(-1px)
+        scale(.98);
+
+}
+
+/*==============================
+DISABLED
+==============================*/
+
+.btn:disabled,
+.primaryButton:disabled,
+.secondaryButton:disabled,
+.iconButton:disabled,
+.btn.disabled{
+
+    opacity:.4;
+
+    pointer-events:none;
+
+    filter:grayscale(1);
+
+}
+
+/*==============================
+BUTTON GROUP
+==============================*/
+
+.buttonGroup{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+/*==============================
+FULL WIDTH
+==============================*/
+
+.btn-full{
+
+    width:100%;
+
+}
+
+/*==============================
+ACCESSIBILITY
+==============================*/
+
+.btn:focus-visible,
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.iconButton:focus-visible{
+
+    outline:2px solid white;
+
+    outline-offset:5px;
+
+}
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

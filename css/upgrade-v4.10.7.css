@@ -1,0 +1,57 @@
+/* v4.10.7 — forum composer/reply control reliability and hover polish */
+#newPostButton,
+.postActions [data-reply],
+.inlineReplyComposer .replySubmitButton,
+.inlineReplyComposer .replyCancelButton,
+.inlineReplyComposer .replyCloseButton{
+  position:relative!important;
+  z-index:8!important;
+  pointer-events:auto!important;
+  isolation:isolate;
+  touch-action:manipulation;
+}
+
+.forumToolbar::before,.forumToolbar::after,
+.forumPost::before,.forumPost::after,
+.inlineReplyComposer::before,.inlineReplyComposer::after{
+  pointer-events:none!important;
+}
+
+.postActions [data-reply]{
+  overflow:hidden;
+  border-color:rgba(174,119,255,.25)!important;
+  background:linear-gradient(135deg,rgba(91,43,142,.16),rgba(255,255,255,.035))!important;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease!important;
+}
+.postActions [data-reply]::after{
+  content:"";
+  position:absolute;
+  left:16%;right:16%;bottom:5px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(205,168,255,.95),transparent);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .22s ease;
+  pointer-events:none;
+}
+.postActions [data-reply]:hover,
+.postActions [data-reply]:focus-visible{
+  color:#fff!important;
+  border-color:rgba(190,139,255,.76)!important;
+  box-shadow:0 0 0 1px rgba(173,112,255,.13),0 0 22px rgba(130,65,210,.34),0 10px 26px rgba(0,0,0,.3)!important;
+  transform:translateY(-2px);
+}
+.postActions [data-reply]:hover::after,
+.postActions [data-reply]:focus-visible::after{transform:scaleX(1)}
+.postActions [data-reply]:active{transform:translateY(0) scale(.97)}
+
+#newPostButton:hover,#newPostButton:focus-visible,
+.replySubmitButton:hover,.replySubmitButton:focus-visible{
+  box-shadow:0 0 0 1px rgba(185,130,255,.18),0 0 26px rgba(132,68,215,.36),0 12px 30px rgba(0,0,0,.32)!important;
+}
+.inlineReplyComposer{position:relative;z-index:6;isolation:isolate}
+.inlineReplyComposer textarea{position:relative;z-index:2;pointer-events:auto!important}
+
+@media(max-width:760px){
+  .postActions [data-reply]{min-height:44px}
+}

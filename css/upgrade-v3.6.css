@@ -1,0 +1,63 @@
+/* Seeker Of SoundZ v3.6 — collaboration, admin, profiles, announcements, events and progress */
+.adminLayout{gap:24px}.adminMenu{position:sticky;top:100px;align-self:start;padding:14px;border:1px solid rgba(255,255,255,.1);border-radius:24px;background:linear-gradient(180deg,rgba(20,18,27,.92),rgba(7,7,10,.92));box-shadow:0 26px 70px rgba(0,0,0,.32)}.adminMenu button,.adminMenuLink{border-radius:14px!important;margin:3px 0}.adminMenu button.active{background:linear-gradient(135deg,rgba(165,95,255,.3),rgba(255,255,255,.08));box-shadow:inset 0 0 0 1px rgba(210,170,255,.2)}.adminPanel{min-height:620px;padding:clamp(20px,3vw,34px);border:1px solid rgba(255,255,255,.1);border-radius:30px;background:radial-gradient(circle at 100% 0,rgba(132,65,255,.1),transparent 30%),rgba(8,8,12,.72);box-shadow:0 35px 100px rgba(0,0,0,.35)}
+.collabMemberManager,.collabProgressPanel{padding:18px;border:1px solid rgba(255,255,255,.09);border-radius:20px;background:rgba(255,255,255,.025);margin-bottom:16px}.collabManagerHead,.collabProgressHead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.collabMemberChoices{display:grid;gap:9px;margin-top:14px}.collabMemberChoice{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:10px;padding:10px;border:1px solid rgba(255,255,255,.07);border-radius:15px;background:rgba(255,255,255,.025)}.collabMemberChoice.isAdded{border-color:rgba(183,128,255,.25);background:rgba(138,70,255,.08)}.collabMemberChoice img{width:42px;height:42px;border-radius:12px;object-fit:cover}.collabMemberChoice small{display:block;color:#888;margin-top:2px}.collabProgressTrack,.projectMiniProgress,.musicProgressTrack{height:10px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.08)}.collabProgressTrack{margin:15px 0 12px}.collabProgressTrack i,.projectMiniProgress i,.musicProgressTrack i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#9e64ff,#fff);box-shadow:0 0 16px rgba(170,115,255,.45)}.collabProgressPanel input[type=range]{width:100%;accent-color:#b881ff}.collabProgressState{margin-top:8px;color:#aaa;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em}.projectMiniProgress{margin:10px 0 8px;height:6px}.projectCardMeta{display:flex;justify-content:space-between;align-items:center}.projectCardMeta small{color:#aaa}
+.profileModule{background:radial-gradient(circle at 15% 0,rgba(160,86,255,.18),transparent 34%),linear-gradient(160deg,#0c0b12,#060609)!important;border-radius:34px!important}.profileModuleHero{position:relative;padding:24px!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.018));overflow:hidden}.profileModuleHero:after{content:"";position:absolute;inset:auto -10% -80% 35%;height:180px;background:radial-gradient(circle,rgba(145,70,255,.15),transparent 68%);pointer-events:none}.profilePanel{border-radius:22px!important;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018))!important}.adminProfileLink{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 14px;border:1px solid rgba(199,153,255,.3);border-radius:999px;background:rgba(137,66,255,.12);color:#fff;text-decoration:none}
+.homeAnnouncementRail{animation:announcementFloat 5s ease-in-out infinite;border-color:rgba(202,165,255,.2)!important;box-shadow:0 32px 90px rgba(0,0,0,.48),0 0 34px rgba(122,61,255,.08)!important}.homeAnnouncementTimer{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.06)}.homeAnnouncementTimer i{display:block;height:100%;width:100%;transform-origin:left;background:linear-gradient(90deg,#aa72ff,#fff)}.announcementTimerLabel{display:block;margin-top:6px;color:rgba(255,255,255,.42);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}@keyframes announcementFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.adminEventGrid,.adminProgressGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.eventAdminCard,.musicAdminProgressCard{padding:18px;border:1px solid rgba(255,255,255,.09);border-radius:20px;background:rgba(255,255,255,.028)}.eventAdminCard h3,.musicAdminProgressCard h3{margin:0 0 7px}.eventAdminMeta{color:#999;font-size:.8rem}.musicProgressBadge{display:inline-flex;margin-top:10px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}.musicProgressTrack{margin:12px 0}.dynamicEventsGrid{display:grid;gap:16px}.dynamicEventCard{display:grid;grid-template-columns:120px minmax(0,1fr) auto;align-items:center;gap:18px;padding:20px;border:1px solid rgba(255,255,255,.09);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018))}.dynamicEventDate{text-align:center;padding:14px;border-radius:16px;background:rgba(255,255,255,.05)}.dynamicEventDate strong{display:block;font-size:1.35rem}.dynamicEventCountdown{font-size:.78rem;color:#bfa1e8}.musicProgressPublic{margin-top:14px}.musicProgressPublicHead{display:flex;justify-content:space-between;color:#bbb;font-size:.78rem}
+@media(max-width:900px){.adminMenu{position:static}.adminEventGrid,.adminProgressGrid{grid-template-columns:1fr}.dynamicEventCard{grid-template-columns:1fr}.collabMemberChoice{grid-template-columns:38px 1fr auto}}
+@keyframes announcementCountdown{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+
+/* v4.1 Keep progression matching stages without crowded joined labels */
+#collabProgressMilestones{
+  position:relative;
+  min-height:16px;
+  margin-top:7px;
+}
+#collabProgressMilestones .collabMilestoneTick{
+  position:absolute;
+  top:0;
+  width:2px;
+  height:8px;
+  padding:0!important;
+  margin:0!important;
+  overflow:visible;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:rgba(224,202,255,.48);
+  box-shadow:0 0 6px rgba(180,117,255,.22);
+  font-size:0!important;
+  line-height:0!important;
+  color:transparent!important;
+}
+#collabProgressMilestones .collabMilestoneTick::after{
+  content:attr(aria-label);
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 8px);
+  z-index:20;
+  width:max-content;
+  max-width:180px;
+  padding:6px 9px;
+  border:1px solid rgba(199,147,255,.25);
+  border-radius:9px;
+  background:#0b0711;
+  color:#fff;
+  font-size:.68rem;
+  line-height:1.2;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transform:translate(-50%,5px);
+  transition:opacity .18s ease,transform .18s ease;
+}
+#collabProgressMilestones .collabMilestoneTick:hover::after{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

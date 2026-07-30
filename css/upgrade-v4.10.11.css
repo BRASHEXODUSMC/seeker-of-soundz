@@ -1,0 +1,79 @@
+/* =========================================================
+   v4.10.11 — Full EDM Concert Console
+   Additive upgrade for the existing Live Frequency DJ Stage.
+========================================================= */
+#liveDjStageSection{position:relative;z-index:2}
+body.dj-show-live #liveDjStageSection{z-index:8002}
+.djFocusBackdrop{position:fixed;inset:0;z-index:8000;background:rgba(0,0,0,.88);backdrop-filter:blur(12px) saturate(.55);-webkit-backdrop-filter:blur(12px) saturate(.55);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .42s ease,visibility .42s ease}
+body.dj-show-live .djFocusBackdrop{opacity:1;visibility:visible}
+body.dj-show-live #liveDjStageSection .container{position:relative;z-index:8003}
+body.dj-show-live #liveDjStageSection{filter:none!important}
+
+.liveFrequencyStage{--dj-primary:157,82,255;--dj-secondary:75,212,255;--dj-accent:232,205,255;--dj-intensity:1;--dj-laser-speed:1;--dj-laser-alpha:.8;min-height:700px;background:linear-gradient(180deg,rgba(4,3,8,.99),rgba(0,0,2,.995));box-shadow:0 34px 120px rgba(0,0,0,.78),0 0 60px rgba(var(--dj-primary),.12),inset 0 1px 0 rgba(255,255,255,.07)}
+.liveFrequencyStage[data-color-preset="ultraviolet"]{--dj-primary:116,44,255;--dj-secondary:197,72,255;--dj-accent:231,214,255}
+.liveFrequencyStage[data-color-preset="cyan"]{--dj-primary:0,219,255;--dj-secondary:72,109,255;--dj-accent:203,250,255}
+.liveFrequencyStage[data-color-preset="magenta"]{--dj-primary:255,38,180;--dj-secondary:131,61,255;--dj-accent:255,220,246}
+.liveFrequencyStage[data-color-preset="white"]{--dj-primary:245,248,255;--dj-secondary:159,182,255;--dj-accent:255,255,255}
+.liveFrequencyStage[data-color-preset="redblue"]{--dj-primary:255,42,73;--dj-secondary:38,119,255;--dj-accent:255,231,235}
+.liveFrequencyStage[data-color-preset="rainbow"]{--dj-primary:255,55,190;--dj-secondary:43,225,255;--dj-accent:255,244,180}
+
+.djStageHeader{background:linear-gradient(180deg,rgba(255,255,255,.025),transparent)}
+.djStageViewport{min-height:430px;overflow:hidden;background:radial-gradient(ellipse at center bottom,rgba(var(--dj-primary),.2),transparent 66%),linear-gradient(180deg,#010104,#05020a 64%,#000)}
+#djVisualizerCanvas{height:430px;z-index:4;filter:drop-shadow(0 0 10px rgba(var(--dj-primary),.34))}
+.djStageGlow{z-index:1;background:radial-gradient(ellipse,rgba(var(--dj-primary),calc(.28 * var(--dj-intensity))),transparent 68%)}
+.djVenueHaze{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.5;background:radial-gradient(ellipse at 20% 70%,rgba(var(--dj-secondary),.13),transparent 32%),radial-gradient(ellipse at 80% 66%,rgba(var(--dj-primary),.16),transparent 34%);filter:blur(25px);animation:djHazeDrift 9s ease-in-out infinite alternate}
+@keyframes djHazeDrift{to{transform:translate3d(2.5%,-2%,0) scale(1.05);opacity:.72}}
+.djStageWash{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 25%,rgba(var(--dj-primary),.3),transparent 46%),linear-gradient(115deg,transparent 15%,rgba(var(--dj-secondary),.08) 48%,transparent 78%)}
+.liveFrequencyStage.is-playing.lights-on .djStageWash{opacity:calc(.6 * var(--dj-intensity));animation:djWashPulse 2.8s ease-in-out infinite}
+@keyframes djWashPulse{50%{opacity:calc(.95 * var(--dj-intensity));filter:hue-rotate(18deg)}}
+
+.djSpotlights,.djLasers{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:hidden}
+.djSpotlight{position:absolute;top:-14%;width:19%;height:112%;opacity:0;transform-origin:50% 0;background:linear-gradient(to bottom,rgba(var(--dj-accent),.88),rgba(var(--dj-primary),.2) 32%,transparent 78%);clip-path:polygon(48% 0,52% 0,100% 100%,0 100%);filter:blur(2px) drop-shadow(0 0 14px rgba(var(--dj-primary),.9));mix-blend-mode:screen}
+.djSpotlight.s1{left:4%;transform:rotate(-22deg)}.djSpotlight.s2{left:30%;transform:rotate(-7deg)}.djSpotlight.s3{right:30%;transform:rotate(7deg)}.djSpotlight.s4{right:4%;transform:rotate(22deg)}
+.liveFrequencyStage.is-playing.spots-on .djSpotlight{opacity:calc(.48 * var(--dj-intensity));animation:djSpotArena 5.5s ease-in-out infinite alternate}
+.liveFrequencyStage.is-playing.spots-on .s2{animation-delay:-1.4s}.liveFrequencyStage.is-playing.spots-on .s3{animation-delay:-2.8s}.liveFrequencyStage.is-playing.spots-on .s4{animation-delay:-4.1s}
+@keyframes djSpotArena{0%{transform:rotate(-28deg) scaleX(.8)}100%{transform:rotate(28deg) scaleX(1.12)}}
+.liveFrequencyStage[data-light-preset="cross"] .s1,.liveFrequencyStage[data-light-preset="cross"] .s3{animation-name:djSpotCross}.liveFrequencyStage[data-light-preset="cross"] .s2,.liveFrequencyStage[data-light-preset="cross"] .s4{animation-name:djSpotCrossReverse}
+@keyframes djSpotCross{to{transform:rotate(38deg)}}@keyframes djSpotCrossReverse{to{transform:rotate(-38deg)}}
+.liveFrequencyStage[data-light-preset="fan"] .djSpotlight{animation-duration:7.2s}.liveFrequencyStage[data-light-preset="pulse"] .djSpotlight{animation:djSpotPulse 2.3s ease-in-out infinite}
+@keyframes djSpotPulse{0%,100%{opacity:.14;transform:scaleX(.7)}50%{opacity:.75;transform:scaleX(1.2)}}
+.liveFrequencyStage[data-light-preset="search"] .djSpotlight{animation-duration:3.8s}.liveFrequencyStage[data-light-preset="still"] .djSpotlight{animation:none!important;opacity:.34!important}
+
+.djLaser{position:absolute;top:-4%;width:3px;height:116%;opacity:0;transform-origin:50% 0;background:linear-gradient(to bottom,rgba(var(--dj-accent),1),rgba(var(--dj-primary),.95) 18%,rgba(var(--dj-secondary),.48) 62%,transparent 100%);box-shadow:0 0 5px rgba(var(--dj-accent),1),0 0 16px rgba(var(--dj-primary),1),0 0 34px rgba(var(--dj-secondary),.7);filter:brightness(1.35);mix-blend-mode:screen}
+.djLaser.l1{left:8%;--start:-34deg;--end:18deg}.djLaser.l2{left:20%;--start:-25deg;--end:27deg}.djLaser.l3{left:34%;--start:-16deg;--end:34deg}.djLaser.l4{left:47%;--start:-7deg;--end:40deg}.djLaser.l5{right:47%;--start:7deg;--end:-40deg}.djLaser.l6{right:34%;--start:16deg;--end:-34deg}.djLaser.l7{right:20%;--start:25deg;--end:-27deg}.djLaser.l8{right:8%;--start:34deg;--end:-18deg}
+.liveFrequencyStage.is-playing.lasers-on .djLaser{opacity:var(--dj-laser-alpha);animation:djLaserSweep calc(4.3s / var(--dj-laser-speed)) ease-in-out infinite alternate;transform:rotate(var(--start))}
+.liveFrequencyStage.is-playing.lasers-on .l2{animation-delay:-.55s}.liveFrequencyStage.is-playing.lasers-on .l3{animation-delay:-1.1s}.liveFrequencyStage.is-playing.lasers-on .l4{animation-delay:-1.65s}.liveFrequencyStage.is-playing.lasers-on .l5{animation-delay:-2.2s}.liveFrequencyStage.is-playing.lasers-on .l6{animation-delay:-2.75s}.liveFrequencyStage.is-playing.lasers-on .l7{animation-delay:-3.3s}.liveFrequencyStage.is-playing.lasers-on .l8{animation-delay:-3.85s}
+@keyframes djLaserSweep{to{transform:rotate(var(--end)) scaleY(1.05);filter:brightness(1.8) hue-rotate(22deg)}}
+.liveFrequencyStage[data-laser-preset="crossfire"] .djLaser{--start:-42deg;--end:42deg}.liveFrequencyStage[data-laser-preset="scanner"] .djLaser{animation-duration:calc(2.7s / var(--dj-laser-speed));height:94%}.liveFrequencyStage[data-laser-preset="prism"] .djLaser{animation-name:djLaserPrism;transform-origin:50% 0}
+@keyframes djLaserPrism{0%{transform:rotate(var(--start)) scaleX(.5)}50%{transform:rotate(0deg) scaleX(2)}100%{transform:rotate(var(--end)) scaleX(.5)}}
+.liveFrequencyStage[data-laser-preset="tunnel"] .djLaser{left:50%;right:auto;--start:-48deg;--end:48deg;animation-duration:calc(5.2s / var(--dj-laser-speed))}.liveFrequencyStage[data-laser-preset="sides"] .l3,.liveFrequencyStage[data-laser-preset="sides"] .l4,.liveFrequencyStage[data-laser-preset="sides"] .l5,.liveFrequencyStage[data-laser-preset="sides"] .l6{display:none}.liveFrequencyStage[data-laser-preset="minimal"] .djLaser{display:none}.liveFrequencyStage[data-laser-preset="minimal"] .l2,.liveFrequencyStage[data-laser-preset="minimal"] .l7{display:block;opacity:var(--dj-laser-alpha)}
+
+.djStrobe{z-index:7;background:radial-gradient(circle at 50% 38%,rgba(255,255,255,.68),rgba(var(--dj-primary),.12) 30%,transparent 62%)}
+.liveFrequencyStage.is-playing.strobe-on .djStrobe{animation:djSafeConcertPulse 3.2s ease-in-out infinite}
+@keyframes djSafeConcertPulse{0%,72%,100%{opacity:0}80%{opacity:.18}86%{opacity:.035}}
+.djCrowdGlow{position:absolute;left:-5%;right:-5%;bottom:-8%;height:33%;z-index:3;opacity:0;pointer-events:none;background:radial-gradient(ellipse at 12% 100%,rgba(var(--dj-secondary),.32),transparent 26%),radial-gradient(ellipse at 42% 100%,rgba(var(--dj-primary),.38),transparent 28%),radial-gradient(ellipse at 74% 100%,rgba(var(--dj-secondary),.28),transparent 27%),radial-gradient(ellipse at 94% 100%,rgba(var(--dj-primary),.25),transparent 24%);filter:blur(9px)}
+.liveFrequencyStage.is-playing.crowd-on .djCrowdGlow{opacity:.9;animation:djCrowdPulse 1.9s ease-in-out infinite alternate}
+@keyframes djCrowdPulse{to{opacity:.45;transform:scaleY(.86)}}
+
+.djDeck{z-index:9;border-color:rgba(var(--dj-primary),.32);background:rgba(1,1,5,.84);box-shadow:0 20px 55px rgba(0,0,0,.7),0 0 32px rgba(var(--dj-primary),.14)}
+.djPlatter{border-color:rgba(var(--dj-primary),.62);background:repeating-radial-gradient(circle,rgba(255,255,255,.13) 0 1px,transparent 1px 7px),radial-gradient(circle,rgb(var(--dj-primary)) 0 8%,#15101c 9% 42%,#030305 43%);box-shadow:0 0 28px rgba(var(--dj-primary),.34)}
+.djControlConsole{position:relative;z-index:10;display:grid;gap:14px;padding:20px 24px;border-top:1px solid rgba(255,255,255,.07);background:rgba(0,0,3,.66)}
+.djConsoleSection{padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));box-shadow:inset 0 1px 0 rgba(255,255,255,.045)}
+.djConsoleSection h3{margin:0 0 12px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(var(--dj-accent),.82)}
+.djConsoleGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.djControlGroup select{border-color:rgba(var(--dj-primary),.34);background:#050309}
+.djToggleButton[aria-pressed=true]{border-color:rgba(var(--dj-primary),.85);background:rgba(var(--dj-primary),.22);box-shadow:0 0 22px rgba(var(--dj-primary),.25)}
+.djToggleButton:hover,.djStageButton:hover{border-color:rgba(var(--dj-accent),.8);box-shadow:0 0 25px rgba(var(--dj-primary),.3)}
+.djStageFooter{padding-top:4px}
+
+html.performance-mode .djVenueHaze,html.performance-mode .djStageWash,html.performance-mode .djSpotlights,html.performance-mode .djLasers,html.performance-mode .djStrobe,html.performance-mode .djCrowdGlow,html.performance-mode .djFocusBackdrop{display:none!important}
+html.performance-mode body.dj-show-live .djFocusBackdrop{display:none!important}
+@media(max-width:1000px){.djConsoleGrid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.djStageViewport,#djVisualizerCanvas{height:390px;min-height:390px}.djConsoleGrid{grid-template-columns:1fr}.djControlConsole{padding:16px}.djConsoleSection{padding:14px}.djSpotlight{width:28%}.liveFrequencyStage{min-height:780px}}
+@media(prefers-reduced-motion:reduce){.djVenueHaze,.djStageWash,.djSpotlight,.djLaser,.djStrobe,.djCrowdGlow{animation:none!important}.liveFrequencyStage.is-playing.spots-on .djSpotlight{opacity:.3}.liveFrequencyStage.is-playing.lasers-on .djLaser{opacity:.35}.djFocusBackdrop{transition:none}}
+/* Override legacy v4.10.9 combined light rules so every new control is independent. */
+.liveFrequencyStage.is-playing:not(.lasers-on) .djLaser{opacity:0!important;animation:none!important}
+.liveFrequencyStage.is-playing:not(.strobe-on) .djStrobe{opacity:0!important;animation:none!important}
+.liveFrequencyStage.is-playing:not(.spots-on) .djSpotlight{opacity:0!important;animation:none!important}
+.liveFrequencyStage.is-playing:not(.lights-on) .djStageWash{opacity:0!important;animation:none!important}
+.liveFrequencyStage.is-playing:not(.crowd-on) .djCrowdGlow{opacity:0!important;animation:none!important}

@@ -1,0 +1,22 @@
+/* Seeker Of SoundZ v4.4 — equal member cards and storage status polish */
+.dashboardGrid{align-items:stretch;grid-auto-flow:row}
+.dashboardGrid>.dashboardCard,.dashboardGrid>.memberSpecialAccess>.memberAccessCard{height:100%;min-height:230px}
+.dashboardCard,.memberAccessCard{display:flex;flex-direction:column;align-items:flex-start}
+.dashboardCard .secondaryButton,.memberAccessCard .secondaryButton{margin-top:auto}
+.memberSpecialAccess{display:contents!important;margin:0!important}
+.memberAccessCard{padding:clamp(22px,4vw,38px);border-radius:28px;box-shadow:var(--shadow-medium)}
+.memberAccessCard small{margin-bottom:18px}
+.memberAccessCard::after{content:"Open";display:inline-flex;align-items:center;justify-content:center;margin-top:auto;min-height:42px;padding:10px 16px;border:1px solid rgba(255,255,255,.15);border-radius:12px;background:rgba(255,255,255,.055);color:#fff;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.collabStorageStatus{display:grid;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.68);font-size:.75rem;line-height:1.45}
+.collabStorageStatus strong{color:#fff}
+.collabStorageMeter{height:6px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.08)}
+.collabStorageMeter span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,rgba(164,111,255,.65),rgba(232,212,255,.95));transform-origin:left center}
+@media(max-width:900px){.dashboardGrid>.dashboardCard,.dashboardGrid>.memberSpecialAccess>.memberAccessCard{min-height:220px}}
+@media(max-width:600px){.dashboardGrid>.dashboardCard,.dashboardGrid>.memberSpecialAccess>.memberAccessCard{min-height:0}}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

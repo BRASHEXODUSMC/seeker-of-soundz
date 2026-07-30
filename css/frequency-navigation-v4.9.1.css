@@ -1,0 +1,136 @@
+/* =========================================================
+   Seeker Of SoundZ v4.9.1 — Frequency Navigation + Notice Center
+   ========================================================= */
+:root{--nav-signal-x:50%;--nav-signal-strength:.22}
+
+#sharedNavigation{position:relative!important;z-index:30000!important}
+#siteHeader{
+  z-index:30000!important;
+  overflow:visible;
+  animation:navIdleBreath 8s ease-in-out infinite;
+}
+#mainNav{
+  position:relative!important;
+  overflow:visible;
+  isolation:isolate;
+  background:linear-gradient(120deg,rgba(4,4,7,.92),rgba(12,8,16,.84) 45%,rgba(4,4,7,.94))!important;
+  border-color:rgba(205,177,224,.16)!important;
+  box-shadow:0 18px 55px rgba(0,0,0,.52),inset 0 1px 0 rgba(255,255,255,.055),0 0 0 1px rgba(113,67,139,.035)!important;
+  transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease,background .35s ease!important;
+}
+#mainNav::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;
+  background:radial-gradient(260px circle at var(--nav-signal-x) 50%,rgba(157,101,191,calc(var(--nav-signal-strength) * .34)),transparent 72%);
+  opacity:.72;transition:opacity .3s ease;
+}
+#mainNav:hover{
+  transform:translateY(-2px);
+  border-color:rgba(206,170,229,.28)!important;
+  box-shadow:0 24px 70px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.08),0 0 34px rgba(102,55,130,.08)!important;
+}
+.navSignalSweep{
+  position:absolute;inset:0;overflow:hidden;border-radius:inherit;z-index:-1;pointer-events:none;
+}
+.navSignalSweep::before{
+  content:"";position:absolute;top:-45%;bottom:-45%;left:-28%;width:22%;
+  background:linear-gradient(90deg,transparent,rgba(208,176,228,.035),rgba(255,255,255,.11),rgba(208,176,228,.035),transparent);
+  filter:blur(2px);transform:skewX(-16deg);animation:navSignalSweep 7.5s ease-in-out infinite;
+}
+.navSignalTrack{
+  position:absolute;left:24px;right:24px;bottom:7px;height:14px;z-index:4;pointer-events:none;
+  border-bottom:1px solid rgba(186,148,207,.11);
+}
+.navSignalTrack::before{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(132,79,160,.16),rgba(235,213,246,.2),rgba(132,79,160,.16),transparent);
+  animation:navTrackPulse 4.8s ease-in-out infinite;
+}
+.navActiveGlider{
+  position:absolute;left:0;bottom:-3px;width:30px;height:7px;border-radius:999px;
+  background:linear-gradient(90deg,transparent,rgba(229,200,244,.95),transparent);
+  box-shadow:0 0 10px rgba(195,145,220,.72),0 0 22px rgba(125,70,153,.4);
+  transform:translateX(var(--glider-x,0));transition:width .48s cubic-bezier(.2,.8,.2,1),transform .48s cubic-bezier(.2,.8,.2,1),opacity .25s ease;
+}
+.navActiveGlider::after{
+  content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;border-radius:50%;background:#fff;
+  transform:translate(-50%,-50%);box-shadow:0 0 0 4px rgba(173,113,203,.1),0 0 13px rgba(255,255,255,.85);
+  animation:navGliderNode 1.9s ease-in-out infinite;
+}
+.navLinks a{
+  z-index:5;border-radius:12px;padding-inline:5px;
+  transition:color .25s ease,text-shadow .25s ease,transform .25s ease,letter-spacing .25s ease!important;
+}
+.navLinks a:hover,.navLinks a:focus-visible{
+  transform:translateY(-2px)!important;letter-spacing:.105rem;color:#fff!important;
+  text-shadow:0 0 14px rgba(212,176,231,.48)!important;
+}
+.navLinks a::before{
+  content:"";position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;z-index:-1;
+  background:rgba(221,190,238,.5);box-shadow:0 0 14px 8px rgba(137,78,168,.11);
+  opacity:0;transform:translate(-50%,-50%) scale(.2);transition:.28s ease;
+}
+.navLinks a:hover::before,.navLinks a:focus-visible::before{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.navLinks a::after{display:none!important}
+.logoImageOnly{position:relative;z-index:6}
+.logoImageOnly::after{
+  content:"";position:absolute;inset:7px;border-radius:50%;z-index:-1;background:rgba(142,82,171,.08);
+  filter:blur(8px);opacity:0;transform:scale(.7);transition:.3s ease;
+}
+.logoImageOnly:hover::after{opacity:1;transform:scale(1.35)}
+.navIconButton,.cursorSwitch{position:relative;z-index:6}
+
+@keyframes navIdleBreath{0%,100%{filter:none}50%{filter:drop-shadow(0 0 7px rgba(103,57,129,.07))}}
+@keyframes navSignalSweep{0%,62%{transform:translateX(0) skewX(-16deg);opacity:0}68%{opacity:1}88%,100%{transform:translateX(650%) skewX(-16deg);opacity:0}}
+@keyframes navTrackPulse{0%,100%{opacity:.42}50%{opacity:.9}}
+@keyframes navGliderNode{50%{transform:translate(-50%,-50%) scale(1.3);box-shadow:0 0 0 6px rgba(173,113,203,.045),0 0 18px rgba(255,255,255,.95)}}
+
+/* Compact notification center: never covers primary hero controls. */
+.sosNoticeCenter{position:fixed;right:clamp(14px,2vw,28px);top:calc(18px + var(--nav-height,70px) + 18px);z-index:24000;font-family:inherit}
+.sosNoticeToggle{
+  min-width:0;height:42px;display:flex;align-items:center;gap:9px;padding:0 13px;border:1px solid rgba(210,180,226,.16);
+  border-radius:14px;background:rgba(5,5,8,.9);color:#fff;backdrop-filter:blur(18px);box-shadow:0 14px 35px rgba(0,0,0,.42);
+  transition:.28s ease;
+}
+.sosNoticeToggle:hover,.sosNoticeToggle:focus-visible{transform:translateY(-2px);border-color:rgba(220,185,238,.34);box-shadow:0 18px 45px rgba(0,0,0,.52),0 0 22px rgba(119,65,146,.1)}
+.sosNoticeBell{font-size:.9rem}.sosNoticeCount{min-width:19px;height:19px;padding:0 5px;border-radius:999px;display:grid;place-items:center;background:#fff;color:#09070b;font-size:.67rem;font-weight:900}
+.sosNoticeLabel{font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.sosNoticePanel{
+  position:absolute;right:0;top:52px;width:min(360px,calc(100vw - 28px));max-height:min(480px,calc(100vh - 150px));overflow:auto;
+  padding:12px;border:1px solid rgba(210,180,226,.16);border-radius:20px;background:linear-gradient(155deg,rgba(12,10,15,.98),rgba(3,3,5,.98));
+  box-shadow:0 30px 80px rgba(0,0,0,.72),inset 0 1px 0 rgba(255,255,255,.05);backdrop-filter:blur(22px);
+  opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px) scale(.98);transform-origin:top right;transition:.28s cubic-bezier(.2,.8,.2,1);
+}
+.sosNoticeCenter.open .sosNoticePanel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+.sosNoticeHead{display:flex;align-items:center;justify-content:space-between;padding:7px 8px 12px;border-bottom:1px solid rgba(255,255,255,.07)}
+.sosNoticeHead strong{font-size:.8rem;letter-spacing:.11em;text-transform:uppercase}.sosNoticeClose{width:30px;height:30px;border:1px solid rgba(255,255,255,.09);border-radius:9px;background:rgba(255,255,255,.025);color:#fff}
+.sosNoticeList{display:grid;gap:8px;padding-top:10px}.sosNoticeItem{display:grid;grid-template-columns:36px 1fr;gap:10px;padding:11px;border:1px solid rgba(255,255,255,.07);border-radius:14px;background:rgba(255,255,255,.025)}
+.sosNoticeItemIcon{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.sosNoticeItem strong{display:block;margin-bottom:4px;font-size:.82rem}.sosNoticeItem p{margin:0;color:rgba(255,255,255,.62);font-size:.74rem;line-height:1.45}.sosNoticeItem a{display:inline-flex;margin-top:7px;color:#dec4ed;font-size:.7rem;font-weight:800}.sosNoticeEmpty{padding:22px 14px;text-align:center;color:rgba(255,255,255,.48);font-size:.78rem}
+
+/* Keep homepage broadcasts in document flow instead of overlapping hero buttons. */
+.homeAnnouncementRail{margin:22px auto 44px!important;transform:none!important;animation:none!important;position:relative!important;z-index:8!important}
+.toastStack{top:calc(18px + var(--nav-height,70px) + 72px)!important;max-height:calc(100vh - 180px);overflow:hidden}
+
+@media(max-width:1000px){
+  #mainNav{overflow:visible}
+  .navSignalTrack{display:none}
+  .navLinks{
+    overflow:hidden!important;transform:translateX(-50%) translateY(-12px) scale(.97)!important;
+    transform-origin:top center!important;background:linear-gradient(180deg,rgba(8,7,11,.985),rgba(3,3,5,.985))!important;
+    border:1px solid rgba(204,171,223,.16)!important;box-shadow:0 30px 75px rgba(0,0,0,.72)!important;
+  }
+  .navLinks::before{content:"";position:absolute;left:18px;right:18px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(225,199,239,.5),transparent);animation:navTrackPulse 3s ease-in-out infinite}
+  .navLinks.active{transform:translateX(-50%) translateY(0) scale(1)!important}
+  .navLinks li{width:100%}.navLinks a{width:100%;justify-content:center;border-radius:12px;height:46px!important}
+  .navLinks a.active{background:rgba(139,80,169,.08);box-shadow:inset 0 0 0 1px rgba(187,148,208,.08)}
+  .sosNoticeCenter{top:84px}
+}
+@media(max-width:700px){
+  #siteHeader{animation:none}
+  .sosNoticeCenter{right:12px;top:76px}
+  .sosNoticeLabel{display:none}.sosNoticeToggle{width:42px;padding:0;justify-content:center}.sosNoticeCount{position:absolute;right:-5px;top:-5px}
+  .toastStack{top:126px!important}
+}
+@media(prefers-reduced-motion:reduce){#siteHeader,.navSignalSweep::before,.navSignalTrack::before,.navActiveGlider::after{animation:none!important}}
+html.performance-mode #siteHeader{animation:none!important}
+html.performance-mode .navSignalSweep,html.performance-mode .navSignalTrack::before{display:none!important}

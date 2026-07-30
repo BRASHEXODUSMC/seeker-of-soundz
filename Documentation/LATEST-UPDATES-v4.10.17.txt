@@ -1,0 +1,18 @@
+SEEKER OF SOUNDZ — LATEST UPDATES (v4.10.17)
+
+MEMBER PROFILE VISIBILITY
+- Members may hide the compact Frequency Updates control from their own signed-in experience.
+- Members may hide rotating announcement banners from their own signed-in experience.
+- Preferences save per account and restore at sign-in.
+
+DJ LASER COLOR DESIGNER
+- Random multi-color laser mode.
+- Solid laser mode.
+- Solid options: violet, cyan, magenta, green, gold, red, blue and white.
+- Laser color preview and saved browser preference.
+- Reset to Default also restores random violet-based multi-color lasers.
+
+DOCUMENTATION
+- All historical update notes and changelogs consolidated into Documentation/RELEASE-NOTES-COMPLETE.txt.
+- Full categorized site overview added as Documentation/WEBSITE-FEATURE-SUMMARY.txt.
+- A Latest Updates page is included in the website root.

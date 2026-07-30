@@ -1,0 +1,86 @@
+/* Seeker Of SoundZ v4.7.9 — cinematic dark-space refinement */
+html{
+  background:#000;
+}
+body{
+  background:linear-gradient(180deg,#160226 0%,#11011d 22%,#0b0113 48%,#050008 76%,#000 100%)!important;
+  background-attachment:fixed!important;
+}
+body::before{
+  background:linear-gradient(180deg,rgba(32,4,52,.18),rgba(0,0,0,.45) 68%,rgba(0,0,0,.72))!important;
+}
+#snowCanvas{
+  position:fixed!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  z-index:-1!important;
+  background:transparent!important;
+  opacity:.9;
+  pointer-events:none!important;
+}
+
+/* Understated reply moderation action */
+.replyDeleteButton{
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  min-height:34px!important;
+  padding:0!important;
+  display:inline-grid!important;
+  place-items:center!important;
+  border:1px solid rgba(255,255,255,.1)!important;
+  border-radius:10px!important;
+  background:rgba(8,4,13,.72)!important;
+  color:rgba(255,255,255,.58)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+  transform:none!important;
+  transition:border-color .18s ease,background .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease!important;
+}
+.replyDeleteButton .replyDeleteText{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.replyDeleteButton .replyDeleteIcon{
+  width:15px!important;
+  height:17px!important;
+  display:block!important;
+  position:relative!important;
+  border:1.5px solid currentColor!important;
+  border-top:0!important;
+  border-radius:2px 2px 4px 4px!important;
+  background:transparent!important;
+  transform:none!important;
+}
+.replyDeleteButton .replyDeleteIcon::before{
+  content:"";
+  position:absolute;
+  left:-3px;
+  top:-5px;
+  width:18px;
+  height:1.5px;
+  border-radius:2px;
+  background:currentColor;
+}
+.replyDeleteButton .replyDeleteIcon::after{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:-8px;
+  width:6px;
+  height:3px;
+  border:1.5px solid currentColor;
+  border-bottom:0;
+  border-radius:3px 3px 0 0;
+}
+.replyDeleteButton:hover,.replyDeleteButton:focus-visible{
+  color:#ff7890!important;
+  border-color:rgba(255,78,109,.52)!important;
+  background:rgba(78,7,24,.42)!important;
+  box-shadow:0 0 0 3px rgba(255,58,92,.08),0 0 18px rgba(255,45,78,.14)!important;
+  transform:translateY(-1px)!important;
+}
+.replyDeleteButton:active{transform:translateY(0) scale(.94)!important}
+
+@media(max-width:700px){
+  #snowCanvas{opacity:.78}
+  .replyDeleteButton{width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important}
+}
+@media(prefers-reduced-motion:reduce){#snowCanvas{opacity:.55}}

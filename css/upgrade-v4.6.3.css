@@ -1,0 +1,164 @@
+/* Seeker Of SoundZ v4.6.3 — delete modal cursor layer + danger glow */
+:root{
+  --sos-cursor-layer:2147483647;
+  --sos-modal-layer:2147483000;
+}
+
+/* Keep every visual custom-cursor part above every site module. */
+#cursor{
+  position:fixed!important;
+  inset:0!important;
+  z-index:var(--sos-cursor-layer)!important;
+  pointer-events:none!important;
+  display:block;
+  overflow:visible!important;
+  contain:none!important;
+  isolation:auto!important;
+  transform:none!important;
+}
+#cursorDot,#cursorRing{
+  position:fixed!important;
+  z-index:var(--sos-cursor-layer)!important;
+  pointer-events:none!important;
+  visibility:inherit!important;
+}
+html:not(.nativeCursor) body.sosModalCursorActive #cursor{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+html:not(.nativeCursor) body.sosModalCursorActive #cursorDot,
+html:not(.nativeCursor) body.sosModalCursorActive #cursorRing{
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+/* All delete layers remain beneath the custom cursor. */
+.forumDeleteModal,
+.collabModal,
+.quickViewModal,
+.deleteConfirmModal,
+[data-delete-modal],
+[role="alertdialog"]{
+  z-index:var(--sos-modal-layer)!important;
+}
+.forumDeleteModal *,
+.collabDeleteCard *,
+.deleteConfirmModal *,
+[role="alertdialog"] *{
+  cursor:none!important;
+}
+html.nativeCursor .forumDeleteModal *,
+html.nativeCursor .collabDeleteCard *,
+html.nativeCursor .deleteConfirmModal *,
+html.nativeCursor [role="alertdialog"] *{
+  cursor:auto!important;
+}
+
+/* Strong, unmistakable red danger highlight for confirmation controls. */
+.forumDeleteConfirm,
+.collabDangerButton,
+[data-confirm-delete],
+.confirmDeleteButton,
+.deleteConfirmButton{
+  position:relative!important;
+  overflow:hidden!important;
+  border:1px solid rgba(255,112,136,.72)!important;
+  background:linear-gradient(135deg,#ff3159 0%,#d31242 50%,#85001f 100%)!important;
+  color:#fff!important;
+  box-shadow:0 0 18px rgba(255,31,74,.24),inset 0 1px 0 rgba(255,255,255,.16)!important;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,filter .2s ease!important;
+}
+.forumDeleteConfirm::after,
+.collabDangerButton::after,
+[data-confirm-delete]::after,
+.confirmDeleteButton::after,
+.deleteConfirmButton::after{
+  content:"";
+  position:absolute;
+  inset:-45%;
+  background:radial-gradient(circle,rgba(255,255,255,.34),transparent 46%);
+  opacity:0;
+  transform:scale(.45);
+  pointer-events:none;
+  transition:opacity .22s ease,transform .3s ease;
+}
+.forumDeleteConfirm:hover,
+.forumDeleteConfirm:focus-visible,
+.collabDangerButton:hover,
+.collabDangerButton:focus-visible,
+[data-confirm-delete]:hover,
+[data-confirm-delete]:focus-visible,
+.confirmDeleteButton:hover,
+.confirmDeleteButton:focus-visible,
+.deleteConfirmButton:hover,
+.deleteConfirmButton:focus-visible{
+  transform:translateY(-2px) scale(1.02)!important;
+  border-color:#ff9db0!important;
+  filter:saturate(1.18) brightness(1.08)!important;
+  box-shadow:0 0 14px rgba(255,35,78,.72),0 0 34px rgba(255,17,62,.52),0 0 65px rgba(255,0,48,.28),inset 0 0 16px rgba(255,255,255,.12)!important;
+  outline:0!important;
+}
+.forumDeleteConfirm:hover::after,
+.forumDeleteConfirm:focus-visible::after,
+.collabDangerButton:hover::after,
+.collabDangerButton:focus-visible::after,
+[data-confirm-delete]:hover::after,
+[data-confirm-delete]:focus-visible::after,
+.confirmDeleteButton:hover::after,
+.confirmDeleteButton:focus-visible::after,
+.deleteConfirmButton:hover::after,
+.deleteConfirmButton:focus-visible::after{
+  opacity:.72;
+  transform:scale(1);
+}
+.forumDeleteConfirm:active,
+.collabDangerButton:active,
+[data-confirm-delete]:active,
+.confirmDeleteButton:active,
+.deleteConfirmButton:active{
+  transform:translateY(0) scale(.98)!important;
+  box-shadow:0 0 11px rgba(255,31,74,.82),0 0 25px rgba(255,0,48,.42)!important;
+}
+
+body.cursorDangerHover #cursorRing{
+  width:42px!important;
+  height:42px!important;
+  border-color:#ff5f7c!important;
+  box-shadow:0 0 13px rgba(255,42,79,.7),0 0 28px rgba(255,17,61,.32)!important;
+}
+body.cursorDangerHover #cursorDot{
+  background:#ff708a!important;
+  box-shadow:0 0 10px rgba(255,61,97,.8)!important;
+}
+
+/* v4.6.4 Collaboration performance feedback */
+.collabPerformanceNotice {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  background: rgba(0,0,0,.34);
+  color: rgba(255,255,255,.72);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+.collaborationPage audio[data-audio-pending="true"] {
+  min-height: 40px;
+  opacity: .78;
+}
+
+/* v4.6.5 collaboration freeze recovery */
+.collaborationPage .collabRecoveryNotice{margin-top:14px;padding:14px;border:1px solid rgba(255,92,92,.35);border-radius:14px;background:rgba(90,12,20,.18);display:grid;gap:8px}
+.collaborationPage .collabRecoveryNotice strong{color:#ff9a9a}
+.collaborationPage .collabRecoveryNotice span{font-size:.84rem;line-height:1.55;color:rgba(255,255,255,.76)}
+.collaborationPage .collabRecoveryActions{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.collaborationPage .collabShell,.collaborationPage .collabMessages,.collaborationPage .collabInspector{contain:layout paint style}
+.collaborationPage .collabBubble,.collaborationPage .projectCard,.collaborationPage .adminListItem{content-visibility:auto;contain-intrinsic-size:120px}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

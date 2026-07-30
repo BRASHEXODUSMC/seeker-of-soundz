@@ -1,0 +1,11 @@
+/* v2.12 visual merchandise section and variant builder */
+.variantBuilder{margin:18px 0;padding:18px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.025)}
+.variantHeader{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:14px}.variantHeader strong{display:block;font-size:1rem}.variantHeader small{display:block;margin-top:4px;color:rgba(255,255,255,.58)}.variantTools{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.variantChoices{display:flex;flex-wrap:wrap;gap:8px}.variantChoice{min-width:48px;padding:9px 11px;border:1px solid rgba(255,255,255,.13);border-radius:11px;background:rgba(255,255,255,.035);color:#fff;font:inherit;font-size:.82rem;transition:.18s ease}.variantChoice:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.08)}.variantChoice.selected{border-color:#fff;background:#fff;color:#0a0a0c;box-shadow:0 0 22px rgba(255,255,255,.18)}.colorChoice{display:inline-flex;align-items:center;gap:8px;min-width:105px;text-align:left}.colorChoice i{width:18px;height:18px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:var(--swatch);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}.colorChoice.selected i{border-color:rgba(0,0,0,.35)}.customColorSwatch{background:conic-gradient(#b86cff,#62d8ff,#ff80bd,#f4d45f,#b86cff)!important}.customVariantRow{display:flex;gap:10px;margin-top:14px}.customVariantRow input{flex:1;min-width:0}.customVariantRow .secondaryButton{white-space:nowrap;padding:11px 16px}.adminListItem small{display:block;margin-top:5px;color:rgba(255,255,255,.55)}
+@media(max-width:700px){.variantHeader{flex-direction:column}.variantTools{justify-content:flex-start}.colorChoice{min-width:calc(50% - 4px)}.customVariantRow{flex-direction:column}.customVariantRow .secondaryButton{width:100%}}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

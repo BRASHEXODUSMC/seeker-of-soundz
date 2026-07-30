@@ -1,0 +1,13 @@
+/* v2.11 Videos page layout and Admin Video Studio */
+.videoFeature{align-items:stretch;isolation:isolate}.videoFrame,.videoDetails{min-width:0}.videoFrame{height:auto;min-height:clamp(340px,44vw,560px)}.videoFrame img{position:absolute;inset:0}.videoDetails{position:relative;z-index:2;overflow-wrap:anywhere;background:linear-gradient(145deg,rgba(12,12,16,.96),rgba(5,5,7,.94))}.videoDetails h2,.videoDescription{max-width:100%}.videoActions a{max-width:100%}
+.adminVideoGrid:empty{display:none}.videoCardTrigger{display:block;width:100%;height:100%;padding:0;border:0;background:transparent;color:inherit;text-align:left}.adminVideoCard{padding:30px}.videoCardTrigger .releaseArtwork{position:relative}.videoCardPlay{position:absolute;left:50%;top:50%;display:grid;place-items:center;width:66px;height:66px;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:rgba(0,0,0,.62);font-size:1.3rem;transform:translate(-50%,-50%);transition:.3s}.videoCardTrigger:hover .videoCardPlay{transform:translate(-50%,-50%) scale(1.1);background:rgba(255,255,255,.18)}.videoFeaturedBadge{position:absolute;top:14px;left:14px;padding:7px 11px;border-radius:999px;background:#fff;color:#050505;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.videoModalPanel{width:min(1040px,94vw);aspect-ratio:auto;max-height:90vh;display:block;overflow:auto;padding:0}.videoModalMedia{width:100%;aspect-ratio:16/9;background:#000;border-radius:24px 24px 0 0;overflow:hidden}.videoModalMedia iframe,.videoModalMedia video{width:100%;height:100%;border:0;object-fit:contain}.videoModalMedia .videoModalMessage{height:100%;display:grid;place-content:center}.videoModalInfo{padding:24px 30px 30px}.videoModalInfo h3{font-size:clamp(1.5rem,3vw,2.5rem);margin:.35rem 0 .65rem}.videoModalInfo p:last-child{color:rgba(255,255,255,.7);line-height:1.75}.videoModalClose{z-index:5}
+@media(max-width:900px){.videoFeature{grid-template-columns:1fr!important}.videoFrame{min-height:clamp(280px,60vw,430px)}.videoDetails{padding:32px!important}.videoDetails h2{font-size:clamp(1.8rem,7vw,3rem)}}
+@media(max-width:620px){.videoModal{padding:10px}.videoModalPanel{width:100%;border-radius:18px}.videoModalMedia{border-radius:18px 18px 0 0}.videoModalInfo{padding:20px}.adminVideoCard{padding:24px}}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

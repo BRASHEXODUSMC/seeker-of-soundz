@@ -1,0 +1,1465 @@
+SEEKER OF SOUNDZ — COMPLETE RELEASE NOTES
+Consolidated through v4.10.17
+
+========================================================================================
+UPDATE-NOTES-v2.10.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.10 - COMMUNITY + MERCH TOOLS
+
+1. ADMIN TAG DELETION
+Open admin.html, sign in as an admin, choose Forum Moderation, and use the User-created tags section. Deleting a tag removes it from every post without deleting the posts.
+
+2. MERCH EDIT BUTTON
+Open Admin > Merch Store. Every custom product now has Edit and Delete buttons. Edit loads the existing details into the form. Click Save Changes when finished.
+
+3. QUICK VIEW IMAGE ZOOM
+Open Merch > Quick View and move the cursor across a product image. The image zooms around the exact cursor position like a modern apparel storefront.
+
+4. FORUM EMOJIS
+The post editor and inline reply editor now include emoji buttons. Click an emoji to insert it at the current text cursor position.
+
+This remains a browser-local demo. Data is stored in localStorage.
+
+========================================================================================
+UPDATE-NOTES-v2.11.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.11 — VIDEO MANAGER UPDATE
+
+WHAT WAS FIXED
+- The featured Videos page layout no longer allows the video/image area to overlap the text.
+- The two columns now have safe minimum widths, wrapping, and a mobile stacked layout.
+
+ADMIN VIDEO MANAGER
+1. Sign in with an Admin account.
+2. Open admin.html.
+3. Choose Video Manager.
+4. Enter a title, category, description, video link, and thumbnail.
+5. You may drag and drop a thumbnail; it is resized/compressed in the browser.
+6. Press Publish Video.
+
+SUPPORTED LINKS
+- YouTube watch and youtu.be links embed directly.
+- Vimeo links embed directly.
+- Direct .mp4, .webm, and .ogg links use the built-in HTML5 video player.
+- Other links display an Open Video button.
+
+EDITING AND DELETING
+- Admin → Video Manager lists every admin-created video.
+- Use Edit to update it or Delete to remove it.
+- Featured videos are sorted before normal videos.
+
+LOCAL PREVIEW NOTE
+Admin-created entries and uploaded thumbnail data are stored in localStorage in the current browser. For a live multi-user site, connect the project to a backend and file storage service.
+
+========================================================================================
+UPDATE-NOTES-v2.12.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.12 — MERCH VARIANT BUILDER
+
+ADMIN > MERCH STORE
+
+1. MERCHANDISE SECTIONS
+Choose Apparel, Accessories, Headwear, Footwear, Bags, Home & Lifestyle, Digital Products, or Music.
+Choose “Create New Section” to type your own section name, such as Collectibles or Limited Drops.
+
+2. PRODUCT CATEGORIES
+The category menu changes automatically based on the merchandise section. You can also use the custom category field.
+
+3. SIZES
+Click any number of preset size buttons. The builder includes apparel sizes, youth sizes, one-size products, shoe sizes, and numeric clothing sizes. Use Add Size for a custom value.
+
+4. COLORS
+Click any number of color buttons. A large color selection is included. Use Add Color for any custom color name.
+
+5. EDITING
+The existing Edit button reloads the product and automatically reselects its current section, category, sizes, colors, image, price, and description.
+
+All selected size and color values appear inside the existing customer Quick View selector.
+
+========================================================================================
+UPDATE-NOTES-v2.13.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.13 — GALLERY MANAGER + FULL MUSIC RELEASE UPLOAD
+
+GALLERY MANAGER
+1. Sign in with an admin account.
+2. Open admin.html.
+3. Select Gallery Manager in the left menu.
+4. Enter a title, category, description, optional photo credit, and layout.
+5. Drag and drop an image or click the upload box.
+6. Click Publish Image.
+
+Published images automatically appear on gallery.html. Admins can Edit or Delete them from Gallery Manager. Once at least one admin gallery image exists, the page replaces the original empty placeholders with your uploaded collection.
+
+FULL MUSIC RELEASE DRAG & DROP
+Admin → Music Manager now includes three upload boxes: cover artwork, preview audio, and full release. Drop the full MP3/WAV into Full Release before publishing.
+
+LOCAL STORAGE NOTE
+This edition stores uploads in the browser for local testing. Gallery images are compressed automatically. Keep preview audio under 4 MB and full release audio under 8 MB. A production website should upload files to real hosting/cloud storage and store only their URLs.
+
+========================================================================================
+UPDATE-NOTES-v2.14.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.14 — COMMUNITY PROFILES, ROLES & ACHIEVEMENTS
+
+NEW FORUM FEATURES
+- New EDM Community section with genre-focused subcategories.
+- New Help & FAQ section with account, forum, purchase, vault, and technical-support subcategories.
+- Every new topic can choose both a main forum section and subcategory.
+- Existing tags, custom tags, emojis, images, replies, and moderation remain available.
+
+MEMBER PROFILE MODULE
+- Hover a member name in Forums for a quick profile card.
+- Click a member name for the complete profile module.
+- Profiles show avatar, role, bio, location, join date, social links, forum analytics, and achievements.
+- Signed-in members edit their profile under Members > Custom Profile Module.
+
+ACHIEVEMENTS
+Achievements unlock automatically from forum activity, including first topic, replies, likes, contribution milestones, VIP status, and admin status.
+
+ROLES
+In Admin > Members, use the new role selector beneath each account to assign Member, VIP Member, Moderator, or Admin.
+
+LOCAL PREVIEW NOTE
+This package stores accounts, profiles, posts, achievements, and roles in browser localStorage. For a public production website, connect the interface to a secure database and server-side authentication.
+
+========================================================================================
+UPDATE-NOTES-v2.15.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.15
+FORUM PROFILE VIEWER, 80+ ACHIEVEMENTS, AND EXPANDED EMOJIS
+
+PROFILE VIEWER
+- Hover over a member name or avatar on a forum topic or reply to see the member card.
+- The hover card stays open while the mouse is over it.
+- Click the member name, avatar, or View Full Profile button to open the complete profile module.
+- Every account created in Admin > Members has its own public forum profile.
+- Profiles show role, bio, location, social links, topic/reply/like totals, recent topics, and achievements.
+
+ACHIEVEMENTS
+- More than 80 achievements are included.
+- Achievements cover topics, replies, likes, tags, categories, EDM interactions, production topics, DJ topics, images, links, emojis, profile completion, roles, and total activity.
+- Click Achievement Hall at the top of the Forums page.
+- From any member profile, click View Achievements.
+- The clean Achievement Hall shows unlocked and locked badges, progress, and filters by group.
+
+EMOJIS
+- The original quick emoji row remains available.
+- Click + More Emojis in a new topic or reply editor.
+- The expanded picker includes Smileys, Hands, Music, Hearts, Objects, Nature, Food, and Flags.
+- Replies remain displayed below their forum topic while the picker and profile modules are used.
+
+LOCAL DEMO NOTE
+Accounts, posts, profiles, achievements, and settings are stored in the current browser using localStorage. A production multi-device site should connect these interfaces to a secure backend/database.
+
+========================================================================================
+UPDATE-NOTES-v2.16.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.16
+
+NEW: DOCKED EMOJI LIBRARY
+- The full emoji library no longer darkens or covers the whole screen.
+- It opens as a compact floating panel beside the More Emojis button.
+- Forum topics and replies remain visible while choosing emojis.
+- Click outside the panel or press Escape to close it.
+
+NEW: PRODUCER HUB
+- Open producer-hub.html or use Plugins in the navigation.
+- Search plugins, samples, presets, marketplaces, and learning resources.
+- Filter by resource type and Free/Paid/Mixed availability.
+- Every card opens the official creator or marketplace page in a new tab.
+
+ADMIN RESOURCE MANAGER
+- Sign in with an admin account and open producer-hub.html.
+- The Administrator Studio appears at the bottom.
+- Add a name, vendor, type, price type, category, icon, official URL, description, and search tags.
+- Published resources appear immediately.
+- Admins can delete resources or restore the example directory.
+
+IMPORTANT
+This local HTML edition does not scrape marketplace listings or process purchases. A true live marketplace API requires permission/API credentials from each provider and a secure backend. This version provides a safe admin-managed directory that sends visitors to official purchase/download pages. Prices and licenses should be checked on those destination pages.
+
+========================================================================================
+UPDATE-NOTES-v2.17.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.17
+
+PRODUCER HUB
+- Expanded to more than 70 seeded resources covering FL Studio-friendly plugins, effects, sample packs, genre libraries, MIDI beat patterns, and free WAV one-shots.
+- Search by name, vendor, description, keyword, and tag.
+- Filter by resource type, price, and scrollable category buttons.
+- Paginated results let visitors cycle through the large directory without loading one enormous page.
+- Free Seeker Of SoundZ MIDI patterns and WAV one-shots download directly from the site.
+- External commercial products continue to open their official vendor pages.
+- Admins can add more resources from the Producer Hub admin studio.
+
+FORUM PROFILES
+- Forum member avatars now work exactly like member names.
+- Hover an avatar to see the profile preview.
+- Click an avatar to open the full profile module.
+- Keyboard users can focus the avatar and press Enter or Space.
+
+IMPORTANT
+External plugin and sample licenses, prices, compatibility, and download availability are controlled by their vendors. Only the included local Seeker Of SoundZ freebies use direct browser downloads.
+
+========================================================================================
+UPDATE-NOTES-v2.18.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.18 — FORUM AVATAR PROFILE FIX
+
+FIXED
+- Forum member profile images are now real accessible buttons instead of relying on the image itself.
+- Hovering a topic avatar opens the member profile preview card.
+- Hovering a reply avatar opens the member profile preview card.
+- Clicking either avatar opens the complete member profile module.
+- Member names and the View Full Profile button continue to work.
+- Keyboard users can focus an avatar and press Enter or Space to open the profile.
+
+The change only affects forum profile interaction and does not remove the Producer Hub, achievements, emojis, replies, music, merchandise, gallery, videos, announcements, or admin tools.
+
+========================================================================================
+UPDATE-NOTES-v2.19.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.19
+200+ PRODUCER & DJ DIRECTORY
+
+Added 334 organized resources.
+
+NEW SOFTWARE DIVISIONS
+- FL Studio Native
+- FL Studio / VST3
+- Ableton Live
+- Logic Pro / macOS
+- Bitwig Studio
+- Studio One
+- Cubase / VST3
+- Pro Tools / AAX
+- DJ Performance software
+- DJ Hardware
+- All-DAW samples and marketplaces
+
+USING THE PAGE
+Open producer-hub.html. Search by product, vendor, genre, category, or keyword. Use the software/system selector to show only compatible or relevant sections.
+
+FREE DOWNLOADS
+Included local MIDI and WAV freebies continue to use direct Download Free buttons. External free products use their official pages so visitors can review licenses and compatibility before downloading.
+
+ADMIN
+Admin users can add resources and choose their software ecosystem. The Restore Examples button restores the complete expanded directory.
+
+========================================================================================
+UPDATE-NOTES-v2.2.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.2 — LOGO CUBES + CART NOTIFICATIONS
+
+WHAT CHANGED
+1. The cinematic startup loader was restored to its previous design.
+   No cubes are added to the startup loader.
+
+2. Decorative cubes now orbit the visible Seeker Of SoundZ logo images on the pages.
+   This includes the navigation logo and large page/hero logo where present.
+   Loader, profile-avatar, and transition images are excluded automatically.
+
+3. Page changes retain the short cube-and-logo transition.
+
+4. Cart and site notifications now appear in the upper-right corner.
+   They slide in, display an animated timer, then disappear automatically.
+   Product notifications include a View Cart button.
+
+FILES UPDATED
+- css/app-shell.css
+- js/app-shell.js
+- All HTML pages (startup-loader cube elements removed)
+
+EDITING THE NOTIFICATION POSITION
+Open css/app-shell.css and find .toastStack.
+Adjust top and right to move the notification stack.
+
+EDITING HOW LONG NOTIFICATIONS STAY
+Open js/app-shell.js and find setTimeout(dismiss,3200).
+3200 means 3.2 seconds.
+
+========================================================================================
+UPDATE-NOTES-v2.8.txt
+========================================================================================
+SEEKER OF SOUNDZ v2.8
+QUICK VIEW CURSOR + NAVIGATION CLEANUP
+
+WHAT CHANGED
+1. The custom cursor now stays above the merchandise Quick View window.
+2. The cursor remains visible over product images, size choices, color choices,
+   quantity controls, Add to Cart, product links, and the animated close button.
+3. Turning the custom cursor off still restores the normal system cursor inside
+   Quick View and throughout the site.
+4. The words “Seeker Of SoundZ” were removed from the navigation brand area.
+   The logo image remains clickable and still returns visitors to the homepage.
+5. No loader, store, forum, music, account, cart, announcement, or admin features
+   were removed.
+
+========================================================================================
+UPDATE-NOTES-v3.0.txt
+========================================================================================
+Seeker Of SoundZ v3.0
+- Replaced snow with a richer nebula/starfield background.
+- Removed the large custom-cursor glow and click-ripple effect.
+- Added Collaboration Studio to navigation and Admin.
+- Added private local-preview direct messages and media attachments.
+- Added project statuses, notes, collaborators, and version/media history.
+- Added backend-readiness documentation for real multi-device messaging.
+
+========================================================================================
+UPDATE-NOTES-v3.1.txt
+========================================================================================
+SEEKER OF SOUNDZ v3.1 — LIGHTWEIGHT CURSOR UPDATE
+
+Changes:
+- Removed the large glowing light that followed the cursor.
+- Removed cursor bloom, blur, pseudo-element glow layers, and click-ripple creation.
+- Kept the small custom cursor dot and outline ring.
+- Kept the navbar cursor ON/OFF switch and saved preference.
+- Kept subtle ring sizing on clickable items with no glow.
+- Added GPU-friendly positioning and containment to reduce repainting.
+- All v3.0 Cosmic Collaboration Studio features remain included.
+
+========================================================================================
+UPDATE-NOTES-v3.2.txt
+========================================================================================
+SEEKER OF SOUNDZ v3.2
+
+CURSOR PERFORMANCE FIX
+- Removed the cursor-following radial light from js/heroCanvas.js.
+- The nebula, stars, cosmic dust, shooting stars, waveform, and lightweight custom cursor remain enabled.
+- This removes the large full-canvas repaint centered on the mouse that caused lag on the homepage.
+
+HTML FORMATTING
+- Reformatted every main HTML page into readable, properly indented multi-line HTML.
+- No pages or existing site features were intentionally removed.
+
+EDITED FILES
+- js/heroCanvas.js
+- about.html
+- admin.html
+- collaboration.html
+- contact.html
+- events.html
+- forums.html
+- gallery.html
+- index.html
+- members.html
+- merch.html
+- music.html
+- producer-hub.html
+- socials.html
+- videos.html
+
+========================================================================================
+UPDATE-NOTES-v3.3.txt
+========================================================================================
+SEEKER OF SOUNDZ v3.3
+
+PRIVATE COLLABORATION STUDIO
+- Collaboration is removed from the public navbar.
+- Admins always have access.
+- Other members must be approved by an admin.
+- A member can send Contact → Collaboration request.
+- Admin can approve from Admin → Contact Inbox when the email matches an account, or grant/remove access in Admin → Members.
+
+NAVIGATION
+- Refined compact cosmic navigation styling.
+- When custom cursor is disabled, links and controls now use the normal pointer instead of a text-selection cursor.
+
+FORUM EMOJIS
+- Picker is smaller and stays beside the reply composer.
+- Opening or inserting an emoji preserves the current scroll position, so the page no longer jumps to the bottom.
+- Replies remain visible while choosing emojis.
+
+========================================================================================
+UPDATE-NOTES-v3.4.txt
+========================================================================================
+SEEKER OF SOUNDZ v3.4 — EMOJI SEARCH + REPLY EDITOR UPDATE
+
+1. Fixed the custom emoji search field losing focus and jumping position.
+   - The picker is no longer rebuilt on every typed character.
+   - Only the emoji results grid updates while typing.
+   - Search now accepts useful words such as music, happy, fire, food, flags, nature, hands, and more.
+   - Category switching no longer moves the page.
+
+2. Redesigned the forum reply editor.
+   - New premium panel layout.
+   - Clear header, helper text, character counter, quick emoji row, and improved actions.
+   - Better focus styling and mobile layout.
+
+3. Added animated close/remove behavior.
+   - Reply editor closes with a smooth animation.
+   - Emoji picker closes with a smooth animation.
+   - Close buttons rotate and glow red on hover/focus.
+
+========================================================================================
+UPDATE-NOTES-v3.5.txt
+========================================================================================
+SEEKER OF SOUNDZ v3.5
+
+HOMEPAGE PERFORMANCE UPDATE
+
+- Removed the animated oscilloscope waveform from the index page.
+- Removed the large radial light / nebula glow source.
+- Removed the duplicate hero animation canvas from the homepage.
+- Kept a lightweight twinkling star field.
+- Added recurring shooting stars with randomized timing.
+- Removed mouse-following background calculations and expensive canvas blur filters.
+- Reduced device-pixel-ratio rendering cost for smoother performance.
+
+========================================================================================
+UPDATE-NOTES-v3.6.txt
+========================================================================================
+SEEKER OF SOUNDZ v3.6 UPDATE NOTES
+
+COLLABORATION STUDIO
+- Project owners and admins can add or remove approved collaborators.
+- Project cards now show visual completion progress.
+- Added a 0–100% progression slider with Not Started, In Progress, and Completed states.
+- Production stages update the suggested project percentage.
+- Private access remains limited to admins and approved members.
+
+ADMIN ACCESS
+- Admin-only Open Admin Hub links are added to the account/profile experience.
+- Regular member profiles never receive this link.
+
+PROFILES
+- Refined profile modal surfaces, hero section, panels, spacing, and modern glass styling.
+
+ANNOUNCEMENTS
+- Homepage announcements now float subtly.
+- Each announcement supports its own cycle timer in seconds.
+- Added a visible animated countdown bar and timer label.
+
+EVENTS
+- Added Events Manager to the admin sidebar.
+- Admins can publish, hide, show, and delete events.
+- Published events render directly on events.html with countdowns.
+
+MUSIC PROGRESSION
+- Music Manager now includes a 0–100% completion control.
+- 0% displays Not started.
+- 1–99% displays In progress.
+- 100% displays Completed.
+- Public music cards receive matching progress displays when a managed release is found.
+
+ADMIN LAYOUT
+- Updated admin sidebar, panel surfaces, spacing, active states, and responsive layouts.
+
+NOTE
+This package remains a local browser-storage preview. Real private multi-user synchronization requires a connected backend.
+
+========================================================================================
+UPDATE-NOTES-v3.7.txt
+========================================================================================
+SEEKER OF SOUNDZ v3.7 — COLLABORATION STUDIO UPDATE
+
+1. Collaboration uploads are now audio-only.
+   Supported file choices include MP3, WAV, FLAC, OGG, M4A, AAC, AIFF, OPUS, WMA, ALAC and MIDI.
+   The local browser preview limits files to 8 MB because uploads are stored in localStorage.
+
+2. Every collaboration project now has its own separate conversation.
+   Creating or selecting a different project opens that project's private messages and audio history.
+
+3. Project creation now uses a custom premium modal instead of the browser prompt.
+   It includes project title, first collaborator, starting stage and project notes.
+
+4. The progression slider now maps directly to the named production stages.
+   Moving the slider updates the nearest stage name. Clicking a stage also sets its matching percentage.
+
+5. On Hold now keeps the existing percentage and displays with a red glow in the project card,
+   active project status, stage button and progress panel.
+
+6. Project owners and admins can remove projects and continue adding/removing collaborators.
+
+========================================================================================
+UPDATE-NOTES-v3.8.txt
+========================================================================================
+SEEKER OF SOUNDZ v3.8 UPDATE NOTES
+
+ADMIN PANEL
+- Sidebar sections now switch inside the existing admin module.
+- The page keeps its current scroll position instead of jumping.
+- Added a short fade/slide transition and subtle panel sheen.
+- The previous panel height is held during the transition to prevent layout shifts.
+- Added cleaner active and hover states to admin navigation buttons.
+
+CUSTOM CURSOR + CATEGORY SELECTS
+- Fixed the custom cursor remaining frozen after opening a category/select menu.
+- The cursor now safely pauses while the browser-native option list is open.
+- It snaps back to the current pointer position immediately after a selection, blur, Enter, Escape, or Tab.
+- This applies to category selectors and every other select menu throughout the site.
+
+NOTE
+Browser-native select option lists are drawn by the operating system, so the standard pointer can briefly appear inside the opened option list. The custom cursor now returns correctly and no longer stays frozen afterward.
+
+========================================================================================
+UPDATE-NOTES-v3.9.txt
+========================================================================================
+SEEKER OF SOUNDZ v3.9 — PERSISTENT CUSTOM CURSOR FIX
+=====================================================
+
+FIXED
+-----
+- Removed the v3.8 behavior that hid the custom cursor whenever a select/category menu opened.
+- Removed the nativeSelectOpen cursor-hiding CSS rules.
+- Removed all selectOpen pause/recovery code from js/cursor.js.
+- The custom cursor now remains enabled while creating forum posts, selecting categories,
+  using forms, opening modals, and interacting with dynamically-created controls.
+- Added focus and change recovery so the custom cursor immediately remains visible after
+  selecting a dropdown value.
+- Kept the Admin Hub module transitions from v3.8 unchanged.
+
+MAIN FILES UPDATED
+------------------
+- js/cursor.js
+- css/upgrade-v3.8.css
+
+========================================================================================
+UPDATE-NOTES-v4.0.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.0 — FORUM DELETE + COSMIC LOADER
+
+- Replaced the forum post browser confirm box with a custom animated delete modal.
+- Added a post preview, Keep Post action, animated red delete action, and a rotating red-glow close button.
+- The modal closes with Escape, the backdrop, or either cancel control.
+- Updated the loader background to use the site's purple cosmic color while loading.
+- Added star layers and a lightweight shooting-star pass to the loader.
+- Kept the existing logo, orbit rings, particles, scan, status text, percentage, and progress bar.
+- The loader remains once per browser session.
+
+========================================================================================
+UPDATE-NOTES-v4.1.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.1
+
+- Fixed clipped custom-emoji category tabs. Category names now remain fully visible in a horizontally scrollable row on desktop and mobile.
+- Reworked the loader to match the site's dark purple-black page background instead of the brighter purple treatment.
+- Loader stars are generated individually and appear one-by-one while loading, then subtly twinkle.
+- Removed the static CSS star sheet from the loader.
+- Removed the crowded progression words under the collaboration slider.
+- Collaboration progress still maps to every production stage. Small milestone ticks preserve stage matching and reveal the stage name on hover.
+
+========================================================================================
+UPDATE-NOTES-v4.10.1.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.1 — NAVBAR SEARCH BUTTON FIX
+
+- Keeps the Search label fully contained inside the navbar button.
+- Rebuilds the button as a single horizontal flex control instead of allowing its icon and label to stack or overflow.
+- Adds safe minimum/maximum widths, clipping, and text handling.
+- Automatically changes to an icon-only search button at medium and mobile widths to prevent navbar crowding.
+- Does not alter the search panel, site content, loader, particles, forums, or account systems.
+
+========================================================================================
+UPDATE-NOTES-v4.10.10.txt
+========================================================================================
+Seeker Of SoundZ v4.10.10 — Signed-Out Forum Access Fix
+
+- Signed-out visitors can no longer add or remove post heart reactions.
+- Signed-out visitors can no longer add or remove emoji reactions on replies.
+- Clicking a reaction while signed out now shows a Members Only notice.
+- Clicking Create Post while signed out stays on the Forums page and shows the sign-in notice.
+- Clicking Reply while signed out stays on the Forums page and shows the sign-in notice.
+- Reply form submission also displays the sign-in notice instead of silently failing.
+- All v4.10.9 DJ stage and previous forum hitbox/control fixes remain included.
+
+========================================================================================
+UPDATE-NOTES-v4.10.11.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.11 — FULL EDM CONCERT EXPERIENCE
+
+Music page upgrades:
+- Ten selectable waveform/visualizer modes.
+- Separate stage light, spotlight, safe strobe, laser, crowd glow, and focus controls.
+- Seven laser patterns and six spotlight programs.
+- Laser speed and brightness controls.
+- Multiple concert color atmospheres.
+- Visual intensity control.
+- Blackout Focus mode darkens and blurs the rest of the page while audio plays.
+- The normal page returns automatically when audio pauses, ends, or stops.
+- Controls are saved in browser storage.
+- Performance Mode disables the concert lighting and focus overlay.
+- Reduced-motion preferences receive a simplified experience.
+
+Safety note:
+The strobe option is intentionally a slow pulse rather than rapid flashing.
+
+========================================================================================
+UPDATE-NOTES-v4.10.12.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.12 — EDM STAGE TEST & FOCUS FIX
+
+- Added a built-in royalty-free synthesized EDM demo track for testing the concert stage.
+- Added Play Demo Track and Stop Show controls.
+- Rebuilt Blackout Focus using a top-level stage portal so the stage always remains above the black blurred page backdrop.
+- The page returns to normal immediately when audio pauses, ends, or is stopped.
+- Increased the visibility of lasers, moving spotlights, stage wash, floor lighting, and the safe strobe pulse.
+- Preserved all existing site systems and concert customization controls.
+
+========================================================================================
+UPDATE-NOTES-v4.10.13.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.13
+DJ PLAYBACK MODES & WEBSITE TRACK QUEUE
+
+Added to the Live Frequency DJ Stage:
+- Stop after current track mode
+- Loop current track mode
+- Play full website queue mode
+- Previous and Next track controls
+- Expandable website track list
+- Click any listed track to play or pause it
+- Automatic queue advance when a track ends
+- Queue count and current-track highlighting
+- Playback choice saved in browser storage
+
+The built-in demo track and any playable audio previews already present on the Music page are included in the queue automatically.
+
+========================================================================================
+UPDATE-NOTES-v4.10.14.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.14
+MUSIC PAGE LOAD / DJ QUEUE STABILITY FIX
+
+Fixed the Music page failing to finish loading after the v4.10.13 queue update.
+
+- Removed the global unfiltered DOM observer loop from the DJ queue.
+- The DJ system now only rescans when new audio elements are actually added.
+- Queue rendering no longer observes and retriggers itself.
+- Added requestAnimationFrame debouncing for late-loaded admin music previews.
+- Added safe optional control bindings so one missing control cannot stop the page.
+- Preserved loop current track, stop after current track, full queue, previous/next, and the expandable track list.
+- Preserved the full EDM concert visuals, demo track, blackout focus, and all earlier website features.
+
+========================================================================================
+UPDATE-NOTES-v4.10.15.txt
+========================================================================================
+Seeker Of SoundZ v4.10.15
+
+- Live Frequency DJ Stage is now available only to signed-in members.
+- Signed-out visitors see an aesthetic login gate instead of the visualizer controls.
+- Strengthened the slow strobe pulse and added brightness/rhythm controls.
+- Added venue fog, LED wall, moving beam grid, bass pulse, spark fountains, and confetti.
+- Added five complete show presets.
+- Added selectable laser quantities from 2 to 16 beams.
+- Performance Mode still disables the expanded concert effects.
+- Admin Music Manager now supports external purchase URLs, custom purchase button text, preview labels, license text, and release dates.
+- Uploaded previews connect to the DJ stage and purchase links appear on music store cards.
+
+========================================================================================
+UPDATE-NOTES-v4.10.16.txt
+========================================================================================
+Seeker Of SoundZ v4.10.16 — DJ Show Designer Expansion
+
+- Added a prominent Reset to Default control for the concert system.
+- Added optional Auto-reset after track ends.
+- Added 12 concert presets total, including Neon Megacity, Thunder Dome, Afterhours, Dream State, Laser Laboratory, Sunrise Finale, and Cyber Pulse.
+- Added a Custom Strobe Designer with selectable patterns, rhythm slider, brightness slider, and flash-width slider.
+- Strobe rhythm remains capped to accessibility-conscious ranges.
+- Existing member-only gate, queue, visualizers, lasers, spotlights, blackout focus, admin music previews, and purchase links remain intact.
+
+========================================================================================
+UPDATE-NOTES-v4.10.2.txt
+========================================================================================
+Seeker Of SoundZ v4.10.2
+
+- Added true live transition preset previews in the Member Experience Studio.
+- Each transition selection now plays its own distinct miniature animation immediately.
+- Added Stellar Signal Jump, Soft Fade, Frequency Aperture, Star Warp, Signal Scan, Orbiting Cubes, and Instant Minimal previews.
+- Added transition names, preview orbit rings, stars, scan line, aperture panels, warp streaks, and cubes inside the preview stage.
+- Kept the v4.10.1 navbar Search button sizing fix.
+- No forum, merch, admin, collaboration, loader, or navigation behavior was removed.
+
+========================================================================================
+UPDATE-NOTES-v4.10.3.txt
+========================================================================================
+Seeker Of SoundZ v4.10.3 — Save & Apply Experience Settings
+
+- Member Experience Studio changes now remain in live preview until explicitly saved.
+- Added Save & apply to my account button.
+- Saving immediately applies the selected theme, stars, motion, loader, transition, contrast, nebula, cursor, and card glow across the live site.
+- Added clear unsaved/saved status indicators.
+- Added Undo preview changes.
+- Reset now applies immediately and refreshes the controls without reloading the entire page.
+- Admin Site Experience Defaults use the same explicit save workflow.
+- Includes v4.10.1 navbar search containment and v4.10.2 live transition previews.
+
+========================================================================================
+UPDATE-NOTES-v4.10.4.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.4
+
+- Fixed Save & Apply so the selected member background and all experience settings repaint immediately on the current page.
+- Saved settings now apply using the exact account values and synchronize across open tabs.
+- Added reliable direct theme variables and a live applied-state confirmation.
+- Rebuilt reply reaction handling with stable reaction keys instead of emoji data attributes.
+- Migrates existing emoji-key reactions automatically.
+- Added smooth add/remove feedback and improved mobile reaction controls.
+
+========================================================================================
+UPDATE-NOTES-v4.10.5.txt
+========================================================================================
+Seeker Of SoundZ v4.10.5
+
+- Fixed member Save & Apply so selected backgrounds and themes visibly update on the current page immediately.
+- Added a dedicated theme backdrop that cannot be overridden by older !important background rules.
+- Saved themes persist across reloads and synchronize across open tabs.
+- Rebuilt reply reaction persistence into a compact dedicated storage map so reactions do not fail when forum posts contain large images or browser storage is near capacity.
+- Improved reaction hit targets for mouse, touchpad, keyboard, and touch screens.
+
+========================================================================================
+UPDATE-NOTES-v4.10.6.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.6
+
+FORUM REPLY REACTION HITBOX FIX
+
+- Each reply reaction now receives its own direct click handler after forum rendering.
+- Removed the duplicate delegated and pointer-up handlers that could conflict.
+- Rebuilt the reaction bar as a clean responsive grid so no invisible module layer covers the first reactions.
+- Enlarged and equalized every reaction hit area.
+- Preserved add/remove behavior, saved counts, hover glow, keyboard focus, and mobile support.
+- No other site systems were changed.
+
+========================================================================================
+UPDATE-NOTES-v4.10.7.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.7
+
+FORUM CREATE POST + REPLY CONTROL FIX
+
+- Preserves the complete v4.10.6 reply-reaction hitbox fix.
+- Removed the duplicate reply click path that could cause the Reply control to be handled twice or ignored.
+- Added one reliable Create Post binding and one reliable Reply binding.
+- Reply composers now open, scroll into view, and focus consistently.
+- Create Post opens the composer consistently.
+- Kept delete confirmation capture behavior intact.
+- Added a polished purple hover glow and animated underline to Reply controls.
+- Strengthened button layering and pointer hit areas without changing other site pages.
+
+========================================================================================
+UPDATE-NOTES-v4.10.8.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.8 — ACCOUNT EXPERIENCE PROFILES
+
+- Member appearance settings are now scoped to the signed-in account.
+- Signing out immediately restores the administrator-defined site defaults.
+- Signing back in automatically restores that member's saved background, starfield, loader, transition, motion, cursor and card settings.
+- Session changes apply live without a manual refresh.
+- Open tabs synchronize account/default experience changes.
+- Guest users no longer inherit a previously saved guest theme.
+- All v4.10.7 forum create/reply and v4.10.6 reaction hitbox fixes remain included.
+
+========================================================================================
+UPDATE-NOTES-v4.10.9.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10.9 — LIVE FREQUENCY DJ STAGE
+
+Added a new audio-reactive DJ concert stage to music.html.
+
+FEATURES
+- Automatically connects to uploaded/configured HTML audio previews.
+- Five selectable waveform modes: Classic Waveform, Club Bars, Frequency Spectrum, Radial Pulse, and Signal Tunnel.
+- DJ-style dual platter deck with live track title and category readout.
+- Optional restrained laser and pulse-light effects.
+- Stage play/pause and volume controls.
+- Existing configured audio players activate the stage automatically when played.
+- Existing visual play buttons route to available configured audio when possible.
+- Performance Mode removes concert lasers and pulse lighting.
+- Reduced-motion preferences are respected.
+- No rapid strobing is used; lighting pulses are intentionally slow.
+
+IMPORTANT
+The visualizer needs an actual audio source. Add preview paths in Admin → Music Manager. Placeholder cards without audio will display a notice instead of pretending music exists.
+
+========================================================================================
+UPDATE-NOTES-v4.10.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.10 — PERSONAL EXPERIENCE PREVIEW + UNIVERSAL SEARCH
+
+- Added live visual preview to member/admin experience settings.
+- Added seven background palettes and seven page-transition styles.
+- Added contrast and interactive-card glow controls.
+- Settings remain per member in this browser.
+- Added global Search the Frequency button to the navbar.
+- Search pages, forum posts, merch/products, music-related pages, YouTube/video pages, plugins and site locations.
+- Open/close with the navbar button, Ctrl/Cmd+K, repeated click, outside click, or Escape.
+- Keyboard arrow navigation and Enter are supported.
+- Performance Mode remains the final override for visual particle effects.
+
+========================================================================================
+UPDATE-NOTES-v4.2.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.2
+
+- Collaboration access now appears inside approved member profiles and account drawers.
+- Approved members receive a top-right Collaboration Studio access notification.
+- Newly unlocked achievements use the shared top-right toast notification system.
+- Admin forum moderation now supports pin, lock, hide, delete, and per-discussion reply restrictions.
+- Pinned discussions have a distinct pinned ribbon and highlighted card treatment.
+- Locked and hidden discussions are enforced on the public forums.
+
+========================================================================================
+UPDATE-NOTES-v4.3.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.3
+
+- Rebuilt Collaboration Studio audio storage with IndexedDB so common and large audio files are no longer forced into localStorage data URLs.
+- Supports MP3, WAV/WAVE, FLAC, OGG/OGA, M4A, AAC, AIFF/AIF, ALAC, OPUS, WMA, MID and MIDI.
+- Unsupported browser preview formats remain downloadable instead of being rejected.
+- Added drag-and-drop audio uploads, upload state, success notifications, file size/type details, version numbering and delete controls.
+- Improved empty states and audio version history cards.
+- Removed the duplicate Admin Hub link from the top-right account drawer.
+- Brightened the Collaboration Studio reply composer and increased text/placeholder contrast.
+
+========================================================================================
+UPDATE-NOTES-v4.4.1.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.4.1
+
+- Added a Collaboration Studio access directory visible to every approved collaborator and administrator.
+- The directory shows all users with studio access, their role, and project count.
+- Added a complete access roster to Admin > Collaboration Teams.
+- Admins can grant or remove collaboration access directly from that roster.
+- Granting access continues to create the existing top-right member notification.
+
+========================================================================================
+UPDATE-NOTES-v4.4.2.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.4.2
+
+COLLABORATION DIRECTORY AND WORKSPACE FIXES
+- Collaboration Studio automatically opens the first existing accessible project.
+- Clicking an artist now opens the first project shared with that artist.
+- Clicking a person in Studio Directory now opens their accessible collaboration work.
+- A collaborator workspace view lists every project the signed-in member is allowed to view.
+- Members no longer need to create a new project merely to navigate the Collaboration Studio.
+- Studio Directory was moved above Project Progression so it no longer interrupts the progression tags and slider.
+- Directory cards now have a clear View Work action and active state.
+- Administrators can use the same directory to open projects for any approved collaborator.
+
+========================================================================================
+UPDATE-NOTES-v4.4.3.txt
+========================================================================================
+SEEKER OF SOUNDZ — v4.4.3
+
+COLLABORATION PROJECT FILES STARTUP FIX
+- Existing accessible projects now load automatically when Collaboration Studio opens.
+- Project details, chat history, and Project Files render immediately without creating a new project.
+- Corrected an initialization block that was accidentally placed inside the audio-delete handler.
+- Studio Directory people are now real clickable buttons and open their accessible collaboration work.
+- Audio deletion still refreshes the current project normally.
+
+========================================================================================
+UPDATE-NOTES-v4.4.4.txt
+========================================================================================
+SEEKER OF SOUNDZ — v4.4.4
+FALSE AUDIO UPLOAD TOAST FIX
+
+- Fixed the Collaboration Studio showing an "Upload failed" toast even after the audio file had actually been saved.
+- Separated IndexedDB/local message saving from the visual workspace refresh.
+- A rendering problem can no longer overwrite a successful upload notification.
+- Added one automatic workspace refresh retry after a successful upload.
+- Added cleanup for incomplete/orphaned audio blobs if the project message record truly cannot be saved.
+- Kept all v4.4.3 collaboration directory, existing-project loading, profile layout, and storage improvements.
+
+========================================================================================
+UPDATE-NOTES-v4.4.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.4
+
+- Equalized all member dashboard cards, including Collaboration Studio and Admin Hub access cards.
+- Prevented special-access cards from creating a separate full-width row that pushed one card lower.
+- Added browser storage persistence request for Collaboration Studio audio.
+- Added live storage usage/quota information to the Collaboration Studio local preview notice.
+- Browser storage remains device/browser-managed; a hosted storage backend is recommended for production collaboration.
+
+========================================================================================
+UPDATE-NOTES-v4.5.1.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.5.1
+
+MEMBER DASHBOARD ACCESS CARD CLEANUP
+
+- Rebuilt the administrator-only Collaboration Studio and Admin Hub cards below the profile name.
+- The two access cards now span the full dashboard row instead of being squeezed into one grid cell.
+- Added clear icons, short labels, cleaner descriptions, and separate Open Studio / Open Admin action rows.
+- Improved spacing, line height, wrapping, equal sizing, hover feedback, and mobile stacking.
+- Preserved the v4.5 profile header, statistics, recent activity, and all existing links and permissions.
+
+========================================================================================
+UPDATE-NOTES-v4.6.1.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.6.1
+
+ADMINISTRATOR / FOUNDER BADGE FIX
+
+- Administrator accounts now always display the red Administrator badge.
+- Administrator accounts now also display the gold Founder badge.
+- Both badges appear in the profile header status row and Access Levels panel.
+- Admin detection now supports role values and custom labels such as Admin or Administrator.
+- Added a cache-busting version to the dashboard script so browsers load the corrected file immediately.
+- All v4.6 dashboard features remain included.
+
+========================================================================================
+UPDATE-NOTES-v4.6.2.txt
+========================================================================================
+Seeker Of SoundZ v4.6.2
+
+- Fixed the More Emojis button inserting its own label into forum text.
+- Quick emojis now remain in one horizontal row with side scrolling instead of stacking downward.
+- Emoji insertion preserves normal sentence flow and caret position.
+- Added aesthetic reply deletion for reply authors and administrators using the existing forum delete modal.
+- Raised the custom cursor above emoji pickers, reply delete dialogs, and all other site modules.
+- Added cache-busting to the updated forum scripts.
+
+========================================================================================
+UPDATE-NOTES-v4.6.3.txt
+========================================================================================
+Seeker Of SoundZ v4.6.3
+
+- Fixed the custom cursor rendering behind forum and site delete confirmation modules.
+- Cursor container is now automatically moved to the final body layer whenever a modal opens.
+- Added modal-state recovery so the cursor remains visible while confirmation dialogs are active.
+- Delete confirmation buttons now glow bright red on hover and keyboard focus.
+- Added a red cursor-ring response while hovering a destructive confirmation button.
+- Applied the cursor/modal layer fix globally across all pages.
+
+========================================================================================
+UPDATE-NOTES-v4.6.4.txt
+========================================================================================
+Seeker Of SoundZ v4.6.4 — Collaboration Performance Fix
+
+- Audio stored in IndexedDB now loads only when its player or download link is near the viewport.
+- Audio players use preload="none" to prevent dozens of metadata reads at page startup.
+- Collaboration chat renders the newest 80 messages instead of rebuilding an unlimited history.
+- Audio version history renders the newest 30 versions instead of every stored file at once.
+- Project and thread data are cached in memory, reducing repeated localStorage parsing.
+- Duplicate IndexedDB requests for the same audio file are merged.
+- Object URLs and observers are cleaned up when leaving the page.
+- The collaboration-page star canvas uses fewer stars and is capped near 30 FPS.
+- Decorative animation pauses while the tab is hidden.
+
+All collaboration projects, older messages, and audio records remain stored. The limits only reduce how much is drawn at one time.
+
+========================================================================================
+UPDATE-NOTES-v4.6.5.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.6.5 — COLLABORATION FREEZE ROOT FIX
+
+FIXED
+- Collaboration threads are no longer parsed on the main browser thread when they are large.
+- Older oversized chat records containing embedded base64 audio are detected before parsing.
+- The studio opens in Performance Recovery Mode instead of freezing Firefox.
+- Oversized legacy data remains untouched until the owner downloads a backup or resets it.
+- Added Download Old Chat Backup and Reset Old Chat History controls.
+- Legacy base64 audio is never injected into the page automatically.
+- Legacy audio can be converted one file at a time into IndexedDB using Load / Convert Audio.
+- Project message counts now use a cached index instead of repeatedly scanning every thread.
+- Collaboration lists use browser rendering containment and content visibility.
+- Existing IndexedDB audio remains lazy-loaded only near the viewport.
+
+IMPORTANT
+If Performance Recovery Mode appears, download the backup first. Resetting old chat history removes the oversized local messages from that browser, but it does not remove project cards or account access.
+
+========================================================================================
+UPDATE-NOTES-v4.6.6.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.6.6
+ADMIN COLLABORATION MODERATION
+
+Added to Admin Hub > Collaboration Teams:
+- Delete an individual collaboration post.
+- Delete all posts inside a selected collaboration project.
+- Delete an entire collaboration project and its stored thread.
+- Recent collaboration posts moderation list.
+- Post totals on every collaboration project card.
+- Red-glow destructive action buttons and confirmation modal support.
+- Responsive moderation layout for phones and smaller screens.
+
+All destructive actions use the existing confirmation module before data is removed.
+
+========================================================================================
+UPDATE-NOTES-v4.6.7.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.6.7 — SITE STABILITY RESTORE
+
+FIXED
+- Removed the global cursor MutationObserver that watched every DOM and class change.
+- The old observer could repeatedly react while large pages rendered, causing Firefox's
+  "A web page is slowing down your browser" warning and making every page feel frozen.
+- Rebuilt the custom cursor as a lightweight event-driven version.
+- Cursor remains above delete dialogs and other modules using the maximum safe z-index.
+- Cursor red danger hover remains available on delete controls.
+- Disabled the decorative star canvas on Collaboration Studio so audio, storage, and
+  project rendering receive the browser's full main-thread budget.
+- Added fresh cache versions to cursor, snow, and collaboration scripts.
+
+TESTING
+1. Stop Live Server.
+2. Open this v4.6.7 folder in VS Code.
+3. Start Live Server again.
+4. In Firefox press Ctrl+Shift+R once.
+5. Keep DevTools Network > Disable Cache enabled while testing.
+
+========================================================================================
+UPDATE-NOTES-v4.6.8.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.6.8 — FOUNDATION & PERFORMANCE
+
+ADDED
+- Admin Hub Performance & Storage panel
+- Live FPS and frame-time reading
+- DOM element, media and animation counts
+- LocalStorage, IndexedDB/browser quota estimates
+- JavaScript memory display where supported
+- Instrumented listener, timeout and interval counts
+- Performance Mode toggle
+- Pause/resume background animation control
+- JSON diagnostics report download
+- Browser-data export/import
+- Safe temporary-data and Cache Storage cleanup
+- Optional collaboration/audio IndexedDB reset
+- Improved mobile stacking, touch targets, forms and modal sizing
+- Reduced-motion support and lighter performance-friendly effects
+
+IMPORTANT
+The listener/timer counters show activity instrumented after performance-v4.6.8.js loads. Browser memory information is not available in every browser. Export browser data before clearing collaboration audio databases.
+
+========================================================================================
+UPDATE-NOTES-v4.6.9.txt
+========================================================================================
+Seeker Of SoundZ v4.6.9 — Custom Cursor Visibility Fix
+
+- Restored a visible custom cursor across all desktop pages.
+- Added a safe native-cursor fallback if the custom cursor cannot initialize.
+- Native cursor is no longer hidden before JavaScript confirms the custom cursor is ready.
+- Improved cursor positioning using fixed left/top coordinates.
+- Kept the cursor above modals, admin panels, emoji pickers, and delete confirmations.
+- Preserved red danger hover glow over destructive controls.
+- Preserved the saved cursor on/off setting across pages.
+- Added v4.6.9 cache-busting to cursor CSS and JavaScript.
+
+========================================================================================
+UPDATE-NOTES-v4.6.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.6 — MEMBER COMMAND CENTER
+
+- Redesigned members.html dashboard into a clean command center.
+- Added a personalized welcome header and status badges.
+- Added live dashboard statistics for notifications, projects, replies, achievements, storage and VIP access.
+- Added a proper Access Levels card with Member, Collaboration, VIP, Administrator and Founder states.
+- Added a Quick Actions card with Admin, Collaboration, Forums, Music Vault, Cart and Profile Settings shortcuts.
+- Added a Recent Activity timeline.
+- Added a Featured Achievement card with progression.
+- Added Current Projects cards with production progress bars.
+- Removed the cramped duplicate admin/collaboration access boxes from beneath the member name.
+- Preserved the profile editor, member shortcuts and all v4.5.1 functionality.
+
+========================================================================================
+UPDATE-NOTES-v4.7.1.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.7.1 — VIP MUSIC ACCESS CLARITY
+
+- Reworked the Music page Members Access box to clearly explain that VIP is a paid membership.
+- Added a direct “Pay for VIP Music Access” button in the main Members Access box.
+- Added a working “View VIP Benefits” modal with detailed membership benefits.
+- Added a second checkout button inside the benefits modal.
+- Clarified the difference between a free member account and paid VIP music access.
+- Clarified that verified payment automatically updates the VIP badge and music permissions.
+- Preserved manual administrator VIP overrides.
+- Existing Stripe/backend checkout integration remains configurable through js/backend-config.js.
+
+========================================================================================
+UPDATE-NOTES-v4.7.10.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.7.10
+
+FORUM REPLY DELETE CONTROL
+- Replaced the bulky trash icon with a compact uniform X.
+- Aligned the X to the far-right side of every reply header.
+- Added a clean red glow on hover and keyboard focus.
+- Kept reply ownership/admin permissions and the existing confirmation modal.
+
+STARFIELD VISIBILITY
+- Corrected the canvas stacking layer that hid stars behind the page background.
+- Restored visible stars on every page.
+- Kept the starfield lightweight and capped near 30 FPS to protect performance.
+- Added a balanced number of brighter twinkling stars.
+- Preserved occasional shooting stars from both directions.
+- Kept a lighter workload on Collaboration Studio.
+
+========================================================================================
+UPDATE-NOTES-v4.7.11.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.7.11 — DARK STARFIELD / NAVIGATION STABILITY FIX
+
+- Removed the broad content z-index override that interfered with the navbar and page text.
+- Restored the original navigation stacking behavior.
+- Replaced bright legacy page backgrounds with one dark-purple-to-black fixed background.
+- Restored a clearly visible, lightweight twinkling starfield on every page.
+- Kept occasional shooting stars from both directions.
+- Kept Collaboration Studio on a reduced star workload.
+- Preserved the compact far-right red-glow X reply delete control.
+- Added cache-version updates for the corrected CSS and star script.
+
+========================================================================================
+UPDATE-NOTES-v4.7.3.txt
+========================================================================================
+SEEKER OF SOUNDZ — v4.7.3 COSMIC GALAXY BACKGROUND
+
+ADDED
+- Six-stop vertical background gradient on every page:
+  #4A0979 → #400868 → #350757 → #2A0545 → #200434 → #150323
+- Lightweight nebula clouds placed in selected areas.
+- Subtle galaxy formations with pre-rendered spiral dust.
+- Gently twinkling, spaced-out stars.
+- Slight mouse-reactive star and nebula parallax.
+- Shooting stars that travel in both directions.
+- A brighter custom cursor with a soft white/purple glow.
+
+PERFORMANCE SAFEGUARDS
+- Nebulas and galaxies are pre-rendered instead of rebuilt every frame.
+- Starfield runs at a controlled 30–40 FPS.
+- Collaboration Studio receives a lighter star/nebula configuration.
+- Animation pauses while the tab is hidden.
+- Reduced-motion preferences are respected.
+- Performance Mode can still disable the decorative canvas.
+
+TESTING
+Restart VS Code Live Server and press Ctrl + Shift + R once in the browser.
+
+========================================================================================
+UPDATE-NOTES-v4.7.4.txt
+========================================================================================
+Seeker Of SoundZ v4.7.4
+
+- Darkened the full-page six-color purple gradient without removing the requested blend.
+- Fixed the cosmic canvas layer so it is visible above the page background instead of behind it.
+- Increased nebula visibility while keeping the effect soft and spaced out.
+- Strengthened the galaxy cores and spiral dust detail.
+- Preserved twinkling stars, mouse-reactive parallax, and shooting stars from both directions.
+- Kept a lighter rendering profile on the Collaboration Studio for stability.
+
+========================================================================================
+UPDATE-NOTES-v4.7.6.txt
+========================================================================================
+SEEKER OF SOUNDZ — v4.7.6 DEEP-SPACE GALAXY UPDATE
+
+Added to every page:
+- Three independent star-depth layers
+- Brighter near stars with soft glow and varied twinkle timing
+- A diagonal Milky Way-inspired galaxy band
+- Two softly detailed spiral galaxy regions on larger screens
+- Three spaced nebula regions with gentle breathing opacity
+- Subtle mouse parallax at different depths
+- Shooting stars from both directions
+- Rare distant satellite/light streak on desktop
+
+Performance safeguards retained:
+- Galaxy, nebula, and Milky Way artwork is pre-rendered
+- Frame rate remains capped
+- Collaboration Studio uses fewer stars and reduced background intensity
+- Animation pauses while the tab is hidden
+- Reduced-motion and Performance Mode remain supported
+
+========================================================================================
+UPDATE-NOTES-v4.7.7.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.7.7
+
+FORUMS
+- Heart reactions now toggle on/off per member or browser instead of increasing forever.
+- Added an aesthetic animated heart control with active and hover states.
+
+MERCH
+- Improved quick-view size, color, quantity, action, and close controls.
+- Added visual selection feedback, color swatches, keyboard focus styling, and custom-cursor reactions.
+- Preserved existing product, cart, zoom, and modal behavior.
+
+========================================================================================
+UPDATE-NOTES-v4.7.8.txt
+========================================================================================
+Seeker Of SoundZ v4.7.8 — Forum Reply Delete Fix
+
+- Fixed reply Remove/Delete controls so clicks are captured before profile-card handlers can intercept them.
+- Reply owners and administrators can open the existing confirmation dialog reliably.
+- Replaced the plain Delete text with an aesthetic Remove control and icon.
+- Added reply timestamp styling and improved responsive spacing.
+- Preserved forum reactions, profiles, custom cursor layering, and all v4.7.7 features.
+
+========================================================================================
+UPDATE-NOTES-v4.7.9.txt
+========================================================================================
+Seeker Of SoundZ v4.7.9 — Cinematic Dark Space
+
+- Replaced the bright background with a very dark purple-to-black gradient on every page.
+- Reduced star count and capped the renderer near 30 FPS to lower GPU usage.
+- Only a small percentage of stars twinkle at once.
+- Kept occasional shooting stars in both directions.
+- Replaced heavy galaxies/nebula rendering with two extremely faint gas glows.
+- Collaboration Studio receives an additional reduced star count.
+- Redesigned reply deletion as a compact, understated trash icon with accessible labeling.
+- Preserved the existing confirmation modal and forum deletion behavior.
+
+========================================================================================
+UPDATE-NOTES-v4.7.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.7 - HOSTING, PAYMENT & VIP AUTOMATION FOUNDATION
+
+ADDED
+- Comprehensive hosting/payment/database deployment guide in Documentation (DOCX + PDF).
+- Free and paid hosting walkthroughs.
+- MySQL and Supabase starter schemas.
+- Stripe Checkout + signed webhook membership starter.
+- VIP purchase and automatic status synchronization panel on music.html.
+- Automatic local badge/vault synchronization after verified backend status.
+- Manual Admin Hub paid-access toggle remains available for local preview/testing.
+
+IMPORTANT
+- Automatic production VIP access requires a deployed backend, real authentication, Stripe keys/product/webhook, and database configuration.
+- LocalStorage login/forum data remains a preview until migrated using the guide.
+
+========================================================================================
+UPDATE-NOTES-v4.8.1.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.8.1 — VISIBLE STARFIELD & PAGE GRADIENT FIX
+
+- Corrected the starfield stacking layer so stars are visible above the page background.
+- Performance Mode now keeps a reduced starfield instead of hiding it.
+- Rebuilt the document background so it starts in very dark purple at the top and reaches black at the actual bottom of every page.
+- Increased star visibility while retaining a lightweight frame cap.
+- Corrected mouse proximity calculations so nearby stars glow subtly around the real cursor position.
+- Preserved the v4.8 loader, navigation, transitions, cubes, forums, collaboration systems, and other existing features.
+
+========================================================================================
+UPDATE-NOTES-v4.8.2.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.8.2 — STARFIELD SYSTEM REWRITE
+
+- Replaced the previous snow/star renderer with a fully independent particle starfield.
+- The canvas is created automatically on every page, preventing missing-canvas failures.
+- Corrected layering using a positive background layer rather than negative z-index.
+- Added three perceived depth ranges, natural twinkling, brighter feature stars, subtle cursor glow response, gentle parallax, scroll depth, and shooting stars from both directions.
+- Kept a reduced workload for Collaboration Studio, mobile devices, Performance Mode, and reduced-motion users.
+- Restored a super-dark-purple-to-black page-length gradient.
+
+========================================================================================
+UPDATE-NOTES-v4.8.3.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.8.3 — GUARANTEED VISIBLE STARFIELD FIX
+
+- Replaced the prior star particle system again with a fresh independent canvas.
+- Uses a positive stacking layer instead of negative z-index values.
+- Draws stars immediately before animation begins.
+- Keeps stars visible in Performance Mode and page-hidden states.
+- Restores multi-depth stars, twinkling, cursor proximity glow, gentle parallax,
+  scroll depth movement, and occasional shooting stars in both directions.
+- Preserves the dark-purple-to-black page background and existing navigation.
+
+========================================================================================
+UPDATE-NOTES-v4.8.6.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.8.6 — STAR-ONLY BACKGROUND
+
+- Removed the purple-to-black gradient and nebula-style full-page overlays.
+- Added a standalone particle star canvas to every HTML page.
+- Added natural twinkling, subtle mouse reaction, gentle scroll depth, and occasional shooting stars.
+- Preserved the existing loader, page transitions, navigation, cards, forums, merch, members, admin, and collaboration features.
+- Performance mode and Collaboration Studio use fewer particles rather than hiding the starfield.
+
+========================================================================================
+UPDATE-NOTES-v4.8.7.txt
+========================================================================================
+Seeker Of SoundZ v4.8.7
+
+Performance Mode starfield connection
+
+- The existing Performance Mode toggle now fully removes the twinkling-star canvas.
+- Turning Performance Mode off immediately restores and redraws the stars.
+- The setting remains persistent through the existing sos_performance_mode_v1 localStorage value.
+- Changes also synchronize between open site tabs.
+- No navbar, loader, forum, merch, collaboration, or page-layout behavior was changed.
+
+========================================================================================
+UPDATE-NOTES-v4.8.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.8 — DARK SIGNAL / GALAXY EXPERIENCE
+
+- Rebuilt the background on every main HTML page.
+- Added a near-black gradient with a subtle dark-purple top.
+- Added a lightweight canvas starfield with twinkling, shooting stars,
+  mouse proximity glow, subtle mouse parallax, and gentle scroll depth.
+- Collaboration Studio automatically uses a reduced star count.
+- Rebuilt page transitions around the existing SOS logo and spinning cubes.
+- Added a compact galaxy opening, star cloud, and dark nebula bloom.
+- Removed the old duplicate transition click handler to prevent navigation conflicts.
+- Reworked the existing loader into a dark "signal ignition" scene while
+  preserving the logo, text, progress bar, scan, particles, timing, and session behavior.
+- Added loader stars, faint nebula lighting, a galaxy band, and a frequency horizon.
+- Preserved navbar behavior and existing page functionality.
+
+========================================================================================
+UPDATE-NOTES-v4.9.1.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.9.1 — FREQUENCY NAVIGATION + ANNOUNCEMENT CENTER
+
+- Animated frequency sweep and pointer-responsive glow in the navbar
+- Smooth active-page signal glider
+- Refined link hover pulses and logo glow
+- Animated, vertically expanding mobile navigation panel
+- Compact Frequency Updates notification center
+- Site announcements no longer appear as blocking top-right toasts
+- Homepage announcement rail remains in normal document flow
+- Member/cart toasts remain available
+- Existing v4.9 Frequency Interface, starfield, loader, content, and features preserved
+
+========================================================================================
+UPDATE-NOTES-v4.9.2.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.9.2 — POLISHED FREQUENCY EXPERIENCE
+
+- SOS page-transition logo now resolves from half-fade/blur into a controlled purple-white glow.
+- Existing spinning cubes remain around the transition logo.
+- Main loader now mirrors the exact live index star particle canvas for a seamless handoff.
+- Main loader gains a staged signal-acquisition sequence and restrained orbiting cubes.
+- Navbar link hover now uses a centered animated line and purple frequency glow.
+- Account/staff, cart, and cursor controls now receive matching hover glow feedback.
+- Navbar background is more opaque so page text cannot visually leak through it.
+- Announcement center automatically closes and hides whenever cart/account drawers open.
+- Cart/account drawers and their close buttons now stay above all announcement UI.
+- Existing pages, features, storage, loader timing, stars, and performance mode remain intact.
+
+========================================================================================
+UPDATE-NOTES-v4.9.3.txt
+========================================================================================
+Seeker Of SoundZ v4.9.3 — Stellar Signal Jump Transition
+
+- Replaced the blurry SOS page transition with a crisp star-themed signal jump.
+- SOS logo now resolves through a clean horizontal signal aperture instead of heavy blur.
+- Added a lightweight radial star-warp burst.
+- Kept the existing six spinning cubes and integrated them into the star jump.
+- Added two restrained orbit rings and a frequency-lock sweep.
+- Added a small destination label beneath the logo.
+- Transition timing increased slightly to 780 ms so the full animation is visible without slowing navigation.
+- Performance Mode reduces the number of transition stars.
+- Reduced-motion users receive a short, simplified logo reveal.
+- No navbar, loader, forum, merch, collaboration, admin, or storage behavior was changed.
+
+========================================================================================
+UPDATE-NOTES-v4.9.4.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.9.4 — FORUM FREQUENCY INTERFACE
+
+- Connected every post Delete button to the exact same confirmation module used by the working reply X.
+- Added capture-phase protection so profile hover handlers cannot intercept destructive actions.
+- Added responsive, pointer-reactive hover/focus/press feedback to forum controls.
+- Refined Create Post composer, tags, category controls, emojis, search, cards and action rows.
+- Added a Clear selected tag control and stronger selected/remove states.
+- Preserved existing forum storage, reactions, replies, profiles, moderation and the v4.9.3 site design.
+
+========================================================================================
+UPDATE-NOTES-v4.9.5.txt
+========================================================================================
+Seeker Of SoundZ v4.9.5
+
+- Restored click-to-remove behavior for selected Create Post tags.
+- Added toggleable emoji reactions to individual forum replies.
+- Reactions can be added and removed per user/browser.
+- Moved the homepage DJ / Creator / Producer tag safely below the fixed navbar.
+- Forced the SOS logo to remain crisp and visible in page transitions.
+- Spaced and polished the account/dashboard utility drawer and its close control.
+
+========================================================================================
+UPDATE-NOTES-v4.9.6.txt
+========================================================================================
+Seeker Of SoundZ v4.9.6 — Forum Tag Interaction Fix
+
+- Rebuilt selected tags as proper chips with independent X buttons.
+- Removed the old click forwarding logic that caused some tags to ignore clicks.
+- Suggested tags now toggle reliably through direct event delegation.
+- Selected tag X controls remove tags immediately and update the hidden post field.
+- Replaced rounded bulb/pill styling with angular Frequency Interface tags.
+- Added clearer selected, hover, focus, removal, mobile, and reduced-motion states.
+- No other page systems were changed.
+
+========================================================================================
+UPDATE-NOTES-v4.9.7.txt
+========================================================================================
+SEEKER OF SOUNDZ — v4.9.7
+
+ADMIN MERCH CATEGORY UPDATE
+
+- Music and Digital product types automatically hide and clear clothing sizes and colors.
+- Apparel, Headwear, Footwear, Accessories, Bags, Home & Lifestyle, and custom merchandise retain size/color controls.
+- Added product status switches: Featured, Limited, Seasonal, New Release, Pre-order, and Members Only.
+- Status values save when adding or editing products.
+- Store cards and Quick View now display the selected product status badges.
+- Existing products remain compatible.
+
+========================================================================================
+UPDATE-NOTES-v4.9.8.txt
+========================================================================================
+Seeker Of SoundZ v4.9.8
+
+- Reliable forum reply composer opening.
+- Reply emoji reactions now save correctly and toggle per member/browser.
+- Admin collaboration posts open their exact project/message in Collaboration Studio.
+- Modernized announcement metadata and notification styling.
+- Added site-wide admin defaults and member Personal Experience Studio.
+- Starfield intensity, nebula, loader identity, motion, shooting stars, and cursor glow preferences.
+
+========================================================================================
+UPDATE-NOTES-v4.9.9.txt
+========================================================================================
+Seeker Of SoundZ v4.9.9 — Forum Reaction Hotfix
+
+- Moved reply reaction rendering and click handling directly into the main forums.js renderer.
+- Removed the duplicate MutationObserver/delegated reaction helper that could lose or block clicks after forum redraws.
+- Reply reactions now add and subtract per member/browser reliably.
+- Added Heart, Like, Fire, Headphones, Applause, and Sparkles reactions.
+- Reaction counts and selected states persist in forum storage.
+- Added polished accessible hover, focus, active, and mobile states.
+
+========================================================================================
+UPDATE-NOTES-v4.9.txt
+========================================================================================
+SEEKER OF SOUNDZ v4.9 — THE FREQUENCY INTERFACE
+
+Added:
+- Signature animated frequency lines in the hero, navigation, selected section dividers, buttons, and page transition.
+- Cinematic homepage stage with SOS halo, circular frequency visualizer, and scan reveal.
+- Refined glass-black navigation with active-page signal node and mobile signal panel.
+- Three consistent reveal styles: scan text, depth cards, aperture media.
+- Unified premium card styling across the full site.
+- Optional audio-reactive visuals while HTML audio is playing; disabled automatically in Performance Mode.
+- Refined three-depth starfield remains the atmospheric background from v4.8.7.
+- Restrained page-specific accents for Music, Videos, Gallery, Merch, Forums, Members, Collaboration, Admin, and Events.
+- Signal-acquisition loader sequence while preserving the original progress, timing, logo, and orbit elements.
+- Polished typography hierarchy and spacing.
+
+Performance Mode:
+- Continues to remove the starfield.
+- Also disables frequency canvases and audio-reactive visual behavior.
+
+========================================================================================
+CHANGELOG-v4.5.md
+========================================================================================
+# v4.5 Production Ready Foundation
+
+- Redesigned member dashboard with cleaner hero, status chips, statistics, equal cards and recent activity.
+- Added forum Newest, Oldest and Recently Updated sorting.
+- Added Collaboration project sorting by updated date, created date and title.
+- Added one consistent aesthetic confirmation modal for destructive Admin Hub and collaboration actions.
+- Added shared-hosting/VPS deployment documentation.
+- Added secure purchase, VIP and song-entitlement architecture documentation.
+- Added a Stripe webhook backend starter while preserving manual paid-member controls as a fallback.
+
+Important: the payment code is a secure integration starter, not a preconfigured live merchant account. Connect it to your database and provider credentials before accepting real payments.
+
+## v4.6 Member Command Center
+- Complete members dashboard overhaul with access badges, quick actions, activity, achievements and current projects.
+- Replaced cramped administrator-only access boxes with clean dashboard modules.

@@ -1,0 +1,9 @@
+/* v2.13 Gallery Manager and full-release uploader */
+.adminDropGridThree{grid-template-columns:repeat(3,minmax(0,1fr))}.galleryDropZone{min-height:260px;margin-top:10px}.galleryDropZone .adminDropPreview img{max-height:220px;object-fit:contain}.fullGalleryOverlay em{display:block;max-width:34ch;margin-top:.35rem;font-size:.72rem;font-style:normal;line-height:1.35;opacity:.78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.galleryModalDescription{max-width:680px;margin:.65rem auto 0;line-height:1.6;opacity:.8}.adminItemPreview img{width:72px;height:72px;object-fit:cover;border-radius:12px}@media(max-width:980px){.adminDropGridThree{grid-template-columns:1fr}}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

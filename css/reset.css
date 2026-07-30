@@ -1,0 +1,212 @@
+/*==================================================
+    SEEKER OF SOUNDZ v2
+    RESET & GLOBAL FOUNDATION
+==================================================*/
+
+/*==============================
+RESET
+==============================*/
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+/*==============================
+ROOT
+==============================*/
+
+html{
+
+    scroll-behavior:smooth;
+    font-size:16px;
+
+}
+
+/*==============================
+BODY
+==============================*/
+
+body{
+
+    background:var(--color-background);
+
+    color:var(--color-white);
+
+    font-family:var(--font-main);
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+    line-height:1.6;
+
+    cursor:none;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+
+}
+
+/*==============================
+SELECTION
+==============================*/
+
+::selection{
+
+    background:white;
+
+    color:black;
+
+}
+
+/*==============================
+HEADINGS
+==============================*/
+
+h1,h2,h3,h4,h5,h6{
+
+    font-weight:700;
+
+    line-height:1.15;
+
+}
+
+/*==============================
+PARAGRAPHS
+==============================*/
+
+p{
+
+    color:var(--color-light);
+
+}
+
+/*==============================
+LINKS
+==============================*/
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    cursor:none;
+
+}
+
+/*==============================
+BUTTONS
+==============================*/
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    font:inherit;
+
+    color:inherit;
+
+    cursor:none;
+
+}
+
+/*==============================
+IMAGES
+==============================*/
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+    user-select:none;
+
+    pointer-events:none;
+
+}
+
+/*==============================
+LISTS
+==============================*/
+
+ul,
+ol{
+
+    list-style:none;
+
+}
+
+/*==============================
+INPUTS
+==============================*/
+
+input,
+textarea,
+select{
+
+    font:inherit;
+
+    outline:none;
+
+    border:none;
+
+}
+
+/*==============================
+CANVAS
+==============================*/
+
+canvas{
+
+    display:block;
+
+}
+
+/*==============================
+SCROLLBAR
+==============================*/
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#080808;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#3b3b3b;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#5a5a5a;
+
+}
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

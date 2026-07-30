@@ -1,0 +1,360 @@
+/*==================================================
+    SEEKER OF SOUNDZ v2
+    HERO SECTION
+==================================================*/
+
+/*==============================
+BACKGROUND CANVASES
+==============================*/
+
+#heroCanvas,
+#snowCanvas{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+}
+
+#heroCanvas{
+
+    z-index:-3;
+
+}
+
+#snowCanvas{
+
+    z-index:-2;
+
+}
+
+/*==============================
+HERO
+==============================*/
+
+#hero{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    text-align:center;
+
+    overflow:hidden;
+
+}
+
+/*==============================
+CONTENT
+==============================*/
+
+.heroContent{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:1000px;
+
+    width:90%;
+
+}
+
+/*==============================
+TAG
+==============================*/
+
+.heroTag{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    margin-bottom:30px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:var(--color-light);
+
+    letter-spacing:.25rem;
+
+    text-transform:uppercase;
+
+    font-size:.85rem;
+
+}
+
+/*==============================
+TITLE
+==============================*/
+
+#hero h1{
+
+    font-size:var(--hero-title);
+
+    font-weight:900;
+
+    line-height:.95;
+
+    letter-spacing:.15rem;
+
+    color:white;
+
+    text-transform:uppercase;
+
+    text-shadow:
+
+        0 0 30px rgba(255,255,255,.08),
+
+        0 0 80px rgba(255,255,255,.04);
+
+}
+
+/*==============================
+SUBTITLE
+==============================*/
+
+#hero h2{
+
+    margin-top:25px;
+
+    font-size:var(--hero-subtitle);
+
+    font-weight:300;
+
+    color:var(--color-light);
+
+    letter-spacing:.35rem;
+
+    text-transform:uppercase;
+
+}
+
+/*==============================
+BUTTONS
+==============================*/
+
+.heroButtons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-top:60px;
+
+}
+
+.heroButtons a{
+
+    min-width:220px;
+
+    padding:18px 36px;
+
+    border-radius:18px;
+
+    font-weight:700;
+
+    letter-spacing:.08rem;
+
+    transition:.35s;
+
+}
+
+/* Primary */
+
+.primaryButton{
+
+    background:white;
+
+    color:black;
+
+    box-shadow:0 20px 45px rgba(255,255,255,.18);
+
+}
+
+.primaryButton:hover{
+
+    transform:translateY(-5px) scale(1.03);
+
+}
+
+/* Secondary */
+
+.secondaryButton{
+
+    background:rgba(255,255,255,.04);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:blur(18px);
+
+}
+
+.secondaryButton:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,.08);
+
+}
+
+/*==============================
+HERO GLOW
+==============================*/
+
+#hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:900px;
+
+    height:900px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(255,255,255,.08),
+    transparent 70%);
+
+    filter:blur(80px);
+
+    animation:heroPulse 8s ease-in-out infinite;
+
+}
+
+/*==============================
+ANIMATION
+==============================*/
+
+@keyframes heroPulse{
+
+    0%{
+
+        transform:scale(.9);
+
+        opacity:.5;
+
+    }
+
+    50%{
+
+        transform:scale(1.1);
+
+        opacity:.8;
+
+    }
+
+    100%{
+
+        transform:scale(.9);
+
+        opacity:.5;
+
+    }
+
+}
+.heroLogo{
+
+    margin-bottom:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.heroLogo img{
+
+    width:clamp(180px,28vw,420px);
+
+    height:auto;
+
+    filter:
+        drop-shadow(0 0 18px rgba(255,255,255,.15));
+
+    animation:
+        heroLogoFloat 5s ease-in-out infinite;
+
+}
+
+.heroLogoText{
+
+    margin-bottom:18px;
+
+    font-size:clamp(2.3rem,5vw,4.5rem);
+
+    letter-spacing:.12rem;
+
+    text-transform:uppercase;
+
+}
+/* Seeker Of SoundZ v4.7.4 — darker blended gradient + visible cosmic layer */
+html{
+  min-height:100%;
+  background:#100219!important;
+}
+body{
+  min-height:100vh;
+  position:relative;
+  isolation:isolate;
+  background-color:#100219!important;
+  background-image:
+    linear-gradient(rgba(7,1,12,.34),rgba(7,1,12,.46)),
+    linear-gradient(
+      180deg,
+      #200434 0%,
+      #1a0330 18%,
+      #150323 36%,
+      #10021c 54%,
+      #200434 73%,
+      #150323 100%
+    )!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%!important;
+  background-attachment:fixed!important;
+}
+#snowCanvas{
+  position:fixed!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  z-index:0!important;
+  background:transparent!important;
+  pointer-events:none!important;
+  opacity:.94;
+}
+header,main,footer,.nav,.siteHeader,.pageShell,.appShell{
+  position:relative;
+  z-index:1;
+}
+
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

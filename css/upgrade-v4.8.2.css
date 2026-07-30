@@ -1,0 +1,70 @@
+/* Seeker Of SoundZ v4.8.2 — rebuilt visible particle star system */
+html{
+  min-height:100%;
+  background:#000 !important;
+}
+body{
+  min-height:100%;
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(180deg,
+    #12001d 0%,
+    #0d0015 18%,
+    #09000f 38%,
+    #050008 62%,
+    #020003 82%,
+    #000 100%) !important;
+  background-attachment:scroll !important;
+}
+/* very faint depth glow, never a bright purple wash */
+body::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+  background:
+    radial-gradient(ellipse at 16% 5%,rgba(55,10,76,.12),transparent 32%),
+    radial-gradient(ellipse at 82% 34%,rgba(28,8,48,.08),transparent 35%) !important;
+}
+#sosStarfield,
+#snowCanvas{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  height:100vh !important;
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  background:transparent !important;
+  mix-blend-mode:screen !important;
+}
+.performance-mode #sosStarfield,
+.performance-mode #snowCanvas{
+  display:block !important;
+  visibility:visible !important;
+  opacity:.72 !important;
+}
+/* Keep the star canvas behind all real interface/content without using a negative layer. */
+body > header,
+body > nav,
+body > main,
+body > footer,
+body > .page,
+body > .siteShell,
+body > #app,
+body > #sharedNavigation,
+body > #siteHeader{
+  position:relative;
+  z-index:2;
+}
+#sharedNavigation,#siteHeader,.siteNav,.nav{z-index:9000 !important}
+#loader,.cubeTransition,.modal,.dialog,.quickView,.adminModal{z-index:99990}
+@media(max-width:760px){
+  #sosStarfield,#snowCanvas{opacity:.9 !important}
+}
+@media(prefers-reduced-motion:reduce){
+  #sosStarfield,#snowCanvas{opacity:.72 !important}
+}

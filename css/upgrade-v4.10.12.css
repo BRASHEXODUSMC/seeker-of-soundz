@@ -1,0 +1,31 @@
+/* =========================================================
+   v4.10.12 — EDM Stage Demo + Reliable Blackout Focus
+========================================================= */
+.djHeaderActions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.djStopButton{border-color:rgba(255,84,108,.28)}
+.djStopButton:hover,.djStopButton:focus-visible{border-color:rgba(255,84,108,.78);box-shadow:0 0 24px rgba(255,42,74,.25);color:#fff}
+.djDemoTrack{position:relative;z-index:12;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px 24px;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);background:linear-gradient(90deg,rgba(var(--dj-primary),.09),rgba(0,0,0,.72) 42%,rgba(var(--dj-secondary),.07));overflow:hidden}
+.djDemoTrack::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 28%,rgba(255,255,255,.045) 48%,transparent 67%);transform:translateX(-120%);animation:djDemoScan 7s ease-in-out infinite}
+@keyframes djDemoScan{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.djDemoCopy{display:grid;gap:3px;min-width:0}.djDemoCopy strong{font-size:.98rem;letter-spacing:.025em;color:#fff}.djDemoCopy small{color:rgba(238,232,249,.64);line-height:1.45}.djDemoEyebrow{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(var(--dj-accent),.84)}
+.djDemoPlay{position:relative;z-index:1;white-space:nowrap;min-width:150px}
+.djDemoTrack.is-active{box-shadow:inset 3px 0 0 rgb(var(--dj-primary));background:linear-gradient(90deg,rgba(var(--dj-primary),.17),rgba(0,0,0,.74) 48%,rgba(var(--dj-secondary),.12))}
+
+/* The portal removes the stage from every old page stacking context. */
+.djShowPortal{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:18px;overflow:auto;overscroll-behavior:contain;pointer-events:none}
+.djShowPortal>.liveFrequencyStage{pointer-events:auto;width:min(1420px,calc(100vw - 36px));max-height:calc(100vh - 36px);overflow:auto;overscroll-behavior:contain;border:1px solid rgba(var(--dj-primary),.42);border-radius:24px;box-shadow:0 0 0 1px rgba(255,255,255,.04),0 40px 140px rgba(0,0,0,.95),0 0 80px rgba(var(--dj-primary),.24)}
+.djFocusBackdrop{z-index:2147482000!important;background:rgba(0,0,0,.91)!important;backdrop-filter:blur(16px) saturate(.42) brightness(.42)!important;-webkit-backdrop-filter:blur(16px) saturate(.42) brightness(.42)!important}
+body.dj-show-live{overflow:hidden}
+body.dj-show-live .djFocusBackdrop{opacity:1!important;visibility:visible!important}
+.djStagePlaceholder{min-height:760px;border:1px dashed rgba(157,82,255,.14);border-radius:24px;background:rgba(0,0,0,.08)}
+
+/* Make venue hardware clearly visible while active. */
+.liveFrequencyStage.is-playing.spots-on .djSpotlight{opacity:calc(.68 * var(--dj-intensity));filter:blur(1.2px) drop-shadow(0 0 20px rgba(var(--dj-primary),1));}
+.liveFrequencyStage.is-playing.lasers-on .djLaser{opacity:var(--dj-laser-alpha);width:4px;box-shadow:0 0 7px rgba(var(--dj-accent),1),0 0 20px rgba(var(--dj-primary),1),0 0 48px rgba(var(--dj-secondary),.9);filter:brightness(1.7)}
+.liveFrequencyStage.is-playing.lights-on .djStageWash{opacity:calc(.82 * var(--dj-intensity))}
+.liveFrequencyStage.is-playing.strobe-on .djStrobe{z-index:8}
+.liveFrequencyStage.is-playing .djStageViewport::after{content:"";position:absolute;z-index:6;left:8%;right:8%;bottom:0;height:5px;pointer-events:none;background:linear-gradient(90deg,transparent,rgb(var(--dj-secondary)),#fff,rgb(var(--dj-primary)),transparent);filter:blur(2px) drop-shadow(0 0 14px rgb(var(--dj-primary)));opacity:.65;animation:djFloorPulse 1.6s ease-in-out infinite alternate}
+@keyframes djFloorPulse{to{opacity:1;transform:scaleX(.9)}}
+
+@media(max-width:760px){.djDemoTrack{grid-template-columns:1fr;padding:14px 16px}.djDemoPlay{width:100%}.djHeaderActions{width:100%;justify-content:stretch}.djHeaderActions .djStageButton{flex:1}.djShowPortal{padding:8px}.djShowPortal>.liveFrequencyStage{width:calc(100vw - 16px);max-height:calc(100vh - 16px)}}
+@media(prefers-reduced-motion:reduce){.djDemoTrack::before,.liveFrequencyStage.is-playing .djStageViewport::after{animation:none}}

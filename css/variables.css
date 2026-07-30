@@ -1,0 +1,105 @@
+/*==================================================
+    SEEKER OF SOUNDZ v2
+    GLOBAL DESIGN SYSTEM
+==================================================*/
+
+:root{
+
+/*==================================
+COLORS
+==================================*/
+
+--color-background:#050505;
+--color-surface:#0d0d0d;
+--color-surface-light:#171717;
+
+--color-white:#ffffff;
+--color-light:#d9d9d9;
+--color-gray:#9c9c9c;
+--color-dark-gray:#555555;
+
+--color-border:rgba(255,255,255,.08);
+
+--glass:rgba(255,255,255,.045);
+
+--glass-hover:rgba(255,255,255,.08);
+
+--shadow-small:
+0 10px 25px rgba(0,0,0,.25);
+
+--shadow-medium:
+0 20px 50px rgba(0,0,0,.45);
+
+--shadow-large:
+0 35px 80px rgba(0,0,0,.65);
+
+/*==================================
+LAYOUT
+==================================*/
+
+--site-width:1400px;
+
+--section-padding:120px;
+
+--nav-height:74px;
+
+--border-radius-small:12px;
+
+--border-radius:20px;
+
+--border-radius-large:32px;
+
+/*==================================
+TYPOGRAPHY
+==================================*/
+
+--font-main:
+"Inter",
+"Segoe UI",
+sans-serif;
+
+--hero-title:
+clamp(4rem,10vw,8rem);
+
+--hero-subtitle:
+clamp(1rem,2vw,1.45rem);
+
+--section-title:
+clamp(2.5rem,5vw,4rem);
+
+--paragraph:
+1.05rem;
+
+/*==================================
+ANIMATION
+==================================*/
+
+--speed-fast:.25s;
+
+--speed-normal:.45s;
+
+--speed-slow:.8s;
+
+--speed-loader:2.5s;
+
+/*==================================
+Z INDEX
+==================================*/
+
+--z-loader:999999;
+
+--z-navigation:9999;
+
+--z-cursor:99999;
+
+--z-modal:5000;
+
+--z-overlay:1000;
+
+}
+
+/* v4.7.5 background refinement */
+html,body{
+background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
+}
+.star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}

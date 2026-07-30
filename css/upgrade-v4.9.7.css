@@ -1,0 +1,18 @@
+/* v4.9.7 — category-aware merch editor and product status system */
+.catalogStatusBuilder{margin:22px 0;padding:20px;border:1px solid rgba(188,137,255,.14);border-radius:20px;background:linear-gradient(145deg,rgba(137,72,210,.075),rgba(255,255,255,.018))}
+.catalogStatusGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.catalogStatusToggle{position:relative;cursor:pointer}
+.catalogStatusToggle input{position:absolute;opacity:0;pointer-events:none}
+.catalogStatusToggle span{display:grid;grid-template-columns:34px 1fr;column-gap:10px;align-items:center;min-height:82px;padding:14px;border:1px solid rgba(255,255,255,.095);border-radius:15px;background:rgba(5,4,9,.62);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background .22s ease}
+.catalogStatusToggle i{grid-row:1/3;width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:rgba(151,86,224,.12);color:#dcbaff;font-style:normal;box-shadow:inset 0 0 0 1px rgba(206,165,255,.12)}
+.catalogStatusToggle strong{font-size:.82rem;letter-spacing:.035em}.catalogStatusToggle small{color:rgba(235,226,246,.55);font-size:.68rem;line-height:1.35}
+.catalogStatusToggle:hover span{transform:translateY(-2px);border-color:rgba(190,132,255,.32);box-shadow:0 12px 30px rgba(47,15,82,.2)}
+.catalogStatusToggle input:checked+span{border-color:rgba(200,151,255,.55);background:linear-gradient(135deg,rgba(132,66,203,.22),rgba(25,11,42,.78));box-shadow:0 0 0 1px rgba(176,114,241,.12),0 0 24px rgba(123,54,199,.16)}
+.catalogStatusToggle input:checked+span i{background:rgba(181,112,248,.24);color:#fff;box-shadow:0 0 15px rgba(181,112,248,.35)}
+.catalogNoVariants{display:flex;align-items:center;gap:16px;margin:20px 0;padding:18px;border:1px solid rgba(181,122,247,.18);border-radius:18px;background:linear-gradient(135deg,rgba(88,38,137,.12),rgba(4,3,8,.68))}
+.catalogNoVariants>span{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:rgba(157,89,228,.15);font-size:1.35rem;color:#e3c9ff;box-shadow:inset 0 0 0 1px rgba(211,177,255,.12)}
+.catalogNoVariants strong{display:block;margin-bottom:4px}.catalogNoVariants p{margin:0;color:rgba(235,226,246,.62);line-height:1.5;font-size:.82rem}
+.catalogNonVariantMode .adminDropZone{border-color:rgba(184,124,246,.22);background:linear-gradient(145deg,rgba(115,54,177,.08),rgba(255,255,255,.015))}
+.productStatusBadges{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 13px}.productStatusBadge{display:inline-flex;align-items:center;min-height:25px;padding:5px 8px;border:1px solid rgba(204,160,255,.2);border-radius:8px;background:rgba(96,38,151,.13);color:#dfc3ff;font-size:.62rem;font-weight:750;letter-spacing:.075em;text-transform:uppercase}.productStatusBadge.isLimited{border-color:rgba(255,115,155,.25);background:rgba(151,37,77,.13);color:#ffbad0}.productStatusBadge.isSeasonal{border-color:rgba(115,189,255,.24);background:rgba(39,95,145,.12);color:#b9ddff}.productStatusBadge.isMembers{border-color:rgba(255,210,114,.24);background:rgba(137,98,28,.13);color:#ffe1a0}
+@media(max-width:900px){.catalogStatusGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.catalogStatusGrid{grid-template-columns:1fr}.catalogStatusBuilder{padding:15px}.catalogNoVariants{align-items:flex-start}}

@@ -1,0 +1,19 @@
+/* v4.10.22 — audio-reactive strobe synchronization */
+.djControlHint{display:block;margin-top:7px;color:rgba(231,223,250,.58);font-size:.68rem;line-height:1.45}
+.liveFrequencyStage[data-strobe-sync="beat"].is-playing.strobe-on .djStrobe{animation:none!important;opacity:0}
+.liveFrequencyStage[data-strobe-sync="hybrid"].is-playing.strobe-on .djStrobe{animation-duration:calc(var(--dj-strobe-speed,2.8s) * 1.35)}
+.liveFrequencyStage.dj-beat-flash.is-playing.strobe-on:not([data-strobe-sync="pattern"]) .djStrobe{
+ animation:none!important;
+ opacity:calc(.2 + (var(--dj-beat-energy,.5) * .66))!important;
+ background:
+  radial-gradient(circle at 50% 42%,rgba(255,255,255,calc(.28 + var(--dj-beat-energy,.5) * .58)),rgba(221,199,255,calc(.12 + var(--dj-beat-energy,.5) * .24)) 32%,transparent 72%),
+  linear-gradient(90deg,transparent,rgba(255,255,255,calc(.08 + var(--dj-beat-energy,.5) * .22)),transparent)!important;
+ filter:brightness(calc(1 + var(--dj-beat-energy,.5) * .45));
+ transition:opacity 70ms linear;
+}
+.liveFrequencyStage.dj-beat-flash .djStageWash,
+.liveFrequencyStage.dj-beat-flash .djSpotlight,
+.liveFrequencyStage.dj-beat-flash .djLaser{filter:brightness(calc(1.04 + var(--dj-beat-energy,.5) * .34)) saturate(1.12)}
+.liveFrequencyStage.dj-beat-flash .djDeck{box-shadow:0 0 calc(28px + var(--dj-beat-energy,.5) * 32px) rgba(159,104,255,.22)}
+@media (prefers-reduced-motion:reduce){.liveFrequencyStage.dj-beat-flash .djStrobe{opacity:calc(.08 + var(--dj-beat-energy,.5) * .18)!important}.liveFrequencyStage.dj-beat-flash .djStageWash,.liveFrequencyStage.dj-beat-flash .djSpotlight,.liveFrequencyStage.dj-beat-flash .djLaser{filter:none}}
+html.performance-mode .liveFrequencyStage .djStrobe{animation:none!important;opacity:0!important}

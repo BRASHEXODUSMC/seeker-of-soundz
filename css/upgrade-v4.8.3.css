@@ -1,0 +1,56 @@
+/* Seeker Of SoundZ v4.8.3 — guaranteed visible star particle layer */
+html{
+  min-height:100%;
+  background:#000!important;
+}
+body{
+  min-height:100%;
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(180deg,#100019 0%,#0b0011 22%,#07000b 45%,#030005 72%,#000 100%)!important;
+  background-attachment:scroll!important;
+}
+body::before{
+  content:""!important;
+  position:fixed!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:radial-gradient(ellipse at 18% 5%,rgba(55,12,78,.09),transparent 38%)!important;
+}
+#sosParticleStars{
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  z-index:4!important;
+  pointer-events:none!important;
+  background:transparent!important;
+  transform:translateZ(0);
+}
+body.page-hidden #sosParticleStars,
+.performance-mode #sosParticleStars{
+  display:block!important;
+  visibility:visible!important;
+  opacity:.86!important;
+}
+/* Put actual page UI above the stars without changing internal component layout. */
+body > header,
+body > nav,
+body > main,
+body > footer,
+body > .siteShell,
+body > .page,
+body > #app,
+body > #sharedNavigation,
+body > #siteHeader{
+  position:relative;
+  z-index:10;
+}
+#sharedNavigation,#siteHeader,.siteNav,.nav{z-index:9000!important}
+#loader,.cubeTransition,.modal,.dialog,.quickView,.adminModal,.forumDeleteModal{z-index:99990!important}
+@media(max-width:760px){#sosParticleStars{opacity:.94!important}}
+@media(prefers-reduced-motion:reduce){#sosParticleStars{opacity:.82!important}}

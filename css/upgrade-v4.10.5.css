@@ -1,0 +1,15 @@
+/* Seeker Of SoundZ v4.10.5 — guaranteed live themes + reaction hit targets */
+:root{--sos-theme-top:#160020;--sos-theme-mid:#07000c;--sos-theme-bottom:#000;--sos-accent:155,74,255}
+html,body{background-color:var(--sos-theme-bottom)!important;background-image:linear-gradient(180deg,var(--sos-theme-top) 0%,var(--sos-theme-mid) 44%,var(--sos-theme-bottom) 100%)!important;background-attachment:fixed!important}
+#sosExperienceBackdrop{position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,var(--sos-theme-top) 0%,var(--sos-theme-mid) 44%,var(--sos-theme-bottom) 100%)!important;transition:background .45s ease,filter .35s ease;transform:translateZ(0)}
+#sosTwinkleField{z-index:2!important}
+body>main,body>footer,body>#sharedNavigation,body>#siteHeader{position:relative;z-index:10}
+html.sosExperienceJustApplied #sosExperienceBackdrop{animation:sosThemeConfirm .7s ease}
+@keyframes sosThemeConfirm{0%{filter:brightness(1)}45%{filter:brightness(1.18)}100%{filter:brightness(1)}}
+.replyReactionBar{position:relative;z-index:3;isolation:isolate;overflow:visible!important}
+.replyReactionButton{pointer-events:auto!important;touch-action:manipulation!important;user-select:none;z-index:2;min-width:44px!important}
+.replyReactionButton>*{pointer-events:none!important}
+.replyReactionButton[data-reaction-busy="1"]{opacity:.82}
+.replyReactionButton.is-reacted .replyReactionEmoji{filter:drop-shadow(0 0 7px rgba(205,145,255,.8));transform:scale(1.08)}
+.replyReactionEmoji{transition:transform .18s ease,filter .18s ease}
+@media(max-width:600px){.replyReactionButton{min-width:44px!important;height:40px!important}}

@@ -1,0 +1,108 @@
+/* Seeker Of SoundZ v4.7.11 — dark background + restored lightweight stars */
+html{
+  min-height:100%;
+  background:#000!important;
+}
+body{
+  position:relative;
+  isolation:isolate;
+  min-height:100%;
+  background:transparent!important;
+}
+/* One dark fixed background layer. This avoids bright legacy gradients without
+   changing the stacking context of the navigation or page content. */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2!important;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 8%,rgba(48,7,78,.20),transparent 46%),
+    linear-gradient(180deg,#150222 0%,#100119 28%,#09010f 58%,#030005 82%,#000 100%)!important;
+}
+/* Star canvas remains behind every interface element but above the background. */
+#snowCanvas{
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  z-index:-1!important;
+  display:block!important;
+  opacity:.96!important;
+  visibility:visible!important;
+  background:transparent!important;
+  pointer-events:none!important;
+}
+
+/* Clean far-right reply close control. */
+.forumReplyContent{min-width:0;flex:1}
+.forumReplyHeading{
+  display:flex!important;
+  align-items:flex-start!important;
+  gap:12px!important;
+  width:100%!important;
+}
+.forumReplyIdentity{min-width:0;flex:1;display:flex;flex-wrap:wrap;align-items:center;gap:7px 10px}
+.replyDeleteButton{
+  flex:0 0 auto!important;
+  margin:0 0 0 auto!important;
+  width:26px!important;
+  height:26px!important;
+  min-width:26px!important;
+  min-height:26px!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid transparent!important;
+  border-radius:8px!important;
+  background:transparent!important;
+  color:rgba(255,255,255,.42)!important;
+  box-shadow:none!important;
+  line-height:1!important;
+  overflow:visible!important;
+  transform:none!important;
+  transition:color .16s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease,transform .16s ease!important;
+}
+.replyDeleteButton .replyDeleteIcon{
+  display:block!important;
+  position:static!important;
+  width:auto!important;
+  height:auto!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  font-size:0!important;
+  transform:none!important;
+}
+.replyDeleteButton .replyDeleteIcon::before{
+  content:"×"!important;
+  display:block!important;
+  position:static!important;
+  width:auto!important;
+  height:auto!important;
+  border:0!important;
+  background:none!important;
+  color:currentColor!important;
+  font:400 20px/1 Arial,sans-serif!important;
+  transform:translateY(-1px)!important;
+}
+.replyDeleteButton .replyDeleteIcon::after{content:none!important;display:none!important}
+.replyDeleteButton .replyDeleteText{
+  position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;
+  overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+.replyDeleteButton:hover,.replyDeleteButton:focus-visible{
+  color:#ff667f!important;
+  border-color:rgba(255,72,102,.55)!important;
+  background:rgba(74,5,22,.42)!important;
+  box-shadow:0 0 0 3px rgba(255,47,82,.07),0 0 15px rgba(255,35,72,.30)!important;
+  transform:scale(1.07)!important;
+}
+.replyDeleteButton:active{transform:scale(.92)!important}
+
+@media(max-width:700px){
+  #snowCanvas{opacity:.9!important}
+  .replyDeleteButton{width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important}
+}
+@media(prefers-reduced-motion:reduce){#snowCanvas{opacity:.8!important}}

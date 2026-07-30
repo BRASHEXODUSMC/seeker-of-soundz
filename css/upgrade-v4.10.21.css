@@ -1,0 +1,14 @@
+/* v4.10.21 — Admin music list cleanup and edit workflow */
+.musicAdminList{display:grid;gap:14px}
+.musicAdminItem{position:relative;display:grid;grid-template-columns:74px minmax(0,1fr) auto;align-items:center;gap:16px;cursor:pointer;overflow:hidden;border:1px solid rgba(174,124,255,.2);background:linear-gradient(135deg,rgba(17,12,25,.94),rgba(6,7,12,.92));transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.musicAdminItem::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 20%,rgba(150,89,255,.08) 50%,transparent 80%);transform:translateX(-120%);transition:transform .55s ease}
+.musicAdminItem:hover,.musicAdminItem:focus-visible{transform:translateY(-2px);border-color:rgba(183,127,255,.58);box-shadow:0 14px 34px rgba(0,0,0,.32),0 0 24px rgba(113,46,190,.14);outline:none}
+.musicAdminItem:hover::before,.musicAdminItem:focus-visible::before{transform:translateX(120%)}
+.musicAdminItemCopy{min-width:0}
+.musicAdminItemCopy strong,.musicAdminItemCopy p,.musicAdminItemCopy small{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.musicAdminItemCopy small{color:rgba(233,226,245,.68);margin-top:5px}
+.musicAdminItem .adminItemActions{position:relative;z-index:2;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.musicPublishActions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.musicPublishActions small{flex:1 1 260px}
+#cancelMusicEdit[hidden]{display:none!important}
+@media(max-width:720px){.musicAdminItem{grid-template-columns:58px minmax(0,1fr)}.musicAdminItem .adminItemActions{grid-column:1/-1;justify-content:stretch}.musicAdminItem .adminItemActions button{flex:1}.musicAdminItemCopy p,.musicAdminItemCopy small{white-space:normal;overflow-wrap:anywhere}}

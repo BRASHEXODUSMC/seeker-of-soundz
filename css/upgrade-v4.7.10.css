@@ -1,0 +1,97 @@
+/* Seeker Of SoundZ v4.7.10 — visible lightweight stars + uniform reply close action */
+
+/* Keep the canvas above the page background, but below all content. */
+body{
+  position:relative;
+  isolation:isolate;
+}
+#snowCanvas{
+  position:fixed!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  z-index:0!important;
+  opacity:1!important;
+  background:transparent!important;
+  pointer-events:none!important;
+}
+body::before{z-index:-1!important}
+header,main,footer,.nav,.siteHeader,.pageShell,.appShell,#sharedNavigation{
+  position:relative;
+  z-index:1;
+}
+
+/* Compact, uniform X aligned at the far right of each reply header. */
+.forumReplyContent{min-width:0;flex:1}
+.forumReplyHeading{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:space-between!important;
+  gap:14px!important;
+  width:100%!important;
+}
+.forumReplyIdentity{min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:7px 10px}
+.replyDeleteButton{
+  position:relative!important;
+  flex:0 0 auto!important;
+  margin-left:auto!important;
+  width:28px!important;
+  height:28px!important;
+  min-width:28px!important;
+  min-height:28px!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:50%!important;
+  background:rgba(7,3,12,.38)!important;
+  color:rgba(255,255,255,.48)!important;
+  box-shadow:none!important;
+  line-height:1!important;
+  transform:none!important;
+  overflow:visible!important;
+  transition:color .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease,transform .18s ease!important;
+}
+.replyDeleteButton .replyDeleteIcon{
+  width:auto!important;
+  height:auto!important;
+  display:block!important;
+  position:static!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  transform:none!important;
+  font-size:0!important;
+}
+.replyDeleteButton .replyDeleteIcon::before{
+  content:"×"!important;
+  position:static!important;
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  background:none!important;
+  border:0!important;
+  color:currentColor!important;
+  font:500 20px/1 Arial,sans-serif!important;
+  transform:translateY(-1px)!important;
+}
+.replyDeleteButton .replyDeleteIcon::after{content:none!important;display:none!important}
+.replyDeleteButton .replyDeleteText{
+  position:absolute!important;
+  width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;
+  overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+.replyDeleteButton:hover,.replyDeleteButton:focus-visible{
+  color:#ff7388!important;
+  border-color:rgba(255,72,102,.68)!important;
+  background:rgba(92,7,25,.34)!important;
+  box-shadow:0 0 0 3px rgba(255,47,82,.08),0 0 16px rgba(255,35,72,.38)!important;
+  transform:scale(1.08)!important;
+}
+.replyDeleteButton:active{transform:scale(.92)!important}
+
+@media(max-width:700px){
+  #snowCanvas{opacity:.9!important}
+  .replyDeleteButton{width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important}
+}
+@media(prefers-reduced-motion:reduce){#snowCanvas{opacity:.72!important}}

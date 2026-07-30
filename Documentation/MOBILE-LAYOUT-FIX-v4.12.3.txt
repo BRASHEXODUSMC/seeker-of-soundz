@@ -1,0 +1,18 @@
+SEEKER OF SOUNDZ v4.12.3 MOBILE LAYOUT FIX
+
+Update type: WEBSITE ONLY
+Supabase changes: NONE
+Storage changes: NONE
+
+Fixed:
+- Mobile top navigation changed to a clean two-row layout.
+- Logo and MENU occupy the first row.
+- Search, account, cart, and cursor controls are evenly spaced on the second row.
+- Mobile menu links have more room and scroll safely.
+- Featured Video title and description wrap correctly.
+- Featured Video card cannot exceed the viewport width.
+- Category pills wrap instead of running off-screen.
+- Video metadata stacks vertically on phones.
+- Action buttons remain inside the card.
+
+Do not rerun schema.sql, policies.sql, storage-policies.sql, or any previous patch.

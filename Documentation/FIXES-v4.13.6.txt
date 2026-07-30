@@ -1,0 +1,28 @@
+SEEKER OF SOUNDZ v4.13.6
+FORUM EMOJI PICKER STABILITY FIX
+
+UPDATE TYPE
+Website files only. No Supabase SQL or Storage changes are required.
+
+FIXED
+- Replaced the forum emoji picker with a single-instance controller.
+- Prevented duplicate document listeners and MutationObservers.
+- Limited DOM observation to new emoji toolbars and batches updates once per frame.
+- Removed expensive repositioning on every scroll event.
+- Built the picker shell only once and updates only the emoji grid when needed.
+- Added lightweight, debounced emoji search.
+- Restored quick emoji buttons in topic and reply editors.
+- Preserved editor focus and cursor position after inserting an emoji.
+- Added reliable outside-click and Escape-key closing.
+- Added mobile bottom-sheet behavior with contained scrolling.
+- Added cleanup when leaving the page to avoid memory leaks.
+
+INSTALL
+1. Replace the website files in the GitHub repository folder.
+2. Commit in GitHub Desktop.
+3. Push origin.
+4. Wait for GitHub Pages to deploy.
+5. Refresh forums.html with Ctrl+F5.
+
+SUPABASE
+Do not run schema.sql, policies.sql, storage-policies.sql, or any older patch.

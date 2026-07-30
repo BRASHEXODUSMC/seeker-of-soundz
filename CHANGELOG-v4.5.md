@@ -33,3 +33,8 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Made Experience Studio controls apply instantly as an unsaved page preview; Save persists and Undo restores.
 - Replaced overlapping page-transition controllers with one isolated overlay that never transforms page content.
 - Restored the stable v4.10.22 loader implementation while preserving later authentication, mobile, profile and Supabase work.
+
+## v4.13.6 — Forum Emoji Picker Stability
+- Replaced the stacked emoji-picker behavior with one guarded controller.
+- Prevented duplicate listeners, observer stacking, and scroll-position recalculation lag.
+- Restored reliable quick emoji insertion, category browsing, search, close controls, and mobile behavior.

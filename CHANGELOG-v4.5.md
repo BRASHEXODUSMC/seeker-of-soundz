@@ -1,3 +1,12 @@
+# v4.13.12 — Forum Experience & Frequency Reactor Loader
+
+- Redesigned forum category cards.
+- Moved the full emoji opener to the right edge of editor toolbars.
+- Added reactions to replies.
+- Added secure Supabase reaction toggling for topics and replies.
+- Added reliable author/staff topic and reply deletion RPCs.
+- Rebuilt the one-time EDM loading screen as the Frequency Reactor.
+
 ## v4.13.9 — Forum synchronization RPC fix
 - Removed local category ID synchronization failures.
 - Added server-resolved topic creation and one-request forum preset loading.

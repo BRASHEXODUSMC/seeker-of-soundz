@@ -1,0 +1,11 @@
+Seeker Of SoundZ v4.13.13
+
+UPDATE TYPE: WEBSITE ONLY
+
+Fixes:
+- Moves the + More Emojis control to a dedicated right-aligned toolbar position below the new-post text area.
+- Restores six reply reactions: Love, Fire, Like, Funny, Music, and Support.
+- Keeps reaction counts and the signed-in member state synchronized with Supabase.
+- Synchronizes the existing Achievement Hall compatibility data from the real Supabase forum feed after posts, replies, reactions, refreshes, and realtime updates.
+
+SUPABASE: No SQL patch required. The existing forum_toggle_reaction function already accepts each restored reaction type.

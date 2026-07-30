@@ -68,3 +68,9 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Added a single Supabase forum feed RPC for topics, replies, reactions, and public author data.
 - Newly published topics render immediately and are then reconciled with the database feed.
 - The success message now verifies the new discussion can actually be retrieved.
+
+
+## v4.13.13
+- Right-aligned the full emoji-library opener below the new-post editor.
+- Restored multi-reaction controls on forum replies.
+- Added Supabase-to-Achievement-Hall compatibility synchronization.

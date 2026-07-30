@@ -1,0 +1,40 @@
+/* Seeker Of SoundZ v4.13.13 — editor controls + reply reaction restoration */
+.forumTextEditor{overflow:visible!important}
+.forumTextEditor>textarea{display:block!important;width:100%!important;min-height:190px!important;position:relative!important;z-index:1!important}
+.forumTextEditor>.emojiToolbar{
+  position:relative!important;
+  inset:auto!important;
+  display:flex!important;
+  align-items:center!important;
+  flex-wrap:wrap!important;
+  gap:7px!important;
+  width:100%!important;
+  min-height:52px!important;
+  padding:9px 10px!important;
+  overflow:visible!important;
+  border-top:1px solid rgba(255,255,255,.08)!important;
+  background:linear-gradient(90deg,rgba(255,255,255,.018),rgba(136,70,211,.05))!important;
+}
+.forumTextEditor>.emojiToolbar .emojiMoreButton{
+  order:999!important;
+  margin-left:auto!important;
+  position:relative!important;
+  inset:auto!important;
+  min-width:132px!important;
+  justify-content:center!important;
+  border-color:rgba(194,145,255,.35)!important;
+  background:linear-gradient(135deg,rgba(126,55,194,.24),rgba(50,17,78,.36))!important;
+  box-shadow:0 0 18px rgba(143,71,224,.12)!important;
+}
+.forumReplyContent>.replyReactionBar{width:100%;margin-top:12px!important}
+.replyReactionBar{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:7px!important;padding:10px 0 0!important;border-top:1px solid rgba(190,150,255,.13)!important}
+.replyReactionButton{pointer-events:auto!important;cursor:pointer!important}
+.replyReactionButton:disabled{opacity:.55;cursor:wait!important}
+@media(max-width:620px){
+ .forumTextEditor>textarea{min-height:220px!important}
+ .forumTextEditor>.emojiToolbar{display:grid!important;grid-template-columns:repeat(5,minmax(36px,auto)) 1fr!important}
+ .forumTextEditor>.emojiToolbar>span{display:none!important}
+ .forumTextEditor>.emojiToolbar .emojiMoreButton{grid-column:1/-1!important;justify-self:end!important;margin-left:0!important;width:min(170px,100%)!important}
+ .replyReactionHint{width:100%!important}
+ .replyReactionButton{min-width:46px!important;height:38px!important}
+}

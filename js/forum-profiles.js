@@ -34,6 +34,7 @@ function notifyNewAchievements(){
  SOS.write(key,current);
 }
 notifyNewAchievements();
+window.addEventListener('sos:forum-data-synced',()=>{notifyNewAchievements();decorate?.();});
 
 let hover=document.createElement("div");hover.className="profileHoverCard";document.body.appendChild(hover);
 let modal=document.createElement("div");modal.className="profileModal";modal.hidden=true;document.body.appendChild(modal);

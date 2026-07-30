@@ -1,0 +1,13 @@
+SEEKER OF SOUNDZ v4.12.4 - MOBILE NAVIGATION FIX
+
+UPDATE TYPE: WEBSITE ONLY
+
+Changes:
+- Places logo and MENU on their own first row.
+- Places Search, Account, and Cart on a separate second row.
+- Hides the custom-cursor switch on touch-sized screens.
+- Uses equal-width utility buttons with fixed gaps.
+- Removes positioning conflicts that caused controls to overlap.
+- Keeps desktop navigation unchanged.
+
+SUPABASE: No changes. Do not run SQL files.

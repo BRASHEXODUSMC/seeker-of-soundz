@@ -1,0 +1,16 @@
+SEEKER OF SOUNDZ v4.13.2 — MEMBER TRANSITION FIX
+
+UPDATE TYPE: WEBSITE ONLY
+
+WHAT WAS FIXED
+- Member-selected page transitions now control real page navigation.
+- The legacy hard-coded cube transition can no longer override the saved selection.
+- Stellar, Fade, Aperture, Warp, Scan, Cubes, and Minimal each have a distinct live transition.
+- The normal Stellar transition uses fixed overlay positioning and opacity/scale only.
+- Page arrival no longer translates content vertically, preventing the jumpy effect.
+- Browser back/forward navigation cleans the transition overlay safely.
+- Reduced-motion preferences use the Minimal transition automatically.
+
+SUPABASE
+- No SQL patch is required.
+- Do not rerun schema.sql, policies.sql, storage-policies.sql, or earlier patches.

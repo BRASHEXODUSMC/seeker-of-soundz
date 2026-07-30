@@ -20,3 +20,9 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Added immediate avatar/session refresh and cache-busting.
 - Added compatibility synchronization for older member/forum profile components.
 - Added a one-time Supabase SQL patch for profile inserts and avatar Storage policies.
+
+## v4.13.2 — Member Transition Choice & Smooth Default Fix
+- Connected the saved member transition selection to actual internal page navigation.
+- Prevented the legacy cube handler from overriding member choices.
+- Added distinct Stellar, Fade, Aperture, Warp, Scan, Cubes, and Minimal transitions.
+- Removed vertical page movement from the normal transition to eliminate jumping.

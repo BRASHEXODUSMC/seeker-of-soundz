@@ -1,0 +1,121 @@
+/* Seeker Of SoundZ v4.13.2 — smooth, member-selected page transitions. */
+#cubeTransition{
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100dvh!important;
+  margin:0!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  transform:none!important;
+  background:#030106!important;
+  contain:layout paint style!important;
+  will-change:opacity!important;
+  transition:opacity .16s linear,visibility 0s linear .16s!important;
+}
+#cubeTransition.active.sos-transition-running{
+  opacity:1!important;
+  visibility:visible!important;
+  transition:opacity .16s linear,visibility 0s!important;
+}
+#cubeTransition .cubeScene{
+  position:relative!important;
+  left:auto!important;
+  top:auto!important;
+  width:min(48vw,230px)!important;
+  height:min(48vw,230px)!important;
+  margin:0!important;
+  transform:none!important;
+  display:grid!important;
+  place-items:center!important;
+  will-change:opacity,transform!important;
+}
+#cubeTransition .transitionLogo{
+  position:relative!important;
+  left:auto!important;
+  top:auto!important;
+  width:min(24vw,105px)!important;
+  height:auto!important;
+  margin:0!important;
+  transform:none!important;
+  object-fit:contain!important;
+}
+
+/* Hide legacy decoration by default; each selected mode opts into what it uses. */
+#cubeTransition .transitionCube,
+#cubeTransition .transitionGalaxy,
+#cubeTransition .transitionStarCloud{opacity:0!important;animation:none!important}
+
+/* Default Stellar Signal Jump — smooth scale and glow, no layout translation. */
+#cubeTransition[data-transition-mode="stellar"]{
+  background:
+    radial-gradient(circle at 50% 48%,rgba(152,70,222,.2),transparent 32%),
+    linear-gradient(180deg,#09010e,#020103 72%)!important;
+}
+#cubeTransition[data-transition-mode="stellar"].active .cubeScene{
+  animation:sosStellarScene4132 .68s cubic-bezier(.2,.72,.25,1) both!important;
+}
+#cubeTransition[data-transition-mode="stellar"].active .transitionLogo{
+  animation:sosStellarLogo4132 .68s cubic-bezier(.2,.72,.25,1) both!important;
+  filter:drop-shadow(0 0 16px rgba(255,255,255,.25)) drop-shadow(0 0 36px rgba(153,74,225,.42))!important;
+}
+#cubeTransition[data-transition-mode="stellar"] .transitionStarCloud{opacity:.55!important}
+#cubeTransition[data-transition-mode="stellar"].active .transitionStarCloud{animation:sosStars4132 .68s ease both!important}
+@keyframes sosStellarScene4132{0%{opacity:0;transform:scale(.94)}28%{opacity:1}100%{opacity:1;transform:scale(1.035)}}
+@keyframes sosStellarLogo4132{0%{opacity:0;transform:scale(.82)}40%{opacity:1}100%{opacity:.98;transform:scale(1)}}
+@keyframes sosStars4132{0%{opacity:0}45%{opacity:.55}100%{opacity:.2}}
+
+/* Soft Fade */
+#cubeTransition[data-transition-mode="fade"]{background:#030305!important}
+#cubeTransition[data-transition-mode="fade"] .cubeScene{display:none!important}
+
+/* Frequency Aperture */
+#cubeTransition[data-transition-mode="aperture"]{background:transparent!important}
+#cubeTransition[data-transition-mode="aperture"]::before,
+#cubeTransition[data-transition-mode="aperture"]::after{
+  content:"";position:absolute;left:0;width:100%;height:51%;background:#030106;transform:scaleY(0);will-change:transform
+}
+#cubeTransition[data-transition-mode="aperture"]::before{top:0;transform-origin:top}
+#cubeTransition[data-transition-mode="aperture"]::after{bottom:0;transform-origin:bottom}
+#cubeTransition[data-transition-mode="aperture"].active::before,
+#cubeTransition[data-transition-mode="aperture"].active::after{animation:sosAperture4132 .64s cubic-bezier(.65,0,.25,1) both}
+#cubeTransition[data-transition-mode="aperture"].active .transitionLogo{animation:sosLogoFade4132 .64s ease both!important}
+@keyframes sosAperture4132{0%{transform:scaleY(0)}48%,100%{transform:scaleY(1)}}
+
+/* Star Warp */
+#cubeTransition[data-transition-mode="warp"]{background:radial-gradient(circle,#13021f,#020103 67%)!important}
+#cubeTransition[data-transition-mode="warp"] .transitionStarCloud{opacity:.8!important;transform:scale(.45)}
+#cubeTransition[data-transition-mode="warp"].active .transitionStarCloud{animation:sosWarp4132 .66s cubic-bezier(.15,.75,.2,1) both!important}
+#cubeTransition[data-transition-mode="warp"].active .transitionLogo{animation:sosLogoFade4132 .66s ease both!important}
+@keyframes sosWarp4132{0%{opacity:0;transform:scale(.35)}55%{opacity:.85}100%{opacity:.08;transform:scale(2.1)}}
+
+/* Signal Scan */
+#cubeTransition[data-transition-mode="scan"]{background:#020103!important}
+#cubeTransition[data-transition-mode="scan"]::after{
+  content:"";position:absolute;left:0;right:0;height:3px;top:-5%;background:#fff;box-shadow:0 0 18px #fff,0 0 48px rgba(175,92,255,.9)
+}
+#cubeTransition[data-transition-mode="scan"].active::after{animation:sosScan4132 .56s ease-in both}
+#cubeTransition[data-transition-mode="scan"].active .transitionLogo{animation:sosLogoFade4132 .56s ease both!important}
+@keyframes sosScan4132{0%{top:-5%;opacity:0}12%{opacity:1}100%{top:105%;opacity:.2}}
+
+/* Orbiting Cubes */
+#cubeTransition[data-transition-mode="cubes"]{background:#030106!important}
+#cubeTransition[data-transition-mode="cubes"] .transitionCube{opacity:1!important}
+#cubeTransition[data-transition-mode="cubes"].active .transitionCube{animation:cubeOrbit .72s ease-in-out infinite!important}
+#cubeTransition[data-transition-mode="cubes"].active .transitionLogo{animation:sosLogoFade4132 .72s ease both!important}
+
+@keyframes sosLogoFade4132{0%{opacity:0;transform:scale(.92)}35%{opacity:1}100%{opacity:.96;transform:scale(1)}}
+
+/* The page itself never translates vertically. Arrival is opacity-only. */
+html[data-sos-arrival] body{opacity:.985}
+html.sos-page-arrived body{animation:sosPageArrival4132 .34s ease-out both}
+@keyframes sosPageArrival4132{from{opacity:.985}to{opacity:1}}
+
+@media (prefers-reduced-motion:reduce){
+  #cubeTransition,#cubeTransition *{animation:none!important;transition:none!important}
+  html.sos-page-arrived body{animation:none!important;opacity:1!important}
+}

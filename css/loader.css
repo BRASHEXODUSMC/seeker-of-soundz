@@ -382,3 +382,46 @@ html,body{
 background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75%,#000000 100%) !important;
 }
 .star{filter:drop-shadow(0 0 4px rgba(255,255,255,.6));animation-duration:3s!important;}
+
+/* v4.13.1 loader stability fix: reserve the logo box before image decode and avoid transform jumps. */
+#loader .loaderLogoStage{
+  flex:0 0 auto;
+  contain:layout paint;
+  overflow:visible;
+}
+#loader .loaderLogoImage{
+  position:absolute!important;
+  inset:14%!important;
+  width:72%!important;
+  height:72%!important;
+  max-width:none!important;
+  object-fit:contain!important;
+  margin:0!important;
+  transform:none!important;
+  animation:loaderLogoStableReveal 1.05s ease .12s both!important;
+  will-change:opacity,clip-path;
+}
+@keyframes loaderLogoStableReveal{
+  0%{opacity:.12;clip-path:inset(0 0 82% 0)}
+  55%{opacity:.68;clip-path:inset(8% 0 22% 0)}
+  100%{opacity:1;clip-path:inset(0)}
+}
+#loader.loaderComplete .loaderLogoStage{
+  animation:loaderStageStableRelease .75s ease forwards!important;
+}
+@keyframes loaderStageStableRelease{
+  0%{transform:scale(1);opacity:1}
+  55%{transform:scale(1.04);opacity:1}
+  100%{transform:scale(.94);opacity:0}
+}
+
+/* v4.13.1 loader stability fix */
+#loader .loaderLogoStage{flex:0 0 auto;contain:layout paint;overflow:visible}
+#loader .loaderLogoImage{
+  position:absolute!important;inset:14%!important;width:72%!important;height:72%!important;
+  max-width:none!important;object-fit:contain!important;margin:0!important;transform:none!important;
+  animation:loaderLogoStableReveal 1.05s ease .12s both!important;will-change:opacity,clip-path
+}
+@keyframes loaderLogoStableReveal{0%{opacity:.12;clip-path:inset(0 0 82% 0)}55%{opacity:.68;clip-path:inset(8% 0 22% 0)}100%{opacity:1;clip-path:inset(0)}}
+#loader.loaderComplete .loaderLogoStage{animation:loaderStageStableRelease .75s ease forwards!important}
+@keyframes loaderStageStableRelease{0%{transform:scale(1);opacity:1}55%{transform:scale(1.04);opacity:1}100%{transform:scale(.94);opacity:0}}

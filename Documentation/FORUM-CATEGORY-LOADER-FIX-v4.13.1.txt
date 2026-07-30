@@ -1,0 +1,22 @@
+SEEKER OF SOUNDZ v4.13.1
+FORUM CATEGORY + LOADER STABILITY FIX
+
+UPDATE TYPE: WEBSITE ONLY
+
+FIXED
+- Restored the forum category selector in the Create Post composer.
+- Restored category-specific subcategory lists.
+- Suggested tags now react to the selected category.
+- Suggested tags also react to the selected subcategory.
+- Suggested tags update while typing the post title and body.
+- Selected tags can be removed individually.
+- Draft saving now preserves the selected subcategory.
+- Stabilized the loader logo position so image decoding and signal animation do not cause it to jump.
+
+SUPABASE
+- No SQL patch is required.
+- Do not rerun schema.sql, policies.sql, storage-policies.sql, or earlier patches.
+
+GITHUB
+- Replace the website files with this version.
+- Commit and push through GitHub Desktop.

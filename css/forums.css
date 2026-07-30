@@ -58,3 +58,21 @@ background: linear-gradient(180deg,#200434 0%,#17032a 20%,#120220 45%,#090114 75
 @keyframes forumHeartFade{50%{opacity:.58;transform:scale(.96)}}
 @media(max-width:520px){.forumHeartReaction{min-width:92px}.forumHeartLabel{display:none}}
 @media(prefers-reduced-motion:reduce){.forumHeartReaction,.forumHeartIcon{animation:none!important;transition:none!important}}
+
+/* v4.13.1 restored category/subcategory composer controls */
+#postCategory,#postSubcategory{width:100%;min-height:48px}
+.suggestedTagButtons{display:flex;flex-wrap:wrap;gap:9px}
+.tagChoice.selected{border-color:rgba(255,255,255,.65);background:rgba(255,255,255,.12);box-shadow:0 0 18px rgba(178,121,220,.16)}
+.tagChoice b{margin-left:7px}
+.selectedTagChip{display:inline-flex;align-items:center;gap:7px}
+.selectedTagChip button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0 2px;line-height:1}
+@media(max-width:700px){.formRow{grid-template-columns:1fr!important}.tagChoice{min-height:42px}}
+
+/* v4.13.1 restored category/subcategory and suggested-tag controls */
+#postCategory,#postSubcategory{width:100%;min-height:48px}
+.suggestedTagButtons{display:flex;flex-wrap:wrap;gap:9px}
+.tagChoice.selected{border-color:rgba(255,255,255,.65);background:rgba(255,255,255,.12);box-shadow:0 0 18px rgba(178,121,220,.16)}
+.tagChoice b{margin-left:7px}
+.selectedTagChip{display:inline-flex;align-items:center;gap:7px}
+.selectedTagChip button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0 2px;line-height:1}
+@media(max-width:700px){.formRow{grid-template-columns:1fr!important}.tagChoice{min-height:42px}}

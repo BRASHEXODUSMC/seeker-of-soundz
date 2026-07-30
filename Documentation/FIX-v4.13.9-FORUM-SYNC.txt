@@ -1,0 +1,10 @@
+Seeker Of SoundZ v4.13.9 Forum Synchronization Fix
+
+UPDATE TYPE: Website + one Supabase patch
+
+Run only:
+  supabase/patch-v4.13.9-forum-sync-rpc.sql
+
+Do not rerun schema.sql, policies.sql, storage-policies.sql, or older patches.
+
+This update removes the fragile browser-side category ID requirement. Supabase now returns the complete category/subcategory/tag tree in one request and creates topics by resolving the category slug inside the database.

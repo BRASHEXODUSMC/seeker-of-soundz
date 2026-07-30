@@ -1,3 +1,7 @@
+## v4.13.9 — Forum synchronization RPC fix
+- Removed local category ID synchronization failures.
+- Added server-resolved topic creation and one-request forum preset loading.
+
 # v4.5 Production Ready Foundation
 
 - Redesigned member dashboard with cleaner hero, status chips, statistics, equal cards and recent activity.

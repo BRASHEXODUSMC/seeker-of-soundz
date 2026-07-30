@@ -1,4 +1,4 @@
-/* Seeker Of SoundZ v4.13.7 — Supabase-driven forum presets and validation */
+/* Seeker Of SoundZ v4.13.9 — server-synchronized forum presets and topic creation */
 (()=>{
 'use strict';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -47,7 +47,20 @@ function safeUrl(v){try{if(!v)return '';const u=new URL(v,location.href);return 
 async function getAuth(){const c=supa();if(!c)return;const {data}=await c.auth.getSession();state.user=data.session?.user||null;if(state.user){const {data:p}=await c.from('profiles').select('*').eq('id',state.user.id).maybeSingle();state.profile=p||null}}
 async function loadCategories(){
  const c=supa();if(!c)return;
- const {data,error}=await c.from('forum_categories').select('*').eq('is_visible',true).order('sort_order');if(error)throw error;
+ // v4.13.9: fetch the complete preset tree through one server-side function so
+ // category IDs, subcategories and tags always come from the same snapshot.
+ const rpc=await c.rpc('forum_get_presets');
+ if(!rpc.error&&rpc.data){
+   const payload=typeof rpc.data==='string'?JSON.parse(rpc.data):rpc.data;
+   state.categories=Array.isArray(payload.categories)?payload.categories:[];
+   state.subcategories=Array.isArray(payload.subcategories)?payload.subcategories:[];
+   state.tagPresets=Array.isArray(payload.tags)?payload.tags:[];
+   populateCategorySelect();
+   return;
+ }
+ // Compatibility fallback for projects that have not installed the v4.13.9 patch yet.
+ const {data,error}=await c.from('forum_categories').select('*').eq('is_visible',true).order('sort_order');
+ if(error){console.warn('Forum categories could not be loaded:',error);state.categories=[];state.subcategories=[];state.tagPresets=[];populateCategorySelect();return}
  state.categories=data||[];
  const subQuery=await c.from('forum_subcategories').select('*').eq('is_visible',true).order('sort_order');
  state.subcategories=subQuery.error?[]:(subQuery.data||[]);
@@ -81,12 +94,18 @@ async function publish(e){
  e.preventDefault();if(!state.user)return openComposer();
  const c=supa(),f=new FormData(e.currentTarget);let category=categoryByValue(f.get('category'));
  if(!category){await loadCategories();category=categoryByValue(f.get('category'))}
- if(!category)return toast('The selected category is not synchronized with Supabase. Refresh once and try again.','Forum category');
+ if(!category)return toast('Please choose a valid forum category.','Forum category');
  const selectedSub=String(f.get('subcategory')||'').trim();
  const validSubs=dbSubs(category);if(selectedSub&&!validSubs.some(x=>normalize(x)===normalize(selectedSub)))return toast('That subcategory is not available for this forum section.','Forum subcategory');
- if(!category.id)return toast('This category is visible locally but has not synchronized with Supabase yet. Run the forum preset patch or refresh the page.','Forum category');
- const payload={category_id:category.id,author_id:state.user.id,title:String(f.get('title')||'').trim(),body:String(f.get('body')||'').trim(),tags:[...state.selectedTags].slice(0,8),subcategory:selectedSub,media_url:safeUrl(f.get('mediaUrl')),last_activity_at:new Date().toISOString()};
- try{const {data,error}=await c.from('forum_topics').insert(payload).select().single();if(error)throw error;if(state.imageFile){const url=await uploadImage(data.id);const {error:u}=await c.from('forum_topics').update({image_url:url}).eq('id',data.id);if(u)throw u}e.currentTarget.reset();state.selectedTags.clear();state.imageFile=null;$('#imagePreview').hidden=true;$('#imagePreview').innerHTML='';populateCategorySelect();$('#forumComposer').hidden=true;await refresh();toast('Your discussion is now live.','Post published')}catch(err){toast(err.message||'Could not publish this discussion.','Forum error')}
+ const categorySlug=category.slug||String(category.name||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+ const title=String(f.get('title')||'').trim(),body=String(f.get('body')||'').trim();
+ try{
+   // The database resolves the category/subcategory by slug and creates the topic
+   // atomically. This removes the old local-ID synchronization failure entirely.
+   const created=await c.rpc('forum_create_topic',{category_slug_input:categorySlug,subcategory_name_input:selectedSub,title_input:title,body_input:body,tags_input:[...state.selectedTags].slice(0,8),media_url_input:safeUrl(f.get('mediaUrl'))});
+   if(created.error)throw created.error;
+   const topicId=created.data;
+   if(state.imageFile){const url=await uploadImage(topicId);const {error:u}=await c.from('forum_topics').update({image_url:url}).eq('id',topicId);if(u)throw u}e.currentTarget.reset();state.selectedTags.clear();state.imageFile=null;$('#imagePreview').hidden=true;$('#imagePreview').innerHTML='';populateCategorySelect();$('#forumComposer').hidden=true;await refresh();toast('Your discussion is now live.','Post published')}catch(err){toast(err.message||'Could not publish this discussion.','Forum error')}
 }
 async function refresh(){try{await Promise.all([getAuth(),loadCategories()]);await loadTopics();render()}catch(err){console.error(err);toast(err.message||'The forum could not load.','Forum connection')}}
 function bind(){

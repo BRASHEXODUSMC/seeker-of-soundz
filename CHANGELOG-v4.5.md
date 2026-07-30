@@ -74,3 +74,11 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Right-aligned the full emoji-library opener below the new-post editor.
 - Restored multi-reaction controls on forum replies.
 - Added Supabase-to-Achievement-Hall compatibility synchronization.
+
+
+## v4.13.14 — Emoji Drawer and Reply Reaction Visibility
+- Moved full emoji library to a right-side desktop drawer and mobile bottom sheet.
+- Bumped forum asset versions to defeat stale GitHub Pages/browser caches.
+- Forced reply reaction controls to render visibly on every reply.
+- Updated fallback reaction loading to include reply-targeted reactions.
+- Added Supabase feed patch so reply reactions are returned by forum_get_feed.

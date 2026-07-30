@@ -1,0 +1,17 @@
+/* Seeker Of SoundZ v4.13.14 — reply reaction visibility */
+.forumReply{overflow:visible!important}
+.forumReplyContent{min-width:0!important;overflow:visible!important}
+.forumReplyContent>.replyReactionBar{
+ display:flex!important;visibility:visible!important;opacity:1!important;width:100%!important;
+ align-items:center!important;flex-wrap:wrap!important;gap:7px!important;margin-top:12px!important;
+ padding:10px 0 0!important;border-top:1px solid rgba(190,150,255,.16)!important;position:relative!important;z-index:5!important;
+}
+.replyReactionHint{display:inline-flex!important;font-size:.66rem!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:rgba(238,226,255,.62)!important;margin-right:3px!important}
+.replyReactionButton{
+ display:inline-flex!important;visibility:visible!important;opacity:1!important;align-items:center!important;justify-content:center!important;
+ gap:5px!important;min-width:48px!important;height:36px!important;padding:0 10px!important;pointer-events:auto!important;cursor:pointer!important;
+ border:1px solid rgba(177,132,228,.28)!important;border-radius:11px!important;background:linear-gradient(180deg,rgba(24,16,34,.94),rgba(10,7,15,.96))!important;color:#f5edff!important;
+}
+.replyReactionButton.is-reacted{border-color:rgba(220,177,255,.82)!important;background:linear-gradient(135deg,rgba(117,48,169,.58),rgba(25,11,38,.96))!important;box-shadow:0 0 18px rgba(142,72,214,.32)!important}
+.replyReactionButton>*{pointer-events:none!important}.replyReactionCount{display:inline!important;font-size:.72rem!important;font-weight:800!important}
+@media(max-width:620px){.replyReactionHint{width:100%!important}.replyReactionButton{min-width:50px!important;height:40px!important}}

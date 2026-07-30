@@ -1,4 +1,4 @@
-/* Seeker Of SoundZ v4.13.13 — reply reactions, editor layout, and achievement compatibility sync */
+/* Seeker Of SoundZ v4.13.14 — right-side emoji drawer + guaranteed reply reactions */
 (()=>{
 'use strict';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -99,7 +99,17 @@ async function loadTopics(){
    if(replyAuthors.length){const missing=replyAuthors.filter(id=>!state.profiles.has(id));if(missing.length){const {data:p2}=await c.from('profiles').select('*').in('id',missing);(p2||[]).forEach(x=>state.profiles.set(x.id,x))}}
    ;(r||[]).forEach(x=>{const a=state.replies.get(x.topic_id)||[];a.push(x);state.replies.set(x.topic_id,a)})
  }
- const {data:rx,error:reactionError}=await c.from('forum_reactions').select('*').in('topic_id',topicIds.length?topicIds:['00000000-0000-0000-0000-000000000000']);
+ const replyIds=[...state.replies.values()].flat().map(r=>r.id);
+ let reactionQuery=c.from('forum_reactions').select('*');
+ if(topicIds.length||replyIds.length){
+   const filters=[];
+   if(topicIds.length)filters.push(`topic_id.in.(${topicIds.join(',')})`);
+   if(replyIds.length)filters.push(`reply_id.in.(${replyIds.join(',')})`);
+   reactionQuery=reactionQuery.or(filters.join(','));
+ }else{
+   reactionQuery=reactionQuery.eq('id','00000000-0000-0000-0000-000000000000');
+ }
+ const {data:rx,error:reactionError}=await reactionQuery;
  if(reactionError)throw reactionError;
  state.reactions=rx||[];
  syncAchievementCompatibility();

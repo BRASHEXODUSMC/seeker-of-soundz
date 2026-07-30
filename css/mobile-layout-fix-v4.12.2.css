@@ -1,0 +1,206 @@
+/* =========================================================
+   Seeker Of SoundZ v4.12.2
+   Mobile navigation spacing + homepage featured-video containment
+   ========================================================= */
+
+html,body{max-width:100%;overflow-x:hidden}
+
+/* Prevent flex/grid children from forcing the page wider than the viewport. */
+#videoPreview,
+#videoPreview .container,
+#videoPreview .sectionHeading,
+#videoPreview .videoFeature,
+#videoPreview .videoPlayerCard,
+#videoPreview .videoFrame,
+#videoPreview .videoDetails{min-width:0;max-width:100%}
+
+@media(max-width:1000px){
+  #siteHeader{
+    width:min(94%,720px)!important;
+    top:10px!important;
+  }
+
+  #mainNav{
+    min-height:68px;
+    height:auto!important;
+    display:grid!important;
+    grid-template-columns:auto minmax(76px,1fr) auto;
+    align-items:center;
+    gap:12px;
+    padding:10px 14px!important;
+  }
+
+  #mainNav>.logo{
+    justify-self:start;
+    min-width:0;
+  }
+
+  #mainNav .navLogo{
+    width:42px!important;
+    max-width:42px;
+    height:auto;
+  }
+
+  #menuToggle{
+    display:inline-flex!important;
+    justify-self:center;
+    align-items:center;
+    justify-content:center;
+    min-width:92px!important;
+    min-height:44px!important;
+    margin:0!important;
+    padding:0 18px!important;
+    white-space:nowrap;
+  }
+
+  .navUtility{
+    justify-self:end;
+    display:flex!important;
+    align-items:center;
+    justify-content:flex-end;
+    gap:8px!important;
+    min-width:0;
+  }
+
+  .navIconButton{
+    flex:0 0 40px;
+    width:40px!important;
+    height:40px!important;
+    min-width:40px!important;
+  }
+
+  .navLinks{
+    position:absolute!important;
+    top:calc(100% + 12px)!important;
+    left:50%!important;
+    width:min(440px,calc(100vw - 24px))!important;
+    max-height:calc(100svh - 104px)!important;
+    padding:18px!important;
+    gap:10px!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    overscroll-behavior:contain;
+    scrollbar-gutter:stable;
+  }
+
+  .navLinks li{width:100%!important}
+  .navLinks a{
+    width:100%!important;
+    min-height:50px!important;
+    height:auto!important;
+    padding:13px 16px!important;
+    justify-content:flex-start!important;
+    text-align:left;
+    line-height:1.2;
+  }
+
+  #videoPreview .sectionHeading{
+    align-items:flex-start;
+    gap:18px;
+  }
+
+  #videoPreview .videoFeature{
+    width:100%!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    overflow:hidden!important;
+    border-radius:24px;
+  }
+
+  #videoPreview .videoPlayerCard{
+    width:100%;
+    overflow:hidden;
+  }
+
+  #videoPreview .videoFrame{
+    width:100%!important;
+    min-height:0!important;
+    aspect-ratio:16/9;
+    overflow:hidden!important;
+  }
+
+  #videoPreview .videoFrame img{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:100%!important;
+    object-fit:cover!important;
+  }
+
+  #videoPreview .videoDetails{
+    width:100%!important;
+    padding:30px 24px!important;
+    overflow-wrap:anywhere;
+  }
+
+  #videoPreview .videoCategories,
+  #videoPreview .videoActions{
+    width:100%;
+    min-width:0;
+  }
+}
+
+@media(max-width:620px){
+  #siteHeader{width:calc(100% - 16px)!important;top:8px!important}
+
+  #mainNav{
+    grid-template-columns:44px 1fr auto;
+    gap:8px;
+    padding:8px 10px!important;
+    border-radius:18px!important;
+  }
+
+  #mainNav .navLogo{width:38px!important;max-width:38px}
+
+  #menuToggle{
+    min-width:82px!important;
+    min-height:42px!important;
+    padding:0 14px!important;
+    font-size:.78rem!important;
+    letter-spacing:.1em!important;
+  }
+
+  .cursorSwitch{display:none!important}
+  .navUtility{gap:6px!important}
+  .navIconButton{flex-basis:38px;width:38px!important;height:38px!important;min-width:38px!important}
+
+  .navLinks{
+    top:calc(100% + 10px)!important;
+    width:calc(100vw - 16px)!important;
+    max-height:calc(100svh - 94px)!important;
+    padding:14px!important;
+    gap:9px!important;
+    border-radius:20px!important;
+  }
+
+  .navLinks a{
+    min-height:52px!important;
+    padding:14px 16px!important;
+    font-size:.9rem!important;
+    letter-spacing:.075em!important;
+  }
+
+  #videoPreview .sectionHeading{
+    display:flex!important;
+    flex-direction:column!important;
+  }
+
+  #videoPreview .sectionHeading>.secondaryButton{
+    width:100%;
+    justify-content:center;
+  }
+
+  #videoPreview .videoFeature{border-radius:20px}
+  #videoPreview .videoDetails{padding:25px 18px!important}
+  #videoPreview .videoDetails h3{font-size:clamp(1.65rem,8vw,2.35rem)}
+  #videoPreview .videoDescription{line-height:1.65}
+  #videoPreview .videoActions{display:grid!important;grid-template-columns:1fr!important}
+  #videoPreview .videoActions>*{width:100%;max-width:100%;justify-content:center}
+}
+
+@media(max-width:390px){
+  #mainNav{grid-template-columns:38px 1fr auto;padding-inline:8px!important}
+  #mainNav .navLogo{width:34px!important}
+  #menuToggle{min-width:72px!important;padding-inline:10px!important}
+  .navIconButton{flex-basis:35px;width:35px!important;height:35px!important;min-width:35px!important}
+}

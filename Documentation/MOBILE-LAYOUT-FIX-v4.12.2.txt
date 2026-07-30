@@ -1,0 +1,23 @@
+SEEKER OF SOUNDZ v4.12.2 — MOBILE LAYOUT FIX
+
+UPDATE TYPE
+Website update only.
+
+GITHUB
+1. Replace the current website files with the v4.12.2 files.
+2. Commit in GitHub Desktop.
+3. Push origin.
+4. Wait for GitHub Pages deployment.
+5. Open the site and press Ctrl + F5.
+
+SUPABASE
+No SQL patch is required.
+Do not run schema.sql, policies.sql, storage-policies.sql, or the avatar patch again.
+
+FIXES
+- Mobile navigation now has more room between the logo, MENU button, account button and cart button.
+- The opened mobile menu uses clearer spacing, full-width rows and a scrollable viewport-safe panel.
+- Very narrow phones hide the cursor switch from the top bar to prevent overlap.
+- The homepage Featured Video section is constrained to the viewport.
+- The video image now uses a responsive 16:9 frame on mobile.
+- Featured-video text, buttons, categories and headings no longer force horizontal overflow.

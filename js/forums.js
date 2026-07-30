@@ -68,7 +68,39 @@ async function loadCategories(){
  state.tagPresets=tagQuery.error?[]:(tagQuery.data||[]);
  populateCategorySelect();
 }
-async function loadTopics(){const c=supa();if(!c)return;const {data,error}=await c.from('forum_topics').select('*').eq('is_hidden',false).order('is_pinned',{ascending:false}).order('last_activity_at',{ascending:false});if(error)throw error;state.topics=data||[];const ids=[...new Set(state.topics.map(t=>t.author_id).filter(Boolean))];if(ids.length){const {data:p}=await c.from('profiles').select('*').in('id',ids);(p||[]).forEach(x=>state.profiles.set(x.id,x))}const topicIds=state.topics.map(t=>t.id);state.replies.clear();if(topicIds.length){const {data:r}=await c.from('forum_replies').select('*').in('topic_id',topicIds).eq('is_hidden',false).order('created_at');const replyAuthors=[...new Set((r||[]).map(x=>x.author_id).filter(Boolean))];if(replyAuthors.length){const missing=replyAuthors.filter(id=>!state.profiles.has(id));if(missing.length){const {data:p2}=await c.from('profiles').select('*').in('id',missing);(p2||[]).forEach(x=>state.profiles.set(x.id,x))}};(r||[]).forEach(x=>{const a=state.replies.get(x.topic_id)||[];a.push(x);state.replies.set(x.topic_id,a)})}const {data:rx}=await c.from('forum_reactions').select('*').in('topic_id',topicIds.length?topicIds:['00000000-0000-0000-0000-000000000000']);state.reactions=rx||[]}
+async function loadTopics(){
+ const c=supa();if(!c)return;
+ // v4.13.11: one server-side feed avoids partial refresh failures after publish.
+ const feed=await c.rpc('forum_get_feed');
+ if(!feed.error&&feed.data){
+   const payload=typeof feed.data==='string'?JSON.parse(feed.data):feed.data;
+   state.topics=Array.isArray(payload.topics)?payload.topics:[];
+   state.profiles.clear();
+   (Array.isArray(payload.profiles)?payload.profiles:[]).forEach(x=>state.profiles.set(x.id,x));
+   state.replies.clear();
+   (Array.isArray(payload.replies)?payload.replies:[]).forEach(x=>{const a=state.replies.get(x.topic_id)||[];a.push(x);state.replies.set(x.topic_id,a)});
+   state.reactions=Array.isArray(payload.reactions)?payload.reactions:[];
+   return;
+ }
+ // Compatibility fallback until the v4.13.11 patch is installed.
+ const {data,error}=await c.from('forum_topics').select('*').eq('is_hidden',false).order('is_pinned',{ascending:false}).order('last_activity_at',{ascending:false});
+ if(error)throw error;
+ state.topics=data||[];
+ const ids=[...new Set(state.topics.map(t=>t.author_id).filter(Boolean))];
+ if(ids.length){const {data:p}=await c.from('profiles').select('*').in('id',ids);(p||[]).forEach(x=>state.profiles.set(x.id,x))}
+ const topicIds=state.topics.map(t=>t.id);
+ state.replies.clear();
+ if(topicIds.length){
+   const {data:r,error:replyError}=await c.from('forum_replies').select('*').in('topic_id',topicIds).eq('is_hidden',false).order('created_at');
+   if(replyError)throw replyError;
+   const replyAuthors=[...new Set((r||[]).map(x=>x.author_id).filter(Boolean))];
+   if(replyAuthors.length){const missing=replyAuthors.filter(id=>!state.profiles.has(id));if(missing.length){const {data:p2}=await c.from('profiles').select('*').in('id',missing);(p2||[]).forEach(x=>state.profiles.set(x.id,x))}}
+   ;(r||[]).forEach(x=>{const a=state.replies.get(x.topic_id)||[];a.push(x);state.replies.set(x.topic_id,a)})
+ }
+ const {data:rx,error:reactionError}=await c.from('forum_reactions').select('*').in('topic_id',topicIds.length?topicIds:['00000000-0000-0000-0000-000000000000']);
+ if(reactionError)throw reactionError;
+ state.reactions=rx||[];
+}
 function categoryName(topic){return state.categories.find(c=>c.id===topic.category_id)?.name||'General Discussion'}
 function normalize(v){return String(v||'').trim().toLowerCase().replace(/&amp;/g,'&').replace(/\s+/g,' ')}
 function categoryByValue(v){const raw=String(v||'').trim();const n=normalize(raw);const db=state.categories.find(c=>normalize(c.name)===n||normalize(c.slug)===n.replace(/\s+/g,'-'));if(db)return db;const fallback=Object.keys(SUBCATEGORIES).find(name=>normalize(name)===n);return fallback?{id:null,name:fallback,slug:fallback.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}:null}
@@ -106,9 +138,17 @@ async function publish(e){
    // atomically. This removes the old local-ID synchronization failure entirely.
    const created=await c.rpc('forum_create_topic',{category_slug_input:categorySlug,subcategory_name_input:selectedSub,title_input:title,body_input:body,tags_input:[...state.selectedTags].slice(0,8),media_url_input:safeUrl(f.get('mediaUrl'))});
    if(created.error)throw created.error;
-   const topicId=created.data;
-   if(state.imageFile){const url=await uploadImage(topicId);const {error:u}=await c.from('forum_topics').update({image_url:url}).eq('id',topicId);if(u)throw u}
-   form.reset();state.selectedTags.clear();state.imageFile=null;$('#imagePreview').hidden=true;$('#imagePreview').innerHTML='';populateCategorySelect();$('#forumComposer').hidden=true;await refresh();toast('Your discussion is now live.','Post published')}catch(err){toast(err.message||'Could not publish this discussion.','Forum error')}
+   const topicId=typeof created.data==='string'?created.data:(created.data?.id||created.data);
+   if(!topicId)throw new Error('Supabase created the discussion but did not return its ID.');
+   let imageUrl='';
+   if(state.imageFile){imageUrl=await uploadImage(topicId);const {error:u}=await c.from('forum_topics').update({image_url:imageUrl}).eq('id',topicId);if(u)throw u}
+   const optimistic={id:topicId,category_id:category.id||null,author_id:state.user.id,title,body,tags:[...state.selectedTags].slice(0,8),subcategory:selectedSub,media_url:safeUrl(f.get('mediaUrl')),image_url:imageUrl,is_pinned:false,is_locked:false,is_solved:false,is_featured:false,is_hidden:false,view_count:0,last_activity_at:new Date().toISOString(),created_at:new Date().toISOString(),updated_at:new Date().toISOString()};
+   if(!state.topics.some(t=>t.id===topicId))state.topics.unshift(optimistic);
+   render();
+   form.reset();state.selectedTags.clear();state.imageFile=null;$('#imagePreview').hidden=true;$('#imagePreview').innerHTML='';populateCategorySelect();$('#forumComposer').hidden=true;
+   await refresh();
+   if(!state.topics.some(t=>t.id===topicId))throw new Error('The discussion was saved, but the forum feed could not retrieve it. Install the v4.13.11 forum feed patch.');
+   toast('Your discussion is now live.','Post published')}catch(err){toast(err.message||'Could not publish this discussion.','Forum error')}
 }
 async function refresh(){try{await Promise.all([getAuth(),loadCategories()]);await loadTopics();render()}catch(err){console.error(err);toast(err.message||'The forum could not load.','Forum connection')}}
 function bind(){

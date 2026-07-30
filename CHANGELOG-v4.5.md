@@ -53,3 +53,9 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Fixed `e.currentTarget is null` after asynchronous Supabase topic creation.
 - The submit handler now stores the form element before awaiting database and Storage operations.
 - Preserves category, subcategory, tags, emoji, attachment, and synchronization behavior.
+
+
+## v4.13.11 — Forum Feed Visibility Fix
+- Added a single Supabase forum feed RPC for topics, replies, reactions, and public author data.
+- Newly published topics render immediately and are then reconciled with the database feed.
+- The success message now verifies the new discussion can actually be retrieved.

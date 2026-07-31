@@ -195,6 +195,8 @@ function confirmForumDelete(kind,id,button){
   title:isReply?'Confirm reply deletion':'Confirm discussion deletion',
   icon:'×',
   action:'Delete',
+  cancel:'Cancel',
+  dismissible:true,
   onAction:async()=>{
    if(button)button.disabled=true;
    const q=await supa().rpc(isReply?'forum_delete_reply':'forum_delete_topic',isReply?{target_reply:id}:{target_topic:id});

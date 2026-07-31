@@ -29,19 +29,54 @@ function playAchievementSound(){
 }
 window.SOSAchievementSound=playAchievementSound;
 
+function localAchievementFallback(){
+ const defaults=[
+ {code:'first_frequency',name:'First Frequency',description:'Create your Seeker Of SoundZ member profile.',points:10,category:'profile'},
+ {code:'first_topic',name:'Signal Starter',description:'Publish your first forum discussion.',points:15,category:'forums'},
+ {code:'five_topics',name:'Frequency Broadcaster',description:'Publish five forum discussions.',points:35,category:'forums',rarity:'uncommon'},
+ {code:'first_reply',name:'First Response',description:'Reply to a community discussion.',points:10,category:'forums'},
+ {code:'ten_replies',name:'Community Voice',description:'Post ten forum replies.',points:35,category:'forums',rarity:'uncommon'},
+ {code:'first_reaction',name:'Positive Signal',description:'React to a community post or reply.',points:10,category:'forums'},
+ {code:'ten_reactions',name:'Energy Amplifier',description:'Share ten reactions across the forums.',points:30,category:'forums',rarity:'uncommon'},
+ {code:'first_collab',name:'Studio Connected',description:'Join your first Collaboration Studio project.',points:20,category:'collaboration',rarity:'rare'},
+ {code:'three_collabs',name:'Collaboration Regular',description:'Participate in three collaboration projects.',points:45,category:'collaboration',rarity:'rare'},
+ {code:'profile_complete',name:'Profile Tuned',description:'Complete the important sections of your public profile.',points:25,category:'profile',rarity:'uncommon'},
+ {code:'reputation_10',name:'Rising Frequency',description:'Reach 10 community reputation.',points:30,category:'reputation',rarity:'rare'},
+ {code:'reputation_50',name:'Community Resonance',description:'Reach 50 community reputation.',points:75,category:'reputation',rarity:'epic'},
+ {code:'staff_frequency',name:'Community Guardian',description:'Serve the community as a staff member.',points:100,category:'staff',rarity:'legendary'}
+];
+ const raw=window.SOS?.read?.('sos_achievements_v1',[])||[];
+ const seen=window.SOS?.read?.(`sos_seen_achievements_${window.SOS?.getSession?.()?.id||''}`,[])||[];
+ const rows=Array.isArray(raw)&&raw.length?raw:defaults;
+ const achievements=rows.map((a,i)=>({
+  id:a.id||a.code||`local-${i}`,code:a.code||a.id||`local_${i}`,name:a.name||a.title||`Achievement ${i+1}`,
+  description:a.description||a.copy||'Original Seeker Of SoundZ achievement.',
+  points:Number(a.points||10),category:a.category||'legacy',rarity:a.rarity||'common',
+  is_hidden:Boolean(a.is_hidden||a.hidden),title_reward:a.title_reward||null,
+  unlocked:Boolean(a.unlocked||seen.includes(a.id)||seen.includes(a.code)||seen.includes(a.name)),
+  earned_at:a.earned_at||a.unlockedAt||null
+ }));
+ return{total:achievements.length,unlocked:achievements.filter(a=>a.unlocked).length,points:achievements.filter(a=>a.unlocked).reduce((n,a)=>n+a.points,0),achievements};
+}
 async function load(){
  if(loading)return;loading=true;
  try{
-  const [a,h]=await Promise.all([
+  const [a,h]=await Promise.allSettled([
    client.rpc('get_my_achievement_profile'),
    client.rpc('get_my_progression_hub')
   ]);
-  if(a.error)throw a.error;if(h.error)throw h.error;
-  achievementData=typeof a.data==='string'?JSON.parse(a.data):a.data;
-  hubData=typeof h.data==='string'?JSON.parse(h.data):h.data;
+  const ar=a.status==='fulfilled'?a.value:null,hr=h.status==='fulfilled'?h.value:null;
+  if(ar&&!ar.error&&ar.data)achievementData=typeof ar.data==='string'?JSON.parse(ar.data):ar.data;
+  else achievementData=localAchievementFallback();
+  if(hr&&!hr.error&&hr.data)hubData=typeof hr.data==='string'?JSON.parse(hr.data):hr.data;
+  else hubData={progression:{level:1,lifetime_xp:Number(achievementData?.points||0),selected_title:'Frequency Seeker'},xp_current_level:0,xp_next_level:100,titles:[],quests:[],events:[],seasons:[],rankings:[]};
   updateCard();if(modal&&!modal.hidden)renderModal();
- }catch(error){console.warn('[Progression]',error)}
- finally{loading=false}
+ }catch(error){
+  console.warn('[Progression]',error);
+  achievementData=localAchievementFallback();
+  hubData=hubData||{progression:{level:1,lifetime_xp:Number(achievementData?.points||0),selected_title:'Frequency Seeker'},xp_current_level:0,xp_next_level:100,titles:[],quests:[],events:[],seasons:[],rankings:[]};
+  updateCard();if(modal&&!modal.hidden)renderModal();
+ }finally{loading=false}
 }
 function achievementMetrics(){
  const list=Array.isArray(achievementData?.achievements)?achievementData.achievements:[];
@@ -131,7 +166,7 @@ async function selectTitle(title){
  window.SOS?.toast?.(title?`“${title}” is now your active profile title.`:'Your profile title was cleared.',{title:'Title updated',icon:'👑'});
  await load();
 }
-async function open(){ensureModal();modal.hidden=false;document.body.classList.add('achievementModalOpenV41330');await load();renderModal();requestAnimationFrame(()=>modal.classList.add('open'))}
+async function open(){ensureModal();modal.hidden=false;document.body.classList.add('achievementModalOpenV41330');modal.querySelector('.progressionHeroV41331').innerHTML='<div class="achievementLoadingV41330">Synchronizing progression…</div>';modal.querySelector('.progressionContentV41331').innerHTML='<div class="achievementLoadingV41330">Loading your achievements…</div>';requestAnimationFrame(()=>modal.classList.add('open'));await load();renderModal()}
 function close(){if(!modal)return;modal.classList.remove('open');document.body.classList.remove('achievementModalOpenV41330');setTimeout(()=>modal.hidden=true,220)}
 function bind(){
  document.addEventListener('click',e=>{if(e.target.closest('[data-open-achievements]'))open()});

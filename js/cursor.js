@@ -38,12 +38,13 @@
     el.style.top=`${y}px`;
   }
 
+  function loaderActive(){return root.classList.contains("sosLoaderActive")}
   function apply(){
     root.classList.toggle("nativeCursor",!enabled);
     root.classList.toggle("customCursorActive",enabled);
-    cursor.hidden=!enabled;
-    cursor.style.display=enabled?"block":"none";
-    if(enabled){
+    cursor.hidden=!enabled||loaderActive();
+    cursor.style.display=enabled&&!loaderActive()?"block":"none";
+    if(enabled&&!loaderActive()){
       putOnTop();
       setPosition(dot,mouseX,mouseY);
       setPosition(ring,ringX,ringY);
@@ -71,7 +72,7 @@
     mouseX=event.clientX;
     mouseY=event.clientY;
     hasMoved=true;
-    if(!enabled)return;
+    if(!enabled||loaderActive())return;
     setPosition(dot,mouseX,mouseY);
     cursor.classList.add("is-visible");
   },{passive:true,capture:true});
@@ -106,6 +107,7 @@
   }
 
   window.addEventListener("pagehide",()=>cancelAnimationFrame(rafId),{once:true});
+  new MutationObserver(()=>apply()).observe(root,{attributes:true,attributeFilter:["class"]});
   apply();
   bindToggle();
   animate();

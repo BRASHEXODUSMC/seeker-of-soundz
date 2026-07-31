@@ -1,0 +1,27 @@
+Seeker Of SoundZ v4.13.32
+ACHIEVEMENT HALL, FORUM ACHIEVEMENTS, LOADER CURSOR, AND DELETE TOAST FIX
+
+UPDATE TYPE:
+Website only
+
+SUPABASE:
+No new SQL patch is required.
+Keep the existing v4.13.30 and v4.13.31 patches installed.
+Do not rerun schema.sql, policies.sql, storage-policies.sql, or older patches.
+
+FIXED:
+- The trophy icon in Members → Newest Achievement is a real clickable button from the moment the dashboard renders.
+- Achievement Hall opens immediately and shows a loading state while Supabase synchronizes.
+- If the unified progression RPC is unavailable, the Hall falls back to the original Seeker Of SoundZ achievement catalog instead of showing nothing.
+- Existing locally stored achievements are merged without replacing Supabase achievements.
+- Forums now have a visible Achievement Hall button beside Create Post.
+- The forum Achievement Hall shows Supabase achievements and the original achievement catalog.
+- Both normal and custom cursors are hidden throughout the loading screen.
+- Cursor visibility returns only after the loader has fully exited.
+- Forum deletion confirmation toast now includes Cancel and can be dismissed without deleting.
+
+INSTALL:
+1. Replace the website files in GitHub Desktop.
+2. Commit and push.
+3. Hard-refresh members.html and forums.html with Ctrl + F5.
+4. No Supabase SQL needs to be run.

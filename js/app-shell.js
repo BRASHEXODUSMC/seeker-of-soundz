@@ -38,6 +38,7 @@
         <strong>${options.title||"Seeker Of SoundZ"}</strong>
         <span>${message}</span>
       </div>
+      ${options.cancel||options.dismissible?`<button class="toastCancel" type="button" aria-label="${options.cancel||'Dismiss'}">${options.cancel||'×'}</button>`:""}
       ${options.action?`<button class="toastAction" type="button">${options.action}</button>`:""}
       <div class="toastProgress"></div>
     `;
@@ -45,6 +46,10 @@
 
     item.querySelector(".toastAction")?.addEventListener("click",()=>{
       options.onAction?.();
+      dismiss();
+    });
+    item.querySelector(".toastCancel")?.addEventListener("click",()=>{
+      options.onCancel?.();
       dismiss();
     });
 

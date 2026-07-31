@@ -1,10 +1,13 @@
 /* Seeker Of SoundZ v4.8 — cinematic signal ignition loader */
 (() => {
   "use strict";
+  const root = document.documentElement;
   const loader = document.getElementById("loader");
   const progressBar = document.querySelector(".loaderProgress");
+  root.classList.add("sosLoaderActive");
   const percentText = document.querySelector(".loaderPercent");
   if (!loader || !progressBar || !percentText) {
+    root.classList.remove("sosLoaderActive");
     console.warn("Loader markup is missing on this page.");
     return;
   }
@@ -35,6 +38,7 @@
   const hasLoaded = sessionStorage.getItem("sos_loaded");
   if (hasLoaded) {
     loader.classList.add("loaded");
+    root.classList.remove("sosLoaderActive");
     return;
   }
 
@@ -49,7 +53,10 @@
       clearInterval(loading);
       sessionStorage.setItem("sos_loaded", "true");
       loader.classList.add("loaderComplete");
-      setTimeout(() => loader.classList.add("loaded"), 900);
+      setTimeout(() => {
+        loader.classList.add("loaded");
+        root.classList.remove("sosLoaderActive");
+      }, 900);
     }
   }, 22);
 })();

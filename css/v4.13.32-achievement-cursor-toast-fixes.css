@@ -1,0 +1,36 @@
+/* Seeker Of SoundZ v4.13.32 — forum achievement hall */
+.forumToolbar{align-items:center!important}.forumAchievementButtonV41332{margin-left:auto!important;display:inline-flex!important;align-items:center!important;gap:9px!important}.forumAchievementButtonV41332 span{font-size:1rem}.forumAchievementModalV41332{position:fixed;inset:0;z-index:2147483350;display:grid;place-items:center;padding:20px;background:rgba(2,2,7,.8);backdrop-filter:blur(16px);opacity:0;transition:.22s}.forumAchievementModalV41332[hidden]{display:none}.forumAchievementModalV41332.open{opacity:1}.forumAchievementModalV41332>section{width:min(980px,100%);max-height:calc(100vh - 40px);overflow:auto;padding:24px;border:1px solid rgba(184,121,255,.35);border-radius:27px;background:linear-gradient(145deg,rgba(18,12,29,.99),rgba(7,7,13,.99));box-shadow:0 30px 100px rgba(0,0,0,.75),0 0 38px rgba(139,70,230,.22)}.forumAchievementModalV41332>section>header{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:18px}.forumAchievementModalV41332 h2{margin:4px 0 0}.forumAchievementCloseV41332{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#fff;font-size:1.6rem}.forumAchievementSummaryV41332{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}.forumAchievementSummaryV41332>div{padding:14px;border:1px solid rgba(255,255,255,.075);border-radius:16px;background:rgba(255,255,255,.025)}.forumAchievementSummaryV41332 strong,.forumAchievementSummaryV41332 span{display:block}.forumAchievementSummaryV41332 strong{font-size:1.2rem;color:#ead8ff}.forumAchievementSummaryV41332 span{margin-top:3px;color:#8e8595;font-size:.68rem}.forumAchievementListV41332{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.forumAchievementListV41332 article{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:14px;border:1px solid rgba(255,255,255,.075);border-radius:17px;background:rgba(255,255,255,.025)}.forumAchievementListV41332 article.unlocked{border-color:color-mix(in srgb,var(--rarity,#9d96a5) 55%,transparent);box-shadow:0 0 18px color-mix(in srgb,var(--rarity,#9d96a5) 20%,transparent)}.forumAchievementListV41332 article>div{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:rgba(255,255,255,.04);font-size:1.35rem}.forumAchievementListV41332 article header{display:flex;justify-content:space-between;gap:10px}.forumAchievementListV41332 h3{margin:0;font-size:.9rem}.forumAchievementListV41332 header span{font-size:.65rem;color:#c6a6e6}.forumAchievementListV41332 p{margin:5px 0;color:#9d95a5;font-size:.72rem;line-height:1.45}.forumAchievementListV41332 small{color:#746c7b;font-size:.62rem}.rarity-common{--rarity:#a5a1aa}.rarity-uncommon{--rarity:#58df8d}.rarity-rare{--rarity:#51a7ff}.rarity-epic{--rarity:#b467ff}.rarity-legendary{--rarity:#ffb23f}.rarity-mythic{--rarity:#ff4fa3}@media(max-width:760px){.forumToolbar{align-items:stretch!important}.forumAchievementButtonV41332{width:100%!important;justify-content:center!important;margin-left:0!important}.forumAchievementModalV41332{padding:10px}.forumAchievementModalV41332>section{padding:17px;max-height:calc(100vh - 20px)}.forumAchievementSummaryV41332{grid-template-columns:1fr}.forumAchievementListV41332{grid-template-columns:1fr}}
+.toastCancel{
+  align-self:center;
+  min-width:34px;
+  height:34px;
+  padding:0 10px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:11px;
+  background:rgba(255,255,255,.04);
+  color:#d5cedb;
+  font:700 .72rem/1 inherit;
+}
+.toastCancel:hover{border-color:rgba(189,130,255,.45);color:#fff;background:rgba(150,80,235,.1)}
+.appToast.toastConfirm .toastCancel{order:3}
+.appToast.toastConfirm .toastAction{order:4}
+
+html.sosLoaderActive,
+html.sosLoaderActive body,
+html.sosLoaderActive body *{
+  cursor:none!important;
+}
+html.sosLoaderActive #cursor,
+html.sosLoaderActive #cursorDot,
+html.sosLoaderActive #cursorRing{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+html.sosLoaderActive .customCursor,
+html.sosLoaderActive [class*="cursorTrail"],
+html.sosLoaderActive [class*="cursorGlow"]{
+  display:none!important;
+  opacity:0!important;
+}

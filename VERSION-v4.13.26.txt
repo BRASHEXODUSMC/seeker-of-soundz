@@ -1,0 +1,35 @@
+Seeker Of SoundZ v4.13.26
+FORUM REPLYING, PRESENCE, AND NOTIFICATION POLISH
+
+UPDATE TYPE:
+Website + ONE Supabase patch
+
+RUN ONLY:
+supabase/patch-v4.13.26-forum-replies-notification-details.sql
+
+DO NOT RERUN:
+schema.sql
+policies.sql
+storage-policies.sql
+or any earlier patch.
+
+FIXED:
+- Online green dots now sit directly on forum avatars.
+- Reply-avatar online dots no longer drop to the bottom of the reply card.
+- Notification navbar indicator no longer shows the white center circle.
+- Empty notification state glows red.
+- Unread notification state glows green and displays the counter.
+
+ADDED:
+- Reply directly to another member's forum reply.
+- Nested replies with clear reply context.
+- Direct-reply notifications.
+- Forum member directory with green online and red offline dots.
+- Member activity status in the forum directory.
+- Detailed notifications showing the discussion/project title and sender.
+- Collaboration message alerts remain limited to members of the exact project.
+
+COLLABORATION PRIVACY:
+A collaboration message notification is sent only to users listed in
+collaboration_project_members for the project where the message was sent.
+General Collaboration Studio access alone does not receive unrelated alerts.

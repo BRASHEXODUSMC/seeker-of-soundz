@@ -84,7 +84,7 @@ async function sendPasswordReset(email, output = loginMessage, button = resetBut
  if(!address)return message(output,'Enter your email address first, then select Reset Password.','error');
  if(button)button.disabled=true;message(output,'Sending a password-reset email…');
  try{
-   const redirectTo=new URL('members.html?recovery=1',location.href).href;
+   const redirectTo=new URL('password-reset.html',location.href).href;
    const {error}=await client.auth.resetPasswordForEmail(address,{redirectTo});
    if(error)throw error;
    message(output,'Password-reset email sent. Open the link in that email to choose a new password.','success');
@@ -152,7 +152,10 @@ document.getElementById('dashboardCart')?.addEventListener('click',()=>document.
 window.addEventListener('sos:supabase-session',e=>show(e.detail));
 window.addEventListener('sos:session',e=>show(e.detail));
 
-const notice=new URLSearchParams(location.search).get('notice');
+const pageParams=new URLSearchParams(location.search);
+const notice=pageParams.get('notice');
 if(notice==='admin-required')message(loginMessage,'Please sign in with an Owner or Administrator account to open the Admin Hub.','error');
+if(pageParams.get('reset')==='1'){message(loginMessage,'Enter your account email, then choose Reset Password to receive a new secure link.','success');loginForm?.elements.email?.focus();}
+if(pageParams.get('password')==='updated')message(loginMessage,'Your password was updated. Sign in with your new password.','success');
 openRecovery().then(recoveryOpen=>{if(!recoveryOpen)client?.auth.getSession().then(({data})=>window.SOS_AUTH_BRIDGE?.sync(data.session).then(show));});
 })();

@@ -1,0 +1,20 @@
+/* v4.13.21: restore the original Collaboration Studio presentation while retaining Supabase data. */
+.collaborationPage #newProjectButton{display:inline-flex!important;align-items:center;justify-content:center;min-width:104px;min-height:40px;padding:9px 15px!important;border:1px solid rgba(198,151,255,.42)!important;border-radius:13px!important;background:linear-gradient(135deg,rgba(132,64,220,.28),rgba(255,255,255,.055))!important;color:#fff!important;font-weight:900!important;letter-spacing:.03em;box-shadow:0 0 24px rgba(139,70,225,.13);position:relative;z-index:3;cursor:pointer}
+.collaborationPage #newProjectButton:hover,.collaborationPage #newProjectButton:focus-visible{transform:translateY(-2px);border-color:rgba(220,190,255,.75)!important;box-shadow:0 12px 30px rgba(110,37,200,.28),0 0 24px rgba(166,93,255,.2)}
+.collaborationPage .collabSidebar .adminSectionHead{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;margin-bottom:15px}
+.collaborationPage .collabContact{position:relative;grid-template-columns:auto 1fr auto;transition:transform .22s ease,border-color .22s ease,background .22s ease}
+.collaborationPage .collabContact:hover{transform:translateX(3px);border-color:rgba(185,124,255,.35);background:rgba(137,74,211,.09)}
+.collaborationPage .collabContactAction{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:#bca5d4;opacity:.75}
+.collaborationPage .collabProjectItem{padding:13px 14px;transition:.22s ease}
+.collaborationPage .collabProjectItem:hover{transform:translateX(3px);border-color:rgba(185,124,255,.34)}
+.collaborationPage .collabProjectItem .projectCardTop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.collaborationPage .collabProjectItem .projectCardTop small{font-size:.67rem;color:#9a8fa6;white-space:nowrap}
+.collaborationPage .projectMiniProgress{height:4px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;margin-top:7px}
+.collaborationPage .projectMiniProgress i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#7a36c6,#e9d6ff);box-shadow:0 0 12px rgba(171,94,255,.5)}
+.collaborationPage .collabProjectEmpty{display:grid;gap:12px;padding:18px 10px;text-align:center;color:rgba(255,255,255,.62)}
+.collaborationPage .collabProjectEmpty .primaryButton{width:100%;justify-content:center}
+.collaborationPage .collabEmpty{display:grid;place-items:center;align-content:center;gap:10px;min-height:280px}
+.collaborationPage .collabEmpty strong{font-size:1.05rem;color:#fff}.collaborationPage .collabEmpty span{font-size:.82rem;color:#a39aaa}.collaborationPage .collabEmpty .primaryButton{margin-top:10px}
+.collaborationPage .memberChips>span{display:grid;grid-template-columns:32px 1fr;align-items:center;column-gap:8px;padding:7px 9px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.collaborationPage .memberChips>span img{grid-row:1/3;width:32px;height:32px}.collaborationPage .memberChips>span small{font-size:.62rem;color:#988da2}
+@media(max-width:760px){.collaborationPage .collabSidebar .adminSectionHead{align-items:stretch}.collaborationPage #newProjectButton{min-width:96px}.collaborationPage .collabContactAction{display:none}}

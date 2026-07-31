@@ -1,0 +1,12 @@
+SEEKER OF SOUNDZ v4.13.21
+
+UPDATE TYPE: WEBSITE ONLY
+
+Restores the original Collaboration Studio layout and project-creation workflow while preserving the Supabase backend.
+
+- Restores the visible + Project control.
+- Restores the original centered Create Project modal.
+- Restores collaborator selection, starting stage, project notes, and project title fields.
+- Removes browser prompt() project creation.
+- Keeps projects, members, messages, notes, stages, and audio in Supabase.
+- No SQL patch is required.

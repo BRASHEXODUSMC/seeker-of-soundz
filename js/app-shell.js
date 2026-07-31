@@ -139,10 +139,40 @@
     document.getElementById("cartTotal").textContent="$"+cart.reduce((sum,item)=>sum+item.price*item.qty,0).toFixed(2);
   }
 
+  function presenceMode(session){
+    if(!session?.supabase)return "guest";
+    if(session.presenceVisibility==="hidden")return "hidden";
+    if(session.presenceVisibility==="offline")return "offline";
+    return "online";
+  }
+
+  function updateAccountControl(session=SOS.getSession()){
+    const button=document.getElementById("accountButton");
+    const image=document.getElementById("accountNavAvatar");
+    if(!button||!image)return;
+    const mode=presenceMode(session);
+    button.classList.remove("presence-online","presence-offline","presence-hidden","presence-guest");
+    button.classList.add(`presence-${mode}`);
+    image.src=session?.avatar||"assets/images/sos-logo.png";
+    image.alt=session?.displayName?`${session.displayName} profile`:"Account profile";
+    button.title=session?.supabase
+      ? `${session.displayName||session.username||"Member"} — ${mode==="online"?"Online":mode==="offline"?"Appearing offline":mode==="hidden"?"Presence hidden":"Member"}`
+      : "Login or register";
+  }
+
   function renderAccount(){
     const session=SOS.getSession();
     const host=document.getElementById("accountContent");
-    host.innerHTML=session?`<div class="profilePreview"><img class="avatar" src="${session.avatar||'assets/images/sos-logo.png'}"><div><strong>${session.displayName||session.email}</strong><p>${session.role||'member'}</p></div></div><a class="primaryButton" href="members.html">Dashboard</a>${(session.role==="admin"||session.collaborationAccess)?'<a class="secondaryButton profileAccessLink" href="collaboration.html">Collaboration Studio</a>':''}${session.role==="admin"?'<a class="secondaryButton profileAccessLink" href="admin.html">Admin Hub</a>':''}<button class="secondaryButton" id="quickLogout" style="margin-top:10px">Sign Out</button>`:`<p style="margin-bottom:18px;color:#aaa">Sign in to use member features.</p><a class="primaryButton" href="members.html">Login or Register</a>`;
+    updateAccountControl(session);
+    if(!host)return;
+    if(session){
+      const mode=presenceMode(session);
+      const stateLabel=mode==="online"?"Online":mode==="offline"?"Appearing offline":mode==="hidden"?"Presence hidden":"Signed out";
+      const statusText=mode==="online"?(session.activityStatus||"Exploring the frequency"):mode==="offline"?"Other members see you as offline.":mode==="hidden"?"Your activity and last-seen time are concealed.":"";
+      host.innerHTML=`<div class="profilePreview accountProfilePreview presence-${mode}"><span class="accountDrawerAvatar"><img class="avatar" src="${session.avatar||'assets/images/sos-logo.png'}"><i></i></span><div><strong>${session.displayName||session.email}</strong><p>${session.role||'member'}</p><small>${stateLabel}${statusText?` — ${statusText}`:""}</small></div></div><a class="primaryButton" href="members.html">Profile</a>${(session.role==="admin"||session.collaborationAccess)?'<a class="secondaryButton profileAccessLink" href="collaboration.html">Collaboration Studio</a>':''}${session.role==="admin"?'<a class="secondaryButton profileAccessLink" href="admin.html">Admin Hub</a>':''}<button class="secondaryButton" id="quickLogout" style="margin-top:10px">Sign Out</button>`;
+    }else{
+      host.innerHTML=`<div class="accountGuestCard"><img src="assets/images/sos-logo.png" alt="Seeker Of SoundZ"><div><strong>Member Access</strong><p>Sign in to manage your profile and community presence.</p></div></div><a class="primaryButton" href="members.html">Login or Register</a>`;
+    }
     document.getElementById("quickLogout")?.addEventListener("click",()=>SOS.logout());
   }
 
@@ -227,6 +257,9 @@
       SOS.saveCart(cart);
     }
   });
+
+  window.addEventListener("sos:session",event=>{updateAccountControl(event.detail);renderAccount()});
+  window.addEventListener("sos:supabase-session",event=>{updateAccountControl(event.detail);renderAccount()});
 
   document.getElementById("checkoutButton")?.addEventListener("click",()=>toast("Connect Stripe or PayPal to activate secure checkout.",{title:"Checkout preview"}));
   // v4.13.5: all internal navigation is owned exclusively by SOSTransitions.

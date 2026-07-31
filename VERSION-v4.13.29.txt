@@ -1,0 +1,30 @@
+Seeker Of SoundZ v4.13.29
+ACCOUNT PROFILE PRESENCE NAVIGATION
+
+UPDATE TYPE:
+Website only
+
+SUPABASE:
+No SQL patch is required.
+Keep the existing v4.13.27 presence visibility patch installed.
+Do not rerun schema.sql, policies.sql, storage-policies.sql, or older patches.
+
+CHANGES:
+- Removed the separate Members avatar from the navigation.
+- The existing Account control now displays the signed-in member's avatar.
+- The Account profile ring reflects the member's saved presence setting:
+  Green = Automatic / Online
+  Red = Appearing Offline
+  Purple = Hidden
+  Gray = Signed Out / Guest
+- Presence changes update the navigation ring immediately after saving.
+- The Account drawer displays the same presence state and custom activity text.
+- Renamed Dashboard to Profile.
+- Profile still opens members.html.
+- Collaboration Studio, Admin Hub, and Sign Out remain unchanged.
+- Mobile navigation receives the same avatar and presence ring behavior.
+
+INSTALL:
+1. Replace the website files in GitHub Desktop.
+2. Commit and push.
+3. Hard-refresh the site with Ctrl + F5.

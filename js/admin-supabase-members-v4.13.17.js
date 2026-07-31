@@ -12,6 +12,15 @@
     ['member', 'Member']
   ];
 
+  const RANKS = [
+    'New Listener','Frequency Seeker','Sound Explorer','Beat Scout','Bass Traveler',
+    'Rhythm Apprentice','Mix Apprentice','Studio Regular','Community Supporter',
+    'Track Curator','Playlist Architect','Sound Designer','Visual Artist','Producer',
+    'DJ','Resident DJ','Featured Artist','Verified Artist','Event Performer',
+    'Community Veteran','Forum Guide','Frequency Mentor','Premium Member','VIP Member',
+    'Moderator','Administrator','Founder','Owner'
+  ];
+
   const state = { members: [], loading: false, query: '', filter: 'all' };
   const esc = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
@@ -40,6 +49,26 @@
   function isOnline(member) {
     if (!member.last_seen_at) return false;
     return Date.now() - new Date(member.last_seen_at).getTime() < 150000;
+  }
+
+  function relativeTime(value) {
+    if (!value) return 'No website activity recorded';
+    const time = new Date(value).getTime();
+    if (!Number.isFinite(time)) return 'Unknown';
+    const seconds = Math.max(0, Math.floor((Date.now() - time) / 1000));
+    if (seconds < 60) return 'Active moments ago';
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `Active ${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `Active ${hours} hour${hours === 1 ? '' : 's'} ago`;
+    const days = Math.floor(hours / 24);
+    if (days < 30) return `Active ${days} day${days === 1 ? '' : 's'} ago`;
+    return `Last active ${timeLabel(value)}`;
+  }
+
+  function rankOptions(current) {
+    const ranks = RANKS.includes(current) || !current ? RANKS : [current, ...RANKS];
+    return ranks.map(rank => `<option value="${esc(rank)}"${rank === current ? ' selected' : ''}>${esc(rank)}</option>`).join('');
   }
 
   function roleOptions(current) {
@@ -91,7 +120,7 @@
         </header>
 
         <div class="supabaseMemberFacts">
-          <div><strong>Last website activity</strong><span>${esc(timeLabel(member.last_seen_at))}</span></div>
+          <div class="websiteActivityFact"><strong>Last website activity</strong><span>${esc(relativeTime(member.last_seen_at))}</span><small>${esc(timeLabel(member.last_seen_at))}</small></div>
           <div><strong>Last Supabase sign-in</strong><span>${esc(timeLabel(member.last_sign_in_at))}</span></div>
           <div><strong>Account created</strong><span>${esc(timeLabel(member.auth_created_at))}</span></div>
           <div><strong>Email</strong><span>${member.email_confirmed_at ? 'Verified' : 'Not verified'}</span></div>
@@ -106,7 +135,8 @@
               <select data-member-field="role">${roleOptions(member.role || 'member')}</select>
             </label>
             <label>Rank
-              <input data-member-field="rank" maxlength="80" value="${esc(member.rank_name || 'New Listener')}">
+              <select data-member-field="rank">${rankOptions(member.rank_name || 'New Listener')}</select>
+              <small>Choose the public community rank shown on profiles and forum cards.</small>
             </label>
             <label>Reputation
               <input data-member-field="reputation" type="number" min="0" max="100000000" value="${Number(member.reputation || 0)}">

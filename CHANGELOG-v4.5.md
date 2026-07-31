@@ -85,3 +85,9 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Connected Admin Hub member management to real Supabase Auth and profiles.
 - Added last sign-in, website presence, account verification, forum activity, roles, ranks, reputation, and ban controls.
 - Added secure Owner/Administrator RPC functions and protected role management.
+
+
+## v4.13.18
+- Expanded Admin member ranks and activity details.
+- Fixed password recovery sessions and added reset access in Profile Settings.
+- Enhanced forum hover profiles and added clickable public member profiles.

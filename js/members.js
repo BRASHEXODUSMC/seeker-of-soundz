@@ -78,23 +78,73 @@ loginForm?.addEventListener('submit',async e=>{
  finally{setBusy(loginForm,false);}
 });
 
-resetButton?.addEventListener('click',async()=>{
- if(!client)return message(loginMessage,'Supabase is not connected.','error');
- const email=String(loginForm.elements.email.value||'').trim().toLowerCase();
- if(!email)return message(loginMessage,'Enter your email address first, then select Reset Password.','error');
- resetButton.disabled=true;message(loginMessage,'Sending a password-reset email…');
- try{const redirectTo=new URL('members.html?recovery=1',location.href).href;const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo});if(error)throw error;message(loginMessage,'Password-reset email sent. Open the link in that email to choose a new password.','success');}
- catch(err){message(loginMessage,friendly(err),'error');}finally{resetButton.disabled=false;}
-});
+async function sendPasswordReset(email, output = loginMessage, button = resetButton){
+ if(!client)return message(output,'Supabase is not connected.','error');
+ const address=String(email||'').trim().toLowerCase();
+ if(!address)return message(output,'Enter your email address first, then select Reset Password.','error');
+ if(button)button.disabled=true;message(output,'Sending a password-reset email…');
+ try{
+   const redirectTo=new URL('members.html?recovery=1',location.href).href;
+   const {error}=await client.auth.resetPasswordForEmail(address,{redirectTo});
+   if(error)throw error;
+   message(output,'Password-reset email sent. Open the link in that email to choose a new password.','success');
+   window.SOS?.toast?.('Check your email for the secure password-reset link.',{title:'Reset email sent'});
+ }catch(err){message(output,friendly(err),'error');}
+ finally{if(button)button.disabled=false;}
+}
+window.SOS_REQUEST_PASSWORD_RESET=sendPasswordReset;
+resetButton?.addEventListener('click',()=>sendPasswordReset(loginForm.elements.email.value));
 
-function openRecovery(){
- const params=new URLSearchParams(location.search);const hash=location.hash;
- if(params.get('recovery')!=='1'&&!/type=recovery/.test(hash))return;
+async function openRecovery(){
+ const params=new URLSearchParams(location.search);
+ const hashParams=new URLSearchParams(location.hash.replace(/^#/,''));
+ const code=params.get('code');
+ const recoveryRequested=params.get('recovery')==='1'||params.get('type')==='recovery'||hashParams.get('type')==='recovery'||Boolean(code);
+ if(!recoveryRequested)return false;
  authArea.hidden=false;dashboard.hidden=true;
  const card=authArea.querySelector('.authCard');
- card.innerHTML=`<p class="sectionEyebrow">Secure Recovery</p><h2>Choose a new password</h2><form class="appForm" id="passwordUpdateForm"><label>New password<input name="password" type="password" minlength="6" required autocomplete="new-password"></label><label>Confirm new password<input name="confirmPassword" type="password" minlength="6" required autocomplete="new-password"></label><button class="primaryButton">Update Password</button><p class="formMessage" id="passwordUpdateMessage"></p></form>`;
+ card.innerHTML=`<div class="authModeHeader"><p class="sectionEyebrow">Secure Recovery</p><h2>Choose a new password</h2><p>Complete the secure recovery link before setting your new password.</p></div><form class="appForm" id="passwordUpdateForm"><label>New password<input name="password" type="password" minlength="6" required autocomplete="new-password"></label><label>Confirm new password<input name="confirmPassword" type="password" minlength="6" required autocomplete="new-password"></label><button class="primaryButton">Update Password</button><p class="formMessage" id="passwordUpdateMessage">Verifying your recovery link…</p></form>`;
  const form=document.getElementById('passwordUpdateForm'),out=document.getElementById('passwordUpdateMessage');
- form.onsubmit=async e=>{e.preventDefault();const f=new FormData(form),p=String(f.get('password')),c=String(f.get('confirmPassword'));if(p!==c)return message(out,'The passwords do not match.','error');setBusy(form,true);try{const {error}=await client.auth.updateUser({password:p});if(error)throw error;message(out,'Password updated. You are signed in and may continue to your dashboard.','success');history.replaceState({},'',location.pathname);const {data}=await client.auth.getSession();const mapped=await window.SOS_AUTH_BRIDGE?.sync(data.session);setTimeout(()=>show(mapped),900);}catch(err){message(out,friendly(err),'error');}finally{setBusy(form,false);}};
+ let recoverySession=null;
+ try{
+   if(code){
+     const {data,error}=await client.auth.exchangeCodeForSession(code);
+     if(error)throw error;
+     recoverySession=data.session;
+   }else{
+     const {data,error}=await client.auth.getSession();
+     if(error)throw error;
+     recoverySession=data.session;
+   }
+   if(!recoverySession){
+     await new Promise(resolve=>{
+       let settled=false;
+       const timer=setTimeout(()=>{if(!settled){settled=true;resolve()}},1800);
+       const {data:listener}=client.auth.onAuthStateChange((event,session)=>{
+         if(event==='PASSWORD_RECOVERY'||session){recoverySession=session;if(!settled){settled=true;clearTimeout(timer);listener.subscription.unsubscribe();resolve()}}
+       });
+     });
+   }
+   if(!recoverySession)throw new Error('The password-reset link is expired or incomplete. Request a new reset email and open the newest link.');
+   message(out,'Recovery verified. Choose your new password.','success');
+ }catch(err){message(out,friendly(err),'error');form.querySelector('button').disabled=true;return true;}
+ form.onsubmit=async e=>{
+   e.preventDefault();const f=new FormData(form),p=String(f.get('password')),c=String(f.get('confirmPassword'));
+   if(p!==c)return message(out,'The passwords do not match.','error');
+   setBusy(form,true);
+   try{
+     const {data:sessionData}=await client.auth.getSession();
+     if(!sessionData.session)throw new Error('Your recovery session expired. Request a new password-reset email.');
+     const {error}=await client.auth.updateUser({password:p});if(error)throw error;
+     message(out,'Password updated. You are signed in and may continue to your dashboard.','success');
+     history.replaceState({},'',location.pathname);
+     const mapped=await window.SOS_AUTH_BRIDGE?.sync(sessionData.session);
+     window.SOS?.toast?.('Your password was updated securely.',{title:'Password updated'});
+     setTimeout(()=>show(mapped),800);
+   }catch(err){message(out,friendly(err),'error');}
+   finally{setBusy(form,false);}
+ };
+ return true;
 }
 
 logoutButton?.addEventListener('click',()=>SOS.logout());
@@ -104,6 +154,5 @@ window.addEventListener('sos:session',e=>show(e.detail));
 
 const notice=new URLSearchParams(location.search).get('notice');
 if(notice==='admin-required')message(loginMessage,'Please sign in with an Owner or Administrator account to open the Admin Hub.','error');
-openRecovery();
-client?.auth.getSession().then(({data})=>window.SOS_AUTH_BRIDGE?.sync(data.session).then(show));
+openRecovery().then(recoveryOpen=>{if(!recoveryOpen)client?.auth.getSession().then(({data})=>window.SOS_AUTH_BRIDGE?.sync(data.session).then(show));});
 })();

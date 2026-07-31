@@ -130,7 +130,23 @@
         </div>
         <button class="primaryButton">Save Public Profile</button>
         <p class="formMessage" id="profileSaveMessage"></p>
-      </form>`;
+      </form>
+      <section class="profileSecurityCard">
+        <div><p class="sectionEyebrow">Account Security</p><h3>Change your password</h3><p>Send a secure password-reset link to <strong>${esc(session.email || '')}</strong>.</p></div>
+        <button class="secondaryButton" id="profileResetPassword" type="button">Send Password Reset Email</button>
+        <p class="formMessage" id="profileResetMessage"></p>
+      </section>`;
+
+    const resetProfileButton = document.getElementById('profileResetPassword');
+    resetProfileButton?.addEventListener('click', async () => {
+      const output = document.getElementById('profileResetMessage');
+      if (typeof window.SOS_REQUEST_PASSWORD_RESET !== 'function') {
+        output.textContent = 'Password recovery is still loading. Refresh this page and try again.';
+        output.dataset.state = 'error';
+        return;
+      }
+      await window.SOS_REQUEST_PASSWORD_RESET(session.email, output, resetProfileButton);
+    });
 
     const form = document.getElementById('publicProfileForm');
     form.onsubmit = async event => {

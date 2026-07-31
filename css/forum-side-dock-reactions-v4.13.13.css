@@ -1,0 +1,83 @@
+/* Seeker Of SoundZ v4.13.13 — non-blocking emoji dock + reply reaction palette */
+.emojiPickerModalV4136{
+  inset:0!important;
+  display:flex!important;
+  align-items:stretch!important;
+  justify-content:flex-end!important;
+  padding:84px 16px 18px!important;
+  background:transparent!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  pointer-events:none!important;
+  overflow:visible!important;
+}
+.emojiPickerModalV4136[hidden]{display:none!important}
+.emojiPickerV4136{
+  position:relative!important;
+  width:min(390px,calc(100vw - 32px))!important;
+  max-height:calc(100dvh - 102px)!important;
+  margin:0!important;
+  border-radius:20px!important;
+  pointer-events:auto!important;
+  box-shadow:0 22px 80px rgba(0,0,0,.88),0 0 30px rgba(149,67,255,.22)!important;
+  transform:translateX(18px)!important;
+}
+.emojiPickerV4136.is-open{transform:translateX(0)!important}
+html.emoji-picker-open{overflow:auto!important}
+
+.forumReplyActions .forumHeartReaction{display:none!important}
+.forumReplyReactionBar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  align-items:center;
+  margin-top:10px;
+}
+.forumReplyReactionButton{
+  appearance:none;
+  border:1px solid rgba(196,145,255,.22);
+  background:linear-gradient(180deg,rgba(32,25,47,.95),rgba(14,11,22,.96));
+  color:#f5efff;
+  border-radius:999px;
+  min-height:34px;
+  padding:6px 10px;
+  display:inline-flex;
+  gap:6px;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font:inherit;
+  font-size:.79rem;
+  transition:border-color .16s ease,transform .16s ease,box-shadow .16s ease,background .16s ease;
+}
+.forumReplyReactionButton:hover,.forumReplyReactionButton:focus-visible{
+  transform:translateY(-1px);
+  border-color:rgba(214,173,255,.6);
+  box-shadow:0 0 18px rgba(159,79,255,.2);
+}
+.forumReplyReactionButton.is-reacted{
+  border-color:rgba(224,180,255,.8);
+  background:linear-gradient(180deg,rgba(118,48,173,.8),rgba(45,18,69,.94));
+  box-shadow:0 0 18px rgba(174,85,255,.28);
+}
+.forumReplyReactionButton .reactionEmoji{font-size:1rem;line-height:1}
+.forumReplyReactionButton .reactionCount{min-width:1ch;font-weight:800}
+.forumReplyReactionButton[disabled]{opacity:.58;cursor:wait;transform:none}
+
+@media(max-width:800px){
+  .emojiPickerModalV4136{
+    padding:72px 8px 8px!important;
+    align-items:flex-end!important;
+  }
+  .emojiPickerV4136{
+    width:min(360px,calc(100vw - 16px))!important;
+    max-height:min(68dvh,560px)!important;
+    border-radius:18px!important;
+  }
+}
+@media(max-width:520px){
+  .emojiPickerModalV4136{justify-content:flex-end!important;align-items:flex-end!important}
+  .emojiPickerV4136{width:calc(100vw - 16px)!important;max-height:62dvh!important}
+  .forumReplyReactionBar{gap:5px}
+  .forumReplyReactionButton{padding:6px 8px;font-size:.73rem}
+}

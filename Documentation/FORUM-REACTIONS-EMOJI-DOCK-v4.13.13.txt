@@ -1,0 +1,21 @@
+SEEKER OF SOUNDZ v4.13.13
+FORUM REACTIONS + EMOJI SIDE DOCK
+
+UPDATE TYPE: WEBSITE ONLY
+
+GITHUB:
+- Replace website files with v4.13.13
+- Commit to main
+- Push origin
+
+SUPABASE:
+- No new SQL patch is required.
+- The existing v4.13.12 forum reaction RPC already supports the added reaction types.
+- Do not rerun schema.sql, policies.sql, storage-policies.sql, or older patches.
+
+CHANGES:
+- Emoji library opens as a non-blocking right-side dock on desktop.
+- The forum post/reply content remains visible while the dock is open.
+- Mobile uses a compact bottom-right dock.
+- Reply reactions restored: Love, Fire, Applause, Laugh, Wow, Support.
+- Reaction counts and the signed-in member's active choices refresh from Supabase.

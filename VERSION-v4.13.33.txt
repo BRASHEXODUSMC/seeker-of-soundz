@@ -1,0 +1,54 @@
+Seeker Of SoundZ v4.13.33
+RESTORED ORIGINAL ACHIEVEMENTS
+
+SOURCE MERGED:
+SeekerOfSoundZ(3).zip
+
+ACHIEVEMENTS RESTORED:
+84 original achievements across:
+- Starter
+- Topics
+- Replies
+- Reputation
+- Discovery
+- EDM
+- Media
+- Activity
+- Community
+- Special
+- Profile
+
+UPDATE TYPE:
+Website + ONE Supabase patch
+
+RUN ONLY:
+supabase/patch-v4.13.33-restore-legacy-achievements.sql
+
+DO NOT RERUN:
+schema.sql
+policies.sql
+storage-policies.sql
+or any previous patch.
+
+HOW IT WORKS:
+- The original achievement catalog is inserted into the existing Supabase achievements table.
+- Existing user_achievements remain untouched.
+- Forum topics, replies, reactions, tags, categories, subcategories, attachments,
+  profile completion, roles, reputation, media, and activity are evaluated.
+- Newly earned original achievements are inserted into user_achievements.
+- The existing v4.13.31 achievement notification trigger creates the toast.
+- The existing achievement sound plays through the notification center.
+- Achievement Hall on Members and Forums uses the restored icons and full catalog.
+- A local catalog fallback keeps the full achievement list visible if Supabase is temporarily unavailable.
+
+REMOVED:
+- The top-right Frequency Updates / Updates widget.
+- Its obsolete Profile Settings visibility option.
+- Homepage announcements and the normal notification center remain unchanged.
+
+INSTALL:
+1. Replace the current website files in GitHub Desktop.
+2. Commit and push.
+3. Run patch-v4.13.33-restore-legacy-achievements.sql once.
+4. Hard-refresh members.html and forums.html with Ctrl + F5.
+5. Open the Achievement Hall and allow a moment for the first synchronization.

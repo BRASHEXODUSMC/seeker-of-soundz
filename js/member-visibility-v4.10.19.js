@@ -96,10 +96,6 @@
           <span>Profile & notification visibility</span>
           <small>These choices are saved with your account when you press Save & apply.</small>
         </div>
-        <label class="experienceSwitch" data-member-visibility-row="updates">
-          <input type="checkbox" data-member-visibility-setting="hideFrequencyUpdates">
-          <span><b>Hide Frequency Updates</b><small>Removes the Updates button and Frequency Updates panel on every page.</small></span>
-        </label>
         <label class="experienceSwitch" data-member-visibility-row="announcements">
           <input type="checkbox" data-member-visibility-setting="hideAnnouncements">
           <span><b>Hide announcement banners</b><small>Removes homepage, member, profile, and priority announcement banners.</small></span>

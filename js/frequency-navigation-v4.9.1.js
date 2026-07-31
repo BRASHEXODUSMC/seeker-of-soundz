@@ -78,7 +78,7 @@
   }
 
   function init(){
-    installNoticeCenter();
+    document.querySelector('.sosNoticeCenter')?.remove();
     if(installNavEnhancements())return;
     let tries=0;
     const timer=setInterval(()=>{if(installNavEnhancements()||++tries>40)clearInterval(timer)},100);

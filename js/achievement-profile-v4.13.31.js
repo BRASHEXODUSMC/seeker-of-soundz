@@ -30,21 +30,7 @@ function playAchievementSound(){
 window.SOSAchievementSound=playAchievementSound;
 
 function localAchievementFallback(){
- const defaults=[
- {code:'first_frequency',name:'First Frequency',description:'Create your Seeker Of SoundZ member profile.',points:10,category:'profile'},
- {code:'first_topic',name:'Signal Starter',description:'Publish your first forum discussion.',points:15,category:'forums'},
- {code:'five_topics',name:'Frequency Broadcaster',description:'Publish five forum discussions.',points:35,category:'forums',rarity:'uncommon'},
- {code:'first_reply',name:'First Response',description:'Reply to a community discussion.',points:10,category:'forums'},
- {code:'ten_replies',name:'Community Voice',description:'Post ten forum replies.',points:35,category:'forums',rarity:'uncommon'},
- {code:'first_reaction',name:'Positive Signal',description:'React to a community post or reply.',points:10,category:'forums'},
- {code:'ten_reactions',name:'Energy Amplifier',description:'Share ten reactions across the forums.',points:30,category:'forums',rarity:'uncommon'},
- {code:'first_collab',name:'Studio Connected',description:'Join your first Collaboration Studio project.',points:20,category:'collaboration',rarity:'rare'},
- {code:'three_collabs',name:'Collaboration Regular',description:'Participate in three collaboration projects.',points:45,category:'collaboration',rarity:'rare'},
- {code:'profile_complete',name:'Profile Tuned',description:'Complete the important sections of your public profile.',points:25,category:'profile',rarity:'uncommon'},
- {code:'reputation_10',name:'Rising Frequency',description:'Reach 10 community reputation.',points:30,category:'reputation',rarity:'rare'},
- {code:'reputation_50',name:'Community Resonance',description:'Reach 50 community reputation.',points:75,category:'reputation',rarity:'epic'},
- {code:'staff_frequency',name:'Community Guardian',description:'Serve the community as a staff member.',points:100,category:'staff',rarity:'legendary'}
-];
+ const defaults=window.SOS_LEGACY_ACHIEVEMENTS_V41333||[];
  const raw=window.SOS?.read?.('sos_achievements_v1',[])||[];
  const seen=window.SOS?.read?.(`sos_seen_achievements_${window.SOS?.getSession?.()?.id||''}`,[])||[];
  const rows=Array.isArray(raw)&&raw.length?raw:defaults;
@@ -92,7 +78,7 @@ function updateCard(){
  const card=document.querySelector('.featuredAchievementV46');if(!card||!achievementData)return;
  const m=achievementMetrics(),pm=progressionMetrics(),icon=card.querySelector('.profilePanelIconV46');
  if(icon&&!icon.matches('[data-open-achievements]'))icon.outerHTML='<button type="button" class="profilePanelIconV46 achievementOpenButtonV41330" data-open-achievements aria-label="Open progression center" title="Open Achievement Hall">🏆</button>';
- const orb=card.querySelector('.achievementOrbV46');if(orb){orb.textContent=iconFor(m.latest?.code);orb.className=`achievementOrbV46 ${rarityClass(m.latest?.rarity)}`}
+ const orb=card.querySelector('.achievementOrbV46');if(orb){orb.textContent=m.latest?.icon_url||m.latest?.icon||iconFor(m.latest?.code);orb.className=`achievementOrbV46 ${rarityClass(m.latest?.rarity)}`}
  const h=card.querySelector('h4');if(h)h.textContent=m.latest?.name||'First Frequency';
  const copy=card.querySelector('.achievementOrbV46 + h4 + p');if(copy)copy.textContent=m.latest?.unlocked?(m.latest.description||'Your newest unlocked milestone.'):'Complete community milestones to unlock this badge.';
  const bar=card.querySelector('.achievementProgressV46 i');if(bar){bar.style.width='0%';requestAnimationFrame(()=>requestAnimationFrame(()=>bar.style.width=`${m.pct}%`))}
@@ -126,7 +112,7 @@ function heroHtml(){
 }
 function achievementsHtml(){
  const m=achievementMetrics();
- return `<div class="achievementModalSummaryV41330"><div><strong>${m.unlocked}/${m.total}</strong><span>Unlocked</span></div><div><strong>${m.pct}%</strong><span>Complete</span></div><div><strong>${m.points}</strong><span>Achievement points</span></div><div><strong>${m.next?esc(m.next.is_hidden?'Secret milestone':m.next.name):'Complete'}</strong><span>Next milestone</span></div></div><div class="achievementModalProgressV41330"><i style="width:${m.pct}%"></i></div><div class="achievementModalListV41330">${m.list.map(a=>`<article class="achievementItemV41330 ${a.unlocked?'isUnlocked':'isLocked'} ${rarityClass(a.rarity)}"><div class="achievementItemIconV41330">${a.unlocked?iconFor(a.code):a.is_hidden?'❔':'🔒'}</div><div><header><h3>${esc(a.is_hidden&&!a.unlocked?'Hidden Achievement':a.name)}</h3><span>${esc(a.rarity||'common')} • ${Number(a.points||0)} pts</span></header><p>${esc(a.is_hidden&&!a.unlocked?'Complete a secret action to reveal this achievement.':a.description)}</p><small>${a.unlocked?(a.earned_at?`Unlocked ${new Date(a.earned_at).toLocaleDateString()}`:'Unlocked'):'Locked'}${a.title_reward?` • Title: ${esc(a.title_reward)}`:''}</small></div></article>`).join('')}</div>`;
+ return `<div class="achievementModalSummaryV41330"><div><strong>${m.unlocked}/${m.total}</strong><span>Unlocked</span></div><div><strong>${m.pct}%</strong><span>Complete</span></div><div><strong>${m.points}</strong><span>Achievement points</span></div><div><strong>${m.next?esc(m.next.is_hidden?'Secret milestone':m.next.name):'Complete'}</strong><span>Next milestone</span></div></div><div class="achievementModalProgressV41330"><i style="width:${m.pct}%"></i></div><div class="achievementModalListV41330">${m.list.map(a=>`<article class="achievementItemV41330 ${a.unlocked?'isUnlocked':'isLocked'} ${rarityClass(a.rarity)}"><div class="achievementItemIconV41330">${a.unlocked?(a.icon_url||a.icon||iconFor(a.code)):a.is_hidden?'❔':'🔒'}</div><div><header><h3>${esc(a.is_hidden&&!a.unlocked?'Hidden Achievement':a.name)}</h3><span>${esc(a.rarity||'common')} • ${Number(a.points||0)} pts</span></header><p>${esc(a.is_hidden&&!a.unlocked?'Complete a secret action to reveal this achievement.':a.description)}</p><small>${a.unlocked?(a.earned_at?`Unlocked ${new Date(a.earned_at).toLocaleDateString()}`:'Unlocked'):'Locked'}${a.title_reward?` • Title: ${esc(a.title_reward)}`:''}</small></div></article>`).join('')}</div>`;
 }
 function questsHtml(){
  const quests=Array.isArray(hubData?.quests)?hubData.quests:[];

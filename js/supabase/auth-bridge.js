@@ -22,6 +22,7 @@
     reputation: profile?.reputation || 0,
     activityStatus: profile?.activity_status || 'Exploring the frequency',
     lastSeenAt: profile?.last_seen_at || null,
+    presenceVisibility: profile?.presence_visibility || 'automatic',
     collaborationAccess: Boolean(profile?.collaboration_access) || ['owner','administrator'].includes(profile?.role),
     isBanned: Boolean(profile?.is_banned),
     banReason: profile?.ban_reason || '',

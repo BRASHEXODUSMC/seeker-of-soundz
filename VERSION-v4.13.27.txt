@@ -1,0 +1,38 @@
+Seeker Of SoundZ v4.13.27
+FORUM MENTIONS, MEMBER PRESENCE, REACTION, AND DELETE UI FIX
+
+UPDATE TYPE:
+Website + ONE Supabase patch
+
+RUN ONLY:
+supabase/patch-v4.13.27-forum-presence-mentions.sql
+
+DO NOT RERUN:
+schema.sql
+policies.sql
+storage-policies.sql
+or any earlier patch.
+
+FIXED:
+- Reply textarea text and placeholders are readable in white.
+- The original discussion Love/heart button works again.
+- Browser-native delete confirmation popups were removed.
+- Reply and discussion deletion now use the Seeker Of SoundZ confirmation toast.
+
+ADDED:
+- Member presence strip above the forum discussion area.
+- Full forum member directory with Online, Offline, and Hidden states.
+- @username autocomplete in new topics, normal replies, and direct replies.
+- Search by either username or display name while typing an @mention.
+- Arrow-key, Enter, Tab, click, and Escape controls for mention suggestions.
+- Presence privacy setting in Members → Profile Settings:
+  Automatic, Always Offline, or Hidden.
+- Hidden members remain visible as members while their status and last activity stay concealed.
+
+TEST:
+1. Update the website files and push GitHub.
+2. Run the v4.13.27 patch once.
+3. Hard-refresh forums.html.
+4. Type @ in a topic or reply.
+5. Test the original post Love button.
+6. Delete a test reply and confirm the site toast appears instead of a browser popup.

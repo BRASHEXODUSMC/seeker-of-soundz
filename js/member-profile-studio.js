@@ -123,6 +123,14 @@
             <small>This appears beside your green online indicator while you are active.</small>
             <span class="profileStatusPreview"><i></i> Online — ${esc(session.activityStatus || 'Exploring the frequency')}</span>
           </label>
+          <label class="profileStatusEditor">Presence visibility
+            <select name="presenceVisibility">
+              <option value="automatic" ${session.presenceVisibility === 'automatic' || !session.presenceVisibility ? 'selected' : ''}>Automatic — show online when active</option>
+              <option value="offline" ${session.presenceVisibility === 'offline' ? 'selected' : ''}>Always appear offline</option>
+              <option value="hidden" ${session.presenceVisibility === 'hidden' ? 'selected' : ''}>Hidden — conceal activity and status</option>
+            </select>
+            <small>This changes how your presence appears in the forums and member lists.</small>
+          </label>
         </div>
         <label>Bio
           <textarea name="bio" maxlength="600" placeholder="Tell the community about yourself...">${esc(session.bio || '')}</textarea>
@@ -188,6 +196,7 @@
           biography: String(fields.get('bio') || '').trim(),
           avatar_url: avatarUrl,
           activity_status: String(fields.get('activityStatus') || 'Exploring the frequency').trim().slice(0,80),
+          presence_visibility: String(fields.get('presenceVisibility') || 'automatic'),
           last_seen_at: new Date().toISOString(),
           social_links: {
             YouTube: String(fields.get('youtube') || '').trim(),

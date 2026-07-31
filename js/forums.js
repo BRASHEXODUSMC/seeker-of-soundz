@@ -43,8 +43,9 @@ const staff=()=>['owner','administrator','moderator'].includes(String(state.prof
 const fmt=v=>{try{return new Date(v).toLocaleString()}catch{return ''}};
 const avatar=p=>p?.avatar_url||'assets/images/sos-logo.png';
 const display=p=>p?.display_name||p?.username||'Community Member';
-const isOnline=p=>Boolean(p?.last_seen_at&&(Date.now()-new Date(p.last_seen_at).getTime())<180000);
-const profileAttrs=p=>`data-profile-id="${esc(p?.id||'')}" data-profile-name="${esc(display(p))}" data-profile-avatar="${esc(avatar(p))}" data-profile-role="${esc(p?.role||'member')}" data-profile-rank="${esc(p?.rank_name||'New Listener')}" data-profile-reputation="${Number(p?.reputation||0)}" data-profile-bio="${esc(p?.biography||p?.bio||'Community member on the Seeker Of SoundZ frequency.')}" data-profile-location="${esc(p?.location||'Not shared')}" data-profile-online="${isOnline(p)?'true':'false'}" data-profile-status="${esc(p?.activity_status||'Exploring the frequency')}" data-profile-last-seen="${esc(p?.last_seen_at||'')}"`;
+const presenceState=p=>p?.presence_visibility==='hidden'?'hidden':p?.presence_visibility==='offline'?'offline':(p?.last_seen_at&&(Date.now()-new Date(p.last_seen_at).getTime())<180000?'online':'offline');
+const isOnline=p=>presenceState(p)==='online';
+const profileAttrs=p=>`data-profile-id="${esc(p?.id||'')}" data-profile-name="${esc(display(p))}" data-profile-avatar="${esc(avatar(p))}" data-profile-role="${esc(p?.role||'member')}" data-profile-rank="${esc(p?.rank_name||'New Listener')}" data-profile-reputation="${Number(p?.reputation||0)}" data-profile-bio="${esc(p?.biography||p?.bio||'Community member on the Seeker Of SoundZ frequency.')}" data-profile-location="${esc(p?.location||'Not shared')}" data-profile-online="${isOnline(p)?'true':'false'}" data-profile-status="${esc(p?.presence_visibility==='hidden'?'Presence hidden':p?.activity_status||'Exploring the frequency')}" data-profile-last-seen="${esc(p?.last_seen_at||'')}"`;
 function safeUrl(v){try{if(!v)return '';const u=new URL(v,location.href);return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}}
 async function getAuth(){const c=supa();if(!c)return;const {data}=await c.auth.getSession();state.user=data.session?.user||null;if(state.user){const {data:p}=await c.from('profiles').select('*').eq('id',state.user.id).maybeSingle();state.profile=p||null}}
 async function loadCategories(){
@@ -129,7 +130,7 @@ function drawMembers(){
  const host=$('#forumMemberDirectoryList'),count=$('#forumOnlineCount');if(!host)return;
  const rows=[...(state.memberDirectory.length?state.memberDirectory:[...state.profiles.values()])].filter(p=>!p.is_banned).sort((a,b)=>Number(isOnline(b))-Number(isOnline(a))||display(a).localeCompare(display(b))).slice(0,24);
  const online=rows.filter(isOnline).length;if(count)count.textContent=`${online} online`;
- host.innerHTML=rows.length?rows.map(p=>`<button type="button" class="forumMemberDirectoryItem ${isOnline(p)?'isOnline':'isOffline'}" ${profileAttrs(p)}><span class="forumMemberAvatarWrap"><img src="${esc(avatar(p))}" alt="${esc(display(p))}"><i></i></span><span><strong>${esc(display(p))}</strong><small>${isOnline(p)?esc(p.activity_status||'Exploring the frequency'):'Offline'}</small></span></button>`).join(''):'<div class="emptyState">No members are available yet.</div>';
+ host.innerHTML=rows.length?rows.map(p=>{const ps=presenceState(p);return `<button type="button" class="forumMemberDirectoryItem ${ps==='online'?'isOnline':ps==='hidden'?'isHidden':'isOffline'}" ${profileAttrs(p)}><span class="forumMemberAvatarWrap"><img src="${esc(avatar(p))}" alt="${esc(display(p))}"><i></i></span><span><strong>${esc(display(p))}</strong><small>${ps==='online'?esc(p.activity_status||'Exploring the frequency'):ps==='hidden'?'Hidden':'Offline'}</small></span></button>`}).join(''):'<div class="emptyState">No members are available yet.</div>';
 }
 function replyForm(topic){
  if(state.replying!==topic.id)return '';

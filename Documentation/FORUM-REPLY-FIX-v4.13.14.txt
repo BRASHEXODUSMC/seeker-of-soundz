@@ -1,0 +1,14 @@
+Seeker Of SoundZ v4.13.14
+
+UPDATE TYPE: Website + one Supabase patch
+
+WEBSITE:
+- Reply composer now has the same quick emoji toolbar and side-dock emoji opener as Create Post.
+- Emoji insertion targets the active reply textarea.
+- Reply publishing now uses a secure Supabase RPC instead of a fragile direct insert.
+
+SUPABASE:
+Run only:
+  supabase/patch-v4.13.14-forum-replies.sql
+
+Do not rerun schema.sql, policies.sql, storage-policies.sql, or previous patches.

@@ -1,0 +1,9 @@
+/* Seeker Of SoundZ v4.13.14 reply composer emoji support */
+.inlineReplyComposer .replyTextEditor{display:flex;flex-direction:column;gap:0}
+.inlineReplyComposer .replyTextEditor textarea{width:100%;min-height:118px;resize:vertical}
+.inlineReplyComposer .replyEmojiToolbar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:10px 12px;border-top:1px solid rgba(255,255,255,.08);background:rgba(8,7,14,.82)}
+.inlineReplyComposer .replyEmojiToolbar>span{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.58);margin-right:3px}
+.inlineReplyComposer .replyEmojiToolbar>button{min-width:34px;min-height:34px;border-radius:10px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);font-size:1.05rem}
+.inlineReplyComposer .replyEmojiToolbar>button:hover{background:rgba(173,100,255,.16);border-color:rgba(206,157,255,.32)}
+.inlineReplyComposer .replyEmojiToolbar .emojiMoreButton{margin-left:auto!important}
+@media(max-width:720px){.inlineReplyComposer .replyEmojiToolbar{gap:5px;padding:8px}.inlineReplyComposer .replyEmojiToolbar>button{min-width:31px;min-height:31px}.inlineReplyComposer .replyEmojiToolbar .emojiMoreButton{flex:1 1 100%;margin-left:0!important}}

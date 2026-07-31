@@ -74,3 +74,8 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Restored multi-reaction choices on forum replies.
 - Added Supabase-backed counts and active member reaction states.
 - Preserved the existing forum feed, categories, subcategories, tags, loader, transitions, and authentication.
+
+## v4.13.14 — Reply Composer Emoji + RLS Fix
+- Added the full quick emoji toolbar and side-dock opener to inline reply composers.
+- Added secure `forum_create_reply` RPC and corrected reply insert permissions.
+- Prevented replies to hidden or locked topics except for staff.

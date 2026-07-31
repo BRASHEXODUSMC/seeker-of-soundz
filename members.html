@@ -50,6 +50,7 @@
    <link rel="stylesheet" href="css/mobile-layout-fix-v4.12.3.css?v=4.12.3">
    <link rel="stylesheet" href="css/mobile-navigation-fix-v4.12.4.css?v=4.12.4">
   <link rel="stylesheet" href="css/transition-controller-v4.13.5.css?v=4.13.5">
+  <link rel="stylesheet" href="css/v4.13.16-stability.css?v=4.13.16">
 </head>
  <body>
   <div id="loader">
@@ -135,6 +136,11 @@
     <div class="container">
      <div class="authShell" id="authArea">
       <div class="authCard">
+       <div class="authModeHeader">
+        <p class="sectionEyebrow">Member Access</p>
+        <h2>Choose how you want to continue.</h2>
+        <p>Sign in to an existing Seeker Of SoundZ account, or select Register to create a new community profile.</p>
+       </div>
        <div class="tabRow">
         <button class="tabButton active" data-auth-tab="login">
          Login
@@ -144,6 +150,7 @@
         </button>
        </div>
        <form class="appForm" id="loginForm">
+        <p class="authFormIntro">Already registered? Enter the email and password connected to your member profile.</p>
         <label>
          Email
          <input name="email" required="" type="email"/>
@@ -166,6 +173,7 @@
         </p>
        </form>
        <form class="appForm" hidden="" id="registerForm">
+        <p class="authFormIntro">New to the community? Complete the fields below to create your member profile. Registration details only appear while the Register tab is selected.</p>
         <label>
          Display name
          <input maxlength="30" name="displayName" required=""/>
@@ -193,6 +201,7 @@
         <button class="primaryButton">
          Create Account
         </button>
+        <p class="registerOnlyNotice">After registration, check your email for the confirmation link before signing in.</p>
         <p class="formMessage" id="registerMessage">
         </p>
        </form>
@@ -376,7 +385,7 @@
   </script>
   <script src="js/navigation.js">
   </script>
-  <script src="js/loader.js?v=4.13.12">
+  <script src="js/loader.js?v=4.13.16">
   </script>
   <script src="js/cursor.js?v=4.7.3">
   </script>

@@ -1,0 +1,12 @@
+Seeker Of SoundZ v4.13.16
+
+UPDATE TYPE: WEBSITE ONLY
+
+Changes:
+- Restored forum member hover profile cards using live Supabase profile metadata rendered in the forum.
+- Rebuilt the loader into a clean original-inspired Seeker Of SoundZ signal loader.
+- Loader remains once per browser-tab session and hides the cursor.
+- Reorganized Members login/register into one centered module.
+- Login and registration forms are now mutually exclusive and clearly explained.
+
+SUPABASE: No SQL changes required.

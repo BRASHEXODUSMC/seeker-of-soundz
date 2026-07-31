@@ -1,3 +1,10 @@
+# v4.13.23 — Collaboration Feature & Original Loader Restore
+
+- Restored the original cinematic Seeker Of SoundZ loader from the backup build.
+- Restored project progression slider, milestones, progress bar, and stage syncing in Collaboration Studio.
+- Kept Supabase projects, collaborators, private messages, notes, files, permissions, and admin synchronization.
+- Preserved all newer authentication, forums, profiles, mobile, and admin work.
+
 # v4.13.12 — Forum Experience & Frequency Reactor Loader
 
 - Redesigned forum category cards.

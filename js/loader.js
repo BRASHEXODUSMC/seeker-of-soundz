@@ -1,27 +1,55 @@
-/* Seeker Of SoundZ v4.13.16 — clean one-session signal loader */
-(()=>{
-'use strict';
-const KEY='sos_loader_seen_v4_13_16';
-const loader=document.getElementById('loader');if(!loader)return;
-const root=document.documentElement;
-const hide=()=>{loader.classList.add('loaded');loader.setAttribute('aria-hidden','true');root.classList.remove('sosLoaderRunning');root.classList.add('sosLoaderSeen')};
-try{if(sessionStorage.getItem(KEY)==='1'){hide();return}sessionStorage.setItem(KEY,'1')}catch(_){ }
-root.classList.add('sosLoaderRunning');loader.classList.remove('loaded','loaderComplete');loader.setAttribute('aria-hidden','false');
-const content=loader.querySelector('.loaderContent');
-loader.querySelectorAll('.frequencyReactor,.loaderFrequencyLine,.loaderCornerReadouts,.loaderWaveformRing,.loaderBassPulse').forEach(n=>n.remove());
-if(content&&!content.querySelector('.sosSignalWave')){
- const wave=document.createElement('div');wave.className='sosSignalWave';wave.setAttribute('aria-hidden','true');
- wave.innerHTML=Array.from({length:54},(_,i)=>`<i style="--i:${i};--a:${4+(i*11)%20}"></i>`).join('');
- content.querySelector('.loaderLogoStage')?.appendChild(wave);
- const label=document.createElement('div');label.className='sosLoaderKicker';label.textContent='A SEEKER OF SOUNDZ EXPERIENCE';content.prepend(label);
-}
-const bar=loader.querySelector('.loaderProgress'),pct=loader.querySelector('.loaderPercent'),status=loader.querySelector('.loaderStatus span:first-child'),brand=loader.querySelector('.loaderBrandName'),subtitle=loader.querySelector('.loaderSubtitle');
-if(brand)brand.textContent='SEEKER OF SOUNDZ';if(subtitle)subtitle.textContent='DJ • PRODUCER • CREATOR';
-const messages=[[0,'Tuning into the frequency'],[16,'Loading the sound system'],[34,'Connecting the community'],[53,'Preparing the visual stage'],[72,'Synchronizing the signal'],[88,'Opening the experience'],[98,'Welcome to Seeker Of SoundZ']];
-let last='',done=false;
-function update(v){const n=Math.max(0,Math.min(100,Math.round(v)));if(bar)bar.style.width=n+'%';if(pct)pct.textContent=n+'%';let text=messages[0][1];for(const [at,t] of messages)if(n>=at)text=t;if(status&&text!==last){last=text;status.animate([{opacity:0,transform:'translateY(5px)'},{opacity:1,transform:'none'}],{duration:260});status.textContent=text}loader.style.setProperty('--p',n/100)}
-function finish(){if(done)return;done=true;update(100);loader.classList.add('loaderComplete');setTimeout(hide,760)}
-const duration=5200,start=performance.now();
-function tick(now){const p=Math.min(1,(now-start)/duration),e=1-Math.pow(1-p,2.15);update(e*100);p<1?requestAnimationFrame(tick):finish()}
-requestAnimationFrame(tick);setTimeout(finish,7000);
+/* Seeker Of SoundZ v4.8 — cinematic signal ignition loader */
+(() => {
+  "use strict";
+  const loader = document.getElementById("loader");
+  const progressBar = document.querySelector(".loaderProgress");
+  const percentText = document.querySelector(".loaderPercent");
+  if (!loader || !progressBar || !percentText) {
+    console.warn("Loader markup is missing on this page.");
+    return;
+  }
+
+  if (!loader.querySelector(".loaderCosmos")) {
+    const cosmos = document.createElement("div");
+    cosmos.className = "loaderCosmos";
+    cosmos.setAttribute("aria-hidden", "true");
+    cosmos.innerHTML = '<div class="loaderNebula loaderNebulaA"></div><div class="loaderNebula loaderNebulaB"></div><div class="loaderGalaxyBand"></div><div class="loaderHorizon"></div><div class="loaderStarField"></div>';
+    loader.prepend(cosmos);
+
+    const field = cosmos.querySelector(".loaderStarField");
+    const count = matchMedia("(max-width:640px)").matches ? 52 : 92;
+    const fragment = document.createDocumentFragment();
+    for (let index = 0; index < count; index++) {
+      const star = document.createElement("span");
+      star.style.setProperty("--x", `${(Math.random() * 100).toFixed(2)}%`);
+      star.style.setProperty("--y", `${(Math.random() * 100).toFixed(2)}%`);
+      star.style.setProperty("--size", `${(0.55 + Math.random() * 1.55).toFixed(2)}px`);
+      star.style.setProperty("--alpha", `${(0.28 + Math.random() * 0.68).toFixed(2)}`);
+      star.style.setProperty("--delay", `${(Math.random() * 3.5).toFixed(2)}s`);
+      star.style.setProperty("--speed", `${(2.4 + Math.random() * 3.8).toFixed(2)}s`);
+      fragment.appendChild(star);
+    }
+    field.appendChild(fragment);
+  }
+
+  const hasLoaded = sessionStorage.getItem("sos_loaded");
+  if (hasLoaded) {
+    loader.classList.add("loaded");
+    return;
+  }
+
+  let progress = 0;
+  const loading = setInterval(() => {
+    progress += 1;
+    progressBar.style.width = `${progress}%`;
+    percentText.textContent = `${progress}%`;
+    loader.style.setProperty("--loader-progress", `${progress / 100}`);
+
+    if (progress >= 100) {
+      clearInterval(loading);
+      sessionStorage.setItem("sos_loaded", "true");
+      loader.classList.add("loaderComplete");
+      setTimeout(() => loader.classList.add("loaded"), 900);
+    }
+  }, 22);
 })();

@@ -91,3 +91,10 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Expanded Admin member ranks and activity details.
 - Fixed password recovery sessions and added reset access in Profile Settings.
 - Enhanced forum hover profiles and added clickable public member profiles.
+
+
+## v4.13.22 — Collaboration Member Synchronization
+- Confirmed Admin Hub member changes save directly to Supabase.
+- Added secure eligible-collaborator directory RPC.
+- Collaboration project creator now refreshes approved members before opening.
+- Added focus, visibility, and realtime refresh for collaboration access changes.

@@ -13,11 +13,17 @@ const defaultAvatar='assets/images/sos-logo.png';
 
 const message=(el,text,type='')=>{if(!el)return;el.textContent=text;el.dataset.state=type;};
 const friendly=(error)=>{
- const text=String(error?.message||error||'Something went wrong.');
+ const source=error&&typeof error==='object'
+   ?[error.message,error.details,error.hint,error.code].filter(Boolean).join(' ')
+   :String(error||'Something went wrong.');
+ const text=String(source||'Something went wrong.');
  if(/invalid login credentials/i.test(text))return 'The email or password is incorrect.';
  if(/email not confirmed/i.test(text))return 'Please confirm your email before signing in.';
  if(/user already registered/i.test(text))return 'An account already exists for that email.';
+ if(/username|profiles_username|duplicate key|23505/i.test(text))return 'That username is already being used. Please choose a different username.';
+ if(/database error saving new user/i.test(text))return 'That username may already be in use. Please choose another username and try again.';
  if(/password/i.test(text)&&/characters/i.test(text))return 'Please use a stronger password with at least 6 characters.';
+ if(/^\s*\{\s*\}\s*$/.test(text)||/\[object Object\]/i.test(text))return 'The account could not be created. Check that the username and email are not already in use.';
  return text;
 };
 const setBusy=(form,busy)=>{form?.querySelectorAll('button,input').forEach(el=>{if(el.type!=='file')el.disabled=busy;});};
@@ -40,6 +46,53 @@ document.querySelectorAll('[data-auth-tab]').forEach(b=>b.addEventListener('clic
  registerForm.hidden=b.dataset.authTab!=='register';
 }));
 
+let usernameCheckTimer=0;
+let usernameCheckValue='';
+let usernameCheckAvailable=null;
+const usernameInput=registerForm?.elements?.username;
+function ensureUsernameStatus(){
+ if(!usernameInput)return null;
+ let status=document.getElementById('usernameAvailabilityMessage');
+ if(status)return status;
+ status=document.createElement('small');
+ status.id='usernameAvailabilityMessage';
+ status.className='usernameAvailabilityMessage';
+ status.setAttribute('aria-live','polite');
+ usernameInput.insertAdjacentElement('afterend',status);
+ return status;
+}
+async function checkUsernameAvailability(value,{showChecking=true}={}){
+ const username=String(value||'').trim();
+ const status=ensureUsernameStatus();
+ usernameCheckValue=username;
+ usernameCheckAvailable=null;
+ if(!/^[A-Za-z0-9_]{3,24}$/.test(username)){
+  if(status){status.textContent=username?'Use 3–24 letters, numbers, or underscores.':'';status.dataset.state='error';}
+  return false;
+ }
+ if(showChecking&&status){status.textContent='Checking username availability…';status.dataset.state='checking';}
+ const {data,error}=await client.rpc('username_is_available',{username_input:username});
+ if(username!==usernameCheckValue)return false;
+ if(error){
+  console.warn('[Username check]',error);
+  if(status){status.textContent='Username availability will be verified when you register.';status.dataset.state='';}
+  usernameCheckAvailable=null;
+  return null;
+ }
+ usernameCheckAvailable=Boolean(data);
+ if(status){
+  status.textContent=usernameCheckAvailable?'Username is available.':'That username is already being used. Please choose another.';
+  status.dataset.state=usernameCheckAvailable?'success':'error';
+ }
+ return usernameCheckAvailable;
+}
+usernameInput?.addEventListener('input',event=>{
+ clearTimeout(usernameCheckTimer);
+ usernameCheckAvailable=null;
+ usernameCheckTimer=setTimeout(()=>checkUsernameAvailability(event.target.value),420);
+});
+usernameInput?.addEventListener('blur',()=>checkUsernameAvailability(usernameInput.value,{showChecking:false}));
+
 registerForm?.addEventListener('submit',async e=>{
  e.preventDefault();
  if(!client){message(registerMessage,'Supabase is not connected. Check backend-config.js.','error');return;}
@@ -49,6 +102,14 @@ registerForm?.addEventListener('submit',async e=>{
  const email=String(f.get('email')||'').trim().toLowerCase();
  const password=String(f.get('password')||'');
  if(!/^[A-Za-z0-9_]{3,24}$/.test(username)){message(registerMessage,'Username must be 3–24 characters using letters, numbers, or underscores.','error');return;}
+ const available=username===usernameCheckValue&&usernameCheckAvailable!==null
+   ?usernameCheckAvailable
+   :await checkUsernameAvailability(username);
+ if(available===false){
+  message(registerMessage,'That username is already being used. Please choose a different username.','error');
+  usernameInput?.focus();
+  return;
+ }
  setBusy(registerForm,true);message(registerMessage,'Creating your secure account…');
  try{
    const redirectTo=new URL('members.html',location.href).href;

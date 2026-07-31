@@ -1,0 +1,37 @@
+Seeker Of SoundZ v4.13.30
+ACHIEVEMENT PROFILE VIEWER + USERNAME VALIDATION
+
+UPDATE TYPE:
+Website + ONE Supabase patch
+
+RUN ONLY:
+supabase/patch-v4.13.30-achievements-username.sql
+
+DO NOT RERUN:
+schema.sql
+policies.sql
+storage-policies.sql
+or any previous forum, profile, collaboration, notification, or presence patch.
+
+ACHIEVEMENTS:
+- Click the trophy icon in the Newest Achievement card to open Achievement Hall.
+- Achievement Hall shows unlocked and locked milestones.
+- Shows completion percentage, unlocked total, points, and next milestone.
+- The existing profile layout is preserved.
+- The profile progress bar now animates to the real Supabase percentage.
+- The next achievement uses a polished glowing label.
+- The achievement list works on desktop and mobile.
+
+USERNAME REGISTRATION:
+- Registration checks username availability through Supabase.
+- The username field shows Checking, Available, or Already Used.
+- Duplicate usernames show:
+  “That username is already being used. Please choose a different username.”
+- Raw {}, [object Object], duplicate-key, and database-trigger errors are replaced with readable instructions.
+- The database unique constraint remains the final protection against duplicate usernames.
+
+INSTALL:
+1. Replace the website files using GitHub Desktop.
+2. Commit and push.
+3. Run patch-v4.13.30-achievements-username.sql once.
+4. Hard-refresh members.html with Ctrl + F5.

@@ -1,0 +1,63 @@
+Seeker Of SoundZ v4.13.31
+UNIFIED ACHIEVEMENT + PROGRESSION SYSTEM
+
+UPDATE TYPE:
+Website + ONE Supabase patch
+
+RUN ONLY:
+supabase/patch-v4.13.31-unified-progression.sql
+
+REQUIRES:
+patch-v4.13.30-achievements-username.sql must already be installed.
+
+DO NOT RERUN:
+schema.sql
+policies.sql
+storage-policies.sql
+or any previous forum, collaboration, notification, profile, presence, or achievement patch.
+
+PRESERVED:
+- Existing achievements table
+- Existing user_achievements records
+- Existing Achievement Hall button and profile card
+- Existing forum/profile/collaboration data
+- Existing Supabase authentication and RLS
+- Existing notification center and toast design
+
+ADDED:
+- XP and lifetime XP
+- Frequency levels
+- Animated level progress
+- Daily quests
+- Weekly challenges
+- Seasonal challenges
+- Community events
+- Hidden achievements
+- Common, Uncommon, Rare, Epic, Legendary, and Mythic rarity effects
+- Realtime achievement notifications
+- Achievement notification sound
+- Unlockable profile titles
+- Title selection
+- Global member XP rankings
+- Quest reward claiming
+- Daily streak support
+- Existing forum topics, replies, reactions, collaboration projects, profile completion,
+  reputation, and staff roles feed the same achievement engine.
+
+ACHIEVEMENT HALL:
+Click the trophy button in Members → Newest Achievement.
+Tabs:
+- Achievements
+- Quests
+- Events & Seasons
+- Titles
+- Rankings
+
+TEST:
+1. Replace the website files and push through GitHub Desktop.
+2. Run patch-v4.13.31-unified-progression.sql once.
+3. Hard-refresh members.html.
+4. Open Achievement Hall.
+5. Complete a daily quest and choose Claim Reward.
+6. Use a second browser/account to confirm rankings and realtime notifications.
+7. Browser sound may require one click/tap on the site first due to browser autoplay rules.

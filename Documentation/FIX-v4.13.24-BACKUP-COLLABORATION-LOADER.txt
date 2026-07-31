@@ -1,0 +1,12 @@
+Seeker Of SoundZ v4.13.24
+
+Website-only update.
+
+- Restores the Collaboration Studio arrangement from SeekerOfSoundZbackup.
+- Keeps all Collaboration data in Supabase.
+- Restores project cards, project sorting, collaborator manager, studio directory,
+  progression slider, milestone ticks, clickable stage pills, notes, member chips,
+  audio history, project removal, and the bottom message composer.
+- Removes the v4.13.16 loader visual override so the original backup loader.css and
+  loader.js are the only active loader presentation.
+- No SQL patch is required.

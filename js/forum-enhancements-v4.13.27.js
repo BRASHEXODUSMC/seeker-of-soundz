@@ -78,47 +78,8 @@ function bindMentions(){
  addEventListener('resize',()=>{if(activeField&&mentionBox&&!mentionBox.hidden)positionMentionBox(activeField)});
  addEventListener('scroll',()=>{if(mentionBox)mentionBox.hidden=true},{passive:true});
 }
-async function toggleTopicReaction(button){
- const id=button.dataset.like;if(!id)return;
- button.disabled=true;
- const q=await client.rpc('forum_toggle_reaction',{target_topic:id,target_reply:null,reaction_value:'heart'});
- button.disabled=false;
- if(q.error)return toast(q.error.message,{title:'Reaction'});
- const active=Boolean(q.data),spans=button.querySelectorAll('span');
- button.classList.toggle('is-reacted',active);
- if(spans[0])spans[0].textContent=active?'♥':'♡';
- if(spans[1])spans[1].textContent=String(Math.max(0,Number(spans[1].textContent||0)+(active?1:-1)));
- if(spans[2])spans[2].textContent=active?'Loved':'Love';
-}
-function confirmDelete(kind,id,button){
- const isReply=kind==='reply';
- toast(isReply?'Delete this reply permanently?':'Delete this discussion and all of its replies?',{
-  title:isReply?'Confirm reply deletion':'Confirm discussion deletion',
-  icon:'×',action:'Delete',
-  onAction:async()=>{
-   button.disabled=true;
-   const q=await client.rpc(isReply?'forum_delete_reply':'forum_delete_topic',isReply?{target_reply:id}:{target_topic:id});
-   if(q.error){button.disabled=false;return toast(q.error.message,{title:'Delete failed'})}
-   const target=isReply?button.closest('.forumReply'):button.closest('.forumPost');
-   target?.remove();
-   toast(isReply?'The reply was deleted.':'The discussion was deleted.',{title:'Forums'});
-  }
- });
- const item=document.querySelector('.toastStack .appToast');
- item?.classList.add('toastConfirm');
-}
-function bindCapture(){
- document.addEventListener('click',e=>{
-  const love=e.target.closest('[data-like]');
-  if(love){e.preventDefault();e.stopImmediatePropagation();void toggleTopicReaction(love);return}
-  const dr=e.target.closest('[data-delete-reply]');
-  if(dr){e.preventDefault();e.stopImmediatePropagation();confirmDelete('reply',dr.dataset.deleteReply,dr);return}
-  const dt=e.target.closest('[data-delete]');
-  if(dt){e.preventDefault();e.stopImmediatePropagation();confirmDelete('topic',dt.dataset.delete,dt)}
- },true);
-}
 async function boot(){
- ensurePresenceStrip();bindMentions();bindCapture();await loadMembers();
+ ensurePresenceStrip();bindMentions();await loadMembers();
  const ch=client.channel('forum-member-presence-v41327').on('postgres_changes',{event:'UPDATE',schema:'public',table:'profiles'},loadMembers).subscribe();
  addEventListener('beforeunload',()=>client.removeChannel(ch),{once:true});
 }

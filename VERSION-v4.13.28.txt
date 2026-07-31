@@ -1,0 +1,33 @@
+Seeker Of SoundZ v4.13.28
+FORUM REACTIONS, PRESENCE, DELETE TOAST, AND MEMBER NAVIGATION FIX
+
+UPDATE TYPE:
+Website only
+
+SUPABASE:
+No new SQL patch is required.
+Keep the v4.13.27 presence/mentions patch already installed.
+Do not rerun schema.sql, policies.sql, storage-policies.sql, or older patches.
+
+FIXED:
+- Removed all native browser confirmation popups from forum post and reply deletion.
+- Deletion now uses the Seeker Of SoundZ toast confirmation and completion toast.
+- Main discussion Love/heart reaction now uses one reliable controller.
+- Reply multi-reaction layout repaired.
+- Presence changes update immediately on the Members page after saving.
+- Automatic shows green, Always Offline shows red, and Hidden shows purple.
+- Forum realtime presence continues to update through Supabase.
+- Mobile forum reaction buttons and post controls now wrap cleanly.
+
+NAVIGATION:
+- Removed the text Members link from its old position.
+- Added the Members/profile logo as the final navigation item after Contact.
+- Signed-in members see their own avatar in that position.
+- Hovering shows the same style of member profile card used by the forums.
+- Clicking it opens members.html.
+- Mobile navigation receives a centered, touch-friendly profile button.
+
+INSTALL:
+1. Replace the website files in the GitHub repository.
+2. Commit and push.
+3. Hard refresh the site with Ctrl + F5.

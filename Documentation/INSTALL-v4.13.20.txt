@@ -1,0 +1,23 @@
+Seeker Of SoundZ v4.13.20
+
+UPDATE TYPE: WEBSITE + ONE SUPABASE PATCH
+
+WEBSITE
+1. Replace the current website files with this package.
+2. Commit in GitHub Desktop.
+3. Push origin.
+
+SUPABASE
+Run only:
+  supabase/patch-v4.13.20-collaboration-admin-sync.sql
+
+Do not rerun schema.sql, policies.sql, storage-policies.sql, or any older patch.
+
+This patch:
+- Adds collaboration_access to member profiles.
+- Creates Supabase collaboration projects, project members, and private messages.
+- Creates the private collaboration-files Storage bucket and policies.
+- Updates the Admin member directory so collaboration access can be granted per person.
+
+IMPORTANT
+The Admin overview now clearly identifies which sections are live in Supabase and which legacy editors still need a future dedicated migration. It does not falsely label browser-preview editors as fully synchronized.

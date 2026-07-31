@@ -1,0 +1,11 @@
+Seeker Of SoundZ v4.13.20
+
+Website + one Supabase patch.
+Run only: supabase/patch-v4.13.20-collaboration-admin-sync.sql
+
+Changes:
+- Forum hover profile buttons now open members.html directly.
+- Collaboration Studio uses Supabase projects, members, messages, notes, stages and private audio storage.
+- Admin Members can grant/revoke Collaboration Studio access.
+- Admin overview shows which production systems are Supabase-backed.
+- Browser-local storage permission prompt was removed from Collaboration Studio.

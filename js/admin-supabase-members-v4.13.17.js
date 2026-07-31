@@ -142,6 +142,10 @@
               <input data-member-field="reputation" type="number" min="0" max="100000000" value="${Number(member.reputation || 0)}">
             </label>
             <label class="adminBanToggle">
+              <input data-member-field="collaborationAccess" type="checkbox"${member.collaboration_access ? ' checked' : ''}>
+              Allow Collaboration Studio access
+            </label>
+            <label class="adminBanToggle">
               <input data-member-field="banned" type="checkbox"${member.is_banned ? ' checked' : ''}>
               Block this member from participating
             </label>
@@ -242,6 +246,7 @@
     const role = card.querySelector('[data-member-field="role"]').value;
     const rank = card.querySelector('[data-member-field="rank"]').value.trim();
     const reputation = Number(card.querySelector('[data-member-field="reputation"]').value || 0);
+    const collaborationAccess = card.querySelector('[data-member-field="collaborationAccess"]')?.checked || false;
     const banned = card.querySelector('[data-member-field="banned"]').checked;
     const banReason = card.querySelector('[data-member-field="banReason"]').value.trim();
 
@@ -254,7 +259,8 @@
       new_rank_name: rank,
       new_reputation: reputation,
       new_is_banned: banned,
-      new_ban_reason: banReason
+      new_ban_reason: banReason,
+      new_collaboration_access: collaborationAccess
     });
 
     button.disabled = false;

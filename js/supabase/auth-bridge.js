@@ -20,6 +20,7 @@
     dbRole: profile?.role || 'member',
     rank: profile?.rank_name || 'New Listener',
     reputation: profile?.reputation || 0,
+    collaborationAccess: Boolean(profile?.collaboration_access) || ['owner','administrator'].includes(profile?.role),
     isBanned: Boolean(profile?.is_banned),
     banReason: profile?.ban_reason || '',
     joinedAt: profile?.created_at || user.created_at,

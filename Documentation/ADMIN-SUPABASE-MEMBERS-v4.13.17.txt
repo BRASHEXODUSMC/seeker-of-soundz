@@ -1,0 +1,25 @@
+Seeker Of SoundZ v4.13.17 — Supabase Admin Member Directory
+
+UPDATE TYPE: Website + one Supabase patch
+
+WEBSITE:
+Replace the website files in the GitHub Desktop repository, commit, and push.
+
+SUPABASE:
+Run only:
+supabase/patch-v4.13.17-admin-members.sql
+
+DO NOT rerun schema.sql, policies.sql, storage-policies.sql, or older patches.
+
+WHAT THIS CONNECTS:
+- Admin Hub → Members now lists real Supabase Auth accounts.
+- Displays email verification, account creation, last Supabase sign-in, last website activity, topics, and replies.
+- Adds approximate online/offline status using a safe website activity heartbeat.
+- Owner/Administrator can update role, rank, reputation, ban status, and ban reason for individual members.
+- Passwords, tokens, and private authentication secrets are never displayed.
+
+SECURITY:
+- The SQL functions verify that the caller is an Owner or Administrator.
+- Administrators cannot manage the Owner role.
+- The last Owner cannot be demoted.
+- An administrator cannot ban their own account.

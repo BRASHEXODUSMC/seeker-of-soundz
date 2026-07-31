@@ -79,3 +79,9 @@ Important: the payment code is a secure integration starter, not a preconfigured
 - Added the full quick emoji toolbar and side-dock opener to inline reply composers.
 - Added secure `forum_create_reply` RPC and corrected reply insert permissions.
 - Prevented replies to hidden or locked topics except for staff.
+
+
+## v4.13.17 — Supabase Admin Member Directory
+- Connected Admin Hub member management to real Supabase Auth and profiles.
+- Added last sign-in, website presence, account verification, forum activity, roles, ranks, reputation, and ban controls.
+- Added secure Owner/Administrator RPC functions and protected role management.

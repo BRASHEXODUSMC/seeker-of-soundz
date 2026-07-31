@@ -27,6 +27,30 @@
     supabase: true
   });
 
+
+  let presenceTimer = null;
+  async function touchPresence(user) {
+    if (!user || document.visibilityState === 'hidden') return;
+    try {
+      await client.from('profiles').update({ last_seen_at: new Date().toISOString() }).eq('id', user.id);
+    } catch (error) {
+      console.debug('[Seeker Presence] Activity heartbeat skipped.', error);
+    }
+  }
+
+  function startPresence(user) {
+    if (presenceTimer) clearInterval(presenceTimer);
+    if (!user) return;
+    touchPresence(user);
+    presenceTimer = setInterval(() => touchPresence(user), 60000);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      client.auth.getUser().then(({ data }) => touchPresence(data?.user));
+    }
+  });
+
   async function loadProfile(user) {
     if (!user) return null;
     const { data, error } = await client.from('profiles').select('*').eq('id', user.id).maybeSingle();
@@ -37,12 +61,14 @@
   async function sync(session) {
     const user = session?.user;
     if (!user) {
+      if (presenceTimer) { clearInterval(presenceTimer); presenceTimer = null; }
       if (window.SOS) window.SOS.setSession(null);
       window.dispatchEvent(new CustomEvent('sos:supabase-session', { detail: null }));
       return null;
     }
 
     try {
+      startPresence(user);
       const profile = await loadProfile(user);
       const mapped = publicSession(user, profile);
       if (window.SOS) window.SOS.setSession(mapped);

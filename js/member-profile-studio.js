@@ -118,6 +118,11 @@
             <input type="file" name="avatar" accept="image/jpeg,image/png,image/webp">
             <small>JPG, PNG, or WebP. Maximum size: 5 MB.</small>
           </label>
+          <label class="profileStatusEditor">Online activity status
+            <input name="activityStatus" maxlength="80" value="${esc(session.activityStatus || 'Exploring the frequency')}" placeholder="Building a new track">
+            <small>This appears beside your green online indicator while you are active.</small>
+            <span class="profileStatusPreview"><i></i> Online — ${esc(session.activityStatus || 'Exploring the frequency')}</span>
+          </label>
         </div>
         <label>Bio
           <textarea name="bio" maxlength="600" placeholder="Tell the community about yourself...">${esc(session.bio || '')}</textarea>
@@ -149,6 +154,10 @@
     });
 
     const form = document.getElementById('publicProfileForm');
+    form?.elements.activityStatus?.addEventListener('input', event => {
+      const preview = form.querySelector('.profileStatusPreview');
+      if (preview) preview.innerHTML = `<i></i> Online — ${esc(event.target.value.trim() || 'Exploring the frequency')}`;
+    });
     form.onsubmit = async event => {
       event.preventDefault();
       const output = document.getElementById('profileSaveMessage');
@@ -178,6 +187,8 @@
           location: String(fields.get('location') || '').trim(),
           biography: String(fields.get('bio') || '').trim(),
           avatar_url: avatarUrl,
+          activity_status: String(fields.get('activityStatus') || 'Exploring the frequency').trim().slice(0,80),
+          last_seen_at: new Date().toISOString(),
           social_links: {
             YouTube: String(fields.get('youtube') || '').trim(),
             SoundCloud: String(fields.get('soundcloud') || '').trim(),

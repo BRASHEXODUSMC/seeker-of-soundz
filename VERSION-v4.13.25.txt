@@ -1,0 +1,35 @@
+Seeker Of SoundZ v4.13.25
+REALTIME NOTIFICATIONS + ONLINE PRESENCE
+
+UPDATE TYPE:
+Website + ONE Supabase patch
+
+WEBSITE:
+Replace the existing repository files with this version, commit, and push.
+
+SUPABASE:
+Run only:
+supabase/patch-v4.13.25-notifications-presence.sql
+
+DO NOT rerun:
+schema.sql
+policies.sql
+storage-policies.sql
+or any older patch.
+
+ADDED:
+- Collaboration message notifications for every other project member.
+- Clickable toast alerts linking directly to the relevant collaboration project.
+- Forum @username mention notifications for topics and replies.
+- Glowing red navbar notification counter.
+- Clickable notification center with unread/read states.
+- Mark-one-read and mark-all-read support.
+- Realtime Supabase notification delivery.
+- Online green indicators on forum avatars and hover profiles.
+- Editable online activity status in Profile Settings.
+- Online status display in the Members dashboard.
+- Last-seen heartbeat continues through Supabase.
+
+MENTIONS:
+Type a member's exact username with @, for example:
+@brashexodus

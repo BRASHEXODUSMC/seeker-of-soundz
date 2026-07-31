@@ -48,7 +48,9 @@ async function loadData(){
  projects=pr||[];membersByProject=new Map();
  (pm||[]).forEach(m=>{if(!membersByProject.has(m.project_id))membersByProject.set(m.project_id,[]);membersByProject.get(m.project_id).push(m)});
  if(selected)selected=projects.find(p=>p.id===selected.id)||null;
- if(!selected&&projects.length)selected=projects[0];
+ const requestedProject=new URLSearchParams(location.search).get('project');
+  if(!selected&&requestedProject)selected=projects.find(p=>p.id===requestedProject)||null;
+  if(!selected&&projects.length)selected=projects[0];
  await loadMessages();
 }
 async function loadMessages(){

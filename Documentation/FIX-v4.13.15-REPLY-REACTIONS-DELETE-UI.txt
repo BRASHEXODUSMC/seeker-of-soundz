@@ -1,0 +1,11 @@
+Seeker Of SoundZ v4.13.15
+
+Update type: Website + one Supabase patch
+
+Run only: supabase/patch-v4.13.15-reply-reactions.sql
+
+Fixes:
+- Reliable multi-reactions on forum replies.
+- Styled X button replaces Delete reply text.
+- Browser alert popups removed from forum deletion feedback.
+- Seeker Of SoundZ toast notifications remain in use.

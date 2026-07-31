@@ -1,7 +1,7 @@
 (() => {
   'use strict';
-  if (window.__SOS_REPLY_REACTIONS_V41313__) return;
-  window.__SOS_REPLY_REACTIONS_V41313__ = true;
+  if (window.__SOS_REPLY_REACTIONS_V41315__) return;
+  window.__SOS_REPLY_REACTIONS_V41315__ = true;
 
   const REACTIONS = Object.freeze([
     { key: 'heart', emoji: '❤️', label: 'Love' },
@@ -15,39 +15,18 @@
   const client = () => window.SOS_SUPABASE?.client || null;
   const notify = (message, title = 'Forum reactions') => {
     if (window.SOS?.toast) window.SOS.toast(message, { title });
-    else window.alert(message);
+    else console.info(`[${title}] ${message}`);
   };
 
-  async function getCurrentUser() {
-    const c = client();
-    if (!c) return null;
-    const { data } = await c.auth.getSession();
-    return data?.session?.user || null;
-  }
-
-  async function readReplyReactions(replyId) {
-    const c = client();
-    if (!c) return [];
-    const { data, error } = await c
-      .from('forum_reactions')
-      .select('user_id,reaction')
-      .eq('reply_id', replyId);
-    if (error) throw error;
-    return Array.isArray(data) ? data : [];
-  }
-
-  function summarize(rows, userId) {
-    const counts = Object.fromEntries(REACTIONS.map(item => [item.key, 0]));
-    const mine = new Set();
-    rows.forEach(row => {
-      const key = String(row.reaction || '').toLowerCase();
-      if (Object.prototype.hasOwnProperty.call(counts, key)) counts[key] += 1;
-      if (userId && row.user_id === userId) mine.add(key);
-    });
+  function normalizeSummary(payload) {
+    const source = typeof payload === 'string' ? JSON.parse(payload) : (payload || {});
+    const counts = Object.fromEntries(REACTIONS.map(item => [item.key, Number(source.counts?.[item.key] || 0)]));
+    const mine = new Set(Array.isArray(source.mine) ? source.mine : []);
     return { counts, mine };
   }
 
   function renderBar(bar, summary) {
+    if (!bar) return;
     bar.replaceChildren(...REACTIONS.map(item => {
       const button = document.createElement('button');
       button.type = 'button';
@@ -57,9 +36,18 @@
       button.setAttribute('aria-label', `${item.label} reaction`);
       button.title = item.label;
       button.classList.toggle('is-reacted', summary.mine.has(item.key));
-      button.innerHTML = `<span class="reactionEmoji" aria-hidden="true">${item.emoji}</span><span class="reactionCount">${summary.counts[item.key] || 0}</span><span class="reactionLabel">${item.label}</span>`;
+      button.innerHTML = `<span class="reactionEmoji" aria-hidden="true">${item.emoji}</span><span class="reactionCount">${summary.counts[item.key]}</span><span class="reactionLabel">${item.label}</span>`;
       return button;
     }));
+    bar.dataset.ready = '1';
+  }
+
+  async function loadSummary(replyId) {
+    const c = client();
+    if (!c) throw new Error('Supabase is not connected.');
+    const { data, error } = await c.rpc('forum_get_reply_reactions', { target_reply: replyId });
+    if (error) throw error;
+    return normalizeSummary(data);
   }
 
   async function hydrateBar(bar) {
@@ -68,32 +56,28 @@
     if (!replyId) return;
     bar.dataset.loading = '1';
     try {
-      const [rows, user] = await Promise.all([readReplyReactions(replyId), getCurrentUser()]);
-      renderBar(bar, summarize(rows, user?.id));
-      bar.dataset.ready = '1';
+      renderBar(bar, await loadSummary(replyId));
     } catch (error) {
       console.error('Reply reaction load failed:', error);
-      bar.textContent = 'Reactions unavailable';
+      bar.innerHTML = '<span class="forumReactionStatus">Reactions unavailable</span>';
     } finally {
       delete bar.dataset.loading;
     }
   }
 
   function ensureBars(root = document) {
-    const replies = [];
-    if (root instanceof Element && root.matches('.forumReply')) replies.push(root);
+    const replies = root instanceof Element && root.matches('.forumReply') ? [root] : [];
     root.querySelectorAll?.('.forumReply').forEach(reply => replies.push(reply));
-
     replies.forEach(reply => {
-      const existingHeart = reply.querySelector('[data-like-reply]');
-      const replyId = existingHeart?.dataset.likeReply;
+      const seed = reply.querySelector('[data-like-reply]');
       const actions = reply.querySelector('.forumReplyActions');
+      const replyId = seed?.dataset.likeReply;
       if (!replyId || !actions) return;
+      seed.remove();
       let bar = actions.querySelector('.forumReplyReactionBar');
       if (!bar) {
         bar = document.createElement('div');
         bar.className = 'forumReplyReactionBar';
-        bar.dataset.replyId = replyId;
         actions.appendChild(bar);
       }
       if (bar.dataset.replyId !== replyId) {
@@ -105,11 +89,11 @@
   }
 
   let frame = 0;
-  function schedule(root = document) {
+  function schedule() {
     if (frame) return;
     frame = requestAnimationFrame(() => {
       frame = 0;
-      ensureBars(root);
+      ensureBars(document);
     });
   }
 
@@ -118,45 +102,35 @@
     if (!button) return;
     event.preventDefault();
     event.stopPropagation();
-    event.stopImmediatePropagation();
 
     const c = client();
     if (!c) return notify('Supabase is not connected.');
-    const user = await getCurrentUser();
-    if (!user) return notify('Please sign in to react.', 'Members only');
-
-    button.disabled = true;
+    const replyId = button.dataset.replyId;
     const bar = button.closest('.forumReplyReactionBar');
+    bar?.querySelectorAll('button').forEach(item => { item.disabled = true; });
     try {
-      const { error } = await c.rpc('forum_toggle_reaction', {
-        target_topic: null,
-        target_reply: button.dataset.replyId,
+      const { data, error } = await c.rpc('forum_toggle_reply_reaction', {
+        target_reply: replyId,
         reaction_value: button.dataset.replyReaction
       });
       if (error) throw error;
-      const rows = await readReplyReactions(button.dataset.replyId);
-      renderBar(bar, summarize(rows, user.id));
+      renderBar(bar, normalizeSummary(data));
     } catch (error) {
+      console.error('Reply reaction save failed:', error);
       notify(error.message || 'The reaction could not be saved.');
+      try { renderBar(bar, await loadSummary(replyId)); } catch {}
     } finally {
-      button.disabled = false;
+      bar?.querySelectorAll('button').forEach(item => { item.disabled = false; });
     }
   }, true);
 
-  const observer = new MutationObserver(mutations => {
-    if (mutations.some(m => [...m.addedNodes].some(node => node instanceof Element && (node.matches?.('.forumReply') || node.querySelector?.('.forumReply'))))) {
-      schedule(document);
-    }
-  });
-
+  const observer = new MutationObserver(schedule);
   function boot() {
     ensureBars(document);
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(document.getElementById('postList') || document.body, { childList: true, subtree: true });
   }
-
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
   else boot();
-
   window.addEventListener('pagehide', () => {
     observer.disconnect();
     if (frame) cancelAnimationFrame(frame);

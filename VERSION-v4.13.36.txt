@@ -1,0 +1,47 @@
+Seeker Of SoundZ v4.13.36
+REACTION CLICK + NOTIFICATION FIX
+
+UPDATE TYPE:
+Website + ONE Supabase patch
+
+RUN ONLY:
+supabase/patch-v4.13.36-reactions-notifications.sql
+
+DO NOT RERUN:
+schema.sql
+policies.sql
+storage-policies.sql
+or any previous forum/reaction patch.
+
+FIXED:
+- New topic and reply reaction buttons are fully clickable.
+- Reaction buttons no longer flash in and out.
+- The reaction controller hydrates each bar once instead of repeatedly rebuilding it.
+- Realtime Supabase changes refresh only the affected post or reply reaction bar.
+- Removed the old duplicate Love button from the post action row.
+- The new Love reaction is now the only Love control.
+- Existing Reply, direct reply, Pin, Lock, Delete, profile, and moderation controls remain unchanged.
+
+REACTIONS:
+- Love
+- Fire
+- Applause
+- Laugh
+- Wow
+- Support
+
+NOTIFICATIONS:
+- Reacting to a topic notifies the topic author.
+- Reacting to a reply notifies the reply author.
+- Members do not receive notifications for reacting to their own content.
+- Notifications include:
+  sender name, reaction type, discussion title, and a direct forum link.
+- Uses the existing Supabase notifications table, realtime navbar counter,
+  notification dropdown, and Seeker Of SoundZ toast system.
+- Removing a reaction does not create a second notification.
+
+INSTALL:
+1. Replace the website files using GitHub Desktop.
+2. Commit and push.
+3. Run patch-v4.13.36-reactions-notifications.sql once.
+4. Hard-refresh forums.html with Ctrl + F5.

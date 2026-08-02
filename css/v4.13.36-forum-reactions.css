@@ -1,0 +1,70 @@
+/* Seeker Of SoundZ v4.13.35 — visible Supabase reactions */
+.forumTopicReactionBar,
+.forumReplyReactionBar{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:7px!important;
+  width:100%!important;
+  min-height:38px!important;
+  margin:12px 0 4px!important;
+  padding:0!important;
+  opacity:1!important;
+  visibility:visible!important;
+  overflow:visible!important;
+}
+.forumTopicReactionBar{border-top:1px solid rgba(255,255,255,.055);padding-top:11px!important}
+.forumReactionChoiceV41336{
+  appearance:none!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:6px!important;
+  min-height:35px!important;
+  padding:7px 11px!important;
+  border:1px solid rgba(194,139,255,.24)!important;
+  border-radius:999px!important;
+  background:linear-gradient(180deg,rgba(31,24,45,.96),rgba(13,10,20,.97))!important;
+  color:#f3ecfa!important;
+  cursor:pointer!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  font:inherit!important;
+  transition:.18s ease!important;
+}
+.forumReactionChoiceV41336:hover,
+.forumReactionChoiceV41336:focus-visible{
+  transform:translateY(-1px)!important;
+  border-color:rgba(218,174,255,.68)!important;
+  box-shadow:0 0 17px rgba(158,78,244,.24)!important;
+}
+.forumReactionChoiceV41336.is-reacted{
+  border-color:rgba(225,184,255,.88)!important;
+  background:linear-gradient(180deg,rgba(119,49,175,.86),rgba(44,18,68,.96))!important;
+  box-shadow:0 0 18px rgba(174,85,255,.3)!important;
+}
+.forumReactionChoiceV41336 .reactionEmoji{font-size:1rem!important;line-height:1!important}
+.forumReactionChoiceV41336 .reactionCount{min-width:1ch!important;color:#fff!important;font-weight:800!important}
+.forumReactionChoiceV41336 .reactionLabel{font-size:.68rem!important;color:inherit!important}
+.forumReactionChoiceV41336:disabled{opacity:.58!important;cursor:wait!important}
+@media(max-width:760px){
+  .forumTopicReactionBar,.forumReplyReactionBar{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+  .forumReactionChoiceV41336{width:100%!important;padding-inline:6px!important}
+  .forumReactionChoiceV41336 .reactionLabel{display:none!important}
+}
+@media(max-width:430px){
+  .forumTopicReactionBar,.forumReplyReactionBar{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+/* v4.13.36: one reaction system only */
+.forumPost .postActions .forumHeartReaction,
+.forumPost .postActions [data-like],
+.forumReplyActions [data-like-reply]{
+  display:none!important;
+}
+.forumTopicReactionBar,.forumReplyReactionBar{
+  contain:layout style;
+}

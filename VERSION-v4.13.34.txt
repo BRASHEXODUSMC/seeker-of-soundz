@@ -1,0 +1,40 @@
+Seeker Of SoundZ v4.13.34
+FORUM PUBLIC PROFILES, REACTIONS, AND DELETE MODULE FIX
+
+UPDATE TYPE:
+Website only
+
+SUPABASE:
+No new SQL patch is required.
+Keep all existing forum, reaction, profile, achievement, and notification patches installed.
+
+PUBLIC FORUM PROFILES:
+- Clicking a forum topic author's name opens their public member profile.
+- Clicking a reply author's name or avatar opens the same profile.
+- Clicking members in the forum presence areas opens the same profile.
+- The public view shows only:
+  avatar, display name, username, role, rank, public biography,
+  general presence state, forum totals, and reputation.
+- It does not expose:
+  email, authentication ID, private account data, private links,
+  exact last-activity timestamps, or Admin information.
+- Your own forum name opens your own public profile.
+- The existing top-left Account/Profile control remains unchanged and still opens your full Members page.
+
+DELETE FLOW:
+- Removed the duplicate forum delete-question toast.
+- Topic and reply deletion now use the existing centered confirmation module.
+- After confirmation, deletion is sent directly to Supabase.
+- The normal completion toast remains after the item is deleted.
+
+REACTIONS:
+- Restored the six reply reactions:
+  Love, Fire, Applause, Laugh, Wow, and Support.
+- Reaction bars are rendered underneath every reply.
+- Reactions remain connected to the existing Supabase reaction functions.
+- Desktop, tablet, and mobile layouts are supported.
+
+INSTALL:
+1. Replace the website files using GitHub Desktop.
+2. Commit and push.
+3. Hard-refresh forums.html with Ctrl + F5.

@@ -69,16 +69,17 @@
     const replies = root instanceof Element && root.matches('.forumReply') ? [root] : [];
     root.querySelectorAll?.('.forumReply').forEach(reply => replies.push(reply));
     replies.forEach(reply => {
-      const seed = reply.querySelector('[data-like-reply]');
       const actions = reply.querySelector('.forumReplyActions');
-      const replyId = seed?.dataset.likeReply;
-      if (!replyId || !actions) return;
-      seed.remove();
+      if (!actions) return;
+      const seed = reply.querySelector('[data-like-reply]');
       let bar = actions.querySelector('.forumReplyReactionBar');
+      const replyId = bar?.dataset.replyId || seed?.dataset.likeReply || reply.dataset.replyId;
+      if (!replyId) return;
+      seed?.remove();
       if (!bar) {
         bar = document.createElement('div');
         bar.className = 'forumReplyReactionBar';
-        actions.appendChild(bar);
+        actions.prepend(bar);
       }
       if (bar.dataset.replyId !== replyId) {
         bar.dataset.replyId = replyId;

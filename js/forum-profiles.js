@@ -17,6 +17,6 @@ function hide(){hideTimer=setTimeout(()=>{hover.classList.remove('show');active=
 document.addEventListener('pointerover',e=>{const el=e.target.closest('[data-profile-name]');if(!el||hover.contains(el))return;show(el)});
 document.addEventListener('pointerout',e=>{const el=e.target.closest('[data-profile-name]');if(!el)return;if(e.relatedTarget&&hover.contains(e.relatedTarget))return;hide()});
 hover.addEventListener('pointerenter',()=>clearTimeout(hideTimer));hover.addEventListener('pointerleave',hide);
-document.addEventListener('click',e=>{const el=e.target.closest('[data-profile-name]');if(!el)return;const id=el.dataset.profileId;if(id){e.preventDefault();location.href='members.html'}});
+// v4.13.34: Clicks are handled by the safe public-profile modal. Hover cards remain unchanged.
 addEventListener('scroll',()=>{if(active&&hover.classList.contains('show'))position(active)},{passive:true});addEventListener('resize',()=>{if(active&&hover.classList.contains('show'))position(active)});
 })();

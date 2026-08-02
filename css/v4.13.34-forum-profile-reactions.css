@@ -1,0 +1,196 @@
+/* Seeker Of SoundZ v4.13.34 — forum public profiles and reaction restoration */
+.forumTopicAuthorLinkV41334{
+  display:inline;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#efe8f7;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+.forumTopicAuthorLinkV41334:hover,
+.forumAuthorLink:hover{
+  color:#d6adff!important;
+  text-shadow:0 0 9px rgba(177,104,255,.55);
+}
+.forumPublicProfileOpenV41334{overflow:hidden}
+.forumPublicProfileModalV41334{
+  position:fixed;
+  inset:0;
+  z-index:2147483400;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:rgba(2,2,7,.8);
+  backdrop-filter:blur(16px);
+  opacity:0;
+  transition:opacity .22s ease;
+}
+.forumPublicProfileModalV41334[hidden]{display:none}
+.forumPublicProfileModalV41334.open{opacity:1}
+.forumPublicProfileModalV41334>article{
+  position:relative;
+  width:min(690px,100%);
+  max-height:calc(100vh - 40px);
+  overflow:auto;
+  padding:25px;
+  border:1px solid rgba(186,125,255,.36);
+  border-radius:28px;
+  background:linear-gradient(145deg,rgba(19,13,30,.99),rgba(7,7,13,.99));
+  box-shadow:0 34px 110px rgba(0,0,0,.76),0 0 44px rgba(139,70,230,.23);
+  transform:translateY(12px) scale(.985);
+  transition:transform .22s ease;
+}
+.forumPublicProfileModalV41334.open>article{transform:none}
+.forumPublicProfileCloseV41334{
+  position:absolute;
+  top:16px;
+  right:16px;
+  z-index:2;
+  width:42px;
+  height:42px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:50%;
+  background:rgba(255,255,255,.04);
+  color:#fff;
+  font-size:1.6rem;
+}
+.forumPublicProfileHeroV41334{
+  display:grid;
+  grid-template-columns:104px minmax(0,1fr);
+  gap:18px;
+  align-items:center;
+  padding-right:42px;
+}
+.forumPublicProfileAvatarV41334{
+  position:relative;
+  width:100px;
+  height:100px;
+}
+.forumPublicProfileAvatarV41334 img{
+  width:100%;
+  height:100%;
+  border-radius:26px;
+  object-fit:cover;
+  border:1px solid rgba(202,157,255,.24);
+}
+.forumPublicProfileAvatarV41334.isOnline::after{
+  content:"";
+  position:absolute;
+  right:-2px;
+  bottom:-2px;
+  width:17px;
+  height:17px;
+  border:4px solid #0c0912;
+  border-radius:50%;
+  background:#35ff8a;
+  box-shadow:0 0 12px #35ff8a;
+}
+.forumPublicProfileHeroV41334 h2{margin:4px 0 1px;font-size:clamp(1.6rem,4vw,2.5rem)}
+.forumPublicProfileHeroV41334 small{color:#92899c}
+.forumPublicProfileBadgesV41334{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.forumPublicProfileBadgesV41334 span{
+  padding:6px 9px;
+  border:1px solid rgba(182,121,255,.22);
+  border-radius:999px;
+  background:rgba(147,79,236,.08);
+  color:#dcc2fb;
+  font-size:.68rem;
+}
+.presenceOnline,.presenceOffline,.presenceHidden{display:inline-flex;align-items:center;gap:7px;font-size:.72rem}
+.presenceOnline{color:#78f5a5}.presenceOffline{color:#ff9cb0}.presenceHidden{color:#c7a0ff}
+.presenceOnline i,.presenceOffline i{width:8px;height:8px;border-radius:50%}
+.presenceOnline i{background:#35ff8a;box-shadow:0 0 9px #35ff8a}
+.presenceOffline i{background:#ff365f;box-shadow:0 0 8px rgba(255,54,95,.75)}
+.forumPublicProfileAboutV41334{
+  margin-top:21px;
+  padding:17px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:17px;
+  background:rgba(255,255,255,.025);
+}
+.forumPublicProfileAboutV41334 h3{margin:0 0 7px}
+.forumPublicProfileAboutV41334 p{margin:0;color:#aaa1b0;line-height:1.65}
+.forumPublicProfileStatsV41334{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+  margin-top:11px;
+}
+.forumPublicProfileStatsV41334>div{
+  padding:14px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:15px;
+  background:rgba(255,255,255,.022);
+}
+.forumPublicProfileStatsV41334 strong,.forumPublicProfileStatsV41334 span{display:block}
+.forumPublicProfileStatsV41334 strong{font-size:1.2rem;color:#ead7ff}
+.forumPublicProfileStatsV41334 span{margin-top:3px;color:#817988;font-size:.66rem}
+.forumPublicProfilePrivacyV41334{margin:15px 2px 0;color:#746c7c;font-size:.68rem;line-height:1.5}
+
+/* Keep all six reply reactions visible under every forum reply. */
+.forumReplyActions{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:9px!important;
+  width:100%!important;
+}
+.forumReplyReactionBar{
+  order:2!important;
+  display:flex!important;
+  flex:1 1 100%!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:7px!important;
+  width:100%!important;
+  min-height:38px!important;
+  margin-top:5px!important;
+  overflow:visible!important;
+}
+.forumDirectReplyButton{order:1!important}
+.forumReplyReactionButton{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:6px!important;
+  min-height:34px!important;
+  padding:7px 10px!important;
+  border:1px solid rgba(178,119,255,.2)!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.028)!important;
+  color:#d9d1df!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+.forumReplyReactionButton:hover,
+.forumReplyReactionButton.is-reacted{
+  border-color:rgba(200,147,255,.58)!important;
+  background:rgba(151,84,240,.14)!important;
+  color:#fff!important;
+  box-shadow:0 0 13px rgba(147,77,233,.2)!important;
+}
+.reactionEmoji{font-size:1rem!important}
+.reactionCount{min-width:10px;color:#fff!important;font-weight:800!important}
+.reactionLabel{font-size:.66rem!important}
+.forumReactionStatus{color:#857c8d;font-size:.7rem}
+
+@media(max-width:760px){
+  .forumPublicProfileModalV41334{padding:10px}
+  .forumPublicProfileModalV41334>article{padding:18px;max-height:calc(100vh - 20px);border-radius:22px}
+  .forumPublicProfileHeroV41334{grid-template-columns:74px minmax(0,1fr);gap:13px;padding-right:34px}
+  .forumPublicProfileAvatarV41334{width:72px;height:72px}
+  .forumPublicProfileAvatarV41334 img{border-radius:20px}
+  .forumPublicProfileStatsV41334{grid-template-columns:1fr 1fr}
+  .forumPublicProfileStatsV41334>div:last-child{grid-column:1/-1}
+  .forumReplyReactionBar{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+  .forumReplyReactionButton{width:100%!important;padding-inline:6px!important}
+  .reactionLabel{display:none!important}
+}
+@media(max-width:430px){
+  .forumReplyReactionBar{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}

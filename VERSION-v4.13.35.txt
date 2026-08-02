@@ -1,0 +1,43 @@
+Seeker Of SoundZ v4.13.35
+FORUM REACTION DISPLAY + SUPABASE FIX
+
+UPDATE TYPE:
+Website + ONE Supabase patch
+
+RUN ONLY:
+supabase/patch-v4.13.35-forum-reaction-display.sql
+
+DO NOT RERUN:
+schema.sql
+policies.sql
+storage-policies.sql
+or any previous forum/reaction patch.
+
+FIXED:
+- Emoji reaction bars now render immediately under every forum post.
+- Emoji reaction bars now render immediately under every forum reply.
+- Reactions remain visible even before Supabase finishes loading their counts.
+- Topic and reply reactions use one reliable controller.
+- Removed the older competing reaction controller.
+- Existing Love, Reply, Pin, Lock, Delete, and direct-reply buttons remain unchanged.
+- Existing post Love button stays synchronized with the heart emoji reaction.
+- All reactions save to and load from Supabase.
+
+REACTIONS:
+- Love
+- Fire
+- Applause
+- Laugh
+- Wow
+- Support
+
+MOBILE:
+- Three-column reaction layout on standard phones.
+- Two-column layout on narrow phones.
+- Existing forum controls remain unchanged.
+
+INSTALL:
+1. Replace the website files using GitHub Desktop.
+2. Commit and push.
+3. Run patch-v4.13.35-forum-reaction-display.sql once.
+4. Hard-refresh forums.html with Ctrl + F5.

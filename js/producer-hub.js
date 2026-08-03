@@ -28,9 +28,11 @@ function youtubeId(value){
  }catch{}
  return '';
 }
+function videoStudioUrl(value){return `video-effects-studio.html?video=${encodeURIComponent(value||'')}`}
 function youtubeEmbed(x){
- const direct=youtubeId(x.youtubeUrl||x.videoUrl||x.url||'');
- if(direct)return `<div class="pluginVideoEmbedV4172"><iframe src="https://www.youtube.com/embed/${esc(direct)}" title="${esc(x.name)} video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+ const source=x.youtubeUrl||x.videoUrl||x.url||'';
+ const direct=youtubeId(source);
+ if(direct)return `<div class="pluginVideoEmbedV4172"><iframe src="https://www.youtube.com/embed/${esc(direct)}" title="${esc(x.name)} video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="pluginVideoToolsV4173"><span class="videoWorksBadgeV4173"><i></i>YouTube preview works</span><button type="button" class="smallAction" data-copy-video-url="${esc(source)}">Copy URL</button><a class="smallAction" href="${esc(videoStudioUrl(source))}">Open in Video Studio</a></div></div>`;
  if(x.youtubeSearch){
   const searchUrl=`https://www.youtube.com/results?search_query=${encodeURIComponent(x.youtubeSearch)}`;
   return `<a class="pluginVideoSearchV4172" href="${esc(searchUrl)}" target="_blank" rel="noopener"><span>▶</span><strong>Watch related YouTube tutorials</strong><small>${esc(x.youtubeSearch)}</small></a>`;
@@ -61,7 +63,7 @@ function render(){
   const website=x.website_url||x.url||'#',download=x.download_url||x.url||'#';
   return `<article class="resourceCard producerPluginCardV4171" data-plugin-id="${esc(x.id)}">
    <div class="resourceThumbnailV417">${x.thumbnail||x.thumbnail_url?`<img src="${esc(x.thumbnail||x.thumbnail_url)}" alt="${esc(x.name)} thumbnail" loading="lazy">`:`<div class="generatedPluginThumbnailV4171"><span>${esc(x.icon||'🎛️')}</span><strong>${esc(x.name)}</strong><small>${esc(x.vendor||x.category||'Producer Resource')}</small></div>`}<div class="pluginThumbnailBadgesV4171"><span>${esc(x.price||'Free')}</span>${x.featured?'<span>Featured</span>':''}</div></div>
-   ${youtubeEmbed(x)}<div class="producerPluginBodyV4171">
+   ${youtubeEmbed(x)}${!youtubeId(x.youtubeUrl||x.videoUrl||x.url||'')&&/\.(mp4|webm|ogg|mov|m4v)(?:$|[?#])/i.test(x.videoUrl||x.url||'')?`<div class="pluginVideoToolsV4173 directVideoToolsV4173"><span class="videoWorksBadgeV4173"><i></i>Full editing supported</span><button type="button" class="smallAction" data-copy-video-url="${esc(x.videoUrl||x.url)}">Copy URL</button><a class="smallAction" href="${esc(videoStudioUrl(x.videoUrl||x.url))}">Open in Video Studio</a></div>`:''}<div class="producerPluginBodyV4171">
     <div class="resourceCardTop"><div class="resourceBadges"><span class="resourceBadge">${esc(x.type)}</span><span class="resourceBadge">${esc(x.category||'Production')}</span><span class="resourceBadge resourceEcosystemBadge">${esc(x.ecosystem||'All DAWs')}</span></div></div>
     <h3>${esc(x.name)}</h3><span class="resourceVendor">${esc(x.vendor||'Community Developer')}</span>
     <div class="pluginRatingV4171" aria-label="${rating.toFixed(1)} out of 5 stars"><span>${'★'.repeat(Math.floor(rating))}${rating<5?'☆':''}</span><small>${rating.toFixed(1)}</small></div>
@@ -87,7 +89,9 @@ function render(){
 }
 [search,type,price,ecosystem].forEach(el=>el.addEventListener(el===search?'input':'change',()=>{page=1;render()}));
 document.getElementById('resourceCategoryStrip').addEventListener('click',e=>{const b=e.target.closest('[data-resource-category]');if(!b)return;activeCategory=b.dataset.resourceCategory;page=1;render()});
-grid.addEventListener('click',e=>{
+grid.addEventListener('click',async e=>{
+ const copy=e.target.closest('[data-copy-video-url]');
+ if(copy){await navigator.clipboard.writeText(copy.dataset.copyVideoUrl||'');window.SOS?.toast?.('Video URL copied. Open Video Studio to load it automatically.',{title:'Producer Hub',icon:'✓'});return}
  const favorite=e.target.closest('[data-favorite-plugin]');
  if(favorite){const set=favoriteIds();set.has(favorite.dataset.favoritePlugin)?set.delete(favorite.dataset.favoritePlugin):set.add(favorite.dataset.favoritePlugin);saveFavorites(set);render();return}
  const b=e.target.closest('[data-resource-keyword]');if(!b)return;search.value=b.dataset.resourceKeyword;page=1;render()

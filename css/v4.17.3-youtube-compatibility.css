@@ -1,0 +1,136 @@
+
+/* Seeker Of SoundZ v4.17.3 — YouTube preview and video compatibility */
+
+.videoCompatibilityV4173{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:11px;
+  align-items:center;
+  margin-bottom:12px;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:15px;
+  background:rgba(255,255,255,.022);
+}
+.videoCompatibilityV4173>div{
+  display:grid;
+  gap:3px;
+}
+.videoCompatibilityV4173 strong{
+  color:#fff;
+}
+.videoCompatibilityV4173 small{
+  color:#a99eae;
+  line-height:1.45;
+}
+.compatibilityDotV4173{
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:#777;
+  box-shadow:0 0 0 5px rgba(120,120,120,.08);
+}
+.compatibilityDotV4173.isWaiting{
+  background:#8e8395;
+}
+.compatibilityDotV4173.isSupported{
+  background:#55f3a4;
+  box-shadow:0 0 0 5px rgba(85,243,164,.09),0 0 18px rgba(85,243,164,.72);
+}
+.compatibilityDotV4173.isPreview{
+  background:#6ff4ae;
+  box-shadow:0 0 0 5px rgba(111,244,174,.09),0 0 18px rgba(111,244,174,.7);
+}
+.compatibilityDotV4173.isLimited{
+  background:#f0c962;
+  box-shadow:0 0 0 5px rgba(240,201,98,.08),0 0 15px rgba(240,201,98,.45);
+}
+.compatibilityDotV4173.isInvalid{
+  background:#ff5574;
+  box-shadow:0 0 0 5px rgba(255,85,116,.08),0 0 17px rgba(255,85,116,.68);
+}
+
+.youtubePreviewV4173{
+  overflow:hidden;
+  margin-bottom:12px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:17px;
+  background:#09060d;
+}
+.youtubePreviewV4173[hidden]{
+  display:none!important;
+}
+.youtubePreviewV4173 iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  display:block;
+  border:0;
+  background:#000;
+}
+.youtubePreviewV4173>p{
+  margin:0;
+  padding:12px 14px 15px;
+  color:#a99eae;
+  font-size:.72rem;
+  line-height:1.55;
+}
+.youtubePreviewActionsV4173{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:12px 14px 0;
+}
+.youtubePreviewActionsV4173>*{
+  margin:0!important;
+}
+
+.pluginVideoToolsV4173{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-top:1px solid rgba(255,255,255,.07);
+  background:rgba(10,7,13,.95);
+}
+.pluginVideoToolsV4173 .smallAction{
+  margin:0!important;
+  text-decoration:none;
+}
+.videoWorksBadgeV4173{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-right:auto;
+  color:#aaffd0;
+  font-size:.64rem;
+  font-weight:900;
+}
+.videoWorksBadgeV4173 i{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#56f4a4;
+  box-shadow:0 0 13px rgba(86,244,164,.72);
+}
+.directVideoToolsV4173{
+  border-top:0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  background:linear-gradient(135deg,rgba(38,126,91,.09),rgba(70,33,108,.06));
+}
+
+@media(max-width:620px){
+  .youtubePreviewActionsV4173,
+  .pluginVideoToolsV4173{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .youtubePreviewActionsV4173>*,
+  .pluginVideoToolsV4173>*{
+    width:100%;
+  }
+  .videoWorksBadgeV4173{
+    justify-content:center;
+    padding:7px;
+  }
+}

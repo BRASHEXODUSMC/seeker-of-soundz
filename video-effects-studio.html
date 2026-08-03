@@ -67,6 +67,7 @@
   <link rel="stylesheet" href="css/v4.17.0-professional-studio.css?v=4.17.0">
   <link rel="stylesheet" href="css/v4.17.1-producer-video-gallery.css?v=4.17.1">
   <link rel="stylesheet" href="css/v4.17.2-expanded-video-fx-producer.css?v=4.17.2">
+  <link rel="stylesheet" href="css/v4.17.3-youtube-compatibility.css?v=4.17.3">
 </head>
  <body>
   <div id="loader">
@@ -151,10 +152,22 @@
      <input id="videoFileV4171" type="file" accept="video/*" hidden>
      <strong>Drag and drop a video</strong><span>or click to choose MP4, WEBM, MOV, or another browser-supported video.</span>
     </div>
-    <div class="videoUrlRowV4171"><input id="videoUrlV4171" type="url" placeholder="Or paste a direct video URL"><button id="loadVideoUrlV4171" class="secondaryButton" type="button">Load URL</button></div>
+    <div class="videoUrlRowV4171"><input id="videoUrlV4171" type="url" placeholder="Paste YouTube, MP4, WEBM, or another video URL"><button id="loadVideoUrlV4171" class="secondaryButton" type="button">Check & Load URL</button></div>
    </section>
    <div class="videoStudioWorkspaceV4171">
     <section class="videoPreviewPanelV4171">
+     <div class="videoCompatibilityV4173" id="videoCompatibilityV4173">
+      <span class="compatibilityDotV4173 isWaiting" data-compatibility-dot></span>
+      <div><strong data-compatibility-title>Waiting for a video</strong><small data-compatibility-copy>Direct MP4/WEBM files support editing. YouTube links support embedded preview only.</small></div>
+     </div>
+     <div class="youtubePreviewV4173" id="youtubePreviewV4173" hidden>
+      <iframe id="youtubeFrameV4173" title="YouTube video preview" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="youtubePreviewActionsV4173">
+       <button class="secondaryButton" id="copyYouTubeUrlV4173" type="button">Copy YouTube URL</button>
+       <a class="secondaryButton" id="openYouTubeV4173" href="#" target="_blank" rel="noopener">Open on YouTube</a>
+      </div>
+      <p>YouTube permits embedded playback, but it does not expose the original media stream to this browser editor. Waveform generation, trimming, effects rendering, and source downloads require a local file or a direct MP4/WEBM URL.</p>
+     </div>
      <div class="videoCanvasWrapV4171" id="videoCanvasWrapV4171">
       <video id="studioVideoV4171" controls playsinline crossorigin="anonymous"></video>
       <canvas id="videoOverlayV4171"></canvas>
@@ -394,7 +407,7 @@
   <script src="js/achievement-sound-v4.13.31.js?v=4.15.3"></script>
   <script src="js/notification-center-v4.13.25.js?v=4.15.4"></script>
   <script src="js/site-v3.6.js"></script>
-  <script src="js/producer-hub.js?v=4.17.2">
+  <script src="js/producer-hub.js?v=4.17.3">
   </script>
   <script src="js/production-v4.5.js?v=4.13.34"></script>
     <script src="js/adaptive-performance-v4.15.0.js?v=4.15.0"></script>
@@ -410,6 +423,6 @@
   <script src="js/legacy-achievement-sync-v4.13.33.js?v=4.13.33"></script>
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
-  <script src="js/video-effects-studio-v4.17.2.js?v=4.17.2"></script>
+  <script src="js/video-effects-studio-v4.17.3.js?v=4.17.3"></script>
 </body>
 </html>

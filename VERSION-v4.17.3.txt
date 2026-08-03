@@ -1,0 +1,24 @@
+Seeker Of SoundZ v4.17.3
+YOUTUBE PREVIEW + VIDEO COMPATIBILITY FIX
+
+Video Effects Studio:
+- Detects standard YouTube, youtu.be, Shorts, and embed links.
+- Displays YouTube inside a proper iframe instead of assigning it to an HTML video element.
+- Removes the unsupported MIME-type playback error for YouTube links.
+- Shows a green status dot when YouTube embedded preview works.
+- Clearly labels YouTube as Preview Only because protected streams cannot be used for waveform extraction, trimming, source download, or effect rendering in the browser.
+- Shows green Full Editing Supported status for local files and direct MP4/WEBM/OGG/MOV/M4V URLs.
+- Shows amber Preview Only status when a direct media server blocks cross-origin analysis.
+- Shows a red unsupported status for normal webpage URLs or invalid media links.
+- Adds Copy YouTube URL and Open on YouTube controls.
+- Automatically accepts a ?video= URL query and loads it into Video Effects Studio.
+- Keeps local drag-and-drop and direct media editing unchanged.
+
+Producer Hub:
+- Embedded YouTube cards now display YouTube Preview Works with a green indicator.
+- Adds Copy URL to YouTube video cards.
+- Adds Open in Video Studio, which passes the URL directly into the studio search field and loads it.
+- Direct MP4/WEBM resource links display Full Editing Supported and get the same Copy URL/Open in Video Studio actions.
+
+Supabase:
+- No SQL, Storage bucket, MIME policy, or file-path update is required.

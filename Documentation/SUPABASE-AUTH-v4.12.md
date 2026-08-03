@@ -15,9 +15,9 @@ This build connects the existing Members interface to Supabase Auth.
 - Compatibility bridge for existing website modules that read SOS.getSession()
 
 ## Required Supabase URLs
-Site URL: https://brashexodusmc.github.io/seeker-of-soundz/
-Redirect URL: https://brashexodusmc.github.io/seeker-of-soundz/members.html
-Redirect wildcard: https://brashexodusmc.github.io/seeker-of-soundz/**
+Site URL: https://seeker-of-soundz.github.io/seeker-of-soundz/
+Redirect URL: https://seeker-of-soundz.github.io/seeker-of-soundz/members.html
+Redirect wildcard: https://seeker-of-soundz.github.io/seeker-of-soundz/**
 
 ## Owner promotion
 After registering and confirming your own account, run the owner promotion SQL supplied separately. Never make Owner selectable during registration.

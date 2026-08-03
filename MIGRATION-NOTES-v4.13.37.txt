@@ -1,0 +1,6 @@
+Repository migrated to:
+https://github.com/Seeker-of-Soundz/seeker-of-soundz
+
+Next step:
+Replace the old Supabase project URL and anon key with the values from the NEW project.
+Those values cannot be guessed and are intentionally not modified automatically.

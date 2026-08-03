@@ -1,0 +1,23 @@
+Seeker Of SoundZ v4.15.0
+QUEST VISIBILITY + PERFORMANCE & STABILITY
+
+Quest fix:
+- Correctly applies the dedicated get_my_active_quests() response.
+- Prevents the older progression response from replacing active quests with an empty array.
+- Shows the actual Supabase error with a Try Again button if quest loading fails.
+- Preserves Start Quest, Active Quest, Claim Reward, XP, titles, achievements, and rankings.
+
+Performance:
+- Removes the old desktop starfield's intentional ~40 FPS cap.
+- Targets 60 FPS on capable desktop devices.
+- Reduces star count and expensive canvas shadows while preserving the visual effect.
+- Uses 1x canvas pixel ratio to reduce GPU load.
+- Adds adaptive low-performance mode when measured FPS drops.
+- Pauses animations when the browser tab is hidden.
+- Removes duplicate legacy star canvases.
+- Uses content-visibility for offscreen page sections.
+- Reduces blur and decorative effects only on devices that need it.
+- Preserves all existing layouts, pages, Supabase systems, and controls.
+
+SQL:
+- No new SQL is required for v4.15.0 if the v4.14.1 SQL patch succeeded.

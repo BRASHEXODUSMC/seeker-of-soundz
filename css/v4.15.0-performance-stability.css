@@ -1,0 +1,33 @@
+/* Seeker Of SoundZ v4.15.0 — stability and adaptive performance */
+.section,.pageHero,footer{
+  content-visibility:auto;
+  contain-intrinsic-size:1px 700px;
+}
+.progressionModalV41331,.achievementModalCardV41330{
+  content-visibility:visible;
+}
+.questErrorV415{display:grid;gap:10px;justify-items:center}
+.sos-page-hidden *{animation-play-state:paused!important}
+html.sos-adaptive-low *,
+html.sos-adaptive-low *::before,
+html.sos-adaptive-low *::after{
+  animation-duration:calc(var(--sos-original-duration, 1s) * 1.15);
+}
+html.sos-adaptive-low #sosTwinkleField{opacity:.72!important}
+html.sos-adaptive-low .floatingShape,
+html.sos-adaptive-low .heroOrb,
+html.sos-adaptive-low .navSignalSweep,
+html.sos-adaptive-low .loaderParticles{display:none!important}
+html.sos-adaptive-low .glassPanel,
+html.sos-adaptive-low .cartDrawer,
+html.sos-adaptive-low .accountDrawer,
+html.sos-adaptive-low .sosNoticePanel{
+  backdrop-filter:blur(10px)!important;
+  -webkit-backdrop-filter:blur(10px)!important;
+}
+html.sos-adaptive-low .reveal{
+  transition-duration:.35s!important;
+}
+@media(max-width:700px){
+ .section,.pageHero,footer{contain-intrinsic-size:1px 560px}
+}

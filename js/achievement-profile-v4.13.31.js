@@ -57,6 +57,15 @@ async function load(){
   else achievementData=localAchievementFallback();
   if(hr&&!hr.error&&hr.data)hubData=typeof hr.data==='string'?JSON.parse(hr.data):hr.data;
   else hubData={progression:{level:1,lifetime_xp:Number(achievementData?.points||0),selected_title:'Frequency Seeker'},xp_current_level:0,xp_next_level:100,titles:[],quests:[],events:[],seasons:[],rankings:[]};
+
+   // v4.15: use the dedicated active-quest RPC as the authoritative feed.
+   if(qr&&!qr.error&&qr.data){
+    const activeQuests=typeof qr.data==='string'?JSON.parse(qr.data):qr.data;
+    if(Array.isArray(activeQuests))hubData.quests=activeQuests;
+   }else if(qr?.error){
+    console.warn('[Progression quests]',qr.error);
+    hubData.questLoadError=qr.error.message||'Unable to load active quests.';
+   }
   updateCard();if(modal&&!modal.hidden)renderModal();
  }catch(error){
   console.warn('[Progression]',error);
@@ -101,7 +110,8 @@ function ensureModal(){
  modal.addEventListener('click',e=>{
   if(e.target===modal||e.target.closest('.achievementModalCloseV41330'))close();
   const tab=e.target.closest('[data-progression-tab]');if(tab){activeTab=tab.dataset.progressionTab;renderModal()}
-  const start=e.target.closest('[data-start-quest]');if(start)startQuest(start);
+  const reload=e.target.closest('[data-reload-quests]');if(reload)load();
+   const start=e.target.closest('[data-start-quest]');if(start)startQuest(start);
    const claim=e.target.closest('[data-claim-quest]');if(claim)claimQuest(claim);
   const title=e.target.closest('[data-select-title]');if(title)selectTitle(title.dataset.selectTitle);
  });
@@ -122,7 +132,7 @@ function questsHtml(){
  return groups.map(type=>{
   const rows=quests.filter(q=>q.type===type);if(!rows.length)return'';
   return `<section class="questGroupV41331"><header><h3>${type[0].toUpperCase()+type.slice(1)} ${type==='daily'?'Quests':'Challenges'}</h3><span>${rows.filter(q=>q.completed).length}/${rows.length} complete</span></header><div>${rows.map(q=>{const pct=Math.min(100,Math.round(Number(q.progress||0)/Number(q.target||1)*100));return `<article class="questCardV41331 ${q.completed?'isComplete':''} ${q.claimed?'isClaimed':''} ${q.started===false?'isAvailable':''}"><div><strong>${esc(q.icon||'⚡')} ${esc(q.name)}</strong><p>${esc(q.description)}</p><small>${q.progress}/${q.target} • ${q.xp_reward} XP${q.title_reward?` • Title: ${esc(q.title_reward)}`:''}</small></div><div class="questProgressV41331"><i style="width:${pct}%"></i></div>${q.started===false?`<button class="smallAction questStartButtonV4141" data-start-quest="${esc(q.code)}">Start Quest</button>`:q.completed&&!q.claimed?`<button class="smallAction" data-claim-quest="${esc(q.code)}">Claim Reward</button>`:q.claimed?'<span class="questClaimedV41331">Claimed ✓</span>':'<span class="questPendingV41331">Active Quest</span>'}</article>`}).join('')}</div></section>`;
- }).join('')||'<p class="emptyState">No quests are active right now.</p>';
+ }).join('')||(hubData?.questLoadError?`<div class="emptyState questErrorV415"><strong>Quests could not load.</strong><span>${esc(hubData.questLoadError)}</span><button type="button" class="smallAction" data-reload-quests>Try Again</button></div>`:'<p class="emptyState">No quests are currently available for this period.</p>');
 }
 function eventsHtml(){
  const events=Array.isArray(hubData?.events)?hubData.events:[],seasons=Array.isArray(hubData?.seasons)?hubData.seasons:[];

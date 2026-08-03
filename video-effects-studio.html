@@ -70,6 +70,7 @@
   <link rel="stylesheet" href="css/v4.17.3-youtube-compatibility.css?v=4.17.3">
   <link rel="stylesheet" href="css/v4.17.4-youtube-synced-fx.css?v=4.17.4">
   <link rel="stylesheet" href="css/v4.17.5-youtube-project-waveform.css?v=4.17.5">
+  <link rel="stylesheet" href="css/v4.17.6-video-fx-runtime-fix.css?v=4.17.6">
 </head>
  <body>
   <div id="loader">
@@ -193,6 +194,11 @@
      </div>
      <canvas id="waveformCanvasV4171" width="1200" height="220"></canvas>
      <div class="waveformModeNoticeV4174" id="waveformModeNoticeV4174" hidden></div>
+     <div class="liveWaveformStatusV4176" id="liveWaveformStatusV4176">
+      <span class="liveDotV4176"></span>
+      <strong>Live waveform monitor</strong>
+      <small>Play the video to record waveform history. Local files also enable exact WAV and final video export.</small>
+     </div>
      <div class="videoTransportV4171">
       <button id="analyzeVideoV4171" class="primaryButton" type="button">Regenerate Waveform</button>
       <button id="downloadSourceVideoV4172" class="secondaryButton" type="button" disabled>Download Source Video</button>
@@ -322,7 +328,7 @@
     <label>Effect strength <input id="effectStrengthV4171" type="range" min="0" max="1" value=".55" step=".05"></label>
      <label>Beat sensitivity <input id="beatSensitivityV4172" type="range" min=".4" max="2" value="1" step=".05"></label>
      <label>Overlay opacity <input id="overlayOpacityV4172" type="range" min=".1" max="1" value=".8" step=".05"></label>
-     <button id="renderVideoV4171" class="primaryButton" type="button">Render Download</button>
+     <button id="renderVideoV4171" class="primaryButton" type="button">Record & Download Video with Effects</button>
      <button id="exportProjectV4171" class="secondaryButton" type="button">Download Project Settings</button>
      <p id="videoStudioStatusV4171" class="formMessage">Load a video to begin.</p>
      <small>Rendering uses your browser. MP4 is offered only when the browser supports MP4 recording; otherwise the studio exports WEBM with the selected effects.</small>
@@ -465,6 +471,6 @@
   <script src="js/legacy-achievement-sync-v4.13.33.js?v=4.13.33"></script>
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
-  <script src="js/video-effects-studio-v4.17.5.js?v=4.17.5"></script>
+  <script src="js/video-effects-studio-v4.17.6.js?v=4.17.6"></script>
 </body>
 </html>

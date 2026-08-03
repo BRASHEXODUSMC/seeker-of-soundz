@@ -1,0 +1,84 @@
+/* Seeker Of SoundZ v4.17.6 — effects runtime, recording and scroll stability */
+
+.liveWaveformStatusV4176{
+  display:grid;
+  grid-template-columns:auto auto minmax(0,1fr);
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+  padding:10px 12px;
+  border:1px solid rgba(194,148,255,.16);
+  border-radius:13px;
+  background:rgba(255,255,255,.02);
+}
+.liveWaveformStatusV4176 strong{
+  font-size:.72rem;
+}
+.liveWaveformStatusV4176 small{
+  color:#a79ca9;
+  line-height:1.45;
+}
+.liveDotV4176{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#8f8495;
+  box-shadow:0 0 0 4px rgba(143,132,149,.08);
+}
+.liveWaveformStatusV4176.isRecording{
+  border-color:rgba(82,241,163,.28);
+  background:rgba(42,150,101,.07);
+}
+.liveWaveformStatusV4176.isRecording .liveDotV4176{
+  background:#52f1a3;
+  box-shadow:0 0 0 4px rgba(82,241,163,.09),0 0 17px rgba(82,241,163,.7);
+  animation:liveWavePulseV4176 1s ease-in-out infinite;
+}
+@keyframes liveWavePulseV4176{
+  50%{opacity:.42;transform:scale(.78)}
+}
+
+/* Make the preview overlay unmistakably visible while effects are selected. */
+#videoOverlayV4171,
+#youtubeOverlayV4174{
+  mix-blend-mode:screen;
+  image-rendering:auto;
+}
+
+/* Preset buttons receive an immediate selected response. */
+.effectPresetRowV4172 .smallAction:active{
+  transform:translateY(0) scale(.97)!important;
+}
+.effectToggleV4171>input:checked+span{
+  animation:effectCardConfirmV4176 .24s ease;
+}
+@keyframes effectCardConfirmV4176{
+  0%{transform:scale(.98)}
+  70%{transform:scale(1.015)}
+  100%{transform:scale(1)}
+}
+
+/* Prevent browser anchor/focus scrolling inside the studio. */
+#videoEffectsStudio{
+  overflow-anchor:none;
+}
+#videoEffectsStudio button,
+#videoEffectsStudio summary,
+#videoEffectsStudio input,
+#videoEffectsStudio select{
+  overflow-anchor:none;
+}
+#videoEffectsStudio button:focus,
+#videoEffectsStudio summary:focus{
+  scroll-margin-top:0!important;
+  scroll-margin-bottom:0!important;
+}
+
+@media(max-width:680px){
+  .liveWaveformStatusV4176{
+    grid-template-columns:auto minmax(0,1fr);
+  }
+  .liveWaveformStatusV4176 small{
+    grid-column:1/-1;
+  }
+}

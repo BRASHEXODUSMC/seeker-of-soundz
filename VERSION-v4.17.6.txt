@@ -1,0 +1,40 @@
+Seeker Of SoundZ v4.17.6
+VIDEO EFFECTS RUNTIME + RECORDING + WAVEFORM FIX
+
+Critical effects repair:
+- Repairs a v4.17.5 JavaScript placement bug that put six atmosphere effects inside drawStatic().
+- That bug referenced undefined variables and stopped TV Static and other effects at runtime.
+- TV Static now uses animated random noise plus a moving static band.
+- TV Static continues moving even when the video is paused.
+- Digital Rain, Snow Noise, Horizon Glow, Circle Spectrum, Grid Flash and Chromatic Pulse now run inside the correct effects renderer.
+- All 42 selectable effects have renderer references.
+- YouTube preview and native-file rendering use the same effects pipeline.
+- Effects use YouTube playback time in YouTube mode and native currentTime in file mode.
+- Paused native previews use visible test energy so selected effects can be seen before playback.
+
+Preset repair:
+- All 12 preset buttons use an explicit delegated handler.
+- Presets prevent default browser behavior and stop propagation.
+- Applying a preset updates every matching effect checkbox and the selected-effect count.
+- The status message confirms the preset and selected effect count.
+- Clear Effects is handled separately and confirms completion.
+
+Page-jump repair:
+- Studio button and summary clicks capture the exact scroll coordinates.
+- The coordinates are restored over multiple animation frames and short delays.
+- Clicked buttons are blurred after activation to prevent browser focus scrolling.
+- Empty # links are blocked.
+- Overflow anchoring is disabled inside the studio.
+
+Recording and waveform:
+- Record & Download Video with Effects is the explicit final-render action.
+- Local/direct video rendering records the canvas effects and connected audio track.
+- Exact waveform values continue recording during final rendering.
+- A live waveform monitor shows when waveform history or rendering is active.
+- Played Waveform CSV remains available.
+- Exact Audio WAV remains available after the original video is supplied.
+- YouTube Guide WAV remains synthetic and does not contain protected YouTube audio.
+- Exact edited-video recording still requires the original file or a direct cross-origin-enabled media source.
+
+Supabase:
+- No SQL, Storage bucket or policy update is required.

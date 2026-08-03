@@ -66,6 +66,7 @@
   <script src="js/loader-preferences-early-v4.16.2.js?v=4.16.2"></script>
   <link rel="stylesheet" href="css/v4.17.0-professional-studio.css?v=4.17.0">
   <link rel="stylesheet" href="css/v4.17.1-producer-video-gallery.css?v=4.17.1">
+  <link rel="stylesheet" href="css/v4.17.2-expanded-video-fx-producer.css?v=4.17.2">
 </head>
  <body>
   <div id="loader">
@@ -160,8 +161,13 @@
      </div>
      <canvas id="waveformCanvasV4171" width="1200" height="220"></canvas>
      <div class="videoTransportV4171">
-      <button id="analyzeVideoV4171" class="primaryButton" type="button">Generate Waveform</button>
-      <button id="downloadWaveformV4171" class="secondaryButton" type="button">Download Waveform PNG</button>
+      <button id="analyzeVideoV4171" class="primaryButton" type="button">Regenerate Waveform</button>
+      <button id="downloadSourceVideoV4172" class="secondaryButton" type="button" disabled>Download Source Video</button>
+      <button id="downloadWaveformV4171" class="secondaryButton" type="button" disabled>Download Waveform PNG</button>
+     </div>
+     <div class="videoAssetStatusV4172" id="videoAssetStatusV4172">
+      <span data-video-ready>Video: waiting</span>
+      <span data-waveform-ready>Waveform: waiting</span>
      </div>
     </section>
     <aside class="videoEffectsControlsV4171">
@@ -169,13 +175,98 @@
      <label>Start time <input id="trimStartV4171" type="number" min="0" step="0.01" value="0"></label>
      <label>End time <input id="trimEndV4171" type="number" min="0" step="0.01" value="0"></label>
      <label>Output format <select id="outputFormatV4171"><option value="auto">Best supported format</option><option value="video/webm;codecs=vp9,opus">WEBM VP9</option><option value="video/webm;codecs=vp8,opus">WEBM VP8</option><option value="video/mp4">MP4 when supported</option></select></label>
-     <div><p class="sectionEyebrow">Visual Effects</p><h3>Music-Reactive Effects</h3></div>
-     <label class="effectToggleV4171"><input type="checkbox" data-effect="beatZoom"><span><strong>Beat Zoom</strong><small>Pulse the frame from bass energy.</small></span></label>
-     <label class="effectToggleV4171"><input type="checkbox" data-effect="glow"><span><strong>Frequency Glow</strong><small>Add a reactive purple glow.</small></span></label>
-     <label class="effectToggleV4171"><input type="checkbox" data-effect="rgb"><span><strong>RGB Split</strong><small>Offset color channels on stronger beats.</small></span></label>
-     <label class="effectToggleV4171"><input type="checkbox" data-effect="strobe"><span><strong>Soft Strobe</strong><small>Brief flashes synchronized to peaks.</small></span></label>
-     <label class="effectToggleV4171"><input type="checkbox" data-effect="waveform"><span><strong>Waveform Overlay</strong><small>Draw the live waveform over the video.</small></span></label>
+     <div class="effectsRackHeadV4172"><div><p class="sectionEyebrow">Visual Effects</p><h3>Expanded Music-Reactive FX Rack</h3></div><span id="selectedEffectCountV4172">0 selected</span></div>
+     <div class="effectPresetRowV4172">
+      <button type="button" class="smallAction" data-effect-preset="dubstep">Dubstep Drop</button>
+      <button type="button" class="smallAction" data-effect-preset="vhs">VHS Static</button>
+      <button type="button" class="smallAction" data-effect-preset="festival">Festival Lasers</button>
+      <button type="button" class="smallAction" data-effect-preset="cinematic">Cinematic</button>
+      <button type="button" class="smallAction" data-effect-clear>Clear Effects</button>
+     </div>
+     <details class="effectGroupV4172" open>
+      <summary>Beat Effects <span>4</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="beatZoom"><span><strong>Beat Zoom</strong><small>Pulse the frame from bass energy.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="glow"><span><strong>Frequency Glow</strong><small>Add a reactive purple edge glow.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="strobe"><span><strong>Soft Strobe</strong><small>Flash gently on stronger peaks.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="dropFlash"><span><strong>Drop Flash</strong><small>Large flash only on major peaks.</small></span></label>
+      </div>
+     </details>
+     <details class="effectGroupV4172" open>
+      <summary>Glitch Effects <span>4</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="rgb"><span><strong>RGB Split</strong><small>Offset red and cyan channels on drops.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="glitchBars"><span><strong>Glitch Bars</strong><small>Random digital horizontal displacement bars.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="dataMosh"><span><strong>Data-Mosh Pulse</strong><small>Blocky displacement during heavy bass hits.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="pixelate"><span><strong>Pixel Burst</strong><small>Pixelate the image on transients.</small></span></label>
+      </div>
+     </details>
+     <details class="effectGroupV4172" >
+      <summary>Audio Effects <span>4</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="waveform"><span><strong>Waveform Overlay</strong><small>Draw a live spectrum over the video.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="audioBars"><span><strong>Spectrum Bars</strong><small>Draw bass and high-frequency bars.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="oscilloscope"><span><strong>Oscilloscope</strong><small>Draw a scrolling waveform line.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="subPulse"><span><strong>Subwoofer Pulse</strong><small>Expanding rings from the frame center.</small></span></label>
+      </div>
+     </details>
+     <details class="effectGroupV4172" open>
+      <summary>Retro Effects <span>3</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="tvStatic"><span><strong>TV Static</strong><small>Procedural television noise overlay.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="scanlines"><span><strong>CRT Scanlines</strong><small>Animated horizontal television lines.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="vhs"><span><strong>VHS Tracking</strong><small>Tracking bars, jitter and tape wear.</small></span></label>
+      </div>
+     </details>
+     <details class="effectGroupV4172" >
+      <summary>Film Effects <span>4</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="filmGrain"><span><strong>Film Grain</strong><small>Fine cinematic grain that reacts to energy.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="dust"><span><strong>Dust & Scratches</strong><small>Floating dust and film scratches.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="vignette"><span><strong>Vignette</strong><small>Darken the corners for cinematic focus.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="letterbox"><span><strong>Cinema Bars</strong><small>Add cinematic top and bottom bars.</small></span></label>
+      </div>
+     </details>
+     <details class="effectGroupV4172" >
+      <summary>Geometry Effects <span>3</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="mirror"><span><strong>Mirror Split</strong><small>Reflect the frame across the center.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="kaleidoscope"><span><strong>Kaleidoscope</strong><small>Multi-panel mirrored club visual.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="tunnel"><span><strong>Bass Tunnel</strong><small>Concentric rings expand with low frequencies.</small></span></label>
+      </div>
+     </details>
+     <details class="effectGroupV4172" >
+      <summary>Color Effects <span>6</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="monochrome"><span><strong>Monochrome</strong><small>Convert the visual to black and white.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="invert"><span><strong>Negative Pulse</strong><small>Invert colors on strong beats.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="hueShift"><span><strong>Hue Cycle</strong><small>Continuously rotate colors with the music.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="posterize"><span><strong>Posterize</strong><small>Reduce colors for an illustrated look.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="neonEdges"><span><strong>Neon Edges</strong><small>Draw bright electronic edge lines.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="heatmap"><span><strong>Heat Map</strong><small>Map brightness into rave-like colors.</small></span></label>
+      </div>
+     </details>
+     <details class="effectGroupV4172" >
+      <summary>Motion Effects <span>4</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="shake"><span><strong>Camera Shake</strong><small>Move the frame on bass impacts.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="rotation"><span><strong>Beat Rotation</strong><small>Rotate slightly on drops.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="bounce"><span><strong>Vertical Bounce</strong><small>Bounce the frame from kick energy.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="zoomBlur"><span><strong>Zoom Blur</strong><small>Add a simulated radial rush effect.</small></span></label>
+      </div>
+     </details>
+     <details class="effectGroupV4172" >
+      <summary>Light Effects <span>4</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="lightLeaks"><span><strong>Light Leaks</strong><small>Animated orange and purple lens leaks.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="laserGrid"><span><strong>Laser Grid</strong><small>Beat-reactive perspective laser lines.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="particles"><span><strong>Frequency Particles</strong><small>Spawn particles from audio energy.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="sparkles"><span><strong>Sparkle Hits</strong><small>Bright star hits on transients.</small></span></label>
+      </div>
+     </details>
      <label>Effect strength <input id="effectStrengthV4171" type="range" min="0" max="1" value=".55" step=".05"></label>
+     <label>Beat sensitivity <input id="beatSensitivityV4172" type="range" min=".4" max="2" value="1" step=".05"></label>
+     <label>Overlay opacity <input id="overlayOpacityV4172" type="range" min=".1" max="1" value=".8" step=".05"></label>
      <button id="renderVideoV4171" class="primaryButton" type="button">Render Download</button>
      <button id="exportProjectV4171" class="secondaryButton" type="button">Download Project Settings</button>
      <p id="videoStudioStatusV4171" class="formMessage">Load a video to begin.</p>
@@ -185,6 +276,21 @@
   </div>
  </div>
 </section>
+
+<section class="section freeEffectsLibraryV4172">
+ <div class="container">
+  <div class="sectionHeading"><p class="sectionEyebrow">Optional Free Assets</p><h2>Free Overlay & Sound Libraries</h2><p>The built-in effects above are generated by the website. These external libraries provide optional stock overlays and sounds. Review each asset's license before publishing.</p></div>
+  <div class="freeEffectsGridV4172">
+   <a href="https://mixkit.co/free-stock-video/overlay/" target="_blank" rel="noopener"><strong>Mixkit Overlays</strong><span>Smoke, fire, sparks, abstract and chroma-key clips.</span></a>
+   <a href="https://www.pexels.com/search/videos/overlay/" target="_blank" rel="noopener"><strong>Pexels Overlay Videos</strong><span>Free abstract, bokeh, texture and light footage.</span></a>
+   <a href="https://pixabay.com/videos/search/overlay/" target="_blank" rel="noopener"><strong>Pixabay Overlays</strong><span>Particles, light leaks, effects and loop footage.</span></a>
+   <a href="https://mixkit.co/free-sound-effects/" target="_blank" rel="noopener"><strong>Mixkit Sound Effects</strong><span>Free glitch, impact, transition and music effects.</span></a>
+   <a href="https://pixabay.com/sound-effects/" target="_blank" rel="noopener"><strong>Pixabay Sound Effects</strong><span>Royalty-free risers, impacts, glitch and notification sounds.</span></a>
+   <a href="https://www.musicradar.com/news/tech/free-music-samples-royalty-free-loops-hits-and-multis-to-download-sampleradar" target="_blank" rel="noopener"><strong>SampleRadar</strong><span>Large free sample archive for bass, drums, synths and textures.</span></a>
+  </div>
+ </div>
+</section>
+
 </main>
   <button aria-label="Scroll to top" id="scrollTopBtn" type="button">
    ↑
@@ -288,7 +394,7 @@
   <script src="js/achievement-sound-v4.13.31.js?v=4.15.3"></script>
   <script src="js/notification-center-v4.13.25.js?v=4.15.4"></script>
   <script src="js/site-v3.6.js"></script>
-  <script src="js/producer-hub.js?v=4.17.1">
+  <script src="js/producer-hub.js?v=4.17.2">
   </script>
   <script src="js/production-v4.5.js?v=4.13.34"></script>
     <script src="js/adaptive-performance-v4.15.0.js?v=4.15.0"></script>
@@ -304,6 +410,6 @@
   <script src="js/legacy-achievement-sync-v4.13.33.js?v=4.13.33"></script>
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
-  <script src="js/video-effects-studio-v4.17.1.js?v=4.17.1"></script>
+  <script src="js/video-effects-studio-v4.17.2.js?v=4.17.2"></script>
 </body>
 </html>

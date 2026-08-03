@@ -1,0 +1,28 @@
+Seeker Of SoundZ v4.17.2
+EXPANDED VIDEO EFFECTS + FL STUDIO PRODUCER HUB
+
+Video Effects Studio:
+- Automatically begins waveform analysis when a local video or accessible video URL is loaded.
+- Enables source-video download immediately after a source is loaded.
+- Enables waveform PNG download as soon as analysis finishes.
+- Displays separate Video Ready and Waveform Ready indicators.
+- Adds 36 procedural visual effects without bundling copyrighted overlay files.
+- Adds Dubstep Drop, VHS Static, Festival Lasers and Cinematic presets.
+- Adds beat sensitivity, overlay opacity and effect-strength controls.
+- Adds grouped Beat, Glitch, Retro, Film, Geometry, Color, Motion, Light and Audio panels.
+- Includes TV Static, CRT Scanlines, VHS Tracking, Film Grain, Dust & Scratches, Glitch Bars, Data-Mosh Pulse, Pixel Burst, Mirror Split, Kaleidoscope, Bass Tunnel, Vignette, Cinema Bars, Monochrome, Negative Pulse, Hue Cycle, Posterize, Neon Edges, Heat Map, Camera Shake, Beat Rotation, Vertical Bounce, Zoom Blur, Light Leaks, Laser Grid, Frequency Particles, Sparkle Hits, Spectrum Bars, Oscilloscope, Subwoofer Pulse and Drop Flash.
+- Adds optional free-overlay and sound-library links.
+- MP4 output remains browser-dependent; WEBM is the supported fallback.
+- Cross-origin servers may permit playback while blocking waveform analysis or rendering.
+
+Producer Hub:
+- Preserves the existing 300+ music-production resource directory.
+- Adds 122 FL Studio, dubstep, riddim, bass-music, mixing, sound-design and free-resource entries.
+- Adds Image-Line native-tool and genre-specific learning paths.
+- Adds embedded YouTube previews for direct YouTube URLs.
+- Adds YouTube tutorial panels for curated learning resources.
+- Admin publishing includes an optional YouTube URL field.
+- Existing Website, Tutorials, Learn, Download and Favorite controls remain.
+
+Supabase:
+- No new SQL patch is required.

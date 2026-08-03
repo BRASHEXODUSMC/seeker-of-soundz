@@ -12,9 +12,10 @@
   const nativeClearTimeout = window.clearTimeout.bind(window);
   const nativeSetInterval = window.setInterval.bind(window);
   const nativeClearInterval = window.clearInterval.bind(window);
-  const nativeAdd = EventTarget.prototype.addEventListener;
-  const nativeRemove = EventTarget.prototype.removeEventListener;
-  const listenerMap = new WeakMap();
+  // Do not monkey-patch EventTarget.addEventListener/removeEventListener.
+  // Some site modules intentionally call a saved listener function without a bound
+  // EventTarget. Instrumenting the prototype caused Firefox to pass `undefined` as
+  // a WeakMap key and stopped registration scripts from initializing.
 
   window.setTimeout = function(fn, delay, ...args) {
     let id;
@@ -34,24 +35,9 @@
   };
   window.clearInterval = function(id) { state.intervals.delete(id); return nativeClearInterval(id); };
 
-  EventTarget.prototype.addEventListener = function(type, listener, options) {
-    if (listener) {
-      let targetMap = listenerMap.get(this);
-      if (!targetMap) { targetMap = new Map(); listenerMap.set(this, targetMap); }
-      const key = `${type}:${String(!!(typeof options === 'object' && options?.capture) || options === true)}`;
-      let set = targetMap.get(key);
-      if (!set) { set = new Set(); targetMap.set(key, set); }
-      if (!set.has(listener)) { set.add(listener); state.listeners += 1; }
-    }
-    return nativeAdd.call(this, type, listener, options);
-  };
-  EventTarget.prototype.removeEventListener = function(type, listener, options) {
-    const targetMap = listenerMap.get(this);
-    const key = `${type}:${String(!!(typeof options === 'object' && options?.capture) || options === true)}`;
-    const set = targetMap?.get(key);
-    if (set?.delete(listener)) state.listeners = Math.max(0, state.listeners - 1);
-    return nativeRemove.call(this, type, listener, options);
-  };
+  // Listener totals are intentionally left at zero. Preserving native browser
+  // event behavior is more important than diagnostic listener counting.
+
 
   function bytes(value) {
     const n = Number(value) || 0;

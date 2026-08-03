@@ -1,0 +1,23 @@
+Seeker Of SoundZ v4.13.39
+REGISTRATION / FIREFOX PERFORMANCE FIX
+
+UPDATE TYPE:
+Website only
+
+SUPABASE:
+No SQL is required.
+
+FIXED:
+- Removed the unsafe EventTarget listener monkey-patch from performance-v4.6.8.js.
+- Fixes Firefox error:
+  WeakMap key undefined must be an object or an unregistered symbol
+- Allows frequency-interface, transition-controller, navigation, Members login,
+  and registration scripts to initialize normally.
+- Preserves all existing layouts and backend configuration.
+
+INSTALL:
+1. Replace website files in the GitHub repository.
+2. Commit and push.
+3. Wait for GitHub Pages deployment.
+4. Open members.html and press Ctrl + F5.
+5. Register again.

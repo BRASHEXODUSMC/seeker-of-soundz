@@ -141,6 +141,41 @@
           <label>Instagram URL<input name="instagram" type="url" value="${esc(session.socials?.Instagram || '')}"></label>
           <label>Twitch URL<input name="twitch" type="url" value="${esc(session.socials?.Twitch || '')}"></label>
         </div>
+
+        <section class="profileSoundSettingsV4153">
+          <div class="adminSectionHead">
+            <div><p class="sectionEyebrow">Personal Audio</p><h3>Notification & achievement sounds</h3></div>
+          </div>
+          <div class="profileStudioGrid">
+            <label>Achievement chime
+              <select name="achievementSound">
+                <option value="crystal-rise">Crystal Rise</option>
+                <option value="frequency-bloom">Frequency Bloom</option>
+                <option value="starlight">Starlight</option>
+                <option value="deep-signal">Deep Signal</option>
+                <option value="none">No achievement sound</option>
+              </select>
+            </label>
+            <label>Notification sound
+              <select name="notificationSound">
+                <option value="soft-pulse">Soft Pulse</option>
+                <option value="digital-drop">Digital Drop</option>
+                <option value="gentle-bell">Gentle Bell</option>
+                <option value="subtle-click">Subtle Click</option>
+                <option value="none">No notification sound</option>
+              </select>
+            </label>
+          </div>
+          <div class="profileSoundControlsV4153">
+            <label>Sound volume
+              <input name="soundVolume" type="range" min="0" max="0.75" step="0.05">
+            </label>
+            <label class="checkLabel"><input name="soundEnabled" type="checkbox"> Enable website sounds</label>
+            <button type="button" class="secondaryButton" data-preview-achievement-sound>Preview Achievement Chime</button>
+            <button type="button" class="secondaryButton" data-preview-notification-sound>Preview Notification Sound</button>
+          </div>
+          <small>These free sounds are synthesized by the website and do not use copyrighted audio files.</small>
+        </section>
         <button class="primaryButton">Save Public Profile</button>
         <p class="formMessage" id="profileSaveMessage"></p>
       </form>
@@ -162,6 +197,19 @@
     });
 
     const form = document.getElementById('publicProfileForm');
+    const soundPrefs = window.SOSAudio?.read?.() || {achievement:'crystal-rise',notification:'soft-pulse',volume:.42,enabled:true};
+    if(form){
+      form.elements.achievementSound.value = soundPrefs.achievement;
+      form.elements.notificationSound.value = soundPrefs.notification;
+      form.elements.soundVolume.value = soundPrefs.volume;
+      form.elements.soundEnabled.checked = soundPrefs.enabled !== false;
+      form.querySelector('[data-preview-achievement-sound]')?.addEventListener('click',()=>{
+        window.SOSAudio?.play(form.elements.achievementSound.value,'achievement');
+      });
+      form.querySelector('[data-preview-notification-sound]')?.addEventListener('click',()=>{
+        window.SOSAudio?.play(form.elements.notificationSound.value,'notification');
+      });
+    }
     form?.elements.activityStatus?.addEventListener('input', event => {
       const preview = form.querySelector('.profileStatusPreview');
       if (preview) preview.innerHTML = `<i></i> Online — ${esc(event.target.value.trim() || 'Exploring the frequency')}`;
@@ -187,6 +235,13 @@
         const avatarFile = fields.get('avatar');
         const uploadedUrl = await uploadAvatar(avatarFile, user.id);
         if (uploadedUrl) avatarUrl = uploadedUrl;
+
+        window.SOSAudio?.write?.({
+          achievement: String(fields.get('achievementSound') || 'crystal-rise'),
+          notification: String(fields.get('notificationSound') || 'soft-pulse'),
+          volume: Number(fields.get('soundVolume') || .42),
+          enabled: fields.has('soundEnabled')
+        });
 
         const profileValues = {
           p_username: session.username || user.user_metadata?.username || `member_${user.id.slice(0, 8)}`,

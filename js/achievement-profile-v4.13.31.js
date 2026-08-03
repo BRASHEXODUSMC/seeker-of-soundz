@@ -13,19 +13,7 @@ const iconFor=code=>({
 }[code]||'🏆');
 const rarityClass=r=>`rarity-${String(r||'common').toLowerCase()}`;
 function playAchievementSound(){
- try{
-  const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
-  const ctx=new C(),now=ctx.currentTime;
-  [[523.25,0],[659.25,.09],[783.99,.18],[1046.5,.3]].forEach(([freq,delay],i)=>{
-   const osc=ctx.createOscillator(),gain=ctx.createGain();
-   osc.type=i===3?'sine':'triangle';osc.frequency.value=freq;
-   gain.gain.setValueAtTime(.0001,now+delay);
-   gain.gain.exponentialRampToValueAtTime(.08,now+delay+.018);
-   gain.gain.exponentialRampToValueAtTime(.0001,now+delay+.32);
-   osc.connect(gain).connect(ctx.destination);osc.start(now+delay);osc.stop(now+delay+.36);
-  });
-  setTimeout(()=>ctx.close(),1000);
- }catch{}
+ if(window.SOSAudio?.playAchievement)return window.SOSAudio.playAchievement();
 }
 window.SOSAchievementSound=playAchievementSound;
 

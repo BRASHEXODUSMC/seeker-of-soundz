@@ -100,20 +100,22 @@
     }
   };
 
-  const shell=document.createElement("div");
-  shell.innerHTML=`
-    <aside class="cartDrawer" id="cartDrawer">
-      <div class="drawerHeader"><h2>Your Cart</h2><button class="drawerClose" data-close="cart">×</button></div>
-      <div id="cartItems"></div>
-      <div class="cartTotal"><span>Total</span><span id="cartTotal">$0.00</span></div>
-      <button class="primaryButton" id="checkoutButton">Checkout Preview</button>
-    </aside>
-    <aside class="accountDrawer" id="accountDrawer">
-      <div class="drawerHeader"><h2>Account</h2><button class="drawerClose" data-close="account">×</button></div>
-      <div id="accountContent"></div>
-    </aside>
-    `;
-  document.body.append(...shell.children);
+  if(!document.getElementById("cartDrawer")&&!document.getElementById("accountDrawer")){
+    const shell=document.createElement("div");
+    shell.innerHTML=`
+      <aside class="cartDrawer" id="cartDrawer">
+        <div class="drawerHeader"><h2>Your Cart</h2><button class="drawerClose" data-close="cart">×</button></div>
+        <div id="cartItems"></div>
+        <div class="cartTotal"><span>Total</span><span id="cartTotal">$0.00</span></div>
+        <button class="primaryButton" id="checkoutButton">Checkout Preview</button>
+      </aside>
+      <aside class="accountDrawer" id="accountDrawer">
+        <div class="drawerHeader"><h2>Account</h2><button class="drawerClose" data-close="account">×</button></div>
+        <div id="accountContent"></div>
+      </aside>
+      `;
+    document.body.append(...shell.children);
+  }
 
   function decoratePageLogos(){
     document.querySelectorAll('img[src*="sos-logo.png"]:not(.loaderLogoImage):not(.transitionLogo):not(.avatar)').forEach(img=>{

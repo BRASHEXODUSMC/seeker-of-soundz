@@ -1,0 +1,78 @@
+/* Seeker Of SoundZ v4.15.3 — sound preferences, toast layer, and scoped integrity */
+
+/* Toasts must remain visible above progression, achievement, emoji, and admin modals. */
+.toastStack{
+  position:fixed!important;
+  z-index:2147483647!important;
+  pointer-events:none!important;
+  isolation:isolate!important;
+}
+.toastStack .appToast{
+  position:relative!important;
+  z-index:2147483647!important;
+  pointer-events:auto!important;
+}
+
+/* Profile sound controls use the existing profile module design language. */
+.profileSoundSettingsV4153{
+  display:grid;
+  gap:15px;
+  margin:18px 0;
+  padding:18px;
+  border:1px solid rgba(194,151,255,.16);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 12% 0,rgba(137,67,210,.1),transparent 34%),
+    rgba(255,255,255,.018);
+}
+.profileSoundSettingsV4153 .adminSectionHead{
+  margin:0;
+}
+.profileSoundControlsV4153{
+  display:grid;
+  grid-template-columns:minmax(180px,1fr) auto auto auto;
+  gap:10px;
+  align-items:end;
+}
+.profileSoundControlsV4153>label:first-child{
+  display:grid;
+  gap:8px;
+}
+.profileSoundControlsV4153 input[type="range"]{
+  width:100%;
+  accent-color:#a96dff;
+}
+.profileSoundControlsV4153 .secondaryButton{
+  min-height:44px;
+  margin:0!important;
+  white-space:normal;
+}
+.profileSoundSettingsV4153>small{
+  color:rgba(233,222,242,.56);
+  line-height:1.5;
+}
+
+/* Prevent accidental duplicated controls from occupying layout during audit. */
+#mainNav [id][data-sos-duplicate-hidden],
+.accountDrawer [data-sos-duplicate-hidden]{
+  display:none!important;
+}
+
+@media(max-width:900px){
+  .profileSoundControlsV4153{
+    grid-template-columns:1fr 1fr;
+  }
+}
+@media(max-width:620px){
+  .profileSoundControlsV4153{
+    grid-template-columns:1fr;
+  }
+  .profileSoundControlsV4153 .secondaryButton{
+    width:100%;
+  }
+  .toastStack{
+    left:10px!important;
+    right:10px!important;
+    width:auto!important;
+  }
+}

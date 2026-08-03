@@ -1,0 +1,48 @@
+Seeker Of SoundZ v4.17.1
+PRODUCER PLUGINS, DEVELOPER RANK, GALLERY IMPORT, FORUM CLEANUP, VIDEO EFFECTS STUDIO
+
+Merch:
+- Removes the remaining default Sound Pack/music merchandise card.
+- Filters old Music, album, single, EP and Exclusive Music catalog entries from the public Merch page.
+- Physical merchandise and non-music digital merchandise remain unchanged.
+
+Producer Plugins:
+- Keeps the existing 300+ EDM and music-production resources.
+- Rebuilds cards with a full thumbnail area, generated branded fallback thumbnails, developer, rating, formats, category, DAW ecosystem and description.
+- Adds Official/Download, Website, Tutorials, Learn and Favorite actions.
+- Adds persistent browser favorites.
+- Includes VST3, AU, AAX, FL Studio, Ableton, samples, presets and MIDI format badges.
+- Remains strictly music production, EDM, DJ, mixing, mastering, vocal and DAW related.
+
+Developer rank:
+- Adds Developer to the Admin Members rank selector.
+- Adds a dedicated Developer status switch next to Founder.
+- Founder and Developer are mutually exclusive public statuses.
+- Updates brashexodus@gmail.com from Founder to Developer through the included SQL patch.
+- Profile/account dropdown displays the public rank while preserving the security role.
+
+Forums:
+- Removes the legacy Forum Achievement Hall script from forums.html.
+- Keeps one combined Forum Progression module.
+- Removes duplicate inline achievement/progression cards after all forum scripts finish loading.
+- The main profile Frequency Progression modal still includes achievements, quests, events, titles and rankings.
+
+Gallery Manager:
+- Imports the current non-member website artwork, event images, artist images, gallery images and SOS logo.
+- Imported entries can be edited or deleted like normal Gallery Manager entries.
+- Automatic import runs only once so deleted images do not return.
+- Sync Existing Site Images can manually restore missing site assets.
+
+Premium Video Effects Studio:
+- Adds video-effects-studio.html for premium members, developers, administrators and owners.
+- Supports drag-and-drop video files and direct video URLs.
+- Generates an audio waveform when browser decoding is supported.
+- Exports the waveform as PNG.
+- Supports timestamp trimming.
+- Includes Beat Zoom, Frequency Glow, RGB Split, Soft Strobe and Waveform Overlay effects.
+- Includes effect strength control, project JSON export and browser rendering.
+- Exports MP4 only when MediaRecorder supports MP4; otherwise exports WEBM.
+- Adds access from Producer Hub and eligible account dropdowns.
+
+SQL:
+- Run supabase/patch-v4.17.1-developer-rank.sql once.

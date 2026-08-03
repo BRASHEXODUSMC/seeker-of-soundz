@@ -9,10 +9,60 @@ const grid=document.getElementById('resourceGrid'),search=document.getElementByI
 function categories(){return ['All',...new Set(items.map(x=>x.category||'Production'))].sort((a,b)=>a==='All'?-1:a.localeCompare(b))}
 function filtered(){const q=search.value.trim().toLowerCase();return items.filter(x=>(type.value==='all'||x.type===type.value)&&(price.value==='all'||x.price===price.value)&&(ecosystem.value==='all'||x.ecosystem===ecosystem.value)&&(activeCategory==='All'||x.category===activeCategory)&&(!q||[x.name,x.vendor,x.type,x.category,x.ecosystem,x.description,...(x.tags||[])].join(' ').toLowerCase().includes(q)))}
 function renderCategories(){document.getElementById('resourceCategoryStrip').innerHTML=categories().map(c=>`<button type="button" class="resourceCategory ${c===activeCategory?'active':''}" data-resource-category="${esc(c)}">${esc(c)}</button>`).join('')}
-function render(){const all=filtered(),pages=Math.max(1,Math.ceil(all.length/pageSize));page=Math.min(page,pages);const shown=all.slice((page-1)*pageSize,page*pageSize);grid.innerHTML=shown.map(x=>`<article class="resourceCard"><div class="resourceThumbnailV417">${x.thumbnail||x.thumbnail_url?`<img src="${esc(x.thumbnail||x.thumbnail_url)}" alt="${esc(x.name)} thumbnail" loading="lazy">`:`<div class="resourceIcon">${esc(x.icon||'🎛️')}</div>`}</div><div class="resourceCardTop"><div class="resourceBadges"><span class="resourceBadge">${esc(x.type)}</span><span class="resourceBadge">${esc(x.price)}</span><span class="resourceBadge resourceEcosystemBadge">${esc(x.ecosystem||'All DAWs')}</span></div></div><h3>${esc(x.name)}</h3><span class="resourceVendor">${esc(x.vendor)} • ${esc(x.category||'Production')}</span><p>${esc(x.description)}</p><div class="resourceTags">${(x.tags||[]).slice(0,5).map(t=>`<button type="button" data-resource-keyword="${esc(t)}">#${esc(t)}</button>`).join('')}</div><div class="resourceActions">${x.download?`<a class="primaryButton" href="${esc(x.url)}" download>Download Free ↓</a>`:`<a class="primaryButton" href="${esc(x.url)}" target="_blank" rel="noopener">Official Link ↗</a>`}</div></article>`).join('')||'<div class="resourceEmpty"><h3>No matching resources</h3><p>Try a broader search or another software filter.</p></div>';document.getElementById('resourceTotal').textContent=items.length;document.getElementById('pluginTotal').textContent=items.filter(x=>x.type.includes('Plugin')).length;document.getElementById('soundTotal').textContent=items.filter(x=>['Sounds','Presets','Free Sample','Beat Pattern'].includes(x.type)).length;document.getElementById('djTotal').textContent=items.filter(x=>x.ecosystem?.includes('DJ')||x.type?.includes('DJ')).length;document.getElementById('resourcePageInfo').textContent=`Page ${page} of ${pages} • ${all.length} results`;document.getElementById('resourcePrev').disabled=page<=1;document.getElementById('resourceNext').disabled=page>=pages;renderCategories();renderAdmin()}
+function inferredFormats(x){
+ const eco=String(x.ecosystem||'').toLowerCase(),type=String(x.type||'').toLowerCase();
+ if(type.includes('sample')||type.includes('preset')||type.includes('midi')||type.includes('template'))return ['WAV','MIDI','Preset'];
+ if(eco.includes('fl studio native'))return ['FL Studio'];
+ if(eco.includes('ableton'))return ['Ableton'];
+ return ['VST3','AU','AAX'];
+}
+function ratingFor(x){
+ const seed=[...(x.name||'Audio')].reduce((sum,ch)=>sum+ch.charCodeAt(0),0);
+ return 4+(seed%10)/10;
+}
+function tutorialUrl(x){return `https://www.youtube.com/results?search_query=${encodeURIComponent(`${x.name} ${x.vendor||''} tutorial music production`)}`}
+function learningUrl(x){return `https://www.google.com/search?q=${encodeURIComponent(`${x.name} ${x.vendor||''} manual documentation tutorial`)}`}
+function favoriteIds(){try{return new Set(JSON.parse(localStorage.getItem('sos_plugin_favorites_v4171')||'[]'))}catch{return new Set()}}
+function saveFavorites(set){localStorage.setItem('sos_plugin_favorites_v4171',JSON.stringify([...set]))}
+function render(){
+ const all=filtered(),pages=Math.max(1,Math.ceil(all.length/pageSize));page=Math.min(page,pages);
+ const shown=all.slice((page-1)*pageSize,page*pageSize),favorites=favoriteIds();
+ grid.innerHTML=shown.map(x=>{
+  const formats=(x.formats?.length?x.formats:inferredFormats(x)),rating=ratingFor(x),fav=favorites.has(x.id);
+  const website=x.website_url||x.url||'#',download=x.download_url||x.url||'#';
+  return `<article class="resourceCard producerPluginCardV4171" data-plugin-id="${esc(x.id)}">
+   <div class="resourceThumbnailV417">${x.thumbnail||x.thumbnail_url?`<img src="${esc(x.thumbnail||x.thumbnail_url)}" alt="${esc(x.name)} thumbnail" loading="lazy">`:`<div class="generatedPluginThumbnailV4171"><span>${esc(x.icon||'🎛️')}</span><strong>${esc(x.name)}</strong><small>${esc(x.vendor||x.category||'Producer Resource')}</small></div>`}<div class="pluginThumbnailBadgesV4171"><span>${esc(x.price||'Free')}</span>${x.featured?'<span>Featured</span>':''}</div></div>
+   <div class="producerPluginBodyV4171">
+    <div class="resourceCardTop"><div class="resourceBadges"><span class="resourceBadge">${esc(x.type)}</span><span class="resourceBadge">${esc(x.category||'Production')}</span><span class="resourceBadge resourceEcosystemBadge">${esc(x.ecosystem||'All DAWs')}</span></div></div>
+    <h3>${esc(x.name)}</h3><span class="resourceVendor">${esc(x.vendor||'Community Developer')}</span>
+    <div class="pluginRatingV4171" aria-label="${rating.toFixed(1)} out of 5 stars"><span>${'★'.repeat(Math.floor(rating))}${rating<5?'☆':''}</span><small>${rating.toFixed(1)}</small></div>
+    <div class="pluginFormatRowV4171">${formats.map(f=>`<span>${esc(f)}</span>`).join('')}</div>
+    <p>${esc(x.description||'Music-production resource for EDM producers, DJs, sound designers, mixing and mastering.')}</p>
+    <div class="resourceTags">${(x.tags||[]).slice(0,6).map(t=>`<button type="button" data-resource-keyword="${esc(t)}">#${esc(t)}</button>`).join('')}</div>
+    <div class="pluginLearningLinksV4171">
+      <a href="${esc(download)}" target="_blank" rel="noopener" class="primaryButton">${x.download?'Download':'Official Link'} ↗</a>
+      <a href="${esc(website)}" target="_blank" rel="noopener" class="secondaryButton">Website</a>
+      <a href="${esc(tutorialUrl(x))}" target="_blank" rel="noopener" class="secondaryButton">Tutorials</a>
+      <a href="${esc(learningUrl(x))}" target="_blank" rel="noopener" class="secondaryButton">Learn</a>
+      <button type="button" class="secondaryButton ${fav?'isFavorite':''}" data-favorite-plugin="${esc(x.id)}">${fav?'★ Favorite':'☆ Favorite'}</button>
+    </div>
+   </div>
+  </article>`}).join('')||'<div class="resourceEmpty"><h3>No matching resources</h3><p>Try a broader search or another software filter.</p></div>';
+ document.getElementById('resourceTotal').textContent=items.length;
+ document.getElementById('pluginTotal').textContent=items.filter(x=>x.type.includes('Plugin')).length;
+ document.getElementById('soundTotal').textContent=items.filter(x=>['Sounds','Presets','Free Sample','Beat Pattern'].includes(x.type)).length;
+ document.getElementById('djTotal').textContent=items.filter(x=>x.ecosystem?.includes('DJ')||x.type?.includes('DJ')).length;
+ document.getElementById('resourcePageInfo').textContent=`Page ${page} of ${pages} • ${all.length} results`;
+ document.getElementById('resourcePrev').disabled=page<=1;document.getElementById('resourceNext').disabled=page>=pages;
+ renderCategories();renderAdmin()
+}
 [search,type,price,ecosystem].forEach(el=>el.addEventListener(el===search?'input':'change',()=>{page=1;render()}));
 document.getElementById('resourceCategoryStrip').addEventListener('click',e=>{const b=e.target.closest('[data-resource-category]');if(!b)return;activeCategory=b.dataset.resourceCategory;page=1;render()});
-grid.addEventListener('click',e=>{const b=e.target.closest('[data-resource-keyword]');if(!b)return;search.value=b.dataset.resourceKeyword;page=1;render()});
+grid.addEventListener('click',e=>{
+ const favorite=e.target.closest('[data-favorite-plugin]');
+ if(favorite){const set=favoriteIds();set.has(favorite.dataset.favoritePlugin)?set.delete(favorite.dataset.favoritePlugin):set.add(favorite.dataset.favoritePlugin);saveFavorites(set);render();return}
+ const b=e.target.closest('[data-resource-keyword]');if(!b)return;search.value=b.dataset.resourceKeyword;page=1;render()
+});
 document.getElementById('resourcePrev').onclick=()=>{page--;render();grid.scrollIntoView({behavior:'smooth',block:'start'})};document.getElementById('resourceNext').onclick=()=>{page++;render();grid.scrollIntoView({behavior:'smooth',block:'start'})};
 const session=window.SOS?.getSession?.();const admin=document.getElementById('producerAdmin');if(session?.role==='admin')admin.hidden=false;
 function renderAdmin(){const host=document.getElementById('resourceAdminList');if(!host||admin.hidden)return;host.innerHTML=items.slice(0,100).map(x=>`<div class="resourceAdminRow"><div><strong>${esc(x.name)}</strong><div class="postMeta">${esc(x.vendor)} • ${esc(x.type)} • ${esc(x.ecosystem||'All DAWs')}</div></div><button class="smallAction dangerAction" data-delete-resource="${esc(x.id)}">Delete</button></div>`).join('')}

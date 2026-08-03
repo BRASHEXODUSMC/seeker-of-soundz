@@ -2,9 +2,9 @@
 <html lang="en">
  <head>
 <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <title>
-   Events | Seeker Of SoundZ
+   Producer Hub | Seeker Of SoundZ
   </title>
   <link href="css/variables.css" rel="stylesheet"/>
   <link href="css/reset.css" rel="stylesheet"/>
@@ -17,10 +17,9 @@
 <link href="css/cursor.css?v=4.7.3" rel="stylesheet"/>
   <link href="css/animations.css" rel="stylesheet"/>
   <link href="css/responsive.css" rel="stylesheet"/>
-  <link href="css/events.css" rel="stylesheet"/>
   <link href="css/app-shell.css" rel="stylesheet"/>
   <link href="css/upgrade-v2.4.css" rel="stylesheet"/>
-  <link href="css/upgrade-v2.9.css" rel="stylesheet"/>
+  <link href="css/upgrade-v2.16.css" rel="stylesheet"/>
   <link href="css/upgrade-v3.0.css" rel="stylesheet"/>
    <link href="css/upgrade-v3.3.css" rel="stylesheet"/>
    <link href="css/upgrade-v3.6.css" rel="stylesheet"/>
@@ -74,7 +73,7 @@
    </div>
    <div class="loaderScan">
    </div>
-   <div aria-hidden="true" class="loaderParticles">
+   <div class="loaderParticles">
     <span>
     </span>
     <span>
@@ -110,7 +109,7 @@
     </p>
     <div class="loaderStatus">
      <span>
-      Initializing Frequency
+      Loading Producer Hub
      </span>
      <span class="loaderPercent">
       0%
@@ -133,207 +132,61 @@
 <div id="sharedNavigation">
   </div>
   <main>
-   <section class="pageHero">
-    <div class="container">
-     <div class="pageHeroContent reveal">
-      <p class="sectionEyebrow">
-       Live Events
-      </p>
-      <h1>
-       Meet the frequency in person.
-      </h1>
-      <p>
-       Upcoming performances, appearances, livestreams, release events, and highlights from past shows.
-      </p>
-      <div class="pageHeroActions">
-       <a class="primaryButton" href="#upcoming">
-        Upcoming Events
-       </a>
-       <a class="secondaryButton" href="#pastEvents">
-        Past Events
-       </a>
-      </div>
-     </div>
+<section class="pageHero compactHero">
+ <div class="container">
+  <p class="sectionEyebrow">Premium Producer Tool</p>
+  <h1>Video Effects Studio</h1>
+  <p>Load a music video, generate its waveform, trim timestamps, preview beat-reactive effects, and render a downloadable browser-compatible video.</p>
+ </div>
+</section>
+<section class="section">
+ <div class="container">
+  <div id="videoStudioGate" class="videoStudioGateV4171">
+   <div><p class="sectionEyebrow">Members Access</p><h2>Checking premium access…</h2><p>Administrators, owners, developers, and premium members can use this studio.</p></div>
+  </div>
+  <div id="videoEffectsStudio" class="videoEffectsStudioV4171" hidden>
+   <section class="videoStudioInputV4171">
+    <div id="videoDropzoneV4171" class="videoStudioDropzoneV4171" tabindex="0" role="button">
+     <input id="videoFileV4171" type="file" accept="video/*" hidden>
+     <strong>Drag and drop a video</strong><span>or click to choose MP4, WEBM, MOV, or another browser-supported video.</span>
     </div>
+    <div class="videoUrlRowV4171"><input id="videoUrlV4171" type="url" placeholder="Or paste a direct video URL"><button id="loadVideoUrlV4171" class="secondaryButton" type="button">Load URL</button></div>
    </section>
-   <section class="section reveal" id="upcoming">
-    <div class="container">
-     <div class="sectionHeading section-title-left">
-      <p class="sectionEyebrow">
-       Next Appearance
-      </p>
-      <h2>
-       The next chapter is being scheduled.
-      </h2>
+   <div class="videoStudioWorkspaceV4171">
+    <section class="videoPreviewPanelV4171">
+     <div class="videoCanvasWrapV4171" id="videoCanvasWrapV4171">
+      <video id="studioVideoV4171" controls playsinline crossorigin="anonymous"></video>
+      <canvas id="videoOverlayV4171"></canvas>
      </div>
-     <article class="featuredEvent">
-      <div class="featuredEventImage">
-       <img alt="Seeker Of SoundZ event" src="assets/images/event-featured-01.jpg"/>
-       <div class="featuredEventOverlay">
-       </div>
-      </div>
-      <div class="featuredEventContent">
-       <span class="eventBadge">
-        Announcement Coming Soon
-       </span>
-       <h2>
-        Seeker Of SoundZ Live Experience
-       </h2>
-       <p class="eventDescription">
-        Use this featured event for the next confirmed show, festival, livestream, release party, or special appearance.
-       </p>
-       <div class="eventDetails">
-        <span>
-         Date: To Be Announced
-        </span>
-        <span>
-         Location: To Be Announced
-        </span>
-       </div>
-       <div class="eventActions">
-        <a class="primaryButton" href="contact.html">
-         Booking Inquiry
-        </a>
-        <a class="secondaryButton" href="#">
-         Get Updates
-        </a>
-       </div>
-      </div>
-     </article>
-    </div>
-   </section>
-   <section class="section reveal">
-    <div class="container">
-     <div class="sectionHeading">
-      <p class="sectionEyebrow">
-       Event Calendar
-      </p>
-      <h2>
-       Upcoming dates.
-      </h2>
+     <canvas id="waveformCanvasV4171" width="1200" height="220"></canvas>
+     <div class="videoTransportV4171">
+      <button id="analyzeVideoV4171" class="primaryButton" type="button">Generate Waveform</button>
+      <button id="downloadWaveformV4171" class="secondaryButton" type="button">Download Waveform PNG</button>
      </div>
-     <div class="eventList">
-      <article class="eventCard">
-       <div class="eventDate">
-        <span>
-         TBA
-        </span>
-        <strong>
-         --
-        </strong>
-       </div>
-       <div class="eventCardContent">
-        <p class="sectionEyebrow">
-         Live Show
-        </p>
-        <h3>
-         New Event Announcement
-        </h3>
-        <p>
-         Venue and city coming soon
-        </p>
-       </div>
-       <div class="eventActions">
-        <a class="secondaryButton" href="#">
-         Details
-        </a>
-       </div>
-      </article>
-      <article class="eventCard">
-       <div class="eventDate">
-        <span>
-         TBA
-        </span>
-        <strong>
-         --
-        </strong>
-       </div>
-       <div class="eventCardContent">
-        <p class="sectionEyebrow">
-         Livestream
-        </p>
-        <h3>
-         Studio Frequency Session
-        </h3>
-        <p>
-         Online broadcast
-        </p>
-       </div>
-       <div class="eventActions">
-        <a class="secondaryButton" href="#">
-         Details
-        </a>
-       </div>
-      </article>
-      <article class="eventCard">
-       <div class="eventDate">
-        <span>
-         TBA
-        </span>
-        <strong>
-         --
-        </strong>
-       </div>
-       <div class="eventCardContent">
-        <p class="sectionEyebrow">
-         Release Event
-        </p>
-        <h3>
-         New Music Premiere
-        </h3>
-        <p>
-         Details coming soon
-        </p>
-       </div>
-       <div class="eventActions">
-        <a class="secondaryButton" href="#">
-         Details
-        </a>
-       </div>
-      </article>
-     </div>
-    </div>
-   </section>
-   <section class="section reveal" id="pastEvents">
-    <div class="container">
-     <div class="sectionHeading section-title-left">
-      <p class="sectionEyebrow">
-       Past Experiences
-      </p>
-      <h2>
-       Moments that shaped the journey.
-      </h2>
-     </div>
-     <div class="galleryPreviewGrid">
-      <a class="galleryPreviewItem galleryPreviewLarge" href="gallery.html">
-       <img alt="Past performance" src="assets/images/seeker-event-01.jpg"/>
-       <div class="galleryPreviewOverlay">
-        <span>
-         Performance Archive
-        </span>
-       </div>
-      </a>
-      <a class="galleryPreviewItem" href="gallery.html">
-       <img alt="Event moment" src="assets/images/gallery-event-01.jpg"/>
-       <div class="galleryPreviewOverlay">
-        <span>
-         Event Moments
-        </span>
-       </div>
-      </a>
-      <a class="galleryPreviewItem" href="videos.html">
-       <img alt="Live video archive" src="assets/images/about-performance-01.jpg"/>
-       <div class="galleryPreviewOverlay">
-        <span>
-         Watch Recaps
-        </span>
-       </div>
-      </a>
-     </div>
-    </div>
-   </section>
-  </main>
-  <button aria-label="Scroll back to top" id="scrollTopBtn" type="button">
+    </section>
+    <aside class="videoEffectsControlsV4171">
+     <div><p class="sectionEyebrow">Timeline</p><h3>Trim & Output</h3></div>
+     <label>Start time <input id="trimStartV4171" type="number" min="0" step="0.01" value="0"></label>
+     <label>End time <input id="trimEndV4171" type="number" min="0" step="0.01" value="0"></label>
+     <label>Output format <select id="outputFormatV4171"><option value="auto">Best supported format</option><option value="video/webm;codecs=vp9,opus">WEBM VP9</option><option value="video/webm;codecs=vp8,opus">WEBM VP8</option><option value="video/mp4">MP4 when supported</option></select></label>
+     <div><p class="sectionEyebrow">Visual Effects</p><h3>Music-Reactive Effects</h3></div>
+     <label class="effectToggleV4171"><input type="checkbox" data-effect="beatZoom"><span><strong>Beat Zoom</strong><small>Pulse the frame from bass energy.</small></span></label>
+     <label class="effectToggleV4171"><input type="checkbox" data-effect="glow"><span><strong>Frequency Glow</strong><small>Add a reactive purple glow.</small></span></label>
+     <label class="effectToggleV4171"><input type="checkbox" data-effect="rgb"><span><strong>RGB Split</strong><small>Offset color channels on stronger beats.</small></span></label>
+     <label class="effectToggleV4171"><input type="checkbox" data-effect="strobe"><span><strong>Soft Strobe</strong><small>Brief flashes synchronized to peaks.</small></span></label>
+     <label class="effectToggleV4171"><input type="checkbox" data-effect="waveform"><span><strong>Waveform Overlay</strong><small>Draw the live waveform over the video.</small></span></label>
+     <label>Effect strength <input id="effectStrengthV4171" type="range" min="0" max="1" value=".55" step=".05"></label>
+     <button id="renderVideoV4171" class="primaryButton" type="button">Render Download</button>
+     <button id="exportProjectV4171" class="secondaryButton" type="button">Download Project Settings</button>
+     <p id="videoStudioStatusV4171" class="formMessage">Load a video to begin.</p>
+     <small>Rendering uses your browser. MP4 is offered only when the browser supports MP4 recording; otherwise the studio exports WEBM with the selected effects.</small>
+    </aside>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+  <button aria-label="Scroll to top" id="scrollTopBtn" type="button">
    ↑
   </button>
   <footer id="siteFooter">
@@ -355,11 +208,11 @@
        <h3>
         Explore
        </h3>
-       <a href="about.html">
-        About
-       </a>
        <a href="music.html">
         Music
+       </a>
+       <a href="producer-hub.html">
+        Producer Hub
        </a>
        <a href="gallery.html">
         Gallery
@@ -372,34 +225,17 @@
        <h3>
         Connect
        </h3>
+       <a href="forums.html">
+        Forums
+       </a>
        <a href="events.html">
         Events
-       </a>
-       <a href="socials.html">
-        Socials
        </a>
        <a href="contact.html">
         Contact
        </a>
        <a href="members.html">
         Members
-       </a>
-      </div>
-      <div class="footerColumn">
-       <h3>
-        Follow
-       </h3>
-       <a href="#">
-        YouTube
-       </a>
-       <a href="#">
-        Instagram
-       </a>
-       <a href="#">
-        SoundCloud
-       </a>
-       <a href="#">
-        Twitch
        </a>
       </div>
      </div>
@@ -418,11 +254,8 @@
       <a href="contact.html">
        Contact
       </a>
-      <a href="members.html">
-       Members
-      </a>
-      <a href="#">
-       Back to Top
+      <a href="admin.html">
+       Admin
       </a>
      </div>
     </div>
@@ -449,17 +282,14 @@
   </script>
   <script src="js/scroll.js">
   </script>
-  <script src="js/countdown.js">
-  </script>
-  <script src="js/events.js">
-  </script>
-  <script src="js/events-supabase-v4.14.0.js?v=4.14.0"></script>
   <script src="js/app-shell.js?v=4.17.1">
   </script>
   <script src="js/profile-sounds-v4.15.3.js?v=4.15.3"></script>
   <script src="js/achievement-sound-v4.13.31.js?v=4.15.3"></script>
   <script src="js/notification-center-v4.13.25.js?v=4.15.4"></script>
   <script src="js/site-v3.6.js"></script>
+  <script src="js/producer-hub.js?v=4.17.1">
+  </script>
   <script src="js/production-v4.5.js?v=4.13.34"></script>
     <script src="js/adaptive-performance-v4.15.0.js?v=4.15.0"></script>
 <script src="js/starfield-v4.8.7.js?v=4.15.0"></script>
@@ -474,5 +304,6 @@
   <script src="js/legacy-achievement-sync-v4.13.33.js?v=4.13.33"></script>
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
+  <script src="js/video-effects-studio-v4.17.1.js?v=4.17.1"></script>
 </body>
 </html>

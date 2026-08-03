@@ -1,0 +1,28 @@
+/* Seeker Of SoundZ v4.17.1 — import existing site images into Gallery Manager */
+(()=>{
+'use strict';
+const images=[{"id": "site-assets-images-about-performance-01-jpg", "title": "About Performance 01", "category": "gallery", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/about-performance-01.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-featured-video-cover-jpg", "title": "Featured Video Cover", "category": "gallery", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/featured-video-cover.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-gallery-production-01-jpg", "title": "Gallery Production 01", "category": "production", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/gallery-production-01.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-seeker-headshot-01-jpg", "title": "Seeker Headshot 01", "category": "artist", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/seeker-headshot-01.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-featured-track-cover-jpg", "title": "Featured Track Cover", "category": "gallery", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/featured-track-cover.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-event-featured-01-jpg", "title": "Event Featured 01", "category": "events", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/event-featured-01.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-gallery-event-01-jpg", "title": "Gallery Event 01", "category": "events", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/gallery-event-01.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-seeker-event-01-jpg", "title": "Seeker Event 01", "category": "events", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/seeker-event-01.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-about-artist-01-jpg", "title": "About Artist 01", "category": "artist", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/about-artist-01.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-gallery-headshot-01-jpg", "title": "Gallery Headshot 01", "category": "artist", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/gallery-headshot-01.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-sos-logo-png", "title": "Sos Logo", "category": "branding", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/sos-logo.png", "siteManaged": true, "featured": false, "homepagePosition": null}, {"id": "site-assets-images-gallery-random-01-jpg", "title": "Gallery Random 01", "category": "gallery", "description": "Existing website image imported into Gallery Manager.", "credit": "", "layout": "standard", "image": "assets/images/gallery-random-01.jpg", "siteManaged": true, "featured": false, "homepagePosition": null}];
+function merge(force=false){
+ const key=window.SOS?.K?.gallery||'sos_gallery_v1',marker='sos_site_gallery_import_v4171';
+ if(!force&&localStorage.getItem(marker)==='complete')return false;
+ let current=window.SOS?.read?.(key,[])||[];
+ const byId=new Map(current.map(item=>[String(item.id),item]));
+ let changed=false;
+ images.forEach(item=>{if(!byId.has(item.id)){current.push(item);changed=true}});
+ if(changed)window.SOS?.write?.(key,current);
+ localStorage.setItem(marker,'complete');
+ return changed;
+}
+function addButton(){
+ const panel=document.getElementById('adminPanel');
+ if(!panel||!document.querySelector('.adminMenu [data-panel="gallery"].active')||panel.querySelector('[data-import-site-gallery]'))return;
+ const head=panel.querySelector('.adminSectionHead');
+ if(!head)return;
+ const b=document.createElement('button');b.type='button';b.className='smallAction';b.dataset.importSiteGallery='';b.textContent='Sync Existing Site Images';
+ b.addEventListener('click',async()=>{const changed=merge(true);await window.SOSHomepageAdmin?.syncGallery?.(true);window.SOS?.toast?.(changed?'Existing site images were added to Gallery Manager.':'Gallery Manager already contains the current site images.',{title:'Gallery Manager'});});
+ head.appendChild(b);
+}
+document.addEventListener('click',e=>{if(e.target.closest('.adminMenu [data-panel="gallery"]'))setTimeout(()=>{merge();addButton()},180)});
+const observer=new MutationObserver(addButton);document.addEventListener('DOMContentLoaded',()=>{observer.observe(document.getElementById('adminPanel'),{childList:true,subtree:false})},{once:true});
+window.SOSGallerySiteImport={merge,images};
+})();

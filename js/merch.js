@@ -4,11 +4,12 @@ const defaults=[
 {id:"signature-tee",name:"Signature Frequency Tee",price:29,type:"Apparel",category:"T-Shirts",description:"Official Seeker Of SoundZ signature tee.",image:"",link:"",sizes:["S","M","L","XL","2XL"],colors:["Black","White","Charcoal"],stock:24},
 {id:"midnight-hoodie",name:"Midnight Seeker Hoodie",price:59,type:"Apparel",category:"Hoodies",description:"A heavyweight hoodie for late-night sessions.",image:"",link:"",sizes:["S","M","L","XL","2XL","3XL"],colors:["Black","Charcoal","White"],stock:18},
 {id:"sos-cap",name:"SOS Logo Cap",price:24,type:"Accessory",category:"Headwear",description:"Minimal logo cap built for everyday wear.",image:"",link:"",sizes:["One Size"],colors:["Black","White"],stock:14},
-{id:"sound-pack-1",name:"Seeker Sound Pack Vol. 1",price:19,type:"Digital",category:"Sound Packs",description:"Production-ready sounds and creative assets.",image:"",link:"",sizes:[],colors:[],stock:999},
-
 {id:"creator-assets",name:"DJ & Production Assets",price:35,type:"Digital",category:"Creator Assets",description:"Useful tools for DJs and producers.",image:"",link:"",sizes:[],colors:[],stock:999}
 ];
-const custom=SOS.read(SOS.K.catalog,[]).filter(x=>String(x.type||"").toLowerCase()!=="music"),products=[...custom.filter(x=>x.featured),...defaults,...custom.filter(x=>!x.featured)];
+const custom=SOS.read(SOS.K.catalog,[]).filter(x=>{
+ const type=String(x.type||"").toLowerCase(),category=String(x.category||"").toLowerCase();
+ return type!=="music"&&!category.includes("exclusive music")&&!category.includes("album")&&!category.includes("single")&&!category.includes("ep");
+}),products=[...custom.filter(x=>x.featured),...defaults,...custom.filter(x=>!x.featured)];
 const esc=v=>String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
 const arr=v=>Array.isArray(v)?v:String(v||"").split(",").map(x=>x.trim()).filter(Boolean);
 const grid=document.getElementById("productGrid");

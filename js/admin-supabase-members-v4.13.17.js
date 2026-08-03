@@ -18,7 +18,7 @@
     'Track Curator','Playlist Architect','Sound Designer','Visual Artist','Producer',
     'DJ','Resident DJ','Featured Artist','Verified Artist','Event Performer',
     'Community Veteran','Forum Guide','Frequency Mentor','Premium Member','VIP Member',
-    'Moderator','Administrator','Founder','Owner'
+    'Moderator','Developer','Administrator','Founder','Owner'
   ];
 
   const state = { members: [], loading: false, query: '', filter: 'all' };
@@ -145,6 +145,10 @@
               <input data-member-field="founder" type="checkbox"${member.rank_name === 'Founder' ? ' checked' : ''}>
               <span><strong>Founder status</strong><small>Enable or remove the Founder badge without changing this member’s account role.</small></span>
             </label>
+            <label class="adminBanToggle developerToggleV4171">
+              <input data-member-field="developer" type="checkbox"${member.rank_name === 'Developer' ? ' checked' : ''}>
+              <span><strong>Developer status</strong><small>Show Developer on this member’s profile, forums and account dropdown without changing administrator permissions.</small></span>
+            </label>
             <label class="adminBanToggle">
               <input data-member-field="collaborationAccess" type="checkbox"${member.collaboration_access ? ' checked' : ''}>
               Allow Collaboration Studio access
@@ -250,9 +254,11 @@
     const role = card.querySelector('[data-member-field="role"]').value;
     const rankSelect = card.querySelector('[data-member-field="rank"]');
     const founderEnabled = card.querySelector('[data-member-field="founder"]')?.checked || false;
+    const developerEnabled = card.querySelector('[data-member-field="developer"]')?.checked || false;
     let rank = rankSelect.value.trim();
     if (founderEnabled) rank = 'Founder';
-    else if (rank === 'Founder') rank = 'New Listener';
+    else if (developerEnabled) rank = 'Developer';
+    else if (rank === 'Founder' || rank === 'Developer') rank = 'New Listener';
     const reputation = Number(card.querySelector('[data-member-field="reputation"]').value || 0);
     const collaborationAccess = card.querySelector('[data-member-field="collaborationAccess"]')?.checked || false;
     const banned = card.querySelector('[data-member-field="banned"]').checked;
@@ -316,15 +322,29 @@
     if (event.target.matches('[data-member-field="founder"]')) {
       const card = event.target.closest('[data-member-id]');
       const rank = card?.querySelector('[data-member-field="rank"]');
+      const developer = card?.querySelector('[data-member-field="developer"]');
+      if (event.target.checked && developer) developer.checked = false;
       if (rank) {
         if (event.target.checked) rank.value = 'Founder';
         else if (rank.value === 'Founder') rank.value = 'New Listener';
       }
     }
+    if (event.target.matches('[data-member-field="developer"]')) {
+      const card = event.target.closest('[data-member-id]');
+      const rank = card?.querySelector('[data-member-field="rank"]');
+      const founder = card?.querySelector('[data-member-field="founder"]');
+      if (event.target.checked && founder) founder.checked = false;
+      if (rank) {
+        if (event.target.checked) rank.value = 'Developer';
+        else if (rank.value === 'Developer') rank.value = 'New Listener';
+      }
+    }
     if (event.target.matches('[data-member-field="rank"]')) {
       const card = event.target.closest('[data-member-id]');
       const founder = card?.querySelector('[data-member-field="founder"]');
+      const developer = card?.querySelector('[data-member-field="developer"]');
       if (founder) founder.checked = event.target.value === 'Founder';
+      if (developer) developer.checked = event.target.value === 'Developer';
     }
   });
 

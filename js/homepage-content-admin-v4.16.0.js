@@ -87,9 +87,7 @@ async function render(){
    `<label>Music release<select data-slot-select data-source="music">${optionRows(musicItems(),item=>`${item.title||'Untitled'} — ${item.artist||'Seeker Of SoundZ'}`)}</select></label>`)}
   ${slotCard('featured_event','Featured Event','Places one published Supabase event into the current Upcoming Events feature.',
    `<label>Event<select data-slot-select data-source="event">${optionRows(events,item=>`${item.title||'Untitled'} — ${new Date(item.starts_at).toLocaleDateString()}`)}</select></label>`)}
-  ${gallerySelector('gallery_feature_1','Gallery Highlight 1',1)}
-  ${gallerySelector('gallery_feature_2','Gallery Highlight 2',2)}
-  ${gallerySelector('gallery_feature_3','Gallery Highlight 3',3)}
+  ${Array.from({length:8},(_,index)=>gallerySelector(`gallery_feature_${index+1}`,`Gallery Highlight ${index+1}`,index+1)).join('')}
   <section class="homepageStudioActionsV416">
    <button class="primaryButton" type="submit">Publish Homepage Assignments</button>
    <button class="secondaryButton" type="button" data-sync-public-gallery>Sync Gallery Manager to Gallery Page</button>
@@ -144,6 +142,39 @@ async function saveHomepage(form){
  toast('Homepage assignments were published to Supabase.');
  await render();
 }
+
+async function assignGallery(itemId,position){
+ const number=Math.max(1,Math.min(8,Number(position)||1));
+ const items=galleryItems();
+ const item=items.find(entry=>String(entry.id)===String(itemId));
+ if(!item)throw new Error('Gallery item was not found.');
+ items.forEach(entry=>{if(Number(entry.homepagePosition)===number)entry.homepagePosition=null});
+ item.homepagePosition=number;
+ window.SOS?.write?.(keys.gallery||'sos_gallery_v1',items);
+ const response=await client.rpc('admin_save_homepage_slot',{
+  p_slot_key:`gallery_feature_${number}`,
+  p_content_type:'gallery',
+  p_content_data:snapshot('gallery',item.id),
+  p_is_active:true
+ });
+ if(response.error)throw response.error;
+ await syncGallery(false);
+ toast(`${item.title||'Gallery image'} was assigned to homepage position ${number}.`,'Gallery Manager');
+ return item;
+}
+async function assignMusic(itemId){
+ const item=musicItems().find(entry=>String(entry.id)===String(itemId));
+ if(!item)throw new Error('Featured music release was not found.');
+ const response=await client.rpc('admin_save_homepage_slot',{
+  p_slot_key:'featured_music',
+  p_content_type:'music',
+  p_content_data:snapshot('music',item.id),
+  p_is_active:true
+ });
+ if(response.error)throw response.error;
+ toast(`${item.title||'Music release'} is now Featured Music on the homepage.`,'Music Manager');
+ return item;
+}
 async function syncGallery(showToast=true){
  const items=galleryItems().map((item,index)=>({...item,sort_order:index,is_published:true}));
  const response=await client.rpc('admin_replace_gallery_items',{p_items:items});
@@ -168,12 +199,43 @@ panel.addEventListener('submit',async event=>{
  catch(error){toast(error.message,'Homepage publish failed');button.disabled=false}
 });
 panel.addEventListener('click',async event=>{
+ const push=event.target.closest('[data-push-gallery-home]');
+ if(push){
+  const select=panel.querySelector(`[data-gallery-home-position="${push.dataset.pushGalleryHome}"]`);
+  const position=Number(select?.value||0);
+  if(!position)return toast('Choose a homepage position before publishing.','Gallery Manager');
+  push.disabled=true;
+  try{await assignGallery(push.dataset.pushGalleryHome,position);setTimeout(()=>window.SOSHomepageAdmin?.renderCurrentGallery?.(),120)}
+  catch(error){toast(error.message,'Gallery homepage publish failed')}
+  finally{push.disabled=false}
+  return;
+ }
  const sync=event.target.closest('[data-sync-public-gallery]');
  if(!sync)return;
  sync.disabled=true;
  try{await syncGallery(true)}catch(error){toast(error.message,'Gallery synchronization failed')}
  finally{sync.disabled=false}
 });
+
+
+document.addEventListener('click',async event=>{
+ const push=event.target.closest('[data-push-gallery-home]');
+ if(!push)return;
+ event.preventDefault();
+ event.stopPropagation();
+ const select=document.querySelector(`[data-gallery-home-position="${push.dataset.pushGalleryHome}"]`);
+ const position=Number(select?.value||0);
+ if(!position)return toast('Choose a homepage position before publishing.','Gallery Manager');
+ push.disabled=true;
+ try{
+  await assignGallery(push.dataset.pushGalleryHome,position);
+  push.textContent=`Update Position ${position}`;
+ }catch(error){
+  toast(error.message,'Gallery homepage publish failed');
+ }finally{
+  push.disabled=false;
+ }
+},true);
 
 // Keep the public Gallery page synchronized whenever Gallery Manager saves or deletes.
 document.addEventListener('submit',event=>{
@@ -184,5 +246,5 @@ document.addEventListener('click',event=>{
 });
 
 addMenuButton();
-window.SOSHomepageAdmin={render,syncGallery};
+window.SOSHomepageAdmin={render,syncGallery,assignGallery,assignMusic};
 })();

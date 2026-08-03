@@ -63,7 +63,7 @@ function applyEvent(slot){
 }
 function applyGallery(content){
  const section=document.getElementById('galleryPreview');if(!section)return;
- const slots=['gallery_feature_1','gallery_feature_2','gallery_feature_3'].map(key=>content[key]).filter(slot=>slot&&slot.active!==false&&slot.data?.source_id);
+ const slots=Array.from({length:8},(_,index)=>content[`gallery_feature_${index+1}`]).filter(slot=>slot&&slot.active!==false&&slot.data?.source_id);
  if(!slots.length)return;
  section.hidden=false;
  const grid=section.querySelector('.galleryPreviewGrid');if(!grid)return;

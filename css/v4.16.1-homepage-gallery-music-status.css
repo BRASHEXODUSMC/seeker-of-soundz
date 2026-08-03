@@ -1,0 +1,195 @@
+
+/* Seeker Of SoundZ v4.16.1 — themed selectors, Gallery homepage controls, Music status, responsive uploads */
+
+/* Homepage Content dropdowns */
+.homepageSlotCardV416 select,
+.galleryPositionControlV4161 select{
+  width:100%;
+  min-height:48px;
+  padding:0 44px 0 14px;
+  border:1px solid rgba(196,150,255,.24);
+  border-radius:14px;
+  background:
+    linear-gradient(135deg,rgba(38,24,48,.98),rgba(15,10,21,.98));
+  color:#f7efff;
+  font:inherit;
+  font-size:.82rem;
+  appearance:none;
+  background-image:
+    linear-gradient(45deg,transparent 50%,#cfa7ff 50%),
+    linear-gradient(135deg,#cfa7ff 50%,transparent 50%),
+    linear-gradient(135deg,rgba(140,65,205,.16),rgba(255,255,255,.02));
+  background-position:
+    calc(100% - 20px) 21px,
+    calc(100% - 14px) 21px,
+    0 0;
+  background-size:6px 6px,6px 6px,100% 100%;
+  background-repeat:no-repeat;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 9px 24px rgba(0,0,0,.18);
+}
+.homepageSlotCardV416 select:hover,
+.homepageSlotCardV416 select:focus,
+.galleryPositionControlV4161 select:hover,
+.galleryPositionControlV4161 select:focus{
+  border-color:rgba(224,193,255,.66);
+  outline:none;
+  box-shadow:
+    0 0 0 3px rgba(157,84,225,.09),
+    0 0 22px rgba(144,67,210,.13);
+}
+.homepageSlotCardV416 select option,
+.galleryPositionControlV4161 select option{
+  background:#120c18;
+  color:#fff;
+}
+
+/* Gallery Manager homepage publishing */
+.galleryHomepageActionsV4161{
+  align-items:flex-end!important;
+  flex-wrap:wrap!important;
+}
+.galleryPositionControlV4161{
+  min-width:170px;
+  display:grid;
+  gap:6px;
+}
+.galleryPositionControlV4161>span{
+  color:#a99eaf;
+  font-size:.63rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.galleryPositionControlV4161 select{
+  min-height:39px;
+  border-radius:11px;
+  font-size:.72rem;
+}
+.homepagePushButtonV4161{
+  border-color:rgba(185,126,255,.44)!important;
+  background:linear-gradient(135deg,rgba(124,52,192,.68),rgba(50,22,75,.96))!important;
+  color:#fff!important;
+  box-shadow:0 0 18px rgba(147,70,218,.13)!important;
+}
+
+/* Music status section exactly follows the Merch status-card component. */
+.musicStatusBuilderV4161{
+  margin-top:4px;
+}
+.musicStatusBuilderV4161 .catalogStatusToggle input:checked + span{
+  border-color:rgba(195,141,255,.55);
+  background:
+    radial-gradient(circle at 10% 20%,rgba(151,71,224,.18),transparent 38%),
+    rgba(123,54,181,.1);
+  box-shadow:0 0 22px rgba(136,60,203,.12);
+}
+
+/* Clean responsive upload areas and previews across Merch, Music, Video, Gallery, and Events. */
+.adminDropZone,
+.catalogDropZone,
+.musicDropZone,
+.galleryDropZone,
+.videoDropZone,
+.eventPhotoDropzoneV4151{
+  min-width:0;
+  overflow:hidden;
+}
+.adminDropZone{
+  display:grid;
+  align-content:center;
+  justify-items:center;
+  gap:7px;
+  min-height:150px;
+  padding:20px;
+  border:1px dashed rgba(196,151,255,.34);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 50% 0,rgba(138,63,205,.11),transparent 40%),
+    rgba(255,255,255,.018);
+  text-align:center;
+  transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.adminDropZone:hover,
+.adminDropZone.dragOver{
+  border-color:rgba(226,198,255,.76);
+  background:
+    radial-gradient(circle at 50% 0,rgba(154,75,223,.18),transparent 44%),
+    rgba(255,255,255,.025);
+  box-shadow:0 0 0 3px rgba(151,79,218,.07),0 18px 42px rgba(0,0,0,.2);
+}
+.adminDropPreview{
+  width:100%;
+  min-width:0;
+  display:grid;
+  gap:8px;
+  justify-items:center;
+}
+.adminDropPreview:empty{
+  display:none;
+}
+.adminDropPreview img{
+  width:min(100%,520px);
+  max-height:310px;
+  object-fit:contain;
+  display:block;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(0,0,0,.24);
+}
+.adminDropPreview audio,
+.adminDropPreview video{
+  width:100%;
+  max-width:620px;
+}
+.adminDropPreview small{
+  max-width:100%;
+  overflow-wrap:anywhere;
+  color:#9f95a5;
+}
+.adminItemPreview{
+  overflow:hidden;
+}
+.adminItemPreview img{
+  width:100%;
+  height:100%;
+  min-height:76px;
+  display:block;
+  object-fit:cover;
+}
+#galleryPreview .galleryPreviewGrid{
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+#galleryPreview .galleryPreviewLarge{
+  grid-column:span 2;
+}
+
+@media(max-width:760px){
+  .galleryHomepageActionsV4161{
+    display:grid!important;
+    grid-template-columns:1fr 1fr;
+    width:100%;
+  }
+  .galleryPositionControlV4161{
+    grid-column:1/-1;
+    width:100%;
+  }
+  .galleryHomepageActionsV4161 button{
+    width:100%;
+  }
+  #galleryPreview .galleryPreviewLarge{
+    grid-column:auto;
+  }
+}
+@media(max-width:480px){
+  .galleryHomepageActionsV4161{
+    grid-template-columns:1fr;
+  }
+  .galleryPositionControlV4161{
+    grid-column:auto;
+  }
+  .adminDropZone{
+    min-height:130px;
+    padding:15px;
+  }
+}

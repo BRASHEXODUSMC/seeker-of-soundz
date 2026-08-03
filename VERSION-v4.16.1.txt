@@ -1,0 +1,33 @@
+Seeker Of SoundZ v4.16.1
+HOMEPAGE GALLERY PLACEMENT + MUSIC STATUS + RESPONSIVE UPLOADS
+
+Gallery Manager:
+- Every gallery item has a themed Homepage Position selector.
+- Positions 1 through 8 are supported.
+- Push to Homepage publishes the image directly to the selected Supabase homepage slot.
+- Updating an occupied position replaces that position safely.
+- Gallery Manager records remember their assigned position.
+- Public Gallery synchronization remains active.
+
+Homepage Content:
+- Gallery Highlight slots expanded from 3 to 8.
+- Themed purple/black dropdowns replace browser-default selectors.
+- Selected Gallery Manager items remain synchronized with the corresponding position.
+- The public homepage renders every assigned active gallery position.
+
+Music Manager:
+- Adds the exact Merch-style six-card Release Status section.
+- Featured means Featured Music on the homepage.
+- Only one music release remains featured at a time.
+- Saving a featured release automatically updates the Supabase homepage Featured Music slot.
+- Limited, Seasonal, New Release, Pre-save/Pre-order, and Members Only are stored and restored.
+- Music list displays the selected release statuses.
+
+Uploads:
+- Merch, Music, Video, Gallery, and Event image dropzones are cleaner and responsive.
+- Image previews use contained sizing and no longer stretch or overflow.
+- Audio and video previews fit the editor width.
+- Mobile Gallery Manager controls stack cleanly.
+
+SQL:
+- No additional SQL is required beyond the v4.16.0 Homepage Content Studio patch.

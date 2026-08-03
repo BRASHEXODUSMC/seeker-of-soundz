@@ -71,6 +71,7 @@
   <link rel="stylesheet" href="css/v4.17.4-youtube-synced-fx.css?v=4.17.4">
   <link rel="stylesheet" href="css/v4.17.5-youtube-project-waveform.css?v=4.17.5">
   <link rel="stylesheet" href="css/v4.17.6-video-fx-runtime-fix.css?v=4.17.6">
+  <link rel="stylesheet" href="css/v4.17.7-media-converter-sticky-preview.css?v=4.17.7">
 </head>
  <body>
   <div id="loader">
@@ -170,8 +171,30 @@
     </div>
     <div class="videoUrlRowV4171"><input id="videoUrlV4171" type="url" placeholder="Paste YouTube, MP4, WEBM, or another video URL"><button id="loadVideoUrlV4171" class="secondaryButton" type="button">Check & Load URL</button></div>
    </section>
+
+    <section class="mediaConverterV4177" id="mediaConverterV4177">
+     <div class="sectionHeading">
+      <p class="sectionEyebrow">On-Page Media Converter</p>
+      <h2>Convert media you own or upload</h2>
+      <p>Convert an uploaded video or a compatible direct media file into an exact WAV, an edited WEBM/MP4 video, or its original downloadable file. YouTube embeds remain preview-only.</p>
+     </div>
+     <div class="converterStatusV4177" id="converterStatusV4177">
+      <span class="compatibilityDotV4173 isWaiting" data-converter-dot></span>
+      <div>
+       <strong data-converter-title>Waiting for an editable source</strong>
+       <small data-converter-copy>Upload the original file or load a direct MP4/WEBM URL.</small>
+      </div>
+     </div>
+     <div class="converterActionsV4177">
+      <button class="secondaryButton" id="converterSourceV4177" type="button" disabled>Download Original Source</button>
+      <button class="secondaryButton" id="converterWavV4177" type="button" disabled>Convert Entire Audio to WAV</button>
+      <button class="primaryButton" id="converterVideoV4177" type="button" disabled>Convert Video with Selected Effects</button>
+     </div>
+     <p class="converterNoticeV4177">The converter processes files in your browser. It does not download or extract protected YouTube video or audio.</p>
+    </section>
+
    <div class="videoStudioWorkspaceV4171">
-    <section class="videoPreviewPanelV4171">
+    <section class="videoPreviewPanelV4171 stickyVideoPreviewV4177" id="stickyVideoPreviewV4177">
      <div class="videoCompatibilityV4173" id="videoCompatibilityV4173">
       <span class="compatibilityDotV4173 isWaiting" data-compatibility-dot></span>
       <div><strong data-compatibility-title>Waiting for a video</strong><small data-compatibility-copy>Direct MP4/WEBM files support editing. YouTube links support embedded preview only.</small></div>
@@ -471,6 +494,6 @@
   <script src="js/legacy-achievement-sync-v4.13.33.js?v=4.13.33"></script>
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
-  <script src="js/video-effects-studio-v4.17.6.js?v=4.17.6"></script>
+  <script src="js/video-effects-studio-v4.17.7.js?v=4.17.7"></script>
 </body>
 </html>

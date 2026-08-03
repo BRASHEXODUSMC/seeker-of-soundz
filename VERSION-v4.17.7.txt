@@ -1,0 +1,30 @@
+Seeker Of SoundZ v4.17.7
+LOCAL MEDIA CONVERTER + STICKY EFFECT PREVIEW
+
+On-page media converter:
+- Adds a converter panel for media the member owns, uploads, or loads from a compatible direct media URL.
+- Download Original Source saves the supplied local/direct media file.
+- Convert Entire Audio to WAV exports the complete decoded audio from the supplied original video or audio source.
+- Convert Video with Selected Effects uses the existing effects renderer and browser recorder.
+- Final video export uses MP4 when MediaRecorder supports it and WEBM as the supported fallback.
+- Conversion happens locally in the browser.
+- YouTube embedded media remains preview-only and cannot be downloaded, extracted, or converted by this page.
+- The converter clearly displays whether the current source is editable or protected.
+
+Effect-selection navigation:
+- Desktop preview panel is sticky while the effects rack is browsed.
+- Selecting an effect or preset moves the viewport back to the active video preview rather than to the bottom of the page.
+- Effect checkboxes, preset buttons, and Clear Effects all use the preview as their destination.
+- The old repeated scroll-position restoration workaround was removed.
+- Effect panels and controls opt out of browser overflow anchoring.
+- Mobile returns to the video preview after selection without forcing a fixed panel.
+
+Existing systems preserved:
+- All 42 working procedural effects remain.
+- Animated TV Static remains fixed.
+- YouTube synchronized preview and guide waveform remain.
+- Exact WAV, waveform PNG, waveform CSV, Guide WAV, source download, project export and final video rendering remain.
+- The current premium-member access system and page layout remain.
+
+Supabase:
+- No SQL, Storage bucket, MIME policy, or file-path update is required.

@@ -1,0 +1,57 @@
+Seeker Of SoundZ v4.17.0
+PROFESSIONAL STUDIO SYSTEMS
+
+Preserved:
+- Existing page layouts, loaders, transitions, navigation, Supabase Auth, roles, ranks, forums, achievements, quests, collaboration projects, music, gallery, video, events, homepage content and store controls.
+- Existing IDs and working systems remain in place.
+
+Merch:
+- Removes Music products from the public Merch storefront.
+- Keeps Apparel, Accessories, Digital Merchandise and producer assets.
+- Adds Published Merchandise at the bottom of Admin → Merch Store.
+- Shows the exact local storefront products and status badges.
+- Existing products can be loaded into the original editor using Edit Product.
+
+Contact and Collaboration Requests:
+- Contact form submits to Supabase Contact Inbox.
+- Adds a themed Request Collaboration Studio access option.
+- Collaboration requests appear separately in Admin Hub.
+- Administrators can approve or decline requests.
+- Approval enables collaboration_access for registered members.
+
+Producer Plugins:
+- Plugin categories remain strictly music, EDM, DJ and audio-production related.
+- Adds editable Plugin Library and Producer Resources sections in Admin Hub.
+- Existing local resources remain editable.
+- Adds thumbnails, version, formats, tags, license/price, Featured and Published status.
+- Public Producer Hub displays thumbnails when available.
+
+Global Media Library:
+- Adds a reusable Admin Hub asset library.
+- Supports artwork, logos, events, merch, plugins, gallery, producer resources and video URLs.
+- Includes tags, alternative text, copy URL and delete controls.
+
+Members:
+- Adds an explicit Founder status toggle.
+- Founder status can be enabled or removed without changing the account role.
+- Existing role, rank, reputation, collaboration access and ban controls remain.
+- Account dropdown uses themed Featured-style action cards.
+- Removes strange arrow decorations and conflicting dropdown effects.
+
+Forums:
+- Adds a signed-in member progression module.
+- Shows level, lifetime XP, title, active quests and achievements.
+- Shows up to three active quest progress bars.
+- Links to the existing Achievement and Quest Hall.
+
+Collaboration Studio:
+- Project notes now save as numbered Supabase versions.
+- Adds author, timestamp, history and Restore to Editor.
+- Restoring does not overwrite history until Save Notes creates a new version.
+
+Navigation:
+- Reduces duplicate outlines, glows and account-dropdown arrow effects.
+- Existing navigation pages, indicators and mobile controls remain unchanged.
+
+Supabase:
+- Run supabase/patch-v4.17.0-professional-studio-systems.sql once.

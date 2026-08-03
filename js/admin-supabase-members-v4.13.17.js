@@ -141,6 +141,10 @@
             <label>Reputation
               <input data-member-field="reputation" type="number" min="0" max="100000000" value="${Number(member.reputation || 0)}">
             </label>
+            <label class="adminBanToggle founderToggleV417">
+              <input data-member-field="founder" type="checkbox"${member.rank_name === 'Founder' ? ' checked' : ''}>
+              <span><strong>Founder status</strong><small>Enable or remove the Founder badge without changing this member’s account role.</small></span>
+            </label>
             <label class="adminBanToggle">
               <input data-member-field="collaborationAccess" type="checkbox"${member.collaboration_access ? ' checked' : ''}>
               Allow Collaboration Studio access
@@ -244,7 +248,11 @@
     if (!id || !card || !supabase) return;
 
     const role = card.querySelector('[data-member-field="role"]').value;
-    const rank = card.querySelector('[data-member-field="rank"]').value.trim();
+    const rankSelect = card.querySelector('[data-member-field="rank"]');
+    const founderEnabled = card.querySelector('[data-member-field="founder"]')?.checked || false;
+    let rank = rankSelect.value.trim();
+    if (founderEnabled) rank = 'Founder';
+    else if (rank === 'Founder') rank = 'New Listener';
     const reputation = Number(card.querySelector('[data-member-field="reputation"]').value || 0);
     const collaborationAccess = card.querySelector('[data-member-field="collaborationAccess"]')?.checked || false;
     const banned = card.querySelector('[data-member-field="banned"]').checked;
@@ -301,6 +309,23 @@
     if (!event.target.matches('[data-supabase-member-filter]')) return;
     state.filter = event.target.value;
     render();
+  });
+
+
+  document.addEventListener('change', (event) => {
+    if (event.target.matches('[data-member-field="founder"]')) {
+      const card = event.target.closest('[data-member-id]');
+      const rank = card?.querySelector('[data-member-field="rank"]');
+      if (rank) {
+        if (event.target.checked) rank.value = 'Founder';
+        else if (rank.value === 'Founder') rank.value = 'New Listener';
+      }
+    }
+    if (event.target.matches('[data-member-field="rank"]')) {
+      const card = event.target.closest('[data-member-id]');
+      const founder = card?.querySelector('[data-member-field="founder"]');
+      if (founder) founder.checked = event.target.value === 'Founder';
+    }
   });
 
   const observer = new MutationObserver(() => {

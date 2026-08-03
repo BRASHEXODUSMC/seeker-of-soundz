@@ -1,0 +1,27 @@
+Seeker Of SoundZ v4.13.40
+CORRECT SUPABASE PROJECT CONNECTION
+
+Correct Supabase project:
+https://ywwlwkveymypvbvlzccv.supabase.co
+
+Correct browser-safe publishable key:
+sb_publishable_ul3rvyO6uFFbtoc69viuLw_075dV2TK
+
+Changed:
+- Replaced the incorrect cuocafmd... project connection.
+- Website now points to the ywwlwkve... project where the buckets and backend were created.
+- No layouts, features, SQL, forums, achievements, profiles, notifications, or other site systems were changed.
+
+UPDATE TYPE:
+Website only
+
+SUPABASE:
+No SQL patch is required for this connection change.
+
+INSTALL:
+1. Replace the current GitHub repository files with this package.
+2. Commit and push.
+3. Wait for GitHub Pages deployment.
+4. Open members.html and press Ctrl + F5.
+5. Confirm window.SOS_BACKEND shows the ywwlwkve... project URL.
+6. Register the owner account again.

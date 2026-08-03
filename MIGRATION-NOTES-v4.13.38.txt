@@ -8,7 +8,7 @@ GitHub Pages site:
 https://seeker-of-soundz.github.io/seeker-of-soundz/
 
 Supabase project:
-https://cuocafmdmqgxtjgnopgk.supabase.co
+https://ywwlwkveymypvbvlzccv.supabase.co
 
 Configured file:
 js/backend-config.js

@@ -1,0 +1,67 @@
+/* Seeker Of SoundZ v4.15.4 — cube speed, loader swipe opt-in, notification cleanup */
+
+/* Slow the orbiting cubes to a readable cinematic speed. */
+#cubeTransition[data-transition-mode="cubes"].active .transitionCube{
+  animation-duration:1.75s!important;
+  animation-timing-function:cubic-bezier(.4,0,.2,1)!important;
+}
+.experiencePreview[data-transition="cubes"].isPreviewing .previewCube,
+.experiencePreview[data-transition="cubes"].isPreviewing .previewLogoRing{
+  animation-duration:2.25s!important;
+}
+
+/* The brighter loader line/gate exit is disabled unless saved in Profile Settings. */
+html:not(.sos-loader-swipe-enabled) #loader.loaderComplete .loaderHorizon,
+html:not(.sos-loader-swipe-enabled) #loader.loaderSignalLock .loaderFrequencyGate{
+  animation:none!important;
+  opacity:0!important;
+}
+html:not(.sos-loader-swipe-enabled) #loader.loaderComplete .loaderContent{
+  animation:loaderSoftExitV4154 .62s ease both!important;
+}
+@keyframes loaderSoftExitV4154{
+  to{opacity:0;transform:scale(1.025);filter:blur(2px)}
+}
+
+/* Notification cleanup countdown. */
+.notificationCleanupCountdown{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px;
+  align-items:center;
+  margin:10px 14px 4px;
+  padding:12px 13px 16px;
+  overflow:hidden;
+  border:1px solid rgba(205,159,255,.22);
+  border-radius:14px;
+  background:rgba(122,58,177,.09);
+}
+.notificationCleanupCountdown[hidden]{display:none!important}
+.notificationCleanupCountdown>div{display:grid;gap:3px}
+.notificationCleanupCountdown strong{font-size:.76rem}
+.notificationCleanupCountdown span{color:#aaa0b2;font-size:.66rem}
+.notificationCleanupCountdown i{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:3px;
+  transform-origin:left center;
+  background:linear-gradient(90deg,#7136c7,#d5adff,#fff);
+  box-shadow:0 0 14px rgba(190,131,255,.65);
+}
+.notificationCleanupCountdown.isRunning i{
+  animation:notificationCleanupV4154 6s linear forwards;
+}
+@keyframes notificationCleanupV4154{to{transform:scaleX(0)}}
+.notificationPanelActions{
+  display:flex!important;
+  gap:8px!important;
+  flex-wrap:wrap!important;
+}
+
+/* Music controls added to the existing editor only. */
+.musicSmartEditor input[name="tags"]{
+  letter-spacing:.01em;
+}

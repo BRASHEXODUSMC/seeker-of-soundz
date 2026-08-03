@@ -1,0 +1,19 @@
+Seeker Of SoundZ v4.15.4
+LOADER, CUBE SPEED, NOTIFICATION CLEANUP, MUSIC ADMIN CONSOLIDATION
+
+Changed:
+- Orbiting cube transitions and preview cubes now rotate at a slower cinematic speed.
+- Loader completion swipe is disabled by default.
+- Members can opt into the loader swipe from Personal Experience Studio.
+- Loader and page-transition settings are reapplied consistently on every page.
+- Duplicate loader or transition overlays are removed safely.
+- Notification panel includes Clear All.
+- Read All now starts a six-second deletion countdown.
+- Countdown can be cancelled before notifications are removed.
+- Merch Store no longer includes Music as a product section.
+- Music Manager is now the single release-management area.
+- Music Manager receives Release Type and Tags controls.
+- Existing genre controls, uploads, pricing, access, artwork, previews, and release editing remain intact.
+
+Supabase:
+- Run supabase/patch-v4.15.4-notification-cleanup.sql once.

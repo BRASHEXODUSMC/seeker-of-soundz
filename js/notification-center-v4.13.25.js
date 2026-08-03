@@ -3,7 +3,7 @@
 const client=window.SOS_SUPABASE?.client;if(!client)return;
 const $=(s,r=document)=>r.querySelector(s);
 const esc=v=>String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
-let user=null,items=[],channel=null,booted=false;
+let user=null,items=[],channel=null,booted=false,cleanupTimer=null,cleanupMode=null;
 function openNotificationLink(n){
  const isAchievement=n?.type==="achievement"||String(n?.link_url||"").includes("#achievements");
  if(isAchievement){
@@ -18,7 +18,9 @@ function openNotificationLink(n){
  if(n?.link_url)location.href=n.link_url;
 }
 const formatTime=value=>{const d=new Date(value),seconds=Math.max(0,(Date.now()-d.getTime())/1000);if(seconds<60)return"Just now";if(seconds<3600)return`${Math.floor(seconds/60)}m ago`;if(seconds<86400)return`${Math.floor(seconds/3600)}h ago`;return d.toLocaleDateString()};
-function ensurePanel(){if($("#sosNotificationPanel"))return;const panel=document.createElement("aside");panel.id="sosNotificationPanel";panel.className="sosNotificationPanel";panel.hidden=true;panel.innerHTML=`<div class="notificationPanelHead"><div><p class="sectionEyebrow">Member signal</p><h2>Notifications</h2></div><button type="button" class="notificationClose" aria-label="Close notifications">×</button></div><div class="notificationPanelActions"><button type="button" class="smallAction" data-notification-read-all>Mark all read</button></div><div id="notificationPanelList" class="notificationPanelList"></div>`;document.body.appendChild(panel);panel.querySelector(".notificationClose").addEventListener("click",closePanel);panel.querySelector("[data-notification-read-all]").addEventListener("click",markAllRead);panel.addEventListener("click",async e=>{const row=e.target.closest("[data-notification-id]");if(!row)return;await markRead(row.dataset.notificationId);const found=items.find(item=>String(item.id)===String(row.dataset.notificationId));openNotificationLink(found||{link_url:row.dataset.notificationLink})})}
+function ensurePanel(){if($("#sosNotificationPanel"))return;const panel=document.createElement("aside");panel.id="sosNotificationPanel";panel.className="sosNotificationPanel";panel.hidden=true;panel.innerHTML=`<div class="notificationPanelHead"><div><p class="sectionEyebrow">Member signal</p><h2>Notifications</h2></div><button type="button" class="notificationClose" aria-label="Close notifications">×</button></div><div class="notificationPanelActions"><button type="button" class="smallAction" data-notification-read-all>Read all & clear</button><button type="button" class="smallAction dangerAction" data-notification-clear-all>Clear all</button></div><div class="notificationCleanupCountdown" data-notification-cleanup hidden><div><strong data-cleanup-title>Clearing notifications…</strong><span data-cleanup-copy>You can cancel before the timer ends.</span></div><button type="button" class="smallAction" data-notification-cancel-clear>Cancel</button><i></i></div><div id="notificationPanelList" class="notificationPanelList"></div>`;document.body.appendChild(panel);panel.querySelector(".notificationClose").addEventListener("click",closePanel);panel.querySelector("[data-notification-read-all]").addEventListener("click",()=>beginCleanup("read"));
+panel.querySelector("[data-notification-clear-all]").addEventListener("click",()=>beginCleanup("all"));
+panel.querySelector("[data-notification-cancel-clear]").addEventListener("click",cancelCleanup);panel.addEventListener("click",async e=>{const row=e.target.closest("[data-notification-id]");if(!row)return;await markRead(row.dataset.notificationId);const found=items.find(item=>String(item.id)===String(row.dataset.notificationId));openNotificationLink(found||{link_url:row.dataset.notificationLink})})}
 function openPanel(){ensurePanel();const p=$("#sosNotificationPanel");p.hidden=false;requestAnimationFrame(()=>p.classList.add("open"));$("#notificationButton")?.setAttribute("aria-expanded","true")}
 function closePanel(){const p=$("#sosNotificationPanel");if(!p)return;p.classList.remove("open");$("#notificationButton")?.setAttribute("aria-expanded","false");setTimeout(()=>p.hidden=true,220)}
 const unread=()=>items.filter(x=>!x.read_at).length;
@@ -27,6 +29,30 @@ function render(){ensurePanel();const count=unread(),badge=$("#notificationCount
 async function load(){if(!user)return;const q=await client.rpc("notification_get_feed",{feed_limit:60});if(q.error){console.warn("[Notifications] Feed unavailable.",q.error);return}items=Array.isArray(q.data)?q.data:[];render()}
 async function markRead(id){const q=await client.rpc("notification_mark_read",{notification_id_input:id});if(q.error)return;const found=items.find(x=>x.id===id);if(found)found.read_at=new Date().toISOString();render()}
 async function markAllRead(){const q=await client.rpc("notification_mark_all_read");if(q.error)return;const now=new Date().toISOString();items.forEach(x=>x.read_at=x.read_at||now);render()}
+function cleanupBox(){return $("#sosNotificationPanel [data-notification-cleanup]")}
+function cancelCleanup(){
+ clearTimeout(cleanupTimer);cleanupTimer=null;cleanupMode=null;
+ const box=cleanupBox();if(box){box.hidden=true;box.classList.remove("isRunning")}
+}
+async function executeCleanup(){
+ const mode=cleanupMode;cancelCleanup();
+ const rpc=mode==="read"?"notification_delete_read":"notification_delete_all";
+ const q=await client.rpc(rpc);
+ if(q.error){window.SOS?.toast?.(q.error.message,{title:"Notifications"});return}
+ await load();
+ window.SOS?.toast?.(`${Number(q.data||0)} notification${Number(q.data||0)===1?"":"s"} cleared.`,{title:"Notifications",icon:"✓"});
+}
+async function beginCleanup(mode){
+ if(cleanupTimer)cancelCleanup();
+ cleanupMode=mode;
+ if(mode==="read")await markAllRead();
+ const box=cleanupBox();if(!box)return;
+ box.hidden=false;box.classList.remove("isRunning");void box.offsetWidth;box.classList.add("isRunning");
+ const title=box.querySelector("[data-cleanup-title]"),copy=box.querySelector("[data-cleanup-copy]");
+ if(title)title.textContent=mode==="read"?"Read notifications will clear in 6 seconds":"All notifications will clear in 6 seconds";
+ if(copy)copy.textContent="Press Cancel to keep them in your notification history.";
+ cleanupTimer=setTimeout(executeCleanup,6000);
+}
 function showRealtimeToast(n){if(n.type==="achievement")window.SOSAchievementSound?.();else window.SOSNotificationSound?.();window.SOS?.toast?.(n.body||"You received a new member update.",{title:String(n.link_url||"").includes("collaboration")?"New collaboration message":n.type==="mention"?"You were mentioned":n.type==="achievement"?"Achievement unlocked":n.title||"New notification",icon:n.type==="achievement"?"🏆":icon(n),action:"Open",onAction:async()=>{await markRead(n.id);openNotificationLink(n)}})}
 async function receive(payload){if(!payload?.new?.id)return;const q=await client.rpc("notification_get_one",{notification_id_input:payload.new.id});if(q.error||!q.data)return;const n=Array.isArray(q.data)?q.data[0]:q.data;if(!n)return;items=[n,...items.filter(x=>x.id!==n.id)];render();showRealtimeToast(n)}
 async function subscribe(){if(channel)await client.removeChannel(channel);channel=client.channel(`sos-notifications-${user.id}`).on("postgres_changes",{event:"INSERT",schema:"public",table:"notifications",filter:`user_id=eq.${user.id}`},receive).on("postgres_changes",{event:"UPDATE",schema:"public",table:"notifications",filter:`user_id=eq.${user.id}`},load).subscribe()}

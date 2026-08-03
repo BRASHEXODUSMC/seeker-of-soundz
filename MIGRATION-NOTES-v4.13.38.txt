@@ -1,0 +1,27 @@
+Seeker Of SoundZ v4.13.38
+NEW GITHUB + NEW SUPABASE CONNECTION
+
+GitHub repository:
+https://github.com/Seeker-of-Soundz/seeker-of-soundz
+
+GitHub Pages site:
+https://seeker-of-soundz.github.io/seeker-of-soundz/
+
+Supabase project:
+https://cuocafmdmqgxtjgnopgk.supabase.co
+
+Configured file:
+js/backend-config.js
+
+This package contains the browser-safe publishable key only.
+Never add a service-role key, database password, or JWT secret to GitHub.
+
+IMPORTANT:
+Connecting the website does not copy the old database into the new Supabase project.
+Before login, profiles, forums, collaboration, achievements, notifications, Storage,
+and Admin Hub can work, the new project must receive the database schema, RLS policies,
+Storage buckets, and required functions.
+
+Recommended next step:
+Create one consolidated fresh-project SQL setup for the new Supabase project instead
+of replaying every historical patch individually.

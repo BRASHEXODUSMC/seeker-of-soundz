@@ -1,0 +1,37 @@
+Seeker Of SoundZ v4.17.5
+YOUTUBE PROJECT PICKER + PLAYED WAVEFORM EXPORTS + EXPANDED FX PRESETS
+
+YouTube Project Picker:
+- Adds a YouTube project-selection panel above the studio.
+- Search terms open YouTube results in a new tab.
+- Paste URL from Clipboard loads the selected video immediately.
+- Recently used YouTube projects are saved locally with thumbnails.
+- Use This Video reloads any recent YouTube project into the embedded preview.
+- YouTube remains embedded directly above the waveform and native-video editor.
+
+Waveform exports:
+- Played waveform values are recorded approximately every 100 milliseconds.
+- Download Played Waveform CSV exports time, bass, mid, high and peak values.
+- Download Waveform PNG exports the visible waveform at its current playback position.
+- Download Guide WAV creates a synthetic audio guide derived from the synchronized visual envelope.
+- The guide WAV does not contain or extract YouTube audio.
+- After selecting the original video file, Download Exact Audio WAV exports the decoded audio from that supplied file.
+- Exact WAV export is unavailable until a local or cross-origin-readable original source is provided.
+
+Additional effects:
+- Adds Digital Rain, Snow Noise, Horizon Glow, Circle Spectrum, Grid Flash and Chromatic Pulse.
+- Adds Riddim Reactor, Tearout Chaos, Melodic Glow, Drum & Bass Rush, Color Bass, Retro Club, Minimal Visualizer and Maximum FX presets.
+- Existing effects and presets remain unchanged.
+
+Page-position fix:
+- Non-submit studio button actions preserve the current scroll coordinates.
+- Empty # links are prevented from jumping to the top or bottom of the document.
+- All new controls use explicit button types.
+- Recent project selection and preset changes remain in the current viewport.
+
+YouTube restriction:
+- Embedded YouTube audio and video frames are protected and cannot be exported as an edited video or exact audio WAV from browser JavaScript.
+- The original file workflow remains the path for exact waveform analysis, WAV export and final MP4/WEBM rendering.
+
+Supabase:
+- No SQL or Storage update is required.

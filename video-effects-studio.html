@@ -69,6 +69,7 @@
   <link rel="stylesheet" href="css/v4.17.2-expanded-video-fx-producer.css?v=4.17.2">
   <link rel="stylesheet" href="css/v4.17.3-youtube-compatibility.css?v=4.17.3">
   <link rel="stylesheet" href="css/v4.17.4-youtube-synced-fx.css?v=4.17.4">
+  <link rel="stylesheet" href="css/v4.17.5-youtube-project-waveform.css?v=4.17.5">
 </head>
  <body>
   <div id="loader">
@@ -148,6 +149,19 @@
    <div><p class="sectionEyebrow">Members Access</p><h2>Checking premium access…</h2><p>Administrators, owners, developers, and premium members can use this studio.</p></div>
   </div>
   <div id="videoEffectsStudio" class="videoEffectsStudioV4171" hidden>
+   <section class="youtubeProjectPickerV4175">
+    <div class="sectionHeading">
+     <p class="sectionEyebrow">YouTube Project Picker</p>
+     <h2>Find a video and use it in your project</h2>
+     <p>Search YouTube in a new tab, paste the selected video URL, preview it here, and save it to your recent project list.</p>
+    </div>
+    <div class="youtubePickerActionsV4175">
+     <input id="youtubeSearchV4175" type="search" placeholder="Search words, artist, track, or tutorial">
+     <button id="searchYouTubeV4175" class="secondaryButton" type="button">Search YouTube</button>
+     <button id="useClipboardVideoV4175" class="secondaryButton" type="button">Paste URL from Clipboard</button>
+    </div>
+    <div class="youtubeRecentProjectsV4175" id="youtubeRecentProjectsV4175"></div>
+   </section>
    <section class="videoStudioInputV4171">
     <div id="videoDropzoneV4171" class="videoStudioDropzoneV4171" tabindex="0" role="button">
      <input id="videoFileV4171" type="file" accept="video/*" hidden>
@@ -183,6 +197,9 @@
       <button id="analyzeVideoV4171" class="primaryButton" type="button">Regenerate Waveform</button>
       <button id="downloadSourceVideoV4172" class="secondaryButton" type="button" disabled>Download Source Video</button>
       <button id="downloadWaveformV4171" class="secondaryButton" type="button" disabled>Download Waveform PNG</button>
+      <button id="downloadWaveformDataV4175" class="secondaryButton" type="button" disabled>Download Played Waveform CSV</button>
+      <button id="downloadGuideWavV4175" class="secondaryButton" type="button" disabled>Download Guide WAV</button>
+      <button id="downloadExactWavV4175" class="secondaryButton" type="button" disabled>Download Exact Audio WAV</button>
      </div>
      <div class="videoAssetStatusV4172" id="videoAssetStatusV4172">
       <span data-video-ready>Video: waiting</span>
@@ -200,6 +217,14 @@
       <button type="button" class="smallAction" data-effect-preset="vhs">VHS Static</button>
       <button type="button" class="smallAction" data-effect-preset="festival">Festival Lasers</button>
       <button type="button" class="smallAction" data-effect-preset="cinematic">Cinematic</button>
+      <button type="button" class="smallAction" data-effect-preset="riddim">Riddim Reactor</button>
+      <button type="button" class="smallAction" data-effect-preset="tearout">Tearout Chaos</button>
+      <button type="button" class="smallAction" data-effect-preset="melodic">Melodic Glow</button>
+      <button type="button" class="smallAction" data-effect-preset="dnb">Drum & Bass Rush</button>
+      <button type="button" class="smallAction" data-effect-preset="colorbass">Color Bass</button>
+      <button type="button" class="smallAction" data-effect-preset="retroclub">Retro Club</button>
+      <button type="button" class="smallAction" data-effect-preset="minimal">Minimal Visualizer</button>
+      <button type="button" class="smallAction" data-effect-preset="maximal">Maximum FX</button>
       <button type="button" class="smallAction" data-effect-clear>Clear Effects</button>
      </div>
      <details class="effectGroupV4172" open>
@@ -283,7 +308,18 @@
        <label class="effectToggleV4171"><input type="checkbox" data-effect="sparkles"><span><strong>Sparkle Hits</strong><small>Bright star hits on transients.</small></span></label>
       </div>
      </details>
-     <label>Effect strength <input id="effectStrengthV4171" type="range" min="0" max="1" value=".55" step=".05"></label>
+     <details class="effectGroupV4172">
+     <summary>Atmosphere Effects <span>6</span></summary>
+     <div class="effectGridV4172">
+      <label class="effectToggleV4171"><input type="checkbox" data-effect="digitalRain"><span><strong>Digital Rain</strong><small>Falling electronic code lines.</small></span></label>
+      <label class="effectToggleV4171"><input type="checkbox" data-effect="snowNoise"><span><strong>Snow Noise</strong><small>Soft floating white-noise particles.</small></span></label>
+      <label class="effectToggleV4171"><input type="checkbox" data-effect="horizonGlow"><span><strong>Horizon Glow</strong><small>A bright reactive horizon line.</small></span></label>
+      <label class="effectToggleV4171"><input type="checkbox" data-effect="circleSpectrum"><span><strong>Circle Spectrum</strong><small>Radial spectrum around the center.</small></span></label>
+      <label class="effectToggleV4171"><input type="checkbox" data-effect="gridFlash"><span><strong>Grid Flash</strong><small>Electronic grid pulses on peaks.</small></span></label>
+      <label class="effectToggleV4171"><input type="checkbox" data-effect="chromaticPulse"><span><strong>Chromatic Pulse</strong><small>Layered color rings on bass hits.</small></span></label>
+     </div>
+    </details>
+    <label>Effect strength <input id="effectStrengthV4171" type="range" min="0" max="1" value=".55" step=".05"></label>
      <label>Beat sensitivity <input id="beatSensitivityV4172" type="range" min=".4" max="2" value="1" step=".05"></label>
      <label>Overlay opacity <input id="overlayOpacityV4172" type="range" min=".1" max="1" value=".8" step=".05"></label>
      <button id="renderVideoV4171" class="primaryButton" type="button">Render Download</button>
@@ -429,6 +465,6 @@
   <script src="js/legacy-achievement-sync-v4.13.33.js?v=4.13.33"></script>
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
-  <script src="js/video-effects-studio-v4.17.4.js?v=4.17.4"></script>
+  <script src="js/video-effects-studio-v4.17.5.js?v=4.17.5"></script>
 </body>
 </html>

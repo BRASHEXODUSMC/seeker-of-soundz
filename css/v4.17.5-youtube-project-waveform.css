@@ -1,0 +1,116 @@
+/* Seeker Of SoundZ v4.17.5 — YouTube project picker, waveform exports, expanded presets */
+
+.youtubeProjectPickerV4175{
+  display:grid;
+  gap:14px;
+  padding:20px;
+  border:1px solid rgba(198,150,255,.19);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 8% 0,rgba(145,63,213,.14),transparent 40%),
+    rgba(255,255,255,.02);
+}
+.youtubeProjectPickerV4175 .sectionHeading{
+  margin:0;
+}
+.youtubePickerActionsV4175{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto auto;
+  gap:9px;
+}
+.youtubePickerActionsV4175 input{
+  min-height:47px;
+  padding:0 14px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;
+  background:#0d0911;
+  color:#fff;
+}
+.youtubePickerActionsV4175 button{
+  margin:0!important;
+}
+.youtubeRecentProjectsV4175{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:10px;
+}
+.youtubeRecentProjectsV4175>p{
+  color:#a79ca9;
+}
+.youtubeRecentProjectsV4175 article{
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:15px;
+  background:rgba(0,0,0,.18);
+}
+.youtubeRecentProjectsV4175 article img{
+  width:100%;
+  aspect-ratio:16/9;
+  display:block;
+  object-fit:cover;
+}
+.youtubeRecentProjectsV4175 article>div{
+  display:grid;
+  gap:5px;
+  padding:11px;
+}
+.youtubeRecentProjectsV4175 article small{
+  overflow:hidden;
+  color:#988e9d;
+  text-overflow:ellipsis;
+}
+.youtubeRecentProjectsV4175 .smallAction{
+  width:100%;
+  margin:5px 0 0!important;
+}
+
+.videoTransportV4171{
+  align-items:stretch;
+}
+.videoTransportV4171 button{
+  min-height:42px;
+}
+
+.effectPresetRowV4172{
+  max-height:160px;
+  overflow:auto;
+  padding:2px;
+}
+.effectPresetRowV4172::-webkit-scrollbar{
+  height:7px;
+  width:7px;
+}
+.effectPresetRowV4172::-webkit-scrollbar-thumb{
+  border-radius:999px;
+  background:rgba(176,107,237,.3);
+}
+
+/* Prevent focus and activation from shifting the editor viewport. */
+.videoEffectsStudioV4171 button,
+.videoEffectsStudioV4171 a,
+.videoEffectsStudioV4171 summary{
+  scroll-margin:0!important;
+}
+.videoEffectsStudioV4171 :focus{
+  scroll-margin-block:0!important;
+}
+
+@media(max-width:900px){
+  .youtubePickerActionsV4175{
+    grid-template-columns:1fr 1fr;
+  }
+  .youtubePickerActionsV4175 input{
+    grid-column:1/-1;
+  }
+}
+@media(max-width:560px){
+  .youtubePickerActionsV4175{
+    grid-template-columns:1fr;
+  }
+  .youtubePickerActionsV4175 input{
+    grid-column:auto;
+  }
+  .youtubePickerActionsV4175 button{
+    width:100%;
+  }
+}

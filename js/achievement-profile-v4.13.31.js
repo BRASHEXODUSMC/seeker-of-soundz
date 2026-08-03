@@ -47,11 +47,12 @@ function localAchievementFallback(){
 async function load(){
  if(loading)return;loading=true;
  try{
-  const [a,h]=await Promise.allSettled([
+  const [a,h,q]=await Promise.allSettled([
    client.rpc('get_my_achievement_profile'),
-   client.rpc('get_my_progression_hub')
+   client.rpc('get_my_progression_hub'),
+   client.rpc('get_my_active_quests')
   ]);
-  const ar=a.status==='fulfilled'?a.value:null,hr=h.status==='fulfilled'?h.value:null;
+  const ar=a.status==='fulfilled'?a.value:null,hr=h.status==='fulfilled'?h.value:null,qr=q.status==='fulfilled'?q.value:null;
   if(ar&&!ar.error&&ar.data)achievementData=typeof ar.data==='string'?JSON.parse(ar.data):ar.data;
   else achievementData=localAchievementFallback();
   if(hr&&!hr.error&&hr.data)hubData=typeof hr.data==='string'?JSON.parse(hr.data):hr.data;
@@ -100,7 +101,8 @@ function ensureModal(){
  modal.addEventListener('click',e=>{
   if(e.target===modal||e.target.closest('.achievementModalCloseV41330'))close();
   const tab=e.target.closest('[data-progression-tab]');if(tab){activeTab=tab.dataset.progressionTab;renderModal()}
-  const claim=e.target.closest('[data-claim-quest]');if(claim)claimQuest(claim);
+  const start=e.target.closest('[data-start-quest]');if(start)startQuest(start);
+   const claim=e.target.closest('[data-claim-quest]');if(claim)claimQuest(claim);
   const title=e.target.closest('[data-select-title]');if(title)selectTitle(title.dataset.selectTitle);
  });
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close()});
@@ -119,7 +121,7 @@ function questsHtml(){
  const groups=['daily','weekly','seasonal','community'];
  return groups.map(type=>{
   const rows=quests.filter(q=>q.type===type);if(!rows.length)return'';
-  return `<section class="questGroupV41331"><header><h3>${type[0].toUpperCase()+type.slice(1)} ${type==='daily'?'Quests':'Challenges'}</h3><span>${rows.filter(q=>q.completed).length}/${rows.length} complete</span></header><div>${rows.map(q=>{const pct=Math.min(100,Math.round(Number(q.progress||0)/Number(q.target||1)*100));return `<article class="questCardV41331 ${q.completed?'isComplete':''} ${q.claimed?'isClaimed':''}"><div><strong>${esc(q.name)}</strong><p>${esc(q.description)}</p><small>${q.progress}/${q.target} • ${q.xp_reward} XP${q.title_reward?` • Title: ${esc(q.title_reward)}`:''}</small></div><div class="questProgressV41331"><i style="width:${pct}%"></i></div>${q.completed&&!q.claimed?`<button class="smallAction" data-claim-quest="${esc(q.code)}">Claim Reward</button>`:q.claimed?'<span class="questClaimedV41331">Claimed ✓</span>':'<span class="questPendingV41331">In progress</span>'}</article>`}).join('')}</div></section>`;
+  return `<section class="questGroupV41331"><header><h3>${type[0].toUpperCase()+type.slice(1)} ${type==='daily'?'Quests':'Challenges'}</h3><span>${rows.filter(q=>q.completed).length}/${rows.length} complete</span></header><div>${rows.map(q=>{const pct=Math.min(100,Math.round(Number(q.progress||0)/Number(q.target||1)*100));return `<article class="questCardV41331 ${q.completed?'isComplete':''} ${q.claimed?'isClaimed':''} ${q.started===false?'isAvailable':''}"><div><strong>${esc(q.icon||'⚡')} ${esc(q.name)}</strong><p>${esc(q.description)}</p><small>${q.progress}/${q.target} • ${q.xp_reward} XP${q.title_reward?` • Title: ${esc(q.title_reward)}`:''}</small></div><div class="questProgressV41331"><i style="width:${pct}%"></i></div>${q.started===false?`<button class="smallAction questStartButtonV4141" data-start-quest="${esc(q.code)}">Start Quest</button>`:q.completed&&!q.claimed?`<button class="smallAction" data-claim-quest="${esc(q.code)}">Claim Reward</button>`:q.claimed?'<span class="questClaimedV41331">Claimed ✓</span>':'<span class="questPendingV41331">Active Quest</span>'}</article>`}).join('')}</div></section>`;
  }).join('')||'<p class="emptyState">No quests are active right now.</p>';
 }
 function eventsHtml(){
@@ -139,7 +141,14 @@ function renderModal(){
  box.querySelector('.progressionHeroV41331').innerHTML=heroHtml();
  box.querySelector('.progressionContentV41331').innerHTML=activeTab==='achievements'?achievementsHtml():activeTab==='quests'?questsHtml():activeTab==='events'?eventsHtml():activeTab==='titles'?titlesHtml():rankingsHtml();
 }
-async function claimQuest(button){
+async function startQuest(button){
+  button.disabled=true;
+  const q=await client.rpc('start_my_quest',{quest_code_input:button.dataset.startQuest});
+  if(q.error){button.disabled=false;return window.SOS?.toast?.(q.error.message,{title:'Quest'})}
+  window.SOS?.toast?.(`“${q.data?.name||'Quest'}” is now active.`,{title:'Quest Started',icon:'⚡'});
+  await load();
+ }
+ async function claimQuest(button){
  button.disabled=true;
  const q=await client.rpc('claim_my_quest',{quest_code_input:button.dataset.claimQuest});
  if(q.error){button.disabled=false;return window.SOS?.toast?.(q.error.message,{title:'Quest'})}

@@ -1,0 +1,12 @@
+
+.questCardV41331.isAvailable{
+  border-style:dashed;
+  border-color:rgba(190,135,255,.38);
+  background:linear-gradient(135deg,rgba(132,64,196,.07),rgba(255,255,255,.02));
+}
+.questStartButtonV4141{
+  color:#fff!important;
+  border-color:rgba(205,158,255,.45)!important;
+  background:linear-gradient(135deg,rgba(139,72,207,.34),rgba(85,35,125,.25))!important;
+  box-shadow:0 0 18px rgba(150,80,220,.12);
+}

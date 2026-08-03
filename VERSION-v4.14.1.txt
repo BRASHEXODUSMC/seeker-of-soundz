@@ -1,0 +1,6 @@
+Seeker Of SoundZ v4.14.1
+- Dedicated active quest feed
+- Member Start Quest action
+- Automatic enrollment of existing members into active quests
+- Quests tab no longer depends only on the older progression hub response
+- Existing achievement, XP, claim, admin, event, and profile systems preserved

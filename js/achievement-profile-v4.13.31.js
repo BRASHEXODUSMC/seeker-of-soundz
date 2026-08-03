@@ -156,10 +156,13 @@ async function open(){ensureModal();modal.hidden=false;document.body.classList.a
 function close(){if(!modal)return;modal.classList.remove('open');document.body.classList.remove('achievementModalOpenV41330');setTimeout(()=>modal.hidden=true,220)}
 function bind(){
  document.addEventListener('click',e=>{if(e.target.closest('[data-open-achievements]'))open()});
+ window.addEventListener('sos:open-achievements',()=>open());
+ window.addEventListener('hashchange',()=>{if(location.hash==='#achievements')open()});
  const observer=new MutationObserver(()=>{const card=document.querySelector('.featuredAchievementV46');if(card&&!card.dataset.achievementReady&&achievementData)updateCard()});
  observer.observe(document.getElementById('memberDashboard')||document.body,{childList:true,subtree:true});
  window.addEventListener('sos:session',()=>setTimeout(load,80));window.addEventListener('sos:supabase-session',()=>setTimeout(load,80));
 }
-async function boot(){bind();const{data}=await client.auth.getSession();if(data.session)await load()}
+window.SOSProgression={open,close,load};
+async function boot(){bind();const{data}=await client.auth.getSession();if(data.session)await load();if(location.hash==='#achievements')setTimeout(open,120)}
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',boot,{once:true}):boot();
 })();

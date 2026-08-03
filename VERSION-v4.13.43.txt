@@ -1,0 +1,23 @@
+Seeker Of SoundZ v4.13.43
+CART LAYER, ACTIVE QUESTS, AND ACHIEVEMENT TOAST FIX
+
+PRESERVED:
+- Existing navigation layout and controls
+- Existing cart design and cart behavior
+- Existing Achievement Hall layout
+- Existing notifications and toast styling
+- Existing profile, forums, admin, merch, and Supabase systems
+
+FIXED:
+- Cart and Account drawers now appear above the navigation layer.
+- Mobile drawer sizing and positioning remain responsive.
+- Achievement notification Open actions now open Achievement Hall.
+- Achievement notification items work from the notification panel.
+- members.html#achievements automatically opens the progression center.
+- Added active daily, weekly, and community quest definitions.
+
+UPDATE TYPE:
+Website + one SQL patch
+
+RUN ONLY:
+supabase/patch-v4.13.43-active-quests.sql

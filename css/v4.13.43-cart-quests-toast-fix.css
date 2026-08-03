@@ -1,0 +1,31 @@
+/* Seeker Of SoundZ v4.13.43 — focused cart/nav stacking fix */
+.cartDrawer,
+.accountDrawer{
+  z-index:65000!important;
+  top:calc(var(--nav-height,70px) + 26px)!important;
+  max-height:calc(100vh - var(--nav-height,70px) - 46px)!important;
+  isolation:isolate!important;
+  pointer-events:none;
+}
+.cartDrawer.open,
+.accountDrawer.open{
+  pointer-events:auto!important;
+}
+@media(max-width:1000px){
+  .cartDrawer,
+  .accountDrawer{
+    top:86px!important;
+    max-height:calc(100vh - 102px)!important;
+  }
+}
+@media(max-width:600px){
+  .cartDrawer,
+  .accountDrawer{
+    right:10px!important;
+    width:calc(100vw - 20px)!important;
+    top:78px!important;
+    max-height:calc(100vh - 90px)!important;
+    padding:18px!important;
+    border-radius:21px!important;
+  }
+}

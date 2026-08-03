@@ -1,0 +1,22 @@
+Seeker Of SoundZ v4.17.4
+YOUTUBE SYNCHRONIZED EFFECTS WORKFLOW
+
+YouTube mode:
+- Loads YouTube through the official iframe Player API.
+- Synchronizes a generated visual waveform to the YouTube player's current time and duration.
+- Draws selected visual effects live over the embedded YouTube player.
+- Supports presets and all existing procedural effects in the live overlay.
+- Lets members download the synchronized waveform guide as PNG.
+- Keeps YouTube URL copy and Open on YouTube controls.
+- Adds Use Original File for Final Export.
+- Selecting the original file preserves the selected effects and timeline values, then enables exact waveform analysis and final MP4/WEBM rendering.
+
+Accuracy and export:
+- The YouTube-synchronized waveform is a deterministic visual guide, not an audio-derived waveform.
+- YouTube's protected iframe does not expose audio samples or video pixels to the website.
+- A final edited copy of the YouTube iframe cannot be rendered or downloaded by browser canvas.
+- Exact waveform generation and a downloadable edited video require the original local file or a direct cross-origin-enabled MP4/WEBM source.
+- This avoids downloading or bypassing protected YouTube media.
+
+Supabase:
+- No SQL, Storage bucket, MIME rule, or file-path update is required.

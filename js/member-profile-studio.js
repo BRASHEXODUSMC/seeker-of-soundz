@@ -189,29 +189,23 @@
         if (uploadedUrl) avatarUrl = uploadedUrl;
 
         const profileValues = {
-          id: user.id,
-          username: session.username || user.user_metadata?.username || `member_${user.id.slice(0, 8)}`,
-          display_name: String(fields.get('displayName') || '').trim(),
-          location: String(fields.get('location') || '').trim(),
-          biography: String(fields.get('bio') || '').trim(),
-          avatar_url: avatarUrl,
-          activity_status: String(fields.get('activityStatus') || 'Exploring the frequency').trim().slice(0,80),
-          presence_visibility: String(fields.get('presenceVisibility') || 'automatic'),
-          last_seen_at: new Date().toISOString(),
-          social_links: {
+          p_username: session.username || user.user_metadata?.username || `member_${user.id.slice(0, 8)}`,
+          p_display_name: String(fields.get('displayName') || '').trim(),
+          p_location: String(fields.get('location') || '').trim(),
+          p_biography: String(fields.get('bio') || '').trim(),
+          p_avatar_url: avatarUrl,
+          p_activity_status: String(fields.get('activityStatus') || 'Exploring the frequency').trim().slice(0,80),
+          p_presence_visibility: String(fields.get('presenceVisibility') || 'automatic'),
+          p_social_links: {
             YouTube: String(fields.get('youtube') || '').trim(),
             SoundCloud: String(fields.get('soundcloud') || '').trim(),
             Instagram: String(fields.get('instagram') || '').trim(),
             Twitch: String(fields.get('twitch') || '').trim()
-          },
-          updated_at: new Date().toISOString()
+          }
         };
 
         const { data: savedProfile, error: saveError } = await client
-          .from('profiles')
-          .upsert(profileValues, { onConflict: 'id' })
-          .select('*')
-          .single();
+          .rpc('save_my_profile', profileValues);
 
         if (saveError) throw saveError;
         if (!savedProfile) throw new Error('The profile was not returned after saving.');

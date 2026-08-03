@@ -1,0 +1,15 @@
+Seeker Of SoundZ v4.13.41
+SECURE PROFILE SAVE FIX
+
+Fixes:
+- permission denied for table profiles
+- Avatar/profile update failing because browser upsert attempted protected-column access
+
+Changes:
+- Profile page now calls save_my_profile()
+- The function updates only auth.uid()
+- Protected role, rank, reputation, ban, and admin fields cannot be changed
+- Existing profile layout and upload system remain unchanged
+
+Update type:
+Website + one SQL patch

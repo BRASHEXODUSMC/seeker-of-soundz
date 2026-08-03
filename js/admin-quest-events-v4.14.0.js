@@ -83,7 +83,13 @@ function eventForm(e={}){
  <div class="formRow"><label>Details link<input name="detailsUrl" value="${esc(e.details_url||'')}"></label><label>Visibility<select name="visibility">${['public','members','private'].map(x=>`<option ${e.visibility===x?'selected':''}>${x}</option>`).join('')}</select></label></div>
  <div class="formRow"><label class="checkLabel"><input name="featured" type="checkbox" ${e.is_featured?'checked':''}> Featured event</label><label class="checkLabel"><input name="published" type="checkbox" ${e.is_published?'checked':''}> Published</label></div>
  <label class="checkLabel"><input name="responses" type="checkbox" ${e.allow_responses!==false?'checked':''}> Allow Going / Interested responses</label>
- <label>Upload event photos<input name="photos" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple></label>
+ <div class="eventPhotoDropzoneV4151" data-event-photo-dropzone tabindex="0" role="button" aria-label="Upload event photos">
+   <input id="eventPhotoInputV4151" name="photos" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden>
+   <div class="eventPhotoDropzoneIconV4151">▧</div>
+   <div><strong>Drag and drop event photos here</strong><span>or click to browse PNG, JPG, WEBP, or GIF files</span></div>
+   <button type="button" class="eventPhotoBrowseButtonV4151">Choose Photos</button>
+ </div>
+ <div class="eventPhotoPreviewGridV4151" data-event-photo-previews hidden></div>
  <div class="adminItemActions"><button class="primaryButton" type="submit">${e.id?'Save Event':'Create Event'}</button>${e.id?'<button class="secondaryButton" type="button" data-cancel-event>Edit New Event</button>':''}</div>
  </form>`;
 }
@@ -102,6 +108,43 @@ async function renderEvents(){
  panel.innerHTML=`<div class="adminSectionHead"><div><p class="sectionEyebrow">Social Event CMS</p><h2>Events Manager</h2></div><span class="statusPill">${events.filter(x=>x.is_published).length} published</span></div>
  <p class="adminLead">Create events, upload or delete photos, publish countdowns, collect Going/Interested responses, and send member announcements.</p>
  ${eventForm(e)}<div class="adminEventGridV414">${eventCards()}</div>`;
+ bindEventDropzone(document.getElementById('eventStudioForm'));
+}
+function setEventDropFiles(form,files){
+ const input=form?.querySelector('#eventPhotoInputV4151');if(!input)return;
+ const transfer=new DataTransfer();
+ [...files].filter(file=>file&&file.type?.startsWith('image/')).forEach(file=>transfer.items.add(file));
+ input.files=transfer.files;
+ renderEventDropPreviews(form,input.files);
+}
+function renderEventDropPreviews(form,files){
+ const grid=form?.querySelector('[data-event-photo-previews]');if(!grid)return;
+ grid.innerHTML='';
+ const list=[...files];
+ grid.hidden=!list.length;
+ list.forEach((file,index)=>{
+  const url=URL.createObjectURL(file);
+  const card=document.createElement('figure');
+  card.innerHTML=`<img src="${url}" alt="${esc(file.name)}"><figcaption><strong>${esc(file.name)}</strong><small>${Math.max(1,Math.round(file.size/1024))} KB</small></figcaption><button type="button" data-remove-event-drop-photo="${index}" aria-label="Remove ${esc(file.name)}">×</button>`;
+  card.querySelector('img').addEventListener('load',()=>URL.revokeObjectURL(url),{once:true});
+  grid.appendChild(card);
+ });
+}
+function bindEventDropzone(form){
+ const zone=form?.querySelector('[data-event-photo-dropzone]'),input=form?.querySelector('#eventPhotoInputV4151');
+ if(!zone||!input||zone.dataset.bound==='1')return;
+ zone.dataset.bound='1';
+ const openPicker=()=>input.click();
+ zone.addEventListener('click',e=>{if(!e.target.closest('button')||e.target.closest('.eventPhotoBrowseButtonV4151'))openPicker()});
+ zone.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPicker()}});
+ input.addEventListener('change',()=>renderEventDropPreviews(form,input.files));
+ ['dragenter','dragover'].forEach(type=>zone.addEventListener(type,e=>{e.preventDefault();zone.classList.add('isDragging')}));
+ ['dragleave','drop'].forEach(type=>zone.addEventListener(type,e=>{e.preventDefault();zone.classList.remove('isDragging')}));
+ zone.addEventListener('drop',e=>setEventDropFiles(form,e.dataTransfer?.files||[]));
+ form.addEventListener('click',e=>{
+  const remove=e.target.closest('[data-remove-event-drop-photo]');if(!remove)return;
+  const files=[...input.files];files.splice(Number(remove.dataset.removeEventDropPhoto),1);setEventDropFiles(form,files);
+ });
 }
 async function uploadEventPhotos(eventId,files){
  if(!files?.length)return [];

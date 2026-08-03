@@ -1,0 +1,19 @@
+Seeker Of SoundZ v4.15.1
+QUEST ACTIVATION + EVENT PHOTO DROPZONE
+
+Fixed:
+- Quest Start/Activate buttons now use a capture-phase click handler.
+- Decorative layers cannot intercept quest activation clicks.
+- Activation button shows an Activating state and restores itself on failure.
+- Quest buttons now match the existing purple/black Seeker Of SoundZ theme.
+- Button styling is scoped to progression quest cards and does not affect other site buttons.
+
+Added:
+- Drag-and-drop photo upload inside the existing Admin Hub Events form.
+- Click-to-browse remains available.
+- Multiple-image preview before saving.
+- Remove individual selected photos before upload.
+- Existing event layout, photo uploader, Storage bucket, and event cards remain unchanged.
+
+SQL:
+- No new SQL is required.

@@ -1,0 +1,222 @@
+/* Seeker Of SoundZ v4.15.1 — Quest activation and Event photo dropzone */
+
+/* Keep quest actions above every decorative layer inside the progression modal. */
+.progressionContentV41331,
+.questGroupV41331,
+.questCardV41331,
+.questCardV41331 > *{
+  position:relative;
+}
+.questCardV41331::before,
+.questCardV41331::after{
+  pointer-events:none!important;
+}
+.questCardV41331 .smallAction,
+.questStartButtonV4141{
+  position:relative!important;
+  z-index:8!important;
+  pointer-events:auto!important;
+  cursor:pointer!important;
+  min-width:128px;
+  min-height:42px;
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  padding:10px 17px!important;
+  border:1px solid rgba(201,157,255,.5)!important;
+  border-radius:13px!important;
+  background:
+    linear-gradient(135deg,rgba(127,56,196,.78),rgba(48,21,78,.96))!important;
+  color:#fff!important;
+  font:inherit!important;
+  font-size:.74rem!important;
+  font-weight:900!important;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.13),
+    0 9px 24px rgba(0,0,0,.3),
+    0 0 18px rgba(150,78,230,.16)!important;
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease!important;
+}
+.questCardV41331 .smallAction:hover,
+.questCardV41331 .smallAction:focus-visible,
+.questStartButtonV4141:hover,
+.questStartButtonV4141:focus-visible{
+  transform:translateY(-2px);
+  border-color:rgba(231,202,255,.88)!important;
+  background:
+    linear-gradient(135deg,rgba(157,77,229,.92),rgba(66,29,101,.98))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 13px 30px rgba(0,0,0,.36),
+    0 0 25px rgba(177,98,255,.3)!important;
+  outline:none;
+}
+.questCardV41331 .smallAction:disabled,
+.questStartButtonV4141:disabled{
+  opacity:.68!important;
+  cursor:wait!important;
+  transform:none!important;
+}
+
+/* Themed drag-and-drop zone that stays inside the existing Events form. */
+.eventPhotoDropzoneV4151{
+  position:relative;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:15px;
+  align-items:center;
+  min-height:118px;
+  margin-top:7px;
+  padding:19px;
+  border:1px dashed rgba(194,145,255,.42);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(142,65,216,.13),transparent 38%),
+    linear-gradient(145deg,rgba(255,255,255,.038),rgba(255,255,255,.014));
+  color:#f8f0ff;
+  cursor:pointer;
+  overflow:hidden;
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+}
+.eventPhotoDropzoneV4151::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(110deg,transparent 20%,rgba(210,170,255,.08) 48%,transparent 76%);
+  transform:translateX(-120%);
+  transition:transform .55s ease;
+}
+.eventPhotoDropzoneV4151:hover::before,
+.eventPhotoDropzoneV4151.isDragging::before{
+  transform:translateX(120%);
+}
+.eventPhotoDropzoneV4151:hover,
+.eventPhotoDropzoneV4151:focus-visible,
+.eventPhotoDropzoneV4151.isDragging{
+  border-color:rgba(224,192,255,.84);
+  background:
+    radial-gradient(circle at 15% 20%,rgba(153,77,229,.2),transparent 40%),
+    linear-gradient(145deg,rgba(111,46,164,.12),rgba(255,255,255,.018));
+  box-shadow:0 0 0 3px rgba(155,84,228,.08),0 16px 40px rgba(0,0,0,.24);
+  outline:none;
+}
+.eventPhotoDropzoneV4151.isDragging{
+  transform:translateY(-2px);
+}
+.eventPhotoDropzoneIconV4151{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(206,169,255,.35);
+  border-radius:15px;
+  background:rgba(139,68,211,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 0 20px rgba(141,71,214,.16);
+  font-size:1.35rem;
+}
+.eventPhotoDropzoneV4151 > div:nth-child(3){
+  display:grid;
+  gap:5px;
+}
+.eventPhotoDropzoneV4151 strong{
+  font-size:.94rem;
+}
+.eventPhotoDropzoneV4151 span{
+  color:rgba(238,226,248,.62);
+  font-size:.76rem;
+}
+.eventPhotoBrowseButtonV4151{
+  position:relative;
+  z-index:2;
+  min-height:41px;
+  padding:9px 14px;
+  border:1px solid rgba(204,162,255,.34);
+  border-radius:12px;
+  background:rgba(126,55,187,.15);
+  color:#fff;
+  font:inherit;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.eventPhotoPreviewGridV4151{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(145px,1fr));
+  gap:10px;
+  margin:12px 0 4px;
+}
+.eventPhotoPreviewGridV4151[hidden]{
+  display:none!important;
+}
+.eventPhotoPreviewGridV4151 figure{
+  position:relative;
+  min-width:0;
+  margin:0;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;
+  background:rgba(255,255,255,.025);
+}
+.eventPhotoPreviewGridV4151 img{
+  width:100%;
+  aspect-ratio:16/10;
+  object-fit:cover;
+  display:block;
+}
+.eventPhotoPreviewGridV4151 figcaption{
+  display:grid;
+  gap:3px;
+  padding:9px 11px;
+}
+.eventPhotoPreviewGridV4151 figcaption strong{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:.72rem;
+}
+.eventPhotoPreviewGridV4151 figcaption small{
+  color:#9d94a4;
+  font-size:.63rem;
+}
+.eventPhotoPreviewGridV4151 button{
+  position:absolute;
+  top:7px;
+  right:7px;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:50%;
+  background:rgba(7,4,11,.9);
+  color:#fff;
+  cursor:pointer;
+}
+
+@media(max-width:700px){
+  .questCardV41331 .smallAction,
+  .questStartButtonV4141{
+    width:100%;
+    min-width:0;
+  }
+  .eventPhotoDropzoneV4151{
+    grid-template-columns:auto minmax(0,1fr);
+  }
+  .eventPhotoBrowseButtonV4151{
+    grid-column:1/-1;
+    width:100%;
+  }
+}

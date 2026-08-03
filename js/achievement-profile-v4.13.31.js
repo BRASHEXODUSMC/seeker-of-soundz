@@ -152,11 +152,26 @@ function renderModal(){
  box.querySelector('.progressionContentV41331').innerHTML=activeTab==='achievements'?achievementsHtml():activeTab==='quests'?questsHtml():activeTab==='events'?eventsHtml():activeTab==='titles'?titlesHtml():rankingsHtml();
 }
 async function startQuest(button){
+  if(!button||button.dataset.questBusy==='1')return;
+  const code=String(button.dataset.startQuest||'').trim();
+  if(!code)return window.SOS?.toast?.('This quest is missing its activation code.',{title:'Quest'});
+  button.dataset.questBusy='1';
   button.disabled=true;
-  const q=await client.rpc('start_my_quest',{quest_code_input:button.dataset.startQuest});
-  if(q.error){button.disabled=false;return window.SOS?.toast?.(q.error.message,{title:'Quest'})}
-  window.SOS?.toast?.(`“${q.data?.name||'Quest'}” is now active.`,{title:'Quest Started',icon:'⚡'});
-  await load();
+  const original=button.textContent;
+  button.textContent='Activating…';
+  try{
+   const q=await client.rpc('start_my_quest',{quest_code_input:code});
+   if(q.error)throw q.error;
+   window.SOS?.toast?.(`“${q.data?.name||'Quest'}” is now active.`,{title:'Quest Started',icon:'⚡'});
+   await load();
+   if(modal&&!modal.hidden)renderModal();
+  }catch(error){
+   button.disabled=false;
+   button.textContent=original;
+   window.SOS?.toast?.(error.message||'The quest could not be activated.',{title:'Quest'});
+  }finally{
+   delete button.dataset.questBusy;
+  }
  }
  async function claimQuest(button){
  button.disabled=true;
@@ -174,7 +189,16 @@ async function selectTitle(title){
 async function open(){ensureModal();modal.hidden=false;document.body.classList.add('achievementModalOpenV41330');modal.querySelector('.progressionHeroV41331').innerHTML='<div class="achievementLoadingV41330">Synchronizing progression…</div>';modal.querySelector('.progressionContentV41331').innerHTML='<div class="achievementLoadingV41330">Loading your achievements…</div>';requestAnimationFrame(()=>modal.classList.add('open'));await load();renderModal()}
 function close(){if(!modal)return;modal.classList.remove('open');document.body.classList.remove('achievementModalOpenV41330');setTimeout(()=>modal.hidden=true,220)}
 function bind(){
- document.addEventListener('click',e=>{if(e.target.closest('[data-open-achievements]'))open()});
+ document.addEventListener('click',e=>{
+  const activate=e.target.closest('[data-start-quest]');
+  if(activate){
+   e.preventDefault();
+   e.stopPropagation();
+   startQuest(activate);
+   return;
+  }
+  if(e.target.closest('[data-open-achievements]'))open();
+ },true);
  window.addEventListener('sos:open-achievements',()=>open());
  window.addEventListener('hashchange',()=>{if(location.hash==='#achievements')open()});
  const observer=new MutationObserver(()=>{const card=document.querySelector('.featuredAchievementV46');if(card&&!card.dataset.achievementReady&&achievementData)updateCard()});

@@ -1,0 +1,5 @@
+v4.13.44
+- Force cart/account above navigation.
+- Mobile nav overflow fixes.
+- Admin Quest Management foundation panel added.
+- Ready for full Supabase quest editor.

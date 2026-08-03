@@ -1,0 +1,158 @@
+/* Seeker Of SoundZ v4.16.0 — Homepage Content Studio, public embeds, and slow cubes */
+
+/* Force every cube-based effect to use a slow saved speed. */
+#cubeTransition[data-transition-mode="cubes"].active .transitionCube,
+#cubeTransition.active .transitionCube{
+  animation-duration:2.4s!important;
+  animation-timing-function:cubic-bezier(.42,0,.25,1)!important;
+}
+#sosPageTransition[data-mode="cubes"] .sosTransitionCube,
+#sosPageTransition .sosFxCubes i{
+  animation-duration:2.1s!important;
+  animation-timing-function:cubic-bezier(.42,0,.25,1)!important;
+}
+#loader.loaderCubesActive .loaderMiniCube{
+  animation-duration:8s!important;
+}
+.logoCubeHalo{
+  animation-duration:18s!important;
+}
+.logoCubeHalo i{
+  animation-duration:4.8s!important;
+}
+.experiencePreview[data-transition="cubes"].isPreviewing .previewCube,
+.experiencePreview[data-transition="cubes"].isPreviewing .previewLogoRing{
+  animation-duration:3s!important;
+}
+
+/* Homepage Content Studio */
+.homepageStudioGridV416{
+  display:grid;
+  gap:16px;
+}
+.homepageSlotCardV416{
+  display:grid;
+  gap:13px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 0 0,rgba(130,60,200,.09),transparent 35%),
+    rgba(255,255,255,.024);
+}
+.homepageSlotCardV416 header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+}
+.homepageSlotCardV416 h3{margin:0}
+.homepageSlotCardV416 p{margin:0;color:#aaa0b1;line-height:1.55}
+.homepageSlotCardV416 label:not(.homepageSlotToggleV416){
+  display:grid;
+  gap:8px;
+}
+.homepageSlotToggleV416{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:38px;
+  padding:7px 11px;
+  border:1px solid rgba(190,145,255,.22);
+  border-radius:999px;
+  background:rgba(128,58,186,.08);
+  color:#e8dcf2;
+  font-size:.72rem;
+}
+.homepageSlotPreviewV416{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;
+  background:rgba(0,0,0,.18);
+}
+.homepageSlotPreviewV416 img{
+  width:96px;
+  height:62px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.homepageSlotPreviewV416 div{
+  min-width:0;
+  display:grid;
+  gap:4px;
+}
+.homepageSlotPreviewV416 strong{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.homepageSlotPreviewV416 small,
+.homepageSlotPreviewV416>span{
+  color:#978e9d;
+}
+.homepageStudioActionsV416{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  background:rgba(255,255,255,.02);
+}
+.homepageStudioActionsV416 small{
+  flex-basis:100%;
+  color:#978e9d;
+}
+
+/* Preserve the existing homepage cards while allowing real media embeds. */
+.homepageVideoFrameV416{
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+}
+.homepageVideoFrameV416 iframe,
+.homepageVideoFrameV416 video,
+.homepageVideoFrameV416 img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  border:0;
+}
+#musicPreview audio{
+  width:100%;
+  margin:10px 0 2px;
+}
+#galleryPreview[hidden],
+#musicPreview[hidden],
+#videoPreview[hidden],
+#eventsPreview[hidden]{
+  display:none!important;
+}
+
+@media(min-width:980px){
+  .homepageStudioGridV416{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .homepageStudioActionsV416{
+    grid-column:1/-1;
+  }
+}
+@media(max-width:620px){
+  .homepageSlotCardV416 header{
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .homepageSlotToggleV416{
+    align-self:flex-start;
+  }
+  .homepageStudioActionsV416 .primaryButton,
+  .homepageStudioActionsV416 .secondaryButton{
+    width:100%;
+  }
+}

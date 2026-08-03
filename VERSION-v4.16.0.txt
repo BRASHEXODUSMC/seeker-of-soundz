@@ -1,0 +1,27 @@
+Seeker Of SoundZ v4.16.0
+HOMEPAGE CONTENT STUDIO + PUBLIC GALLERY SYNC
+
+Homepage:
+- Adds Admin Hub → Homepage Content.
+- Assigns existing Video Manager, Music Manager, Events Manager, and Gallery Manager content to the current homepage sections.
+- Keeps the existing homepage layout and section styling.
+- Featured YouTube and Vimeo links render as embedded players.
+- MP4, WEBM, OGG, and data-video links render with native controls.
+- Featured music uses artwork, metadata, and playable preview/full audio.
+- Featured events use the existing event card and countdown layout.
+- Three Gallery Manager images can be assigned to Gallery Highlights.
+- Any managed homepage section can be shown or hidden.
+- Homepage assignments are published to Supabase and update through Realtime.
+
+Gallery:
+- Gallery Manager content can be synchronized to the public Gallery page.
+- Save and delete actions trigger a background gallery synchronization.
+- Public gallery items load from Supabase on every device.
+- Existing static and local content remain as fallback content.
+
+Cube speed:
+- Actual cube transitions, transition effects, loader cubes, logo halo cubes, and profile previews use slower durations.
+- Saved profile transition settings no longer restore the fast cube timing.
+
+Install:
+- Run supabase/patch-v4.16.0-homepage-content-gallery.sql once.

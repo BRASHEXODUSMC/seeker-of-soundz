@@ -1,0 +1,35 @@
+Seeker Of SoundZ v4.14.0
+QUEST & PROGRESSION STUDIO + SOCIAL EVENTS
+
+Preserved:
+- Existing Events page sections, hero, featured card, event calendar, and past-events layout
+- Existing Admin Hub sections and member/forum/collaboration systems
+- Existing cart, account, navigation, loader, transitions, achievements, and notifications
+
+Added:
+- Admin Quest & Progression Studio
+- Daily, weekly, community, and seasonal quest editor
+- Metric, target, XP, rarity, icon, dates, title reward, achievement reward, ordering, active state
+- Optional member notification when a quest is published
+- Starter active quests so the Members Quests tab is populated
+- Supabase social events tables and Realtime support
+- Event creation/editing/deletion
+- Multiple event photo upload and individual photo deletion
+- Featured/published/visibility settings
+- Real live countdown timers
+- Going, Interested, and Not Going responses
+- Event response totals
+- Event announcements sent through the existing Supabase notification/toast system
+- Clickable event photo lightbox
+- Improved four-button mobile navigation utility row
+- Cart/account drawers positioned above the mobile navigation
+
+Update type:
+Website + one SQL patch
+
+Run only:
+supabase/patch-v4.14.0-quest-events-studio.sql
+
+Storage:
+Event photos use the existing public gallery bucket under:
+<admin-user-id>/events/<event-id>/

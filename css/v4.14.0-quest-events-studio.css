@@ -1,0 +1,43 @@
+/* Seeker Of SoundZ v4.14.0 — Quest Studio, Social Events, Mobile Navigation */
+#siteHeader,#mainNav,.navUtility{overflow:visible!important}
+#cartButton{z-index:20!important;overflow:visible!important}
+#cartButton .navBadge{right:-3px!important;top:-3px!important;z-index:30!important}
+.cartDrawer,.accountDrawer{z-index:2147483640!important;transform:translate3d(calc(100% + 40px),0,0)!important}
+.cartDrawer.open,.accountDrawer.open{transform:translate3d(0,0,0)!important}
+
+.questAdminCardV414,.eventAdminCardV414{padding:20px;border:1px solid rgba(255,255,255,.09);border-radius:20px;background:rgba(255,255,255,.025)}
+.adminQuestGridV414,.adminEventGridV414{display:grid;gap:14px}
+.questAdminCardV414 header,.eventAdminCardV414 header{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.questAdminCardV414 header>span{font-size:1.6rem}.questAdminCardV414 header>div{flex:1}
+.questAdminCardV414 p,.eventAdminCardV414 p{color:#aaa;line-height:1.55}
+.questAdminMetaV414,.eventResponseCountsV414{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.questAdminMetaV414 span,.eventResponseCountsV414 span{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.05);font-size:.7rem}
+.questAdminCardV414 i{font-style:normal;font-size:.65rem;padding:5px 8px;border-radius:999px}.questAdminCardV414 i.isActive{color:#7bffad;background:rgba(40,255,120,.08)}.questAdminCardV414 i.isInactive{color:#ff8fa7;background:rgba(255,60,100,.08)}
+.eventAdminCardV414>img{width:100%;height:180px;object-fit:cover;border-radius:15px;margin-bottom:14px}
+.eventAdminMediaV414{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin:12px 0}
+.eventAdminMediaV414 figure{position:relative;margin:0;aspect-ratio:1;border-radius:12px;overflow:hidden}.eventAdminMediaV414 img{width:100%;height:100%;object-fit:cover}.eventAdminMediaV414 button{position:absolute;right:5px;top:5px;width:28px;height:28px;border:0;border-radius:50%;background:rgba(0,0,0,.8);color:#fff}
+
+.eventCountdownV414{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:18px 0}
+.eventCountdownV414 span{padding:10px 7px;border:1px solid rgba(255,255,255,.08);border-radius:13px;background:rgba(255,255,255,.035);text-align:center}
+.eventCountdownV414 strong,.eventCountdownV414 small{display:block}.eventCountdownV414 strong{font-size:1.15rem}.eventCountdownV414 small{font-size:.6rem;color:#8f8796;text-transform:uppercase}
+.eventSocialActionsV414{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.eventSocialActionsV414 button{padding:9px 12px;border:1px solid rgba(188,128,255,.2);border-radius:999px;background:rgba(255,255,255,.03);color:#ddd}
+.eventSocialActionsV414 button.selected{background:rgba(151,77,235,.2);border-color:rgba(210,165,255,.7);color:#fff;box-shadow:0 0 14px rgba(150,75,235,.2)}
+.eventSocialActionsV414 button span{font-weight:900}
+.eventPhotoRailV414{display:flex;gap:8px;overflow:auto;margin-top:15px;padding-bottom:4px}.eventPhotoRailV414 button{flex:0 0 90px;height:70px;padding:0;border:0;border-radius:11px;overflow:hidden}.eventPhotoRailV414 img{width:100%;height:100%;object-fit:cover}
+.eventLightboxV414{position:fixed;inset:0;z-index:2147483646;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.9);opacity:0;visibility:hidden;transition:.2s}.eventLightboxV414.open{opacity:1;visibility:visible}.eventLightboxV414 img{max-width:min(1100px,95vw);max-height:88vh;border-radius:18px}.eventLightboxV414 button{position:fixed;right:20px;top:20px;width:45px;height:45px;border-radius:50%;background:#111;color:#fff;border:1px solid #444;font-size:1.5rem}
+
+@media(max-width:700px){
+ #mainNav .navUtility{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:7px!important}
+ #mainNav .navUtility>.navIconButton,#mainNav .navUtility>.globalSearchButton{padding:0 5px!important;min-width:0!important}
+ #mainNav .navBadge{right:2px!important;top:2px!important;transform:translate(35%,-35%)!important}
+ #mainNav{min-height:116px!important}
+ .cartDrawer,.accountDrawer{top:132px!important;max-height:calc(100svh - 144px)!important}
+ .eventCountdownV414{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .eventSocialActionsV414{display:grid;grid-template-columns:1fr 1fr}.eventSocialActionsV414 button:last-child{grid-column:1/-1}
+}
+@media(max-width:390px){
+ #mainNav .navUtility{gap:5px!important}
+ #mainNav .navUtility>.navIconButton,#mainNav .navUtility>.globalSearchButton{height:42px!important;min-height:42px!important;border-radius:11px!important}
+ #mainNav{padding:8px!important}
+}

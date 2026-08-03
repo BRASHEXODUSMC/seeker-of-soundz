@@ -111,6 +111,7 @@ function ensureModal(){
   if(e.target===modal||e.target.closest('.achievementModalCloseV41330'))close();
   const tab=e.target.closest('[data-progression-tab]');if(tab){activeTab=tab.dataset.progressionTab;renderModal()}
   const reload=e.target.closest('[data-reload-quests]');if(reload)load();
+   const stop=e.target.closest('[data-stop-quest]');if(stop)stopQuest(stop);
    const start=e.target.closest('[data-start-quest]');if(start)startQuest(start);
    const claim=e.target.closest('[data-claim-quest]');if(claim)claimQuest(claim);
   const title=e.target.closest('[data-select-title]');if(title)selectTitle(title.dataset.selectTitle);
@@ -127,11 +128,18 @@ function achievementsHtml(){
  return `<div class="achievementModalSummaryV41330"><div><strong>${m.unlocked}/${m.total}</strong><span>Unlocked</span></div><div><strong>${m.pct}%</strong><span>Complete</span></div><div><strong>${m.points}</strong><span>Achievement points</span></div><div><strong>${m.next?esc(m.next.is_hidden?'Secret milestone':m.next.name):'Complete'}</strong><span>Next milestone</span></div></div><div class="achievementModalProgressV41330"><i style="width:${m.pct}%"></i></div><div class="achievementModalListV41330">${m.list.map(a=>`<article class="achievementItemV41330 ${a.unlocked?'isUnlocked':'isLocked'} ${rarityClass(a.rarity)}"><div class="achievementItemIconV41330">${a.unlocked?(a.icon_url||a.icon||iconFor(a.code)):a.is_hidden?'❔':'🔒'}</div><div><header><h3>${esc(a.is_hidden&&!a.unlocked?'Hidden Achievement':a.name)}</h3><span>${esc(a.rarity||'common')} • ${Number(a.points||0)} pts</span></header><p>${esc(a.is_hidden&&!a.unlocked?'Complete a secret action to reveal this achievement.':a.description)}</p><small>${a.unlocked?(a.earned_at?`Unlocked ${new Date(a.earned_at).toLocaleDateString()}`:'Unlocked'):'Locked'}${a.title_reward?` • Title: ${esc(a.title_reward)}`:''}</small></div></article>`).join('')}</div>`;
 }
 function questsHtml(){
- const quests=Array.isArray(hubData?.quests)?hubData.quests:[];
+ const source=Array.isArray(hubData?.quests)?hubData.quests:[];
+ const seen=new Set();
+ const quests=source.filter(q=>{
+  const key=String(q.code||`${q.type}:${q.name}`).toLowerCase();
+  if(seen.has(key))return false;
+  seen.add(key);
+  return true;
+ });
  const groups=['daily','weekly','seasonal','community'];
  return groups.map(type=>{
   const rows=quests.filter(q=>q.type===type);if(!rows.length)return'';
-  return `<section class="questGroupV41331"><header><h3>${type[0].toUpperCase()+type.slice(1)} ${type==='daily'?'Quests':'Challenges'}</h3><span>${rows.filter(q=>q.completed).length}/${rows.length} complete</span></header><div>${rows.map(q=>{const pct=Math.min(100,Math.round(Number(q.progress||0)/Number(q.target||1)*100));return `<article class="questCardV41331 ${q.completed?'isComplete':''} ${q.claimed?'isClaimed':''} ${q.started===false?'isAvailable':''}"><div><strong>${esc(q.icon||'⚡')} ${esc(q.name)}</strong><p>${esc(q.description)}</p><small>${q.progress}/${q.target} • ${q.xp_reward} XP${q.title_reward?` • Title: ${esc(q.title_reward)}`:''}</small></div><div class="questProgressV41331"><i style="width:${pct}%"></i></div>${q.started===false?`<button class="smallAction questStartButtonV4141" data-start-quest="${esc(q.code)}">Start Quest</button>`:q.completed&&!q.claimed?`<button class="smallAction" data-claim-quest="${esc(q.code)}">Claim Reward</button>`:q.claimed?'<span class="questClaimedV41331">Claimed ✓</span>':'<span class="questPendingV41331">Active Quest</span>'}</article>`}).join('')}</div></section>`;
+  return `<section class="questGroupV41331"><header><h3>${type[0].toUpperCase()+type.slice(1)} ${type==='daily'?'Quests':'Challenges'}</h3><span>${rows.filter(q=>q.completed).length}/${rows.length} complete</span></header><div>${rows.map(q=>{const pct=Math.min(100,Math.round(Number(q.progress||0)/Number(q.target||1)*100));return `<article class="questCardV41331 ${q.completed?'isComplete':''} ${q.claimed?'isClaimed':''} ${q.started===false?'isAvailable':''}"><div><strong>${esc(q.icon||'⚡')} ${esc(q.name)}</strong><p>${esc(q.description)}</p><small>${q.progress}/${q.target} • ${q.xp_reward} XP${q.title_reward?` • Title: ${esc(q.title_reward)}`:''}</small></div><div class="questProgressV41331"><i style="width:${pct}%"></i></div>${q.started===false?`<button type="button" class="smallAction questStartButtonV4141" data-start-quest="${esc(q.code)}">Start Quest</button>`:q.completed&&!q.claimed?`<button type="button" class="smallAction" data-claim-quest="${esc(q.code)}">Claim Reward</button>`:q.claimed?'<span class="questClaimedV41331">Claimed ✓</span>':`<button type="button" class="smallAction questActiveButtonV4152" data-stop-quest="${esc(q.code)}">Deactivate Quest</button>`}</article>`}).join('')}</div></section>`;
  }).join('')||(hubData?.questLoadError?`<div class="emptyState questErrorV415"><strong>Quests could not load.</strong><span>${esc(hubData.questLoadError)}</span><button type="button" class="smallAction" data-reload-quests>Try Again</button></div>`:'<p class="emptyState">No quests are currently available for this period.</p>');
 }
 function eventsHtml(){
@@ -173,6 +181,28 @@ async function startQuest(button){
    delete button.dataset.questBusy;
   }
  }
+ async function stopQuest(button){
+  if(!button||button.dataset.questBusy==='1')return;
+  const code=String(button.dataset.stopQuest||'').trim();
+  if(!code)return;
+  button.dataset.questBusy='1';
+  button.disabled=true;
+  const original=button.textContent;
+  button.textContent='Deactivating…';
+  try{
+   const result=await client.rpc('stop_my_quest',{quest_code_input:code});
+   if(result.error)throw result.error;
+   window.SOS?.toast?.('The quest was deactivated. You can start it again at any time.',{title:'Quest Updated',icon:'⚡'});
+   await load();
+   if(modal&&!modal.hidden)renderModal();
+  }catch(error){
+   button.disabled=false;
+   button.textContent=original;
+   window.SOS?.toast?.(error.message||'The quest could not be deactivated.',{title:'Quest'});
+  }finally{
+   delete button.dataset.questBusy;
+  }
+ }
  async function claimQuest(button){
  button.disabled=true;
  const q=await client.rpc('claim_my_quest',{quest_code_input:button.dataset.claimQuest});
@@ -190,6 +220,13 @@ async function open(){ensureModal();modal.hidden=false;document.body.classList.a
 function close(){if(!modal)return;modal.classList.remove('open');document.body.classList.remove('achievementModalOpenV41330');setTimeout(()=>modal.hidden=true,220)}
 function bind(){
  document.addEventListener('click',e=>{
+  const deactivate=e.target.closest('[data-stop-quest]');
+  if(deactivate){
+   e.preventDefault();
+   e.stopPropagation();
+   stopQuest(deactivate);
+   return;
+  }
   const activate=e.target.closest('[data-start-quest]');
   if(activate){
    e.preventDefault();

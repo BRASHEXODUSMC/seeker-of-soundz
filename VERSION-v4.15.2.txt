@@ -1,0 +1,7 @@
+Seeker Of SoundZ v4.15.2
+- Active Quest text replaced with a working Deactivate Quest button.
+- Deactivated quests immediately return to a working Start Quest button.
+- Added capture-level handlers for both start and deactivate actions.
+- Removed duplicate quest cards by quest code.
+- Existing quest progress, claims, XP, achievements, and profile layout preserved.
+- No SQL required because start_my_quest() and stop_my_quest() already exist.

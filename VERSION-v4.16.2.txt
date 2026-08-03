@@ -1,0 +1,34 @@
+Seeker Of SoundZ v4.16.2
+FEATURED CONTROLS + LOADER PROFILE BUILDER
+
+Gallery Manager:
+- Removes the awkward separated homepage dropdown/button row from each list item.
+- Adds the same Featured-style status card used by Music and Merch directly to the Gallery editor.
+- Featured includes a themed Homepage Position selector for positions 1 through 8.
+- Saving a Featured gallery image immediately updates the selected homepage slot.
+- Gallery list items show a compact Homepage/Position status badge.
+- Existing Gallery page publishing and Supabase synchronization remain intact.
+
+Video Manager:
+- Replaces the far-spaced Featured checkbox with the same status-card layout used by Music.
+- Featured clearly explains that it controls the homepage Featured Video.
+- Adds New Video and Members Only status cards.
+- Only one video remains homepage Featured at a time.
+- Saving a Featured video immediately updates the Supabase homepage slot.
+- Homepage Content dropdowns clearly label Homepage Featured, Video Hub, New Video, and Members Only entries.
+
+Homepage Content:
+- Featured Gallery, Video, and Music selections remain visible in their matching dropdowns.
+- Existing Supabase homepage slots and page layouts remain unchanged.
+
+Loader:
+- Loader completion swipe, scan, horizon, and gate effects remain disabled unless Loader Completion Swipe is explicitly saved.
+- Adds a Loader Builder and live loader preview to Personal Experience Studio.
+- Members can choose Loading Bar, Audio Waveform, Bar + Waveform, or no progress graphic.
+- Members can show or hide the logo, orbit rings, brand name, subtitle, status message, and percentage.
+- Preview Loader shows the saved combination before leaving the profile.
+- Startup preferences are applied before loader.js begins to prevent the unwanted swipe flash.
+- Existing loader identities and page-transition options remain available.
+
+SQL:
+- No new SQL patch is required beyond v4.16.0.

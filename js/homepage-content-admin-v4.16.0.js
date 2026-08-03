@@ -82,9 +82,9 @@ async function render(){
  <p class="adminLead">Assign content already created in Video Manager, Music Manager, Events Manager, and Gallery Manager to the existing homepage sections. The homepage design remains unchanged.</p>
  <form id="homepageContentFormV416" class="homepageStudioGridV416">
   ${slotCard('featured_video','Featured Video','Embeds YouTube, Vimeo, uploaded MP4, WEBM, or OGG video in the current Featured Video section.',
-   `<label>Video<select data-slot-select data-source="video">${optionRows(videoItems(),item=>`${item.title||'Untitled'}${item.featured?' — Featured':''}`)}</select></label>`)}
+   `<label>Video<select data-slot-select data-source="video">${optionRows(videoItems(),item=>`${item.title||'Untitled'} — ${item.featured?'Homepage Featured':item.newRelease?'New Video':'Video Hub'}${item.membersOnly?' • Members Only':''}`)}</select></label>`)}
   ${slotCard('featured_music','Featured Music','Places one Music Manager release in the current Featured Music card with playable preview audio.',
-   `<label>Music release<select data-slot-select data-source="music">${optionRows(musicItems(),item=>`${item.title||'Untitled'} — ${item.artist||'Seeker Of SoundZ'}`)}</select></label>`)}
+   `<label>Music release<select data-slot-select data-source="music">${optionRows(musicItems(),item=>`${item.title||'Untitled'} — ${item.featured?'Homepage Featured':item.releaseType||'Music'} • ${item.artist||'Seeker Of SoundZ'}`)}</select></label>`)}
   ${slotCard('featured_event','Featured Event','Places one published Supabase event into the current Upcoming Events feature.',
    `<label>Event<select data-slot-select data-source="event">${optionRows(events,item=>`${item.title||'Untitled'} — ${new Date(item.starts_at).toLocaleDateString()}`)}</select></label>`)}
   ${Array.from({length:8},(_,index)=>gallerySelector(`gallery_feature_${index+1}`,`Gallery Highlight ${index+1}`,index+1)).join('')}
@@ -162,6 +162,21 @@ async function assignGallery(itemId,position){
  toast(`${item.title||'Gallery image'} was assigned to homepage position ${number}.`,'Gallery Manager');
  return item;
 }
+
+async function assignVideo(itemId){
+ const item=videoItems().find(entry=>String(entry.id)===String(itemId));
+ if(!item)throw new Error('Featured video was not found.');
+ const response=await client.rpc('admin_save_homepage_slot',{
+  p_slot_key:'featured_video',
+  p_content_type:'video',
+  p_content_data:snapshot('video',item.id),
+  p_is_active:true
+ });
+ if(response.error)throw response.error;
+ toast(`${item.title||'Video'} is now the Featured Video on the homepage.`,'Video Manager');
+ return item;
+}
+
 async function assignMusic(itemId){
  const item=musicItems().find(entry=>String(entry.id)===String(itemId));
  if(!item)throw new Error('Featured music release was not found.');
@@ -246,5 +261,5 @@ document.addEventListener('click',event=>{
 });
 
 addMenuButton();
-window.SOSHomepageAdmin={render,syncGallery,assignGallery,assignMusic};
+window.SOSHomepageAdmin={render,syncGallery,assignGallery,assignMusic,assignVideo};
 })();

@@ -1,0 +1,334 @@
+
+/* Seeker Of SoundZ v4.16.2
+   Featured controls, loader builder, and strict swipe opt-in */
+
+/* Gallery and Video use the same status-card language as Music and Merch. */
+.galleryStatusBuilderV4162,
+.videoStatusBuilderV4162{
+  margin-top:5px;
+}
+.galleryStatusGridV4162{
+  grid-template-columns:minmax(0,1fr) minmax(260px,1fr);
+}
+.videoStatusGridV4162{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.catalogStatusPositionV4162{
+  display:block;
+  cursor:default;
+}
+.catalogStatusPositionV4162>span{
+  min-height:100%;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  grid-template-areas:
+    "icon title"
+    "icon copy"
+    "select select";
+  column-gap:12px;
+  row-gap:3px;
+  padding:15px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  background:rgba(0,0,0,.16);
+}
+.catalogStatusPositionV4162 i{
+  grid-area:icon;
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(193,146,255,.22);
+  border-radius:10px;
+  background:rgba(132,60,190,.13);
+  color:#d8b9ff;
+  font-style:normal;
+}
+.catalogStatusPositionV4162 strong{grid-area:title}
+.catalogStatusPositionV4162 small{
+  grid-area:copy;
+  color:#9e94a5;
+  line-height:1.4;
+}
+.catalogStatusPositionV4162 select{
+  grid-area:select;
+  width:100%;
+  min-height:43px;
+  margin-top:10px;
+  padding:0 40px 0 13px;
+  border:1px solid rgba(196,150,255,.24);
+  border-radius:12px;
+  background:#130d19;
+  color:#fff;
+  font:inherit;
+  appearance:none;
+  background-image:
+    linear-gradient(45deg,transparent 50%,#cfa7ff 50%),
+    linear-gradient(135deg,#cfa7ff 50%,transparent 50%);
+  background-position:calc(100% - 18px) 18px,calc(100% - 12px) 18px;
+  background-size:6px 6px;
+  background-repeat:no-repeat;
+}
+.adminStatusBadgeV4162{
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:6px 10px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  color:#aaa0b0;
+  font-size:.66rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+.adminStatusBadgeV4162.isFeatured{
+  border-color:rgba(203,156,255,.42);
+  background:rgba(132,58,195,.15);
+  color:#f0dcff;
+  box-shadow:0 0 16px rgba(147,70,218,.12);
+}
+
+/* Loader Builder spans the Experience Studio controls without altering the page layout. */
+.loaderBuilderV4162{
+  grid-column:1/-1;
+  display:grid;
+  gap:16px;
+  padding:18px;
+  border:1px solid rgba(199,151,255,.2);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 12% 0,rgba(142,65,212,.13),transparent 38%),
+    rgba(255,255,255,.018);
+}
+.loaderBuilderHeadV4162{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+}
+.loaderBuilderHeadV4162 h3{
+  margin:3px 0 4px;
+}
+.loaderBuilderHeadV4162 small{
+  color:#a49aa9;
+  line-height:1.45;
+}
+.loaderBuilderControlsV4162{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.loaderProfilePreviewV4162{
+  position:relative;
+  min-height:320px;
+  display:grid;
+  align-content:center;
+  justify-items:center;
+  gap:8px;
+  overflow:hidden;
+  padding:28px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(121,55,177,.2),transparent 32%),
+    linear-gradient(180deg,#120419,#050208 60%,#000);
+  isolation:isolate;
+}
+.loaderPreviewGlowV4162{
+  position:absolute;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(157,85,230,.2),transparent 68%);
+  filter:blur(8px);
+  pointer-events:none;
+}
+.loaderPreviewLogoV4162{
+  position:relative;
+  width:105px;
+  height:105px;
+  display:grid;
+  place-items:center;
+  z-index:2;
+}
+.loaderPreviewLogoV4162 img{
+  width:72px;
+  height:72px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 16px rgba(204,166,255,.34));
+}
+.loaderPreviewLogoV4162 i,
+.loaderPreviewLogoV4162 b{
+  position:absolute;
+  inset:4px;
+  border:1px solid rgba(202,164,255,.25);
+  border-radius:50%;
+  animation:loaderPreviewOrbitV4162 9s linear infinite;
+}
+.loaderPreviewLogoV4162 b{
+  inset:17px;
+  animation-direction:reverse;
+  animation-duration:12s;
+}
+@keyframes loaderPreviewOrbitV4162{to{transform:rotate(360deg)}}
+.loaderPreviewBrandV4162{
+  z-index:2;
+  font-size:1.05rem;
+}
+.loaderPreviewSubtitleV4162{
+  z-index:2;
+  color:#aaa0b0;
+  font-size:.66rem;
+  letter-spacing:.16em;
+}
+.loaderPreviewStatusV4162{
+  z-index:2;
+  width:min(420px,100%);
+  display:flex;
+  justify-content:space-between;
+  color:#b6abbc;
+  font-size:.7rem;
+}
+.loaderPreviewStatusV4162 em{
+  color:#eee0ff;
+  font-style:normal;
+}
+.loaderPreviewProgressV4162{
+  position:relative;
+  z-index:2;
+  width:min(420px,100%);
+  height:11px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+}
+.loaderPreviewProgressV4162 i{
+  position:absolute;
+  inset:0 auto 0 0;
+  width:72%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#fff,#a45cff,#6f2bd1);
+  box-shadow:0 0 18px rgba(162,89,236,.45);
+}
+.loaderPreviewProgressV4162 b{
+  display:none;
+  position:absolute;
+  inset:2px;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 5px,rgba(220,190,255,.9) 5px 7px,transparent 7px 12px);
+  clip-path:polygon(0 50%,5% 25%,10% 68%,15% 38%,20% 78%,25% 24%,30% 62%,35% 36%,40% 72%,45% 20%,50% 65%,55% 32%,60% 80%,65% 28%,70% 68%,75% 35%,80% 76%,85% 25%,90% 64%,95% 40%,100% 50%,100% 100%,0 100%);
+  animation:loaderPreviewWaveV4162 1.6s linear infinite;
+}
+@keyframes loaderPreviewWaveV4162{to{transform:translateX(12px)}}
+.loaderPreviewSwipeV4162{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  opacity:0;
+  pointer-events:none;
+  background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.2) 48%,rgba(186,125,255,.3) 52%,transparent 66%);
+  transform:translateX(-120%);
+}
+.loaderProfilePreviewV4162.showSwipe.isPlaying .loaderPreviewSwipeV4162{
+  animation:loaderPreviewSwipeV4162 1.6s ease both;
+}
+@keyframes loaderPreviewSwipeV4162{55%{opacity:1}to{opacity:0;transform:translateX(120%)}}
+.loaderProfilePreviewV4162[data-progress-style="waveform"] .loaderPreviewProgressV4162 i,
+.loaderProfilePreviewV4162[data-progress-style="minimal"] .loaderPreviewProgressV4162{
+  display:none;
+}
+.loaderProfilePreviewV4162[data-progress-style="waveform"] .loaderPreviewProgressV4162 b,
+.loaderProfilePreviewV4162[data-progress-style="dual"] .loaderPreviewProgressV4162 b{
+  display:block;
+}
+.loaderProfilePreviewV4162.hideLogo .loaderPreviewLogoV4162 img,
+.loaderProfilePreviewV4162.hideOrbits .loaderPreviewLogoV4162 i,
+.loaderProfilePreviewV4162.hideOrbits .loaderPreviewLogoV4162 b,
+.loaderProfilePreviewV4162.hideBrand .loaderPreviewBrandV4162,
+.loaderProfilePreviewV4162.hideSubtitle .loaderPreviewSubtitleV4162,
+.loaderProfilePreviewV4162.hideStatus .loaderPreviewStatusV4162 span,
+.loaderProfilePreviewV4162.hidePercent .loaderPreviewStatusV4162 em{
+  display:none;
+}
+
+/* Actual loader component choices. */
+html.sos-loader-hide-logo #loader .loaderLogoImage,
+html.sos-loader-hide-logo #loader .loaderLogoGlow{
+  display:none!important;
+}
+html.sos-loader-hide-orbits #loader .loaderOrbit,
+html.sos-loader-hide-orbits #loader .loaderMiniCube{
+  display:none!important;
+}
+html.sos-loader-hide-brand #loader .loaderBrandName{
+  display:none!important;
+}
+html.sos-loader-hide-subtitle #loader .loaderSubtitle{
+  display:none!important;
+}
+html.sos-loader-hide-status #loader .loaderStatus>span:first-child{
+  visibility:hidden!important;
+}
+html.sos-loader-hide-percent #loader .loaderPercent{
+  visibility:hidden!important;
+}
+html.sos-loader-progress-minimal #loader .loaderBar{
+  display:none!important;
+}
+html.sos-loader-progress-waveform #loader .loaderProgress{
+  opacity:0!important;
+}
+html.sos-loader-progress-waveform #loader .loaderBar::before,
+html.sos-loader-progress-dual #loader .loaderBar::before{
+  content:"";
+  position:absolute;
+  inset:2px;
+  z-index:3;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 5px,rgba(220,190,255,.92) 5px 7px,transparent 7px 12px);
+  clip-path:polygon(0 50%,5% 25%,10% 68%,15% 38%,20% 78%,25% 24%,30% 62%,35% 36%,40% 72%,45% 20%,50% 65%,55% 32%,60% 80%,65% 28%,70% 68%,75% 35%,80% 76%,85% 25%,90% 64%,95% 40%,100% 50%,100% 100%,0 100%);
+  transform-origin:left center;
+  transform:scaleX(var(--loader-progress,0));
+  filter:drop-shadow(0 0 7px rgba(188,125,255,.55));
+  transition:transform .08s linear;
+}
+html.sos-loader-progress-waveform #loader .loaderBar,
+html.sos-loader-progress-dual #loader .loaderBar{
+  height:17px!important;
+}
+
+/* Strict rule: no swipe/scan/gate unless the saved profile explicitly enables it. */
+html:not(.sos-loader-swipe-enabled) #loader .loaderScan,
+html:not(.sos-loader-swipe-enabled) #loader .loaderHorizon,
+html:not(.sos-loader-swipe-enabled) #loader .loaderFrequencyGate,
+html:not(.sos-loader-swipe-enabled) #loader.loaderComplete::before,
+html:not(.sos-loader-swipe-enabled) #loader.loaderComplete::after{
+  display:none!important;
+  animation:none!important;
+  opacity:0!important;
+}
+html:not(.sos-loader-swipe-enabled) #loader.loaderComplete{
+  clip-path:none!important;
+  mask:none!important;
+  -webkit-mask:none!important;
+}
+
+@media(max-width:760px){
+  .galleryStatusGridV4162,
+  .videoStatusGridV4162,
+  .loaderBuilderControlsV4162{
+    grid-template-columns:1fr;
+  }
+  .loaderBuilderHeadV4162{
+    flex-direction:column;
+  }
+  .loaderBuilderHeadV4162 .smallAction{
+    width:100%;
+  }
+  .loaderProfilePreviewV4162{
+    min-height:280px;
+    padding:20px 14px;
+  }
+}

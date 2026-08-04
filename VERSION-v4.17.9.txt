@@ -1,0 +1,30 @@
+Seeker Of SoundZ v4.17.9
+YOUTUBE AUTOPLAY + STREAMLINED CAPTURE + PROJECT DELETION
+
+YouTube playback:
+- Selected YouTube projects now initialize through the YouTube Player API and automatically begin muted playback when the player is ready.
+- Adds Play Selected Video so the member can unmute and begin playback with one browser-authorized click.
+- This avoids browser autoplay restrictions that prevent sound from starting without a direct user action.
+- Existing synchronized waveform and effect overlays continue to follow the embedded player.
+
+YouTube Project Picker:
+- Every saved project now has Use This Video and Delete controls.
+- Adds Clear Saved Videos to remove the entire recent project list.
+- Deleting a saved project does not affect the YouTube video itself or any other site content.
+- Saved projects remain local to the member's browser.
+
+Streamlined YouTube capture:
+- Adds Capture This YouTube Project inside the embedded-player controls.
+- The selected YouTube video opens in a dedicated playback tab.
+- The browser share dialog opens immediately afterward.
+- The member must still choose the playback tab and enable Share tab audio.
+- Once permission is granted, recording starts automatically with the selected effects.
+- Captured video, real captured-audio WAV and real waveform PNG remain downloadable after recording stops.
+
+Browser security:
+- Browsers do not permit websites to silently capture a tab.
+- The share dialog and member approval cannot be removed or bypassed.
+- Sound autoplay also requires a user click; the new Play Selected Video button satisfies that requirement.
+
+Supabase:
+- No SQL, Storage bucket, MIME policy or file-path update is required.

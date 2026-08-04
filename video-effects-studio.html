@@ -73,6 +73,7 @@
   <link rel="stylesheet" href="css/v4.17.6-video-fx-runtime-fix.css?v=4.17.6">
   <link rel="stylesheet" href="css/v4.17.7-media-converter-sticky-preview.css?v=4.17.7">
   <link rel="stylesheet" href="css/v4.17.8-tab-capture-converter.css?v=4.17.8">
+  <link rel="stylesheet" href="css/v4.17.9-youtube-autocapture-projects.css?v=4.17.9">
 </head>
  <body>
   <div id="loader">
@@ -162,6 +163,7 @@
      <input id="youtubeSearchV4175" type="search" placeholder="Search words, artist, track, or tutorial">
      <button id="searchYouTubeV4175" class="secondaryButton" type="button">Search YouTube</button>
      <button id="useClipboardVideoV4175" class="secondaryButton" type="button">Paste URL from Clipboard</button>
+     <button id="clearYouTubeProjectsV4179" class="secondaryButton" type="button">Clear Saved Videos</button>
     </div>
     <div class="youtubeRecentProjectsV4175" id="youtubeRecentProjectsV4175"></div>
    </section>
@@ -239,8 +241,10 @@
        <canvas id="youtubeOverlayV4174"></canvas>
       </div>
       <div class="youtubePreviewActionsV4173">
+       <button class="primaryButton" id="playSelectedYouTubeV4179" type="button">Play Selected Video</button>
        <button class="secondaryButton" id="copyYouTubeUrlV4173" type="button">Copy YouTube URL</button>
        <a class="secondaryButton" id="openYouTubeV4173" href="#" target="_blank" rel="noopener">Open on YouTube</a>
+       <button class="secondaryButton" id="captureSelectedYouTubeV4179" type="button">Capture This YouTube Project</button>
        <button class="primaryButton" id="replaceYouTubeSourceV4174" type="button">Use Original File for Final Export</button>
       </div>
       <p>The synchronized waveform and effects preview follow YouTube playback time. Because YouTube does not expose its protected audio samples or video frames, the waveform is a synchronized visual guide rather than an exact audio analysis. Select the original video file to create an exact waveform and download a final edited video with the same effects and timestamps.</p>
@@ -528,7 +532,7 @@
   <script src="js/legacy-achievement-sync-v4.13.33.js?v=4.13.33"></script>
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
-  <script src="js/video-effects-studio-v4.17.7.js?v=4.17.7"></script>
-  <script src="js/tab-capture-converter-v4.17.8.js?v=4.17.8"></script>
+  <script src="js/video-effects-studio-v4.17.9.js?v=4.17.9"></script>
+  <script src="js/tab-capture-converter-v4.17.9.js?v=4.17.9"></script>
 </body>
 </html>

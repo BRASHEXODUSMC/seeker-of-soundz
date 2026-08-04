@@ -1,0 +1,45 @@
+/* Seeker Of SoundZ v4.17.9 — YouTube autoplay, project deletion, streamlined capture */
+
+.recentYouTubeActionsV4179{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:7px;
+  margin-top:6px;
+}
+.recentYouTubeActionsV4179 .smallAction{
+  width:100%;
+  margin:0!important;
+}
+.youtubePreviewActionsV4173{
+  align-items:center;
+}
+#playSelectedYouTubeV4179{
+  order:-2;
+}
+#captureSelectedYouTubeV4179{
+  border-color:rgba(83,235,161,.32)!important;
+  background:linear-gradient(135deg,rgba(38,152,99,.28),rgba(48,80,70,.26))!important;
+}
+.youtubePickerActionsV4175{
+  grid-template-columns:minmax(0,1fr) repeat(3,auto);
+}
+#clearYouTubeProjectsV4179{
+  border-color:rgba(255,95,120,.22);
+}
+@media(max-width:980px){
+  .youtubePickerActionsV4175{
+    grid-template-columns:1fr 1fr;
+  }
+  .youtubePickerActionsV4175 input{
+    grid-column:1/-1;
+  }
+}
+@media(max-width:620px){
+  .youtubePickerActionsV4175,
+  .recentYouTubeActionsV4179{
+    grid-template-columns:1fr;
+  }
+  .youtubePickerActionsV4175 input{
+    grid-column:auto;
+  }
+}

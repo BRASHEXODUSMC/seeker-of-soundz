@@ -78,6 +78,7 @@
   <link rel="stylesheet" href="css/v4.17.11-final-video-compact-capture.css?v=4.17.11">
   <link rel="stylesheet" href="css/v4.17.12-licensed-library-module-containment.css?v=4.17.12">
   <link rel="stylesheet" href="css/v4.17.13-retro-presets-cc-cinema.css?v=4.17.13">
+  <link rel="stylesheet" href="css/v4.18.0-modular-video-studio.css?v=4.18.0">
 </head>
  <body>
   <div id="loader">
@@ -157,6 +158,89 @@
    <div><p class="sectionEyebrow">Members Access</p><h2>Checking premium access…</h2><p>Administrators, owners, developers, and premium members can use this studio.</p></div>
   </div>
   <div id="videoEffectsStudio" class="videoEffectsStudioV4171" hidden>
+
+   <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
+    <div class="studioCommandIntroV4180">
+     <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Build a music video in five steps</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>See the complete workflow with browser-specific notes.</small></span></button>
+    </div>
+    <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
+     <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
+     <button type="button" data-studio-module="create"><i>2</i><span><strong>Create</strong><small>Upload video + music</small></span></button>
+     <button type="button" data-studio-module="effects"><i>3</i><span><strong>Effects</strong><small>Preview presets</small></span></button>
+     <button type="button" data-studio-module="library"><i>4</i><span><strong>Libraries</strong><small>Licensed footage & music</small></span></button>
+     <button type="button" data-studio-module="capture"><i>5</i><span><strong>Capture</strong><small>Optional tab recording</small></span></button>
+     <button type="button" data-studio-module="export"><i>6</i><span><strong>Export</strong><small>Build downloads</small></span></button>
+    </nav>
+    <div class="studioModulePanelsV4180">
+     <section class="studioModulePanelV4180 isActive" data-studio-panel="start">
+      <div class="browserSupportGridV4180" id="browserSupportGridV4180">
+       <article data-browser-support="local"><i>✓</i><div><strong>Local Composer</strong><small>Works in current Chrome, Edge, and Firefox.</small></div></article>
+       <article data-browser-support="capture"><i>?</i><div><strong>Tab Audio Capture</strong><small>Chrome and Edge are recommended. Firefox support depends on OS and capture source.</small></div></article>
+       <article data-browser-support="export"><i>✓</i><div><strong>Video Export</strong><small>WEBM is the reliable cross-browser output. MP4 appears only when the browser supports it.</small></div></article>
+      </div>
+      <div class="quickStepsV4180">
+       <article><span>1</span><div><strong>Choose video</strong><small>Upload footage you own or download licensed stock footage.</small></div></article>
+       <article><span>2</span><div><strong>Add music</strong><small>Upload a licensed MP3, WAV, OGG, or M4A file.</small></div></article>
+       <article><span>3</span><div><strong>Select effects</strong><small>Use a preset or choose individual effects in the Effects module.</small></div></article>
+       <article><span>4</span><div><strong>Preview and trim</strong><small>Confirm timing, volume, and visual response.</small></div></article>
+       <article><span>5</span><div><strong>Render</strong><small>Build a WEBM/MP4 video with the uploaded music and visual overlays.</small></div></article>
+      </div>
+     </section>
+     <section class="studioModulePanelV4180" data-studio-panel="create"></section>
+     <section class="studioModulePanelV4180" data-studio-panel="effects"></section>
+     <section class="studioModulePanelV4180" data-studio-panel="library"></section>
+     <section class="studioModulePanelV4180" data-studio-panel="capture"></section>
+     <section class="studioModulePanelV4180" data-studio-panel="export"></section>
+    </div>
+   </section>
+
+   <dialog class="studioTutorialV4180" id="studioTutorialV4180">
+    <div class="studioTutorialHeadV4180"><div><p class="sectionEyebrow">Video Effects Studio</p><h2>Guided project tutorial</h2></div><button type="button" id="closeStudioTutorialV4180" aria-label="Close tutorial">×</button></div>
+    <div class="tutorialProgressV4180"><span id="tutorialProgressV4180"></span></div>
+    <div class="tutorialSlidesV4180">
+     <article data-tutorial-slide class="isActive"><i>🎬</i><h3>Start with footage</h3><p>Use the Create module to upload a local video. This is the fastest and most reliable workflow in Chrome, Edge, and Firefox.</p></article>
+     <article data-tutorial-slide><i>🎵</i><h3>Add licensed music</h3><p>Upload an audio file you are allowed to use. The direct composer replaces or mixes the source audio and renders it into the finished project.</p></article>
+     <article data-tutorial-slide><i>✨</i><h3>Choose effects</h3><p>Open Effects, select a preset, and watch the compact preview. Presets no longer move the page or send you to another section.</p></article>
+     <article data-tutorial-slide><i>📚</i><h3>Find reusable assets</h3><p>The Libraries module links to official licensed stock-video and music sources. Always review the individual asset license before publishing.</p></article>
+     <article data-tutorial-slide><i>⬇</i><h3>Render and download</h3><p>Open Export and select Build Finished Video. The browser records the processed canvas with the uploaded soundtrack.</p></article>
+     <article data-tutorial-slide><i>🖥️</i><h3>Optional screen capture</h3><p>Capture is separate and optional. Chrome or Edge is recommended for tab audio. Firefox can capture screens, but audio availability varies by operating system and source.</p></article>
+    </div>
+    <div class="tutorialActionsV4180"><button class="secondaryButton" id="tutorialPrevV4180" type="button">Previous</button><span id="tutorialCountV4180">1 / 6</span><button class="primaryButton" id="tutorialNextV4180" type="button">Next</button></div>
+   </dialog>
+
+   <section class="directComposerV4180" id="directComposerV4180">
+    <div class="sectionHeading"><p class="sectionEyebrow">Recommended Workflow</p><h2>Upload video + music and render instantly</h2><p>This composer does not require screen recording. It combines a local video with a licensed audio file, applies your selected effects, and creates the finished download.</p></div>
+    <div class="directComposerInputsV4180">
+     <label class="composerDropV4180"><input id="composerVideoV4180" type="file" accept="video/*"><i>🎬</i><span><strong>Choose Video</strong><small id="composerVideoNameV4180">MP4, WEBM, MOV, or another browser-readable video.</small></span></label>
+     <label class="composerDropV4180"><input id="composerAudioV4180" type="file" accept="audio/*"><i>🎵</i><span><strong>Choose Licensed Music</strong><small id="composerAudioNameV4180">MP3, WAV, OGG, M4A, or another browser-readable audio file.</small></span></label>
+    </div>
+    <div class="directComposerWorkspaceV4180">
+     <div class="composerPreviewV4180"><video id="composerPreviewVideoV4180" controls playsinline></video><canvas id="composerCanvasV4180" width="1280" height="720"></canvas><audio id="composerPreviewAudioV4180" controls></audio></div>
+     <aside class="composerControlsV4180">
+      <label>Music volume <input id="composerMusicVolumeV4180" type="range" min="0" max="1" step=".05" value="1"></label>
+      <label>Original video audio <input id="composerSourceVolumeV4180" type="range" min="0" max="1" step=".05" value="0"></label>
+      <label>Start time <input id="composerStartV4180" type="number" min="0" step=".01" value="0"></label>
+      <label>End time <input id="composerEndV4180" type="number" min="0" step=".01" value="0"></label>
+      <label>Output <select id="composerFormatV4180"><option value="auto">Best supported</option><option value="video/webm;codecs=vp9,opus">WEBM VP9</option><option value="video/webm;codecs=vp8,opus">WEBM VP8</option><option value="video/mp4">MP4 when supported</option></select></label>
+      <button class="primaryButton" id="composerPreviewButtonV4180" type="button" disabled>Preview Project</button>
+      <button class="primaryButton finishComposerV4180" id="composerRenderButtonV4180" type="button" disabled>Build & Download Finished Video</button>
+      <p class="formMessage" id="composerStatusV4180">Choose a video and licensed music to begin.</p>
+     </aside>
+    </div>
+   </section>
+
+   <section class="licensedMusicLibraryV4180" id="licensedMusicLibraryV4180">
+    <div class="sectionHeading"><p class="sectionEyebrow">Copyright-Safe Music Sources</p><h2>Find dubstep and EDM music for your project</h2><p>Download a track from its official source, review its license, then upload the audio file into the direct composer.</p></div>
+    <div class="musicSourceGridV4180">
+     <article><i>▶</i><div><span class="licenseBadgeV41712 isGreen">YouTube Audio Library</span><h3>YouTube Studio Audio Library</h3><p>Official royalty-free production music and sound effects. Some tracks require attribution.</p><a class="accountFeatureActionV417" href="https://studio.youtube.com/channel/UC/music" target="_blank" rel="noopener"><i>↗</i><span><strong>Open Audio Library</strong><small>Filter by Electronic, Dance, mood, duration, and attribution.</small></span></a><a class="licenseLinkV41712" href="https://support.google.com/youtube/answer/3376882" target="_blank" rel="noopener">Official usage instructions</a></div></article>
+     <article><i>⚡</i><div><span class="licenseBadgeV41712 isGreen">Pixabay Content License</span><h3>Pixabay Dubstep</h3><p>Royalty-free dubstep tracks. Download the license certificate when available.</p><a class="accountFeatureActionV417" href="https://pixabay.com/music/search/dubstep/" target="_blank" rel="noopener"><i>↗</i><span><strong>Browse Dubstep</strong><small>Download a track, verify its details, then upload it here.</small></span></a><a class="licenseLinkV41712" href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">Review Pixabay license</a></div></article>
+     <article><i>🎛️</i><div><span class="licenseBadgeV41712 isGreen">Pixabay Content License</span><h3>Pixabay EDM & Electronic</h3><p>Electronic, dance, synthwave, bass, and festival-style music searches.</p><a class="accountFeatureActionV417" href="https://pixabay.com/music/search/edm/" target="_blank" rel="noopener"><i>↗</i><span><strong>Browse EDM</strong><small>Use the source download and keep its license information.</small></span></a><a class="licenseLinkV41712" href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">Review Pixabay license</a></div></article>
+     <article><i>♫</i><div><span class="licenseBadgeV41712 isAmber">License Varies by Track</span><h3>Free Music Archive — Electronic</h3><p>Creative Commons and other licenses vary. Choose only tracks whose license permits video synchronization and your intended use.</p><a class="accountFeatureActionV417" href="https://freemusicarchive.org/genre/Electronic/" target="_blank" rel="noopener"><i>↗</i><span><strong>Browse Electronic</strong><small>Check the license displayed on every individual track.</small></span></a><a class="licenseLinkV41712" href="https://freemusicarchive.org/License_Guide" target="_blank" rel="noopener">Read the FMA license guide</a></div></article>
+    </div>
+    <div class="licensedVideoWarningV41712"><strong>Music-license reminder</strong><p>“Free” does not always mean unrestricted. Save the track title, creator, source URL, license, attribution text, and download date with your project.</p></div>
+   </section>
+
    <section class="youtubeProjectPickerV4175">
     <div class="sectionHeading">
      <p class="sectionEyebrow">YouTube Project Picker</p>
@@ -662,5 +746,7 @@
   <script src="js/video-effects-studio-v4.17.13.js?v=4.17.13"></script>
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
+  <script src="js/video-studio-modules-v4.18.0.js?v=4.18.0"></script>
+  <script src="js/direct-video-composer-v4.18.0.js?v=4.18.0"></script>
 </body>
 </html>

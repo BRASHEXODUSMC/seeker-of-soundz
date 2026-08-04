@@ -72,9 +72,11 @@ function updateConverterState(mode='waiting',title='Waiting for an editable sour
  if(converterVideo)converterVideo.disabled=!editable;
 }
 function showPreviewForEffect(){
- if(!stickyPreview)return;
- const top=stickyPreview.getBoundingClientRect().top+window.scrollY-82;
- window.scrollTo({top:Math.max(0,top),left:window.scrollX,behavior:'smooth'});
+ const panel=document.querySelector('[data-studio-panel="effects"]');
+ if(panel&&!panel.classList.contains('isActive'))return;
+ const preview=document.getElementById('stickyVideoPreviewV4177');
+ preview?.classList.add('effectPreviewPulseV4180');
+ setTimeout(()=>preview?.classList.remove('effectPreviewPulseV4180'),260);
 }
 function downloadBlob(blob,name){
  const anchor=document.createElement('a');anchor.href=URL.createObjectURL(blob);anchor.download=name;anchor.click();setTimeout(()=>URL.revokeObjectURL(anchor.href),1800);

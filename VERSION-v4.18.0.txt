@@ -1,0 +1,50 @@
+Seeker Of SoundZ v4.18.0
+MODULAR VIDEO EFFECTS STUDIO
+
+Major page cleanup:
+- Reorganizes the existing Video Effects Studio into six compact modules:
+  1. Start
+  2. Create
+  3. Effects
+  4. Libraries
+  5. Capture
+  6. Export
+- Existing controls, IDs, effects, licensed-video library, YouTube projects, converters and tab capture remain.
+- Only one module is displayed at a time.
+- Module selection is remembered in localStorage.
+- Preset and effect selection no longer scrolls the page to the bottom.
+- The full preview and effects list are separated into compact modules.
+
+Guided tutorial:
+- Adds a six-step modal tutorial.
+- Explains footage selection, licensed music, effects, asset libraries, rendering and optional capture.
+- Adds a five-step quick-start overview.
+- Adds browser-specific support information.
+
+Direct video + music composer:
+- Adds a recommended workflow that does not require screen recording.
+- Upload a local video.
+- Upload licensed MP3, WAV, OGG, M4A or other browser-readable music.
+- Control music volume and original video volume.
+- Set start and end timestamps.
+- Preview the project with currently selected effects.
+- Build and automatically download a finished MP4 when supported or WEBM fallback.
+- Combines the uploaded music with the processed video canvas.
+- Existing effects remain selected while moving between Create and Effects.
+
+Copyright-safe music sources:
+- Adds official YouTube Studio Audio Library access and usage instructions.
+- Adds Pixabay Dubstep and EDM searches with the official Pixabay license summary.
+- Adds Free Music Archive Electronic with a warning that each track has its own license.
+- Reminds members to save creator, title, URL, license, attribution and download date.
+
+Browser compatibility:
+- Local Composer: current Chrome, Edge and Firefox.
+- Canvas preview and WEBM rendering: Chrome, Edge and Firefox.
+- MP4: shown only when MediaRecorder reports MP4 support.
+- Tab/system audio capture: Chrome and Edge recommended.
+- Firefox supports display capture, but captured audio availability varies by operating system and capture source.
+- Capture permission is always required.
+
+Supabase:
+- No SQL, Storage, MIME, RLS or path update is required.

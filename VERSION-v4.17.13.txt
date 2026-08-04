@@ -1,0 +1,40 @@
+Seeker Of SoundZ v4.17.13
+RETRO/ANIME-ERA PRESETS + VERIFIED YOUTUBE CC EXAMPLES + CINEMA/STATIC FIXES
+
+Copyright-safe preset styles:
+- Adds original procedural presets inspired by broad visual eras rather than copyrighted franchises.
+- Anime Energy Burst
+- Anime Opening Rush
+- 16-Bit Jungle Platformer
+- 16-Bit Kart Rush
+- Mode-7 Speedway
+- 32-Bit Low-Poly Racer
+- Arcade Drift Night
+- Retro Boss Battle
+- These presets do not include Nintendo, Donkey Kong, PlayStation, anime characters, game footage, logos, music, or other franchise assets.
+
+TV/static presets:
+- Broadcast Static
+- Damaged Tape
+- Signal Loss
+- CRT Arcade Cabinet
+- Adds Heavy Broadcast Static, Signal Tear, and Channel Ghosting as individual effects.
+- Existing TV Static remains animated.
+
+Cinema bars:
+- Fixes Cinema Bars by removing the CSS screen blend mode that made black overlays disappear.
+- Cinema Bars now render with full-opacity source-over compositing.
+- Adds Ultra-Wide 2.39:1 Bars.
+- Adds animated Anime Impact Bars.
+- Adds Retro Cinema Frame.
+- All bar effects work in native preview, YouTube overlay preview, and tab-capture rendering.
+
+Licensed library:
+- Rebuilds library actions with the website's Featured-card button style.
+- Adds a Checked YouTube CC BY Examples area.
+- Includes direct examples whose pages displayed Creative Commons Attribution/reuse wording when this release was built.
+- Every example remains labeled Recheck because YouTube uploads, descriptions, and availability can change.
+- Adds Use in Studio buttons that populate and load the YouTube project automatically.
+- Includes a reminder to verify attribution and the current description before use.
+
+No Supabase update is required.

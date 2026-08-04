@@ -1,0 +1,48 @@
+Seeker Of SoundZ v4.18.1
+TUTORIAL CURSOR + EPIC MODULAR POLISH
+
+Tutorial cursor repair:
+- The Guided Tutorial now forces the native operating-system cursor.
+- Global cursor:none rules no longer hide the pointer inside the dialog.
+- The custom cursor, cursor dot, ring, trails and glows are hidden while the tutorial is open.
+- Buttons use the normal pointer cursor.
+- The previous cursor setting is restored when the tutorial closes.
+- Escape closes the tutorial safely.
+- Left and Right arrow keys navigate tutorial slides.
+- Tutorial buttons have visible keyboard focus outlines.
+
+Project Readiness dashboard:
+- Adds a compact readiness percentage beneath the module navigation.
+- Detects selected video, licensed music, effects and timing.
+- Displays contextual guidance such as Add licensed music, Choose effects, or Ready to render.
+- Adds a progress bar with visual completion feedback.
+
+Active Effects summary:
+- Shows the current selected-effect count.
+- Shows up to eight selected effect names as compact chips.
+- Automatically refreshes after individual effects, presets and Clear Effects.
+- Keeps the summary visible without opening the full Effects module.
+
+Quick actions:
+- Preview opens the Create module.
+- Focus Mode opens the active project preview in a cinematic distraction-free workspace.
+- Clear FX removes all selected visual effects.
+- Focus Mode closes with its button, backdrop click or Escape.
+
+Cinematic Focus Mode:
+- Temporarily moves the real live preview into a full-screen presentation layer.
+- Does not duplicate or rebuild the player.
+- Preserves video, audio, waveform, effects and project state.
+- Returns the preview to its exact original module position when closed.
+
+Existing systems preserved:
+- Modular Start/Create/Effects/Libraries/Capture/Export workflow
+- Direct video + licensed music composer
+- All effects and presets
+- YouTube projects and licensed libraries
+- Tab capture
+- WAV and finished-video downloads
+- Premium access and site theme
+
+Supabase:
+- No SQL, Storage, RLS, authentication or file-path update is required.

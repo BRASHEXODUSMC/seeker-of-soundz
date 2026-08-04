@@ -1,0 +1,227 @@
+/* Seeker Of SoundZ v4.18.1 — tutorial cursor and epic modular polish */
+
+/* Tutorial always uses a visible native cursor, regardless of global custom-cursor state. */
+html.studioTutorialOpenV4181,
+html.studioTutorialOpenV4181 body,
+html.studioTutorialOpenV4181 .studioTutorialV4180,
+html.studioTutorialOpenV4181 .studioTutorialV4180 *,
+html.studioTutorialOpenV4181 .studioTutorialV4180 *::before,
+html.studioTutorialOpenV4181 .studioTutorialV4180 *::after{
+  cursor:auto!important;
+}
+html.studioTutorialOpenV4181 .studioTutorialV4180 button,
+html.studioTutorialOpenV4181 .studioTutorialV4180 [role="button"]{
+  cursor:pointer!important;
+}
+html.studioTutorialOpenV4181 #cursor,
+html.studioTutorialOpenV4181 #cursorDot,
+html.studioTutorialOpenV4181 #cursorRing,
+html.studioTutorialOpenV4181 .customCursor,
+html.studioTutorialOpenV4181 [class*="cursorTrail"],
+html.studioTutorialOpenV4181 [class*="cursorGlow"]{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+.studioTutorialV4180{
+  cursor:auto!important;
+}
+.studioTutorialV4180 button{cursor:pointer!important}
+
+/* Project dashboard */
+.studioProjectDashboardV4181{
+  min-width:0;
+  display:grid;
+  grid-template-columns:minmax(230px,.8fr) minmax(300px,1.35fr) minmax(300px,1fr);
+  gap:10px;
+  padding:11px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 5% 0,rgba(128,54,190,.1),transparent 38%),
+    rgba(0,0,0,.16);
+}
+.projectProgressV4181,
+.selectedEffectsSummaryV4181{
+  min-width:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:8px 10px;
+  padding:11px 12px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;
+  background:rgba(255,255,255,.018);
+}
+.projectProgressV4181>div:first-child,
+.selectedEffectsSummaryV4181>div:first-child{display:grid;gap:2px}
+.projectProgressV4181 p,
+.selectedEffectsSummaryV4181 p{margin:0}
+.projectProgressV4181>b{
+  color:#bfffdc;
+  font-size:.8rem;
+}
+.projectProgressTrackV4181{
+  grid-column:1/-1;
+  height:6px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+}
+.projectProgressTrackV4181>span{
+  display:block;
+  width:0;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#7131c3,#b36cff,#55e9a0);
+  box-shadow:0 0 14px rgba(100,231,161,.25);
+  transition:width .25s ease;
+}
+#activeEffectChipsV4181{
+  grid-column:1/-1;
+  min-width:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+}
+#activeEffectChipsV4181>span{
+  max-width:180px;
+  overflow:hidden;
+  padding:5px 8px;
+  border:1px solid rgba(199,151,255,.16);
+  border-radius:999px;
+  background:rgba(131,58,191,.08);
+  color:#d8bcfa;
+  font-size:.58rem;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+#activeEffectChipsV4181>.emptyEffectChipV4181{
+  border-color:rgba(255,255,255,.07);
+  background:rgba(255,255,255,.02);
+  color:#8f8593;
+}
+.studioQuickActionsV4181{
+  min-width:0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+}
+.studioQuickActionsV4181 button{
+  min-width:0;
+  display:grid;
+  grid-template-columns:31px minmax(0,1fr);
+  gap:7px;
+  align-items:center;
+  padding:9px;
+  border:1px solid rgba(196,149,255,.12);
+  border-radius:12px;
+  background:rgba(128,55,188,.05);
+  color:#fff;
+  text-align:left;
+  cursor:pointer!important;
+  transition:.18s ease;
+}
+.studioQuickActionsV4181 button:hover{
+  transform:translateY(-2px);
+  border-color:rgba(221,188,255,.48);
+  background:rgba(141,64,205,.12);
+  box-shadow:0 10px 24px rgba(0,0,0,.2),0 0 17px rgba(143,68,211,.09);
+}
+.studioQuickActionsV4181 button>i{
+  width:31px;height:31px;display:grid;place-items:center;
+  border:1px solid rgba(202,158,255,.14);
+  border-radius:9px;background:rgba(131,58,191,.09);
+  color:#d7b9fa;font-style:normal;
+}
+.studioQuickActionsV4181 button>span{display:grid;gap:1px;min-width:0}
+.studioQuickActionsV4181 small{
+  overflow:hidden;
+  color:#8f8594;
+  font-size:.53rem;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* Cinematic focus mode */
+html.studioFocusOpenV4181,
+html.studioFocusOpenV4181 body{overflow:hidden!important}
+.studioFocusBackdropV4181{
+  position:fixed;
+  inset:0;
+  z-index:2147483400;
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr);
+  gap:12px;
+  padding:16px;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(111,43,177,.2),transparent 45%),
+    rgba(2,1,4,.94);
+  backdrop-filter:blur(18px);
+}
+.studioFocusBarV4181{
+  width:min(1200px,100%);
+  margin-inline:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:11px 13px;
+  border:1px solid rgba(206,164,255,.18);
+  border-radius:15px;
+  background:rgba(13,8,19,.9);
+}
+.studioFocusBarV4181>div{display:grid;gap:2px}
+.studioFocusBarV4181 button{
+  padding:10px 13px;
+  border:1px solid rgba(205,159,255,.24);
+  border-radius:11px;
+  background:rgba(130,58,190,.1);
+  color:#fff;
+  cursor:pointer!important;
+}
+.studioFocusStageV4181{
+  width:min(1200px,100%);
+  min-height:0;
+  margin-inline:auto;
+  display:grid;
+  place-items:center;
+  overflow:auto;
+}
+.studioFocusPreviewV4181{
+  position:relative!important;
+  top:auto!important;
+  width:min(100%,1100px)!important;
+  max-height:calc(100vh - 110px)!important;
+  overflow:auto!important;
+  margin:0!important;
+  border-color:rgba(219,185,255,.32)!important;
+  box-shadow:0 25px 70px rgba(0,0,0,.6),0 0 35px rgba(139,64,207,.15)!important;
+}
+
+/* Enhanced tutorial interactions */
+.studioTutorialV4180:focus-visible,
+.studioTutorialV4180 button:focus-visible{
+  outline:2px solid rgba(215,177,255,.86)!important;
+  outline-offset:3px;
+}
+.tutorialSlidesV4180 article.isActive>i{
+  animation:tutorialIconFloatV4181 2.4s ease-in-out infinite;
+  filter:drop-shadow(0 0 16px rgba(189,118,255,.35));
+}
+@keyframes tutorialIconFloatV4181{
+  50%{transform:translateY(-6px) scale(1.04)}
+}
+
+/* Responsive dashboard */
+@media(max-width:1050px){
+  .studioProjectDashboardV4181{grid-template-columns:1fr 1fr}
+  .studioQuickActionsV4181{grid-column:1/-1}
+}
+@media(max-width:700px){
+  .studioProjectDashboardV4181{grid-template-columns:1fr}
+  .studioQuickActionsV4181{grid-column:auto;grid-template-columns:1fr}
+  .studioFocusBackdropV4181{padding:8px}
+  .studioFocusBarV4181{align-items:flex-start}
+}

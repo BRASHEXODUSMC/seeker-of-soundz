@@ -1,0 +1,149 @@
+/* Seeker Of SoundZ v4.17.10 — selected capture project, WAV validation, themed project controls */
+
+.selectedCaptureProjectV41710{
+  display:grid;
+  grid-template-columns:minmax(180px,280px) minmax(0,1fr);
+  gap:16px;
+  align-items:stretch;
+  overflow:hidden;
+  border:1px solid rgba(197,150,255,.21);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 0 0,rgba(139,61,205,.14),transparent 42%),
+    rgba(255,255,255,.022);
+}
+.selectedCaptureProjectV41710>img{
+  width:100%;
+  height:100%;
+  min-height:190px;
+  display:block;
+  object-fit:cover;
+  background:#08050c;
+}
+.selectedCaptureProjectV41710>div{
+  display:grid;
+  align-content:center;
+  gap:7px;
+  padding:17px 17px 17px 0;
+}
+.selectedCaptureProjectV41710 h3{
+  margin:0;
+}
+.selectedCaptureProjectV41710>div>small{
+  overflow:hidden;
+  color:#a89eac;
+  line-height:1.45;
+  text-overflow:ellipsis;
+  word-break:break-all;
+}
+.selectedCaptureActionsV41710{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  margin-top:8px;
+}
+.selectedProjectActionV41710{
+  min-height:82px;
+}
+.selectedProjectActionV41710:disabled{
+  opacity:.42;
+  cursor:not-allowed;
+  transform:none!important;
+  box-shadow:none!important;
+}
+#captureSelectedTabV41710:not(:disabled){
+  border-color:rgba(81,235,160,.3);
+  background:linear-gradient(135deg,rgba(39,151,100,.17),rgba(122,57,179,.08));
+}
+#captureSelectedTabV41710:not(:disabled)>i{
+  border-color:rgba(81,235,160,.26);
+  background:rgba(39,151,100,.12);
+  color:#a8ffd2;
+}
+
+/* Project Picker actions use the same Featured-card language as the rest of the site. */
+.youtubeRecentProjectsV4175 article{
+  position:relative;
+  border-color:rgba(196,149,255,.16);
+  background:
+    radial-gradient(circle at 10% 0,rgba(137,61,204,.1),transparent 38%),
+    rgba(255,255,255,.022);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.youtubeRecentProjectsV4175 article:hover{
+  transform:translateY(-3px);
+  border-color:rgba(220,188,255,.48);
+  box-shadow:0 16px 34px rgba(0,0,0,.25),0 0 20px rgba(143,68,212,.09);
+}
+.recentYouTubeActionsV4179{
+  grid-template-columns:minmax(0,1fr) minmax(92px,.42fr);
+}
+.recentYouTubeActionsV4179 .smallAction{
+  min-height:40px;
+  border-radius:12px;
+  transition:transform .16s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease;
+}
+.recentYouTubeActionsV4179 [data-use-recent-youtube]{
+  border-color:rgba(199,151,255,.28);
+  background:linear-gradient(135deg,rgba(133,58,194,.16),rgba(255,255,255,.025));
+  color:#f5eaff;
+}
+.recentYouTubeActionsV4179 [data-use-recent-youtube]:hover{
+  transform:translateY(-2px);
+  border-color:rgba(221,190,255,.62);
+  box-shadow:0 0 18px rgba(148,72,218,.13);
+}
+.recentYouTubeActionsV4179 [data-delete-recent-youtube]{
+  border-color:rgba(255,92,122,.24);
+  background:linear-gradient(135deg,rgba(178,40,72,.13),rgba(90,20,42,.09));
+  color:#ffb7c6;
+}
+.recentYouTubeActionsV4179 [data-delete-recent-youtube]:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,126,151,.55);
+  background:linear-gradient(135deg,rgba(198,47,82,.2),rgba(110,25,49,.13));
+  box-shadow:0 0 18px rgba(207,54,88,.12);
+}
+#clearYouTubeProjectsV4179{
+  border-radius:13px;
+  border-color:rgba(255,92,122,.25)!important;
+  background:linear-gradient(135deg,rgba(174,39,70,.12),rgba(255,255,255,.02))!important;
+  color:#ffb6c5!important;
+}
+#clearYouTubeProjectsV4179:hover{
+  border-color:rgba(255,126,151,.55)!important;
+  box-shadow:0 0 18px rgba(207,54,88,.12);
+}
+
+/* Real WAV readiness feedback */
+#downloadTabWavV4178:not(:disabled){
+  border-color:rgba(81,235,160,.33);
+  color:#b0ffd6;
+  box-shadow:0 0 16px rgba(64,199,137,.08);
+}
+#downloadTabWavV4178:disabled{
+  opacity:.38;
+}
+
+/* The selected capture card remains visible while the share picker is prepared. */
+#selectedCaptureProjectV41710{
+  scroll-margin-top:86px;
+}
+
+@media(max-width:820px){
+  .selectedCaptureProjectV41710{
+    grid-template-columns:1fr;
+  }
+  .selectedCaptureProjectV41710>img{
+    height:210px;
+  }
+  .selectedCaptureProjectV41710>div{
+    padding:0 15px 16px;
+  }
+}
+@media(max-width:560px){
+  .selectedCaptureActionsV41710,
+  .recentYouTubeActionsV4179{
+    grid-template-columns:1fr;
+  }
+}

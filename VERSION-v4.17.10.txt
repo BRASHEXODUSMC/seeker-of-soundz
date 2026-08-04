@@ -1,0 +1,47 @@
+Seeker Of SoundZ v4.17.10
+YOUTUBE CAPTURE SELECTION + REAL WAV + THEMED PROJECT CONTROLS
+
+Selected YouTube capture:
+- Adds a visible Selected YouTube Project card inside Authorized Tab Capture.
+- The card shows the selected thumbnail and full YouTube URL.
+- Loading or choosing a Project Picker video updates this card immediately.
+- Open Playback Tab opens the exact selected YouTube project in a dedicated tab.
+- Choose Selected Tab & Auto Record opens the browser share picker separately.
+- Separating these steps prevents the playback tab from hiding the share dialog behind it.
+- The browser share dialog still requires explicit approval and cannot be bypassed.
+- After approval with Share tab audio enabled, recording starts automatically.
+
+YouTube playback:
+- The embedded YouTube preview remains available above the editor.
+- Play Selected Video remains available to satisfy browser sound-autoplay requirements.
+- Capture This YouTube Project now moves to the visible capture card rather than opening two browser actions simultaneously.
+
+Real WAV repair:
+- Captured tab audio uses a two-channel ScriptProcessor input.
+- Stereo tab audio is safely downmixed into a mono WAV.
+- The AudioContext is explicitly resumed after capture permission.
+- WAV download only becomes available when a meaningful number of real PCM samples were recorded.
+- If Share tab audio is not enabled, automatic recording does not begin.
+- A clear warning explains how to repeat capture with tab audio enabled.
+- Silent or empty WAV files are no longer offered as successful downloads.
+
+Project Picker theme:
+- Use This Video uses the purple Featured-card visual language.
+- Delete uses a themed red danger-card treatment.
+- Clear Saved Videos uses the same themed danger style.
+- Cards include responsive hover, focus, border and glow reactions.
+- Existing thumbnails, recent storage, Delete and Clear All behavior remain unchanged.
+
+Existing systems preserved:
+- All visual effects and presets
+- Embedded YouTube playback
+- Local/direct media conversion
+- Exact WAV from supplied original files
+- Tab-capture video recording
+- Real waveform PNG
+- Sticky preview behavior
+- Premium-member access rules
+- Producer Hub content and navigation
+
+Supabase:
+- No SQL, Storage bucket, MIME policy or path update is required.

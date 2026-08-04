@@ -74,6 +74,7 @@
   <link rel="stylesheet" href="css/v4.17.7-media-converter-sticky-preview.css?v=4.17.7">
   <link rel="stylesheet" href="css/v4.17.8-tab-capture-converter.css?v=4.17.8">
   <link rel="stylesheet" href="css/v4.17.9-youtube-autocapture-projects.css?v=4.17.9">
+  <link rel="stylesheet" href="css/v4.17.10-youtube-capture-selection-theme.css?v=4.17.10">
 </head>
  <body>
   <div id="loader">
@@ -204,11 +205,27 @@
       <p>Open the video in another browser tab, click Start Tab Capture, choose that tab, and enable <strong>Share tab audio</strong>. The studio records the shared picture and sound, generates a real waveform from the captured audio, applies the selected effects, and creates downloadable files.</p>
      </div>
      <div class="tabCaptureGuideV4178">
-      <span>1. Open the video in another tab</span>
-      <span>2. Select Start Tab Capture</span>
-      <span>3. Choose the video tab</span>
+      <span>1. Select a YouTube project</span>
+      <span>2. Open its playback tab</span>
+      <span>3. Choose that tab for capture</span>
       <span>4. Enable Share tab audio</span>
      </div>
+     <article class="selectedCaptureProjectV41710" id="selectedCaptureProjectV41710">
+      <img id="selectedCaptureThumbV41710" src="assets/images/sos-logo.png" alt="Selected YouTube project thumbnail">
+      <div>
+       <p class="sectionEyebrow">Selected YouTube Project</p>
+       <h3 id="selectedCaptureTitleV41710">No YouTube video selected</h3>
+       <small id="selectedCaptureUrlV41710">Choose a video from the YouTube Project Picker above.</small>
+       <div class="selectedCaptureActionsV41710">
+        <button class="accountFeatureActionV417 selectedProjectActionV41710" id="openSelectedPlaybackTabV41710" type="button" disabled>
+         <i>▶</i><span><strong>Open Playback Tab</strong><small>Open the selected YouTube video in a separate tab.</small></span>
+        </button>
+        <button class="accountFeatureActionV417 selectedProjectActionV41710" id="captureSelectedTabV41710" type="button" disabled>
+         <i>●</i><span><strong>Choose Selected Tab & Auto Record</strong><small>Open the browser share picker, enable tab audio, and begin recording.</small></span>
+        </button>
+       </div>
+      </div>
+     </article>
      <div class="tabCaptureStatusV4178" id="tabCaptureStatusV4178">
       <span class="compatibilityDotV4173 isWaiting" data-tab-capture-dot></span>
       <div><strong data-tab-capture-title>Capture is ready</strong><small data-tab-capture-copy>No browser tab is currently being shared.</small></div>
@@ -219,7 +236,7 @@
       <canvas id="tabCaptureWaveformV4178" width="1280" height="180"></canvas>
      </div>
      <div class="tabCaptureActionsV4178">
-      <button class="primaryButton" id="startTabCaptureV4178" type="button">Start Tab Capture</button>
+      <button class="secondaryButton" id="startTabCaptureV4178" type="button">Capture a Different Browser Tab</button>
       <button class="secondaryButton" id="startTabRecordingV4178" type="button" disabled>Record with Selected Effects</button>
       <button class="secondaryButton" id="stopTabRecordingV4178" type="button" disabled>Stop & Build Downloads</button>
       <button class="secondaryButton" id="downloadTabVideoV4178" type="button" disabled>Download Recorded Video</button>
@@ -532,7 +549,7 @@
   <script src="js/legacy-achievement-sync-v4.13.33.js?v=4.13.33"></script>
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
-  <script src="js/video-effects-studio-v4.17.9.js?v=4.17.9"></script>
-  <script src="js/tab-capture-converter-v4.17.9.js?v=4.17.9"></script>
+  <script src="js/video-effects-studio-v4.17.10.js?v=4.17.10"></script>
+  <script src="js/tab-capture-converter-v4.17.10.js?v=4.17.10"></script>
 </body>
 </html>

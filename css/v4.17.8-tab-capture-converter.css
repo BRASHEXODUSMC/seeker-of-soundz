@@ -1,0 +1,75 @@
+/* Seeker Of SoundZ v4.17.8 — Authorized Tab Capture Converter */
+
+.tabCaptureStudioV4178{
+  display:grid;
+  gap:15px;
+  padding:20px;
+  border:1px solid rgba(196,149,255,.2);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 8% 0,rgba(139,61,205,.14),transparent 40%),
+    rgba(255,255,255,.02);
+}
+.tabCaptureStudioV4178 .sectionHeading{margin:0}
+.tabCaptureGuideV4178{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+}
+.tabCaptureGuideV4178 span{
+  padding:10px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;
+  background:rgba(0,0,0,.16);
+  color:#cbbfd0;
+  font-size:.67rem;
+  text-align:center;
+}
+.tabCaptureStatusV4178{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:center;
+  gap:11px;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:15px;
+  background:rgba(0,0,0,.17);
+}
+.tabCaptureStatusV4178>div{display:grid;gap:3px}
+.tabCaptureStatusV4178 small{color:#a79ca9;line-height:1.45}
+.tabCapturePreviewV4178{
+  display:grid;
+  gap:10px;
+}
+#tabCaptureCanvasV4178,
+#tabCaptureWaveformV4178{
+  width:100%;
+  display:block;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  background:#000;
+}
+#tabCaptureCanvasV4178{aspect-ratio:16/9}
+#tabCaptureWaveformV4178{height:150px}
+.tabCaptureActionsV4178{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+}
+.tabCaptureActionsV4178 button{
+  width:100%;
+  min-width:0;
+  margin:0!important;
+}
+.tabCaptureActionsV4178 button:disabled{
+  opacity:.42;
+  cursor:not-allowed;
+}
+@media(max-width:900px){
+  .tabCaptureGuideV4178{grid-template-columns:1fr 1fr}
+  .tabCaptureActionsV4178{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .tabCaptureGuideV4178,
+  .tabCaptureActionsV4178{grid-template-columns:1fr}
+}

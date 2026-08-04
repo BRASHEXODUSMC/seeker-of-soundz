@@ -72,6 +72,7 @@
   <link rel="stylesheet" href="css/v4.17.5-youtube-project-waveform.css?v=4.17.5">
   <link rel="stylesheet" href="css/v4.17.6-video-fx-runtime-fix.css?v=4.17.6">
   <link rel="stylesheet" href="css/v4.17.7-media-converter-sticky-preview.css?v=4.17.7">
+  <link rel="stylesheet" href="css/v4.17.8-tab-capture-converter.css?v=4.17.8">
 </head>
  <body>
   <div id="loader">
@@ -191,6 +192,39 @@
       <button class="primaryButton" id="converterVideoV4177" type="button" disabled>Convert Video with Selected Effects</button>
      </div>
      <p class="converterNoticeV4177">The converter processes files in your browser. It does not download or extract protected YouTube video or audio.</p>
+    </section>
+
+   
+    <section class="tabCaptureStudioV4178" id="tabCaptureStudioV4178">
+     <div class="sectionHeading">
+      <p class="sectionEyebrow">Authorized Tab Capture Converter</p>
+      <h2>Record a playing browser tab with real audio waveform</h2>
+      <p>Open the video in another browser tab, click Start Tab Capture, choose that tab, and enable <strong>Share tab audio</strong>. The studio records the shared picture and sound, generates a real waveform from the captured audio, applies the selected effects, and creates downloadable files.</p>
+     </div>
+     <div class="tabCaptureGuideV4178">
+      <span>1. Open the video in another tab</span>
+      <span>2. Select Start Tab Capture</span>
+      <span>3. Choose the video tab</span>
+      <span>4. Enable Share tab audio</span>
+     </div>
+     <div class="tabCaptureStatusV4178" id="tabCaptureStatusV4178">
+      <span class="compatibilityDotV4173 isWaiting" data-tab-capture-dot></span>
+      <div><strong data-tab-capture-title>Capture is ready</strong><small data-tab-capture-copy>No browser tab is currently being shared.</small></div>
+     </div>
+     <div class="tabCapturePreviewV4178">
+      <video id="tabCaptureSourceV4178" playsinline muted hidden></video>
+      <canvas id="tabCaptureCanvasV4178" width="1280" height="720"></canvas>
+      <canvas id="tabCaptureWaveformV4178" width="1280" height="180"></canvas>
+     </div>
+     <div class="tabCaptureActionsV4178">
+      <button class="primaryButton" id="startTabCaptureV4178" type="button">Start Tab Capture</button>
+      <button class="secondaryButton" id="startTabRecordingV4178" type="button" disabled>Record with Selected Effects</button>
+      <button class="secondaryButton" id="stopTabRecordingV4178" type="button" disabled>Stop & Build Downloads</button>
+      <button class="secondaryButton" id="downloadTabVideoV4178" type="button" disabled>Download Recorded Video</button>
+      <button class="secondaryButton" id="downloadTabWavV4178" type="button" disabled>Download Captured Audio WAV</button>
+      <button class="secondaryButton" id="downloadTabWaveformV4178" type="button" disabled>Download Real Waveform PNG</button>
+     </div>
+     <p class="converterNoticeV4177">Use this only for media you own or have permission to record. Browser tab capture requires a secure HTTPS page and explicit permission every time.</p>
     </section>
 
    <div class="videoStudioWorkspaceV4171">
@@ -495,5 +529,6 @@
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
   <script src="js/video-effects-studio-v4.17.7.js?v=4.17.7"></script>
+  <script src="js/tab-capture-converter-v4.17.8.js?v=4.17.8"></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+Seeker Of SoundZ v4.17.8
+AUTHORIZED TAB CAPTURE + REAL WAVEFORM RECORDER
+
+New browser-tab capture converter:
+- Adds Start Tab Capture for user-authorized browser sharing.
+- The member selects a browser tab and enables Share tab audio.
+- The shared picture is drawn to a processing canvas.
+- Selected visual effects are applied to the captured tab preview and final recording.
+- The captured audio stream drives a real live waveform.
+- Record with Selected Effects produces a downloadable WEBM containing the processed video and captured audio.
+- Captured PCM samples are exported as an actual WAV file.
+- The real waveform can be downloaded as PNG.
+- Capture status shows whether tab audio was included.
+- Every capture requires explicit browser permission.
+- The feature requires HTTPS and a browser supporting getDisplayMedia.
+
+Supported selected effects in tab-capture rendering include:
+- TV Static
+- CRT Scanlines
+- Frequency Glow
+- RGB Split
+- Soft Strobe
+- Vignette
+- Cinema Bars
+- Laser Grid
+- Waveform / Oscilloscope overlay
+- Spectrum Bars
+- Horizon Glow
+- Circle Spectrum
+- Beat Zoom
+- Camera Shake
+- Beat Rotation
+- Monochrome
+- Hue Shift
+
+YouTube and protected media:
+- The website does not directly download, extract, or bypass protected YouTube media.
+- A YouTube URL remains an embedded preview.
+- Members may explicitly share a browser tab they are authorized to record.
+- Members are reminded to record only media they own or have permission to use.
+
+Existing features preserved:
+- Local/direct media converter
+- Exact WAV export from supplied files
+- YouTube synchronized guide waveform
+- Sticky effects preview
+- All existing presets, effects, downloads and Producer Hub systems
+
+Supabase:
+- No SQL, Storage bucket, MIME policy, or path update is required.

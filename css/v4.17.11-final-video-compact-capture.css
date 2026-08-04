@@ -1,0 +1,90 @@
+/* Seeker Of SoundZ v4.17.11 — final video download and compact capture workspace */
+
+.tabCaptureStudioV4178{
+  max-width:1180px;
+  margin-inline:auto;
+}
+.selectedCaptureProjectV41710{
+  max-height:310px;
+}
+.selectedCaptureProjectV41710>img{
+  max-height:310px;
+}
+.tabCapturePreviewToolbarV41711{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:2px;
+}
+.tabCapturePreviewToolbarV41711 strong{
+  color:#f5eaff;
+}
+.tabCapturePreviewToolbarV41711 .smallAction{
+  margin:0!important;
+}
+.compactCapturePreviewV41711{
+  max-width:760px;
+  margin-inline:auto;
+}
+.compactCapturePreviewV41711 #tabCaptureCanvasV4178{
+  max-height:420px;
+  object-fit:contain;
+}
+.compactCapturePreviewV41711 #tabCaptureWaveformV4178{
+  height:105px;
+}
+.compactCapturePreviewV41711.isExpanded{
+  max-width:none;
+}
+.compactCapturePreviewV41711.isExpanded #tabCaptureCanvasV4178{
+  max-height:none;
+}
+.compactCapturePreviewV41711.isExpanded #tabCaptureWaveformV4178{
+  height:150px;
+}
+.tabCaptureActionsV4178{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.finalVideoButtonV41711{
+  grid-column:1/-1;
+  min-height:56px;
+  border-color:rgba(82,241,163,.4)!important;
+  background:
+    linear-gradient(135deg,rgba(44,166,109,.38),rgba(115,49,173,.28))!important;
+  box-shadow:0 0 0 1px rgba(82,241,163,.09),0 12px 30px rgba(0,0,0,.24),0 0 22px rgba(82,241,163,.11)!important;
+}
+.finalVideoButtonV41711:not(:disabled):hover{
+  transform:translateY(-2px);
+  border-color:rgba(138,255,195,.68)!important;
+  box-shadow:0 0 0 1px rgba(82,241,163,.14),0 16px 34px rgba(0,0,0,.28),0 0 28px rgba(82,241,163,.18)!important;
+}
+.finalVideoButtonV41711:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+}
+.videoEffectsControlsV4171{
+  max-height:min(720px,calc(100vh - 110px));
+}
+@media(min-width:901px){
+  .tabCaptureStudioV4178{
+    position:relative;
+  }
+  .videoStudioWorkspaceV4171{
+    align-items:start;
+  }
+  .stickyVideoPreviewV4177{
+    max-height:calc(100vh - 92px);
+  }
+}
+@media(max-width:700px){
+  .tabCaptureActionsV4178{
+    grid-template-columns:1fr;
+  }
+  .finalVideoButtonV41711{
+    grid-column:auto;
+  }
+  .selectedCaptureProjectV41710{
+    max-height:none;
+  }
+}

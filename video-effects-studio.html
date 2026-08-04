@@ -75,6 +75,7 @@
   <link rel="stylesheet" href="css/v4.17.8-tab-capture-converter.css?v=4.17.8">
   <link rel="stylesheet" href="css/v4.17.9-youtube-autocapture-projects.css?v=4.17.9">
   <link rel="stylesheet" href="css/v4.17.10-youtube-capture-selection-theme.css?v=4.17.10">
+  <link rel="stylesheet" href="css/v4.17.11-final-video-compact-capture.css?v=4.17.11">
 </head>
  <body>
   <div id="loader">
@@ -230,7 +231,11 @@
       <span class="compatibilityDotV4173 isWaiting" data-tab-capture-dot></span>
       <div><strong data-tab-capture-title>Capture is ready</strong><small data-tab-capture-copy>No browser tab is currently being shared.</small></div>
      </div>
-     <div class="tabCapturePreviewV4178">
+     <div class="tabCapturePreviewToolbarV41711">
+      <strong>Live finished-video preview</strong>
+      <button class="smallAction" id="toggleCapturePreviewSizeV41711" type="button">Expand Preview</button>
+     </div>
+     <div class="tabCapturePreviewV4178 compactCapturePreviewV41711" id="compactCapturePreviewV41711">
       <video id="tabCaptureSourceV4178" playsinline muted hidden></video>
       <canvas id="tabCaptureCanvasV4178" width="1280" height="720"></canvas>
       <canvas id="tabCaptureWaveformV4178" width="1280" height="180"></canvas>
@@ -238,8 +243,9 @@
      <div class="tabCaptureActionsV4178">
       <button class="secondaryButton" id="startTabCaptureV4178" type="button">Capture a Different Browser Tab</button>
       <button class="secondaryButton" id="startTabRecordingV4178" type="button" disabled>Record with Selected Effects</button>
-      <button class="secondaryButton" id="stopTabRecordingV4178" type="button" disabled>Stop & Build Downloads</button>
-      <button class="secondaryButton" id="downloadTabVideoV4178" type="button" disabled>Download Recorded Video</button>
+      <button class="primaryButton finalVideoButtonV41711" id="finishAndDownloadVideoV41711" type="button" disabled>Finish, Build & Download Video</button>
+      <button class="secondaryButton" id="stopTabRecordingV4178" type="button" disabled>Stop Without Auto-Download</button>
+      <button class="secondaryButton" id="downloadTabVideoV4178" type="button" disabled>Download Finished Video Again</button>
       <button class="secondaryButton" id="downloadTabWavV4178" type="button" disabled>Download Captured Audio WAV</button>
       <button class="secondaryButton" id="downloadTabWaveformV4178" type="button" disabled>Download Real Waveform PNG</button>
      </div>
@@ -550,6 +556,6 @@
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
   <script src="js/video-effects-studio-v4.17.10.js?v=4.17.10"></script>
-  <script src="js/tab-capture-converter-v4.17.10.js?v=4.17.10"></script>
+  <script src="js/tab-capture-converter-v4.17.11.js?v=4.17.11"></script>
 </body>
 </html>

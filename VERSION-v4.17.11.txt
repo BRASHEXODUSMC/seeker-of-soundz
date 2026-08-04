@@ -1,0 +1,26 @@
+Seeker Of SoundZ v4.17.11
+FINAL VIDEO DOWNLOAD + COMPACT CAPTURE WORKSPACE
+
+Finished video workflow:
+- Adds one clear Finish, Build & Download Video button.
+- The button stops the active recording, builds the processed recording, and downloads it automatically.
+- The finished WEBM contains the shared tab picture, selected overlays/effects, and captured tab audio when Share tab audio was enabled.
+- Download Finished Video Again remains available after processing.
+- Stop Without Auto-Download remains available when the member wants to inspect the result first.
+- Status messages now explain whether the final video includes valid captured WAV samples.
+
+Compact capture workspace:
+- The live capture preview is compact by default.
+- Adds Expand Preview / Compact Preview.
+- The compact preview keeps the effects rack reachable while the source tab is open and recording.
+- Capture canvas height is limited on desktop instead of expanding across the full page.
+- Waveform height is reduced in compact mode.
+- Existing sticky preview behavior remains.
+
+YouTube:
+- YouTube embeds remain preview-only.
+- The site does not include or link to third-party YouTube ripping services.
+- Authorized tab capture remains available after the member explicitly chooses a playback tab and enables Share tab audio.
+- Original files and direct editable media URLs remain supported for exact conversion.
+
+No Supabase update is required.

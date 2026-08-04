@@ -1,0 +1,28 @@
+Seeker Of SoundZ v4.17.12
+LICENSED EDM VIDEO LIBRARY + CAPTURE MODULE CONTAINMENT
+
+Licensed EDM Visual Library:
+- Adds a dedicated source library inside Video Effects Studio.
+- Includes EDM-friendly searches for abstract neon footage, DJ/festival footage, lasers, smoke, particles, music visualizers, glitch overlays, cyberpunk loops, transitions and nightlife.
+- Sources include Pexels, Pixabay, Mixkit and YouTube Creative Commons.
+- Each card displays the applicable source license or verification requirement.
+- Pexels cards link to the Pexels License.
+- Pixabay cards link to the Pixabay Content License summary.
+- Mixkit cards warn that each item must be checked for Free License versus Restricted License.
+- YouTube cards are limited to Creative Commons Attribution videos and require attribution.
+- Adds a copyable YouTube CC attribution template.
+- Adds source filter buttons.
+- The library does not claim that Standard YouTube License videos are reusable.
+
+Capture module containment:
+- Hard-limits the tab-capture module, canvas, waveform and preview to the module width.
+- Prevents horizontal canvas overflow.
+- Adds min-width:0 to all grid and flex children involved in the editor.
+- Uses layout/paint containment for the capture preview.
+- Compact mode is capped at 760px.
+- Expanded mode remains at 100% of the module, never wider than the page.
+- Effects controls remain visible beside the preview on desktop.
+- The workspace collapses to one column below 980px.
+- Canvases scale visually without changing their internal recording resolution.
+
+No Supabase update is required.

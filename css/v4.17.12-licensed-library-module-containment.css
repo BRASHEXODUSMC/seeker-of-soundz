@@ -1,0 +1,209 @@
+/* Seeker Of SoundZ v4.17.12 — licensed library and hard module containment */
+
+.licensedVideoLibraryV41712{
+  min-width:0;
+  display:grid;
+  gap:16px;
+  padding:20px;
+  border:1px solid rgba(196,149,255,.2);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 8% 0,rgba(139,61,205,.14),transparent 40%),
+    rgba(255,255,255,.02);
+}
+.licensedVideoLibraryV41712 .sectionHeading{margin:0}
+.licensedVideoFiltersV41712{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.licensedVideoFiltersV41712 .smallAction{
+  margin:0!important;
+}
+.licensedVideoFiltersV41712 .isActive{
+  border-color:rgba(219,184,255,.62)!important;
+  background:linear-gradient(135deg,rgba(140,62,205,.2),rgba(255,255,255,.03))!important;
+  box-shadow:0 0 18px rgba(145,70,214,.12);
+}
+.licensedVideoGridV41712{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.licensedVideoGridV41712 article{
+  min-width:0;
+  display:grid;
+  grid-template-columns:112px minmax(0,1fr);
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  background:rgba(0,0,0,.16);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.licensedVideoGridV41712 article:hover{
+  transform:translateY(-3px);
+  border-color:rgba(218,184,255,.45);
+  box-shadow:0 15px 32px rgba(0,0,0,.24),0 0 18px rgba(141,67,210,.08);
+}
+.licensedVideoGridV41712 article[hidden]{display:none!important}
+.licensedVideoVisualV41712{
+  min-height:190px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 30% 20%,rgba(198,119,255,.25),transparent 38%),
+    linear-gradient(145deg,#21102d,#09060d 65%);
+  font-size:2.5rem;
+}
+.licensedVideoGridV41712 article>div:last-child{
+  min-width:0;
+  display:grid;
+  align-content:center;
+  gap:8px;
+  padding:16px;
+}
+.licensedVideoGridV41712 h3,
+.licensedVideoGridV41712 p{margin:0}
+.licensedVideoGridV41712 p{
+  color:#aa9faf;
+  line-height:1.5;
+}
+.licensedVideoGridV41712 .primaryButton,
+.licensedVideoGridV41712 .secondaryButton{
+  width:100%;
+  min-width:0;
+  margin:0!important;
+  text-align:center;
+}
+.licenseBadgeV41712{
+  width:max-content;
+  max-width:100%;
+  padding:5px 8px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
+  font-size:.62rem;
+  font-weight:900;
+}
+.licenseBadgeV41712.isGreen{
+  border-color:rgba(84,234,159,.28);
+  background:rgba(40,150,99,.1);
+  color:#aaffd1;
+}
+.licenseBadgeV41712.isAmber{
+  border-color:rgba(238,196,90,.3);
+  background:rgba(161,115,25,.1);
+  color:#f5dc98;
+}
+.licenseBadgeV41712.isBlue{
+  border-color:rgba(91,185,255,.3);
+  background:rgba(42,113,174,.1);
+  color:#b6e3ff;
+}
+.licenseLinkV41712{
+  color:#cfa8ff;
+  font-size:.68rem;
+  text-decoration:none;
+}
+.licenseLinkV41712:hover{text-decoration:underline}
+.licenseFinePrintV41712{
+  color:#918797;
+  line-height:1.45;
+}
+.licensedVideoWarningV41712{
+  padding:13px 15px;
+  border:1px solid rgba(240,195,87,.2);
+  border-radius:14px;
+  background:rgba(158,111,26,.08);
+}
+.licensedVideoWarningV41712 strong{color:#f4d991}
+.licensedVideoWarningV41712 p{
+  margin:5px 0 0;
+  color:#c4b79d;
+  line-height:1.5;
+}
+
+/* Hard containment: no canvas, preview, or capture child may expand past the module. */
+#videoEffectsStudio,
+.tabCaptureStudioV4178,
+.mediaConverterV4177,
+.videoStudioWorkspaceV4171,
+.videoPreviewPanelV4171,
+.videoEffectsControlsV4171,
+.tabCapturePreviewV4178,
+.compactCapturePreviewV41711,
+.youtubePlayerStageV4174,
+.videoCanvasWrapV4171{
+  min-width:0!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+.tabCaptureStudioV4178,
+.mediaConverterV4177,
+.licensedVideoLibraryV41712{
+  width:100%!important;
+  overflow:hidden!important;
+}
+.tabCapturePreviewV4178{
+  width:100%!important;
+  overflow:hidden!important;
+  contain:layout paint;
+}
+#tabCaptureCanvasV4178,
+#tabCaptureWaveformV4178,
+#videoOverlayV4171,
+#youtubeOverlayV4174,
+#waveformCanvasV4171,
+#studioVideoV4171{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  height:auto;
+  box-sizing:border-box!important;
+}
+#tabCaptureCanvasV4178{
+  aspect-ratio:16/9;
+  object-fit:contain;
+}
+#tabCaptureWaveformV4178{
+  aspect-ratio:1280/180;
+  max-height:130px!important;
+}
+.compactCapturePreviewV41711{
+  width:min(100%,760px)!important;
+  max-width:760px!important;
+  overflow:hidden!important;
+}
+.compactCapturePreviewV41711.isExpanded{
+  width:100%!important;
+  max-width:100%!important;
+}
+.videoStudioWorkspaceV4171{
+  width:100%;
+  overflow:visible;
+  grid-template-columns:minmax(0,1.55fr) minmax(280px,.75fr)!important;
+}
+.videoEffectsControlsV4171{
+  width:100%;
+  overflow-x:hidden!important;
+}
+.effectGridV4172,
+.effectPresetRowV4172{
+  min-width:0;
+  max-width:100%;
+}
+.effectToggleV4171>span{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+@media(max-width:980px){
+  .licensedVideoGridV41712{grid-template-columns:1fr}
+  .videoStudioWorkspaceV4171{grid-template-columns:1fr!important}
+  .stickyVideoPreviewV4177{position:relative!important;top:auto!important;max-height:none!important}
+}
+@media(max-width:620px){
+  .licensedVideoGridV41712 article{grid-template-columns:1fr}
+  .licensedVideoVisualV41712{min-height:120px}
+  .licensedVideoFiltersV41712{display:grid;grid-template-columns:1fr 1fr}
+}

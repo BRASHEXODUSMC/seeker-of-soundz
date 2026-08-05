@@ -1,0 +1,75 @@
+Seeker Of SoundZ v4.19.5
+PROFILE MODULES & CLEAN OPT-IN LOADER BUILDER
+
+Loader reset:
+- Introduces a one-time clean loader baseline migration.
+- Disables all legacy loader effects, scans, horizons, gates, pseudo-element swipes and decorative motion.
+- Existing accounts begin from a clean loader with:
+  - Pure Void background
+  - Still background
+  - No orbit rings
+  - No logo glow
+  - No particles
+  - No logo animation
+  - No completion swipe
+  - Smooth loading bar
+  - Modern SOS font
+- Members can re-enable only the effects they want from Profile Settings > Settings > Loader Builder.
+- The only completion swipe is the dedicated member-selected custom swipe layer.
+
+New loader options:
+- Brand fonts:
+  - Modern SOS
+  - Retro Future
+  - Arcade Pixel
+  - Digital Display
+  - Monospace Terminal
+  - Wide Cinema
+  - Classic Signal
+- Loading bar animations:
+  - Smooth Fill
+  - Pulse Glow
+  - Scanner Light
+  - Segment Blocks
+  - Bouncing Signal
+  - Spectrum Gradient
+  - Retro Pixel Bar
+  - Minimal Line
+- New independent toggles:
+  - Logo glow
+  - Loader particles
+- Existing logo, orbit, brand, subtitle, status, percent, logo animation,
+  background, background motion and completion swipe options remain.
+
+Members/Profile modules:
+- Adds a Producer-Hub-style Member Frequency Hub.
+- Modules:
+  - Overview
+  - Profile Studio
+  - Settings
+  - Account
+- Existing profile systems are moved into modules rather than rebuilt.
+- Overview contains the signed-in profile and quick links.
+- Profile Studio contains the existing profile/background/member tools.
+- Settings contains the complete Personal Experience Studio and Loader Builder.
+- Account contains session actions and Sign Out.
+- Selected module is remembered for the current browser session.
+
+Saved notifications:
+- Existing and fallback save toasts are forced above every member/profile module.
+- Bottom-right green save confirmation is no longer hidden behind profile layers.
+
+Preserved:
+- Authentication
+- Supabase profile data
+- Owner/admin roles
+- Achievements and quests
+- Profile backgrounds
+- Loader preferences
+- Forums and collaboration
+- Navigation
+- Producer Hub
+- Existing public member profiles
+
+Supabase:
+- No SQL, Edge Function, Storage bucket or RLS update is required.

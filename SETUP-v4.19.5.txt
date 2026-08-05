@@ -1,0 +1,14 @@
+SEEKER OF SOUNDZ v4.19.5 SETUP
+
+1. Upload all v4.19.5 files to GitHub Pages.
+2. Wait for deployment and press Ctrl + F5.
+3. The first v4.19.5 visit resets loader-only preferences to the clean baseline.
+4. Sign in and open Members.
+5. Select the Settings module.
+6. Open Loader Builder and choose only the loader elements and effects you want.
+7. Select Save & apply to my account.
+8. Confirm the save toast appears above all modules.
+9. Reload the site to test the saved loader.
+10. The completion swipe appears only when Loader completion swipe is enabled.
+
+No Supabase changes are required.

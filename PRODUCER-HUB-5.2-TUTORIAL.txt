@@ -1,0 +1,28 @@
+PRODUCER HUB 5.2 QUICK GUIDE
+
+RESTORE BEAT MARKERS
+1. Upload your music.
+2. Select Analyze Beats.
+3. Wait for the marker count confirmation.
+4. Scroll to the Beat Markers lane.
+5. Purple markers are normal beats; green markers are stronger/drop beats.
+
+AUTO-SYNC
+1. Analyze the music, then select Auto-Sync Effects.
+2. Auto-Sync can also be selected first; analysis continues automatically.
+3. Timed visual regions appear in the Effects lane.
+4. Camera regions move the actual video frame.
+
+SHIFT+K VIDEO RAZOR
+1. Hover the pointer over the exact video timeline position.
+2. Press Shift+K.
+3. The video becomes two source-aware sections.
+4. Hover the split boundary.
+5. Select ×L or R× to delete one side.
+
+SHIFT+K MUSIC RAZOR
+1. Hover over the music waveform.
+2. Press Shift+K.
+3. Hover the music split boundary.
+4. Select ×L or R×.
+5. Double-click a removed music section to restore it.

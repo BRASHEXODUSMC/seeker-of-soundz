@@ -1,0 +1,181 @@
+/* Seeker Of SoundZ v4.27.0 — restored beats and Shift+K razor editing */
+
+/* Razor hover guide follows the pointer over video and music lanes. */
+.timelineContentV4250{
+  --razor-x:0%;
+}
+.timelineContentV4250.isRazorHoverV4270::before{
+  content:"";
+  position:absolute;
+  z-index:80;
+  top:36px;
+  bottom:0;
+  left:var(--razor-x);
+  width:2px;
+  transform:translateX(-1px);
+  pointer-events:none;
+  background:linear-gradient(to bottom,#fff,#c97fff 42%,#5ce9a1);
+  box-shadow:0 0 12px rgba(201,127,255,.7);
+}
+.timelineContentV4250.isRazorHoverV4270::after{
+  content:"✂ Shift + K";
+  position:absolute;
+  z-index:81;
+  top:40px;
+  left:var(--razor-x);
+  transform:translateX(-50%);
+  padding:4px 7px;
+  border:1px solid rgba(223,188,255,.35);
+  border-radius:7px;
+  background:#120b18;
+  color:#f1e8f5;
+  font-size:.48rem;
+  pointer-events:none;
+  white-space:nowrap;
+}
+
+/* Split-boundary controls appear only while hovering near a cut. */
+.razorBoundaryV4270{
+  position:absolute;
+  z-index:32;
+  top:2px;
+  bottom:2px;
+  width:4px;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.razorBoundaryV4270>i{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:2px;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,.34);
+  box-shadow:0 0 8px rgba(201,128,255,.42);
+}
+.razorBoundaryV4270>button{
+  position:absolute!important;
+  top:50%!important;
+  width:30px!important;
+  height:26px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  margin:0!important;
+  border:1px solid rgba(255,132,164,.34)!important;
+  border-radius:8px!important;
+  background:#170b12!important;
+  color:#ffb0c4!important;
+  font-size:.48rem!important;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(-50%) scale(.84);
+  transition:opacity .15s ease,transform .15s ease;
+}
+.razorBoundaryV4270>button:first-child{
+  right:7px;
+}
+.razorBoundaryV4270>button:last-child{
+  left:7px;
+}
+.timelineVideoSubLaneV4250:hover .razorBoundaryV4270>button,
+.razorBoundaryV4270:hover>button,
+.timelineMusicLaneV4270:hover .razorBoundaryV4270>button{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(-50%) scale(1);
+}
+
+/* Music segments sit above the waveform but below transport interactions. */
+.timelineMusicLaneV4270{
+  position:relative!important;
+  overflow:visible!important;
+}
+.timelineMusicSegmentsV4270{
+  position:absolute;
+  z-index:12;
+  inset:4px 0 4px 0;
+  pointer-events:none;
+}
+.musicRazorSegmentV4270{
+  position:absolute!important;
+  z-index:2!important;
+  top:4px!important;
+  bottom:4px!important;
+  min-width:3px!important;
+  display:grid!important;
+  place-content:center!important;
+  gap:1px!important;
+  padding:3px!important;
+  overflow:hidden!important;
+  border:1px solid rgba(122,232,177,.2)!important;
+  border-radius:7px!important;
+  background:linear-gradient(90deg,rgba(51,178,119,.1),rgba(122,83,187,.13))!important;
+  color:#dff8eb!important;
+  pointer-events:auto!important;
+}
+.musicRazorSegmentV4270.isDeleted{
+  border-color:rgba(255,99,139,.28)!important;
+  background:
+    repeating-linear-gradient(135deg,rgba(120,25,52,.25) 0 8px,rgba(45,12,25,.32) 8px 16px)!important;
+  color:#f3adbf!important;
+  opacity:.72;
+}
+.musicRazorSegmentV4270 strong,
+.musicRazorSegmentV4270 small{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:.46rem;
+}
+.musicRazorBoundaryV4270{
+  top:4px;
+  bottom:4px;
+  pointer-events:auto;
+}
+
+/* Restored beat markers are visible above the lane and selectable. */
+#timelineMarkerLaneV4190 .beatMarkerV4190{
+  display:block!important;
+  width:3px!important;
+  min-width:3px!important;
+  height:58px!important;
+  border:0!important;
+  border-radius:999px!important;
+  padding:0!important;
+  background:#b86fff!important;
+  box-shadow:0 0 8px rgba(184,111,255,.55)!important;
+  cursor:pointer!important;
+}
+#timelineMarkerLaneV4190 .beatMarkerV4190.isDrop{
+  width:5px!important;
+  background:#65efad!important;
+  box-shadow:0 0 12px rgba(101,239,173,.72)!important;
+}
+
+/* Keyboard help in Cut & Edit. */
+.timelineRazorHintV4270{
+  margin:0!important;
+  color:#9c91a0!important;
+  font-size:.54rem!important;
+  line-height:1.5!important;
+}
+.timelineRazorHintV4270 kbd{
+  display:inline-grid;
+  place-items:center;
+  min-width:22px;
+  padding:2px 5px;
+  border:1px solid rgba(214,176,255,.17);
+  border-bottom-width:2px;
+  border-radius:5px;
+  background:rgba(255,255,255,.025);
+  color:#e1d6e6;
+  font:inherit;
+}
+
+@media(max-width:700px){
+  .timelineContentV4250.isRazorHoverV4270::after{
+    content:"Shift+K";
+  }
+}

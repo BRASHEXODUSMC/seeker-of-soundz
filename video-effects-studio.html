@@ -101,6 +101,7 @@
   <link rel="stylesheet" href="css/v4.25.0-producer-pro-timeline.css?v=4.25.0">
   <link rel="stylesheet" href="css/v4.25.1-timeline-scroll-vfx.css?v=4.25.1">
   <link rel="stylesheet" href="css/v4.26.0-ripple-cuts-transport.css?v=4.26.0">
+  <link rel="stylesheet" href="css/v4.27.0-beat-razor-tool.css?v=4.27.0">
 </head>
  <body>
   <div id="loader">
@@ -189,7 +190,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 5.1</p>
+      <p class="sectionEyebrow">Producer Hub 5.2</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -620,10 +621,15 @@
        </label>
       </div>
       <p id="timelineEditStatusV4220">Move the playhead, mark a start and end, then ripple-delete the section so the following video closes the gap.</p>
+      <p class="timelineRazorHintV4270"><kbd>Shift</kbd> + <kbd>K</kbd> splits the video or music exactly where your pointer is hovering. Hover a new split boundary to delete its left or right side.</p>
      </section>
      <div class="timelineTracksV4190" id="timelineTracksV4190">
       <article data-track="video"><header><i>🎬</i><span>Video Clips</span><button class="timelineMuteButtonV4240" id="timelineMuteVideosV4240" type="button" title="Mute or unmute all video clips">🔊</button></header><div class="timelineLaneV4190 timelineVideoLaneV4240" id="timelineVideoLaneV4240"><div class="timelineClipV4190 videoClipV4190" id="timelineVideoClipV4190">Video 1</div></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize video lanes"></button></article>
-      <article data-track="music"><header><i>🎵</i><span>Music</span><button class="timelineMuteButtonV4240" id="timelineMuteMusicV4240" type="button" title="Mute or unmute music">🔊</button></header><div class="timelineLaneV4190"><div class="timelineClipV4190 musicClipV4190" id="timelineMusicClipV4190">Music track</div><canvas id="timelineWaveformV4190" width="1200" height="90"></canvas></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize music lane"></button></article>
+      <article data-track="music"><header><i>🎵</i><span>Music</span><button class="timelineMuteButtonV4240" id="timelineMuteMusicV4240" type="button" title="Mute or unmute music">🔊</button></header><div class="timelineLaneV4190 timelineMusicLaneV4270" id="timelineMusicLaneV4270">
+       <div class="timelineClipV4190 musicClipV4190" id="timelineMusicClipV4190">Music track</div>
+       <canvas id="timelineWaveformV4190" width="1200" height="90"></canvas>
+       <div class="timelineMusicSegmentsV4270" id="timelineMusicSegmentsV4270"></div>
+      </div><button class="laneResizeHandleV4250" type="button" aria-label="Resize music lane"></button></article>
       <article data-track="effects"><header><i>✨</i><span>Timed Effects</span><button class="timelineMuteButtonV4240" id="timelineMuteEffectsV4240" type="button" title="Mute or unmute effects">✨</button></header><div class="timelineLaneV4190" id="timelineEffectsLaneV4190"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize effects lane"></button></article>
       <article data-track="markers"><header><i>◆</i><span>Beat Markers</span></header><div class="timelineLaneV4190" id="timelineMarkerLaneV4190"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize beat marker lane"></button></article>
      </div>
@@ -641,7 +647,7 @@
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
      <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 4.0 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 5.1 ripple editing, clip-edge snapping, gap-free multiclip cuts, transport controls beneath the preview, pro timeline navigation, VFX, Auto-Sync, layers, waveforms and export.</small></span></button>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 5.2 restored beat analysis, beat-marker Auto-Sync, Shift+K razor editing, left/right video and music deletion, ripple cuts, transport controls, VFX, layers, waveforms and export.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -685,6 +691,10 @@
      <article data-tutorial-slide><i>✂️</i><h3>Ripple-delete video sections</h3><p>Mark a cut start and end, then remove the range. When Ripple Close Gaps is enabled, the remaining part of the current video and every following video shift left immediately, so the next clip fills the removed space.</p></article>
      <article data-tutorial-slide><i>🧲</i><h3>Snap cuts and playhead to clip edges</h3><p>Keep snapping enabled to align cut points and playhead movement with the beginning or ending edge of Video 1, Video 2, Video 3, or later segments. Disable snapping whenever you need unrestricted placement.</p></article>
      <article data-tutorial-slide><i>⏯️</i><h3>Transport controls below the preview</h3><p>Restart, rewind five seconds, play, pause, and move forward five seconds directly beneath the video. The controls use the combined multiclip timeline and stay close to the timeline editor.</p></article>
+     <article data-tutorial-slide><i>◆</i><h3>Restore and analyze beat markers</h3><p>Upload music and select Analyze Beats. Producer Hub rebuilds the waveform, detects strong and normal beats, places every marker in the Beat Markers lane, and reconnects those markers to Auto-Sync.</p></article>
+     <article data-tutorial-slide><i>⚡</i><h3>Auto-Sync from detected beats</h3><p>Select Auto-Sync Effects after analysis—or select it first and analysis continues automatically. Camera moves and timed visual effects are placed directly on detected beat positions.</p></article>
+     <article data-tutorial-slide><i>✂️</i><h3>Shift + K razor tool</h3><p>Hover over a video or music section and press Shift + K. The project splits exactly at the pointer. Hover the new boundary and select ×L or R× to delete the section on either side.</p></article>
+     <article data-tutorial-slide><i>🎵</i><h3>Music-side deletion</h3><p>Music splits appear over the waveform. Delete a left or right section to remove it from preview and export. Double-click a removed music section to restore it.</p></article>
      <article data-tutorial-slide><i>⬇</i><h3>Render and download</h3><p>Open Export and select Build Finished Video. The browser records the processed canvas with the uploaded soundtrack.</p></article>
      <article data-tutorial-slide><i>🖥️</i><h3>Optional screen capture</h3><p>Capture is separate and optional. Chrome or Edge is recommended for tab audio. Firefox can capture screens, but audio availability varies by operating system and source.</p></article>
     </div>
@@ -1288,14 +1298,16 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.25.1.js?v=4.25.1"></script>
+  <script src="js/direct-video-composer-v4.27.0.js?v=4.27.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.26.0-core.js?v=4.26.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
   <script src="js/producer-hub-v4.26.0.js?v=4.26.0"></script>
   <script src="js/producer-layer-editor-v4.23.1.js?v=4.23.1"></script>
-  <script src="js/producer-multiclip-effects-v4.26.0.js?v=4.26.0"></script>
-  <script src="js/producer-pro-timeline-v4.25.1.js?v=4.25.1"></script>
+  <script src="js/producer-multiclip-effects-v4.27.0.js?v=4.27.0"></script>
+  <script src="js/producer-pro-timeline-v4.27.0.js?v=4.27.0"></script>
+  <script src="js/producer-beat-analysis-v4.27.0.js?v=4.27.0"></script>
+  <script src="js/producer-razor-tool-v4.27.0.js?v=4.27.0"></script>
 </body>
 </html>

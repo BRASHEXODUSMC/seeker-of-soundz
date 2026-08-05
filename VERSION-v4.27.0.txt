@@ -1,0 +1,48 @@
+Seeker Of SoundZ v4.27.0
+PRODUCER HUB 5.2 — BEAT ANALYSIS RESTORATION & SHIFT+K RAZOR
+
+Beat analysis restored:
+- Adds one dedicated beat-analysis runtime after the editor scripts
+- Reads the selected local audio file or the current browser audio source
+- Supports stereo and multichannel audio by creating a mono analysis signal
+- Generates a detailed waveform
+- Uses adaptive transient and energy detection
+- Produces normal and strong/drop beat markers
+- Restores markers to the Beat Markers timeline lane
+- Updates marker counts, waveform summary and downloadable analysis controls
+- Dispatches the beat-complete event used by the professional timeline
+
+Auto-Sync restored:
+- Auto-Sync reads the restored beat-marker DOM directly
+- Selecting Auto-Sync before analysis automatically performs analysis first
+- Camera movement and timed visual regions are regenerated after analysis
+- Timed effects appear in the Effects lane
+- True video-frame zoom, rotation, impact and camera shake remain supported
+
+Shift+K razor:
+- Hover over the video timeline and press Shift+K to split the selected project time
+- Hover over the music timeline and press Shift+K to split the music
+- A visible razor guide follows the pointer
+- Video splits preserve source start/end values for preview and direct rendering
+- Split video sections share the original source file without duplicating media
+- Music splits appear above the waveform
+
+Left/right deletion:
+- Hover a split boundary
+- Select ×L to delete the section on the left
+- Select R× to delete the section on the right
+- Video sections ripple together after deletion
+- Music sections are removed from preview and the Web Audio export mix
+- Double-click a removed music section to restore it
+
+Preserved:
+- Ripple cuts and clip snapping
+- Undo and redo
+- Professional timeline scrolling and middle-mouse panning
+- Multiple video lanes and transitions
+- Fire, explosion and smoke VFX
+- Multilayer text, logo and image editor
+- Direct finished-video rendering
+- YouTube tools, waveform tools and Theatre View
+
+No Supabase update is required.

@@ -91,6 +91,7 @@
   <link rel="stylesheet" href="css/v4.19.7-toasts-collaboration-sounds-socials.css?v=4.19.7">
   <link rel="stylesheet" href="css/v4.19.8-default-loader-admin-overview-theme.css?v=4.19.8">
   <link rel="stylesheet" href="css/v4.19.9-producer-hub-3.css?v=4.19.9">
+  <link rel="stylesheet" href="css/v4.21.0-producer-hub-4.css?v=4.21.0">
 </head>
  <body>
   <div id="loader">
@@ -179,13 +180,14 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 3.0</p>
+      <p class="sectionEyebrow">Producer Hub 4.0</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
      <div class="producerHubHeaderActionsV4190">
       <button class="secondaryButton" id="newProducerProjectV4190" type="button">New Project</button>
       <button class="secondaryButton" id="saveProducerProjectV4190" type="button">Save Project</button>
+      <button class="secondaryButton" id="producerTheatreViewV4210" type="button" aria-pressed="false">Theatre View</button>
       <button class="primaryButton" id="renderProducerProjectV4190" type="button">Render Project</button>
      </div>
     </header>
@@ -209,6 +211,10 @@
        <button type="button" data-youtube-tool-tab="help">How to Import</button>
       </div>
       <section class="producerYoutubeToolPanelV4199 isActive" data-youtube-tool-panel="preview">
+       <div class="producerYoutubeSearchRowV4210">
+        <input id="producerYoutubeSearchV4210" type="search" placeholder="Search YouTube for videos, tutorials, visuals, or artists">
+        <button class="secondaryButton" id="searchProducerYoutubeV4210" type="button">Search YouTube ↗</button>
+       </div>
        <div class="producerYoutubeInputRowV4199">
         <input id="producerYoutubeUrlV4199" type="url" inputmode="url" placeholder="Paste a YouTube URL here">
         <button class="primaryButton" id="loadProducerYoutubeV4199" type="button">Load Preview</button>
@@ -292,6 +298,38 @@
         <button type="button" data-asset-category="retro">Retro</button>
        </div>
        <div class="assetLibraryGridV4190" id="assetLibraryGridV4190"></div>
+       <section class="producerEffectsLibraryV4210">
+        <header><div><strong>Complete Effects Library</strong><small>Every effect remains connected to the original effect controls.</small></div><span id="producerEffectsCountV4210">0 effects</span></header>
+        <div class="producerEffectsSearchV4210">
+         <input id="producerEffectsSearchV4210" type="search" placeholder="Search all effects">
+         <button class="smallAction" id="producerEffectsClearV4210" type="button">Clear All</button>
+        </div>
+        <div class="producerEffectsGridV4210" id="producerEffectsGridV4210"></div>
+       </section>
+       <section class="producerLayersV4210">
+        <header><div><strong>Logo &amp; Text Layers</strong><small>Add branded overlays to preview and final render.</small></div></header>
+        <label class="producerLogoDropV4210">
+         <input id="producerLogoInputV4210" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+         <i>◎</i><span><strong>Upload Logo</strong><small id="producerLogoNameV4210">PNG, JPG, WEBP, or GIF</small></span>
+        </label>
+        <div class="producerLayerGridV4210">
+         <label>Logo position<select id="producerLogoPositionV4210"><option value="top-left">Top Left</option><option value="top-right">Top Right</option><option value="bottom-left">Bottom Left</option><option value="bottom-right" selected>Bottom Right</option><option value="center">Center</option></select></label>
+         <label>Logo size<input id="producerLogoSizeV4210" type="range" min=".08" max=".5" step=".01" value=".2"></label>
+         <label>Logo opacity<input id="producerLogoOpacityV4210" type="range" min="0" max="1" step=".05" value=".9"></label>
+         <label class="checkLine"><input id="producerLogoEnabledV4210" type="checkbox" checked> Show logo</label>
+        </div>
+        <label>Overlay text<input id="producerTextV4210" type="text" maxlength="100" placeholder="SEEKER OF SOUNDZ"></label>
+        <div class="producerLayerGridV4210">
+         <label>Text style<select id="producerTextStyleV4210"><option value="retro">Retro Future</option><option value="arcade">Arcade Pixel</option><option value="cyber">Cyber EDM</option><option value="rave">Rave Glow</option><option value="minimal">Minimal Wide</option><option value="terminal">Terminal</option></select></label>
+         <label>Text position<select id="producerTextPositionV4210"><option value="top">Top</option><option value="center">Center</option><option value="bottom" selected>Bottom</option><option value="lower-third">Lower Third</option></select></label>
+         <label>Text size<input id="producerTextSizeV4210" type="range" min="20" max="120" step="2" value="54"></label>
+         <label>Text opacity<input id="producerTextOpacityV4210" type="range" min="0" max="1" step=".05" value=".95"></label>
+        </div>
+        <div class="producerLayerActionsV4210">
+         <button class="secondaryButton" id="producerRemoveLogoV4210" type="button">Remove Logo</button>
+         <button class="secondaryButton" id="producerClearTextV4210" type="button">Clear Text</button>
+        </div>
+       </section>
       </section>
 
       <section class="producerSidebarViewV4190" data-producer-sidebar-view="videos">
@@ -308,6 +346,15 @@
        <div class="producerWaveformSummaryV4190" id="producerWaveformSummaryV4190"><strong>No waveform generated</strong><small>Upload music and run Analyze Beats.</small></div>
        <button class="secondaryButton" id="downloadTimelineWaveformV4190" type="button" disabled>Download Waveform PNG</button>
        <button class="secondaryButton" id="exportBeatMarkersV4190" type="button" disabled>Export Beat Markers JSON</button>
+       <div class="producerWaveformExportV4210">
+        <strong>Waveform Export Studio</strong>
+        <small>Analyze an imported local video or audio file, then export the waveform and audio data.</small>
+        <button class="secondaryButton" id="producerWaveformSvgV4210" type="button" disabled>Download SVG</button>
+        <button class="secondaryButton" id="producerWaveformCsvV4210" type="button" disabled>Download CSV</button>
+        <button class="secondaryButton" id="producerWaveformJsonV4210" type="button" disabled>Download JSON</button>
+        <button class="secondaryButton" id="producerWaveformWavV4210" type="button" disabled>Extract WAV</button>
+        <p id="producerWaveformStatusV4210">Import a local video or audio file to prepare waveform exports.</p>
+       </div>
       </section>
 
       <section class="producerSidebarViewV4190" data-producer-sidebar-view="downloads">
@@ -387,8 +434,8 @@
 
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
-     <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Build a music video in five steps</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>See the complete workflow with browser-specific notes.</small></span></button>
+     <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 4.0 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn the editor, effects, YouTube tools, timeline, Theatre View, layers, waveforms, and export workflow.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -422,7 +469,7 @@
    </section>
 
    <dialog class="studioTutorialV4180" id="studioTutorialV4180">
-    <div class="studioTutorialHeadV4180"><div><p class="sectionEyebrow">Video Effects Studio</p><h2>Guided project tutorial</h2></div><button type="button" id="closeStudioTutorialV4180" aria-label="Close tutorial">×</button></div>
+    <div class="studioTutorialHeadV4180"><div><p class="sectionEyebrow">Producer Hub 4.0</p><h2>Guided production tutorial</h2></div><button type="button" id="closeStudioTutorialV4180" aria-label="Close tutorial">×</button></div>
     <div class="tutorialProgressV4180"><span id="tutorialProgressV4180"></span></div>
     <div class="tutorialSlidesV4180">
      <article data-tutorial-slide class="isActive"><i>🎬</i><h3>Start with footage</h3><p>Use the Create module to upload a local video. This is the fastest and most reliable workflow in Chrome, Edge, and Firefox.</p></article>
@@ -1009,10 +1056,11 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.19.0.js?v=4.19.0"></script>
+  <script src="js/direct-video-composer-v4.21.0.js?v=4.21.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
+  <script src="js/producer-hub-v4.21.0.js?v=4.21.0"></script>
 </body>
 </html>

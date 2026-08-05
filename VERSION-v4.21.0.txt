@@ -1,0 +1,65 @@
+Seeker Of SoundZ v4.21.0
+PRODUCER HUB 4.0
+
+Foundation preserved:
+- Built directly from the confirmed-working v4.19.9 clean revert.
+- Producer Hub 2.0 and Producer Hub 3.0 CSS, JavaScript, editor, YouTube converter,
+  timeline, inspector, effects, access system and render queue remain.
+- No broad CSS rule hides or replaces required Video Effects Studio sections.
+
+Producer Hub 4.0 additions:
+- Complete searchable Effects Library inside Assets.
+- All original effect checkboxes stay connected.
+- ON/ADD state and Clear All.
+- Live effect refresh while paused.
+- Animated effects during playback.
+- Effects can preview without requiring separate music.
+- Additional procedural visual support for static, VHS, strobe, drop flash,
+  glitches, waveform, oscilloscope, light leaks, digital rain, grids and more.
+- Overlay canvas forced above the imported video.
+
+Theatre View:
+- Darkens and blurs the rest of the website.
+- Expands Producer Hub into a focused editor.
+- Keeps sidebar, inspector, preview and timeline available.
+- Escape exits Theatre View.
+
+Timeline:
+- Click timeline ruler or lanes to seek.
+- Drag the playhead.
+- Keyboard playhead control with arrows, Home and End.
+- Track headers open Video, Music, Assets or Waveform tools.
+- Existing timeline tracks, markers, zoom and Auto-Sync remain.
+
+Logo and text layers:
+- Upload PNG, JPG, WEBP or GIF logos.
+- Logo position, size, opacity and visibility controls.
+- Retro Future, Arcade Pixel, Cyber EDM, Rave Glow, Minimal Wide and Terminal text.
+- Text position, size and opacity controls.
+- Logo and text render in preview and final export.
+
+YouTube:
+- Existing embedded YouTube preview remains.
+- Existing embedded external MP4 converter remains.
+- Adds a YouTube search shortcut.
+- Search opens YouTube results, then the selected URL can be pasted into the existing preview.
+- Existing Copy URL controls remain.
+
+Waveform exports:
+- Existing PNG and beat-marker JSON remain.
+- Adds SVG waveform.
+- Adds CSV waveform data.
+- Adds JSON analysis.
+- Adds extracted mono WAV when the browser supports the imported codec.
+
+Layout and cursor:
+- Left sidebar uses a wider single-column button layout.
+- Waveforms, Downloads and Preset Packs labels no longer clip.
+- Custom website cursor is disabled only while inside Producer Hub.
+- Leaving the page or Hub restores the normal member-selected cursor.
+
+Tutorial:
+- Updated tutorial title, description and slides for Producer Hub 4.0.
+- Covers Theatre View, timeline, effects, layers, YouTube tools and export workflow.
+
+No Supabase SQL, Edge Function, Storage, API key or RLS update is required.

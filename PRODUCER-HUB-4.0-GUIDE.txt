@@ -1,0 +1,45 @@
+PRODUCER HUB 4.0 QUICK GUIDE
+
+1. IMPORT
+- Open Videos.
+- Choose or import a local video.
+- Music is optional for visual-effect preview.
+
+2. EFFECTS
+- Open Assets.
+- Search the Complete Effects Library.
+- Select ADD to activate an effect.
+- Effects update on paused frames and animate while playing.
+
+3. LOGO AND TEXT
+- Upload a logo under Assets.
+- Select position, size and opacity.
+- Enter overlay text and choose an EDM or retro style.
+
+4. YOUTUBE
+- Open YouTube Tools.
+- Search YouTube using the new search field.
+- Copy a selected video URL.
+- Paste it into the existing embedded preview.
+- Use the external converter only for media you own or are authorized to download.
+
+5. TIMELINE
+- Click the ruler or a lane to seek.
+- Drag the playhead.
+- Click track headers to open related tools.
+- Use Arrow keys, Home and End while the playhead is focused.
+
+6. THEATRE VIEW
+- Select Theatre View.
+- The surrounding website darkens and blurs.
+- Press Escape to exit.
+
+7. WAVEFORMS
+- Import a local video or audio file.
+- Open Waveforms.
+- Download PNG, SVG, CSV, JSON, beat markers or WAV where supported.
+
+8. EXPORT
+- Confirm video, effects, logo and text.
+- Add licensed music when desired.
+- Render the project.

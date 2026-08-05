@@ -1,0 +1,197 @@
+/* Seeker Of SoundZ v4.21.0 — Producer Hub 4.0 safe additive styles */
+
+/* Native cursor only while Producer Hub is active. */
+body.producerNativeCursorV4210,
+body.producerNativeCursorV4210 *{cursor:auto!important}
+body.producerNativeCursorV4210 #cursor,
+body.producerNativeCursorV4210 #cursorDot,
+body.producerNativeCursorV4210 #cursorRing,
+body.producerNativeCursorV4210 .customCursor,
+body.producerNativeCursorV4210 .cursorDot,
+body.producerNativeCursorV4210 .cursorRing{
+ display:none!important;opacity:0!important;visibility:hidden!important
+}
+
+/* Never hide or replace the working v4.19.9 foundation. */
+#videoEffectsStudio:not([hidden]),
+#videoEffectsStudio:not([hidden]) #producerHubV4190{
+ visibility:visible!important;opacity:1!important
+}
+#videoEffectsStudio:not([hidden]) #producerHubV4190{display:grid!important}
+
+/* Theatre View */
+body.producerTheatreBodyV4210{overflow:hidden!important}
+body.producerTheatreBodyV4210::before{
+ content:"";position:fixed;inset:0;z-index:2147482000;
+ background:rgba(0,0,0,.9);backdrop-filter:blur(14px)
+}
+#producerHubV4190.producerTheatreV4210{
+ position:fixed!important;inset:12px!important;z-index:2147482100!important;
+ width:auto!important;height:auto!important;max-width:none!important;max-height:none!important;
+ margin:0!important;padding:14px!important;overflow:auto!important;
+ border:1px solid rgba(207,163,255,.25)!important;border-radius:20px!important;
+ background:radial-gradient(circle at 50% 0,rgba(132,56,198,.13),transparent 36%),#07050a!important;
+ box-shadow:0 35px 100px rgba(0,0,0,.75)!important
+}
+#producerHubV4190.producerTheatreV4210 .producerSidebarV4190,
+#producerHubV4190.producerTheatreV4210 .producerInspectorV4190{
+ top:8px!important;max-height:calc(100vh - 72px)!important
+}
+#producerHubV4190.producerTheatreV4210 .composerPreviewV4180 video{
+ max-height:calc(100vh - 250px)!important
+}
+
+/* Sidebar clipping repair */
+.producerHubWorkspaceV4190{
+ grid-template-columns:270px minmax(0,1fr) 290px!important
+}
+.producerSidebarNavV4190{
+ grid-template-columns:1fr!important;gap:7px!important
+}
+.producerSidebarNavV4190 button{
+ width:100%!important;min-width:0!important;min-height:42px!important;
+ box-sizing:border-box!important;overflow:visible!important;white-space:normal!important
+}
+.producerSidebarNavV4190 button span{min-width:0!important;overflow-wrap:anywhere}
+.producerSidebarV4190,.producerInspectorV4190{overflow-x:hidden!important}
+.producerSidebarViewV4190,.producerSidebarViewV4190>*{min-width:0!important;max-width:100%!important}
+.producerSidebarViewV4190 input,
+.producerSidebarViewV4190 select,
+.producerSidebarViewV4190 button{max-width:100%!important;box-sizing:border-box!important}
+
+/* YouTube search */
+.producerYoutubeSearchRowV4210{
+ display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;margin-bottom:8px
+}
+.producerYoutubeSearchRowV4210 input{
+ min-width:0;min-height:42px;padding:0 12px;border:1px solid rgba(255,255,255,.09);
+ border-radius:11px;background:#09070c;color:#fff
+}
+
+/* Effect library, logo, text, and waveform modules */
+.producerEffectsLibraryV4210,
+.producerLayersV4210,
+.producerWaveformExportV4210{
+ display:grid;gap:10px;padding:11px;border:1px solid rgba(255,255,255,.07);
+ border-radius:14px;background:rgba(255,255,255,.014)
+}
+.producerEffectsLibraryV4210 header,
+.producerLayersV4210 header{
+ display:flex;justify-content:space-between;align-items:flex-start;gap:10px
+}
+.producerEffectsLibraryV4210 header>div,
+.producerLayersV4210 header>div{display:grid;gap:2px;min-width:0}
+.producerEffectsLibraryV4210 small,
+.producerLayersV4210 small,
+.producerWaveformExportV4210 small{
+ color:#8f8593;font-size:.56rem;line-height:1.4
+}
+.producerEffectsSearchV4210{
+ display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px
+}
+.producerEffectsSearchV4210 input{min-width:0;width:100%;box-sizing:border-box}
+.producerEffectsGridV4210{
+ display:grid;gap:6px;max-height:430px;overflow:auto;padding-right:3px
+}
+.producerEffectsGridV4210 button{
+ min-width:0;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;
+ gap:8px;align-items:center;padding:8px 9px;border:1px solid rgba(255,255,255,.06);
+ border-radius:11px;background:rgba(255,255,255,.014);color:#d9cfdd;text-align:left;cursor:pointer
+}
+.producerEffectsGridV4210 button:hover,
+.producerEffectsGridV4210 button.isActive{
+ border-color:rgba(203,159,255,.3);background:rgba(132,56,198,.1)
+}
+.producerEffectsGridV4210 button>span{display:grid;gap:2px;min-width:0}
+.producerEffectsGridV4210 strong,
+.producerEffectsGridV4210 small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.producerEffectsGridV4210 b{font-size:.52rem;color:#c996f3}
+.producerEffectsGridV4210 button.isActive b{color:#66efad}
+
+.producerLogoDropV4210{
+ min-height:58px!important;display:grid!important;grid-template-columns:38px minmax(0,1fr)!important;
+ gap:9px!important;align-items:center!important;padding:9px!important;
+ border:1px dashed rgba(202,158,255,.2)!important;border-radius:12px!important;
+ background:rgba(132,56,198,.04)!important;cursor:pointer!important
+}
+.producerLogoDropV4210 input{display:none!important}
+.producerLogoDropV4210>i{
+ width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(202,158,255,.16);
+ border-radius:11px;background:rgba(132,56,198,.08);font-style:normal
+}
+.producerLogoDropV4210>span{display:grid;gap:2px;min-width:0}
+.producerLogoDropV4210 small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.producerLayerGridV4210{
+ display:grid;grid-template-columns:1fr 1fr;gap:7px
+}
+.producerLayerGridV4210 label,.producerLayersV4210>label{
+ display:grid;gap:5px;font-size:.62rem;color:#d7cddc
+}
+.producerLayerGridV4210 input,.producerLayerGridV4210 select,.producerLayersV4210>label input{
+ width:100%;min-width:0;box-sizing:border-box
+}
+.producerLayerActionsV4210{
+ display:grid;grid-template-columns:1fr 1fr;gap:7px
+}
+.producerLayerActionsV4210 button,
+.producerWaveformExportV4210 button{width:100%!important;margin:0!important}
+.producerWaveformExportV4210 p{margin:0;color:#928795;font-size:.56rem;line-height:1.4}
+
+/* Make overlay canvas unquestionably visible over video. */
+#composerCanvasV4180{
+ z-index:3!important;opacity:1!important;visibility:visible!important;
+ display:block!important;pointer-events:none!important
+}
+#composerPreviewVideoV4180{position:relative!important;z-index:1!important}
+.composerPreviewV4180{isolation:isolate!important}
+.composerAudioStatusV4182{position:relative!important;z-index:4!important}
+
+/* Clickable timeline */
+.timelineTracksV4190 article{
+ cursor:pointer;transition:border-color .18s ease,background .18s ease
+}
+.timelineTracksV4190 article:hover,
+.timelineTracksV4190 article.isSelectedV4210{background:rgba(132,56,198,.08)}
+.timelineTracksV4190 article header{cursor:pointer}
+.timelineLaneV4190{pointer-events:auto!important}
+#timelinePlayheadV4190{
+ z-index:8!important;width:3px!important;cursor:ew-resize!important;pointer-events:auto!important
+}
+#timelinePlayheadV4190:focus-visible{
+ outline:2px solid rgba(207,166,255,.75);outline-offset:3px
+}
+
+/* Header/button breathing room */
+.producerHubHeaderActionsV4190,
+.producerCenterToolbarV4190{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
+.producerHubHeaderActionsV4190 button{margin:0!important}
+.transportButtonsV4190{flex:0 0 auto!important}
+.producerTimeV4190{min-width:130px!important}
+
+/* Tutorial refresh */
+.studioTutorialV4180{
+ border:1px solid rgba(203,159,255,.25)!important;
+ background:radial-gradient(circle at 10% 0,rgba(132,56,198,.18),transparent 38%),#08060b!important;
+ box-shadow:0 30px 100px rgba(0,0,0,.72),0 0 40px rgba(132,56,198,.14)!important
+}
+.studioTutorialV4180::backdrop{
+ background:rgba(0,0,0,.88)!important;backdrop-filter:blur(12px)!important
+}
+.tutorialSlidesV4180 article{
+ border-color:rgba(203,159,255,.12)!important;background:rgba(255,255,255,.018)!important
+}
+
+@media(max-width:1250px){
+ .producerHubWorkspaceV4190{grid-template-columns:245px minmax(0,1fr) 260px!important}
+}
+@media(max-width:1000px){
+ .producerHubWorkspaceV4190{grid-template-columns:1fr!important}
+ .producerSidebarV4190,.producerInspectorV4190{
+  position:relative!important;top:auto!important;max-height:none!important
+ }
+}
+@media(max-width:650px){
+ .producerYoutubeSearchRowV4210,.producerEffectsSearchV4210,
+ .producerLayerGridV4210,.producerLayerActionsV4210{grid-template-columns:1fr}
+ #producerHubV4190.producerTheatreV4210{inset:6px!important;padding:8px!important}
+}

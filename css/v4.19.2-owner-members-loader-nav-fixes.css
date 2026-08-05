@@ -1,0 +1,172 @@
+/* Seeker Of SoundZ v4.19.2 — owner, members, loader swipe, navigation cleanup */
+
+/* MEMBERS PAGE REPAIR
+   Keep the original hero readable and place the login/register card beside it.
+   No negative margins or artificial text compression. */
+body.membersPage main{
+  display:grid;
+  grid-template-columns:minmax(0,1.12fr) minmax(390px,.88fr);
+  gap:clamp(28px,5vw,76px);
+  align-items:start;
+  width:min(1320px,calc(100% - 40px));
+  margin-inline:auto;
+}
+body.membersPage main > .pageHero{
+  grid-column:1;
+  min-width:0;
+  padding:clamp(96px,12vh,150px) 0 50px!important;
+}
+body.membersPage main > .pageHero .container,
+body.membersPage main > .membersAuthSection .container{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+}
+body.membersPage .pageHeroContent{
+  width:100%!important;
+  max-width:700px!important;
+  padding:0!important;
+}
+body.membersPage .pageHeroContent h1{
+  max-width:680px!important;
+  margin:12px 0 24px!important;
+  font-size:clamp(3.4rem,7vw,7rem)!important;
+  line-height:.91!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  hyphens:none!important;
+}
+body.membersPage .pageHeroContent > p:last-child{
+  max-width:580px!important;
+  font-size:clamp(1rem,1.6vw,1.22rem)!important;
+  line-height:1.7!important;
+}
+body.membersPage main > .membersAuthSection{
+  grid-column:2;
+  min-width:0;
+  padding:clamp(82px,10vh,126px) 0 50px!important;
+}
+body.membersPage #authArea.authShell{
+  width:100%!important;
+  max-width:520px!important;
+  margin:0 0 0 auto!important;
+  display:block!important;
+  position:relative!important;
+  inset:auto!important;
+  transform:none!important;
+}
+body.membersPage #authArea .authCard{
+  width:100%!important;
+  max-height:calc(100vh - 120px)!important;
+  overflow:auto!important;
+  grid-column:auto!important;
+  border-color:rgba(202,158,255,.25)!important;
+  box-shadow:0 25px 66px rgba(0,0,0,.44),0 0 32px rgba(139,62,205,.11)!important;
+}
+body.membersPage main > section:not(.pageHero):not(.membersAuthSection){
+  grid-column:1/-1;
+  width:100%;
+}
+@media(max-width:980px){
+  body.membersPage main{
+    grid-template-columns:1fr;
+    width:min(760px,calc(100% - 28px));
+    gap:0;
+  }
+  body.membersPage main > .pageHero,
+  body.membersPage main > .membersAuthSection{
+    grid-column:1;
+    padding:90px 0 24px!important;
+  }
+  body.membersPage main > .membersAuthSection{
+    padding-top:12px!important;
+    padding-bottom:50px!important;
+  }
+  body.membersPage #authArea.authShell{
+    max-width:none!important;
+    margin:0!important;
+  }
+  body.membersPage #authArea .authCard{
+    max-height:none!important;
+  }
+}
+@media(max-width:620px){
+  body.membersPage .pageHeroContent h1{
+    font-size:clamp(3rem,18vw,5rem)!important;
+  }
+  body.membersPage #authArea .authCard{
+    padding:16px!important;
+  }
+}
+
+/* LOADER COMPLETION SWIPE
+   The scan stays hidden until completion and follows the saved profile switch. */
+.loaderSwipeControlV4192{
+  grid-column:1/-1;
+  border-color:rgba(205,159,255,.22)!important;
+  background:linear-gradient(135deg,rgba(129,54,190,.1),rgba(255,255,255,.018))!important;
+}
+html:not(.sos-loader-swipe-enabled) #loader .loaderScan{
+  display:none!important;
+  opacity:0!important;
+  animation:none!important;
+}
+html.sos-loader-swipe-enabled #loader:not(.loaderComplete) .loaderScan{
+  opacity:0!important;
+  animation:none!important;
+}
+html.sos-loader-swipe-enabled #loader.loaderComplete .loaderScan{
+  display:block!important;
+  opacity:1!important;
+  animation:sosLoaderCompletionSwipeV4192 .72s cubic-bezier(.22,.76,.22,1) both!important;
+}
+html.sos-loader-swipe-enabled #loader.loaderComplete::after{
+  content:""!important;
+  position:absolute!important;
+  top:0!important;
+  bottom:0!important;
+  left:-30%!important;
+  width:24%!important;
+  z-index:50!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,transparent,rgba(209,165,255,.22),rgba(255,255,255,.92),rgba(209,165,255,.22),transparent)!important;
+  filter:blur(3px)!important;
+  transform:skewX(-12deg)!important;
+  animation:sosLoaderCompletionGateV4192 .72s cubic-bezier(.22,.76,.22,1) both!important;
+}
+@keyframes sosLoaderCompletionSwipeV4192{
+  0%{transform:translate3d(-120%,0,0);opacity:0}
+  15%{opacity:1}
+  100%{transform:translate3d(220%,0,0);opacity:0}
+}
+@keyframes sosLoaderCompletionGateV4192{
+  0%{left:-30%;opacity:0}
+  15%{opacity:1}
+  100%{left:112%;opacity:0}
+}
+
+/* NAVIGATION CLEANUP
+   Remove the purple tracking line/glider while preserving buttons, status glows,
+   profile controls, notifications and the navigation container. */
+#mainNav::after,
+.navSignalTrack,
+.navSignalTrack::before,
+.navSignalTrack::after,
+.navActiveGlider,
+.navActiveGlider::before,
+.navActiveGlider::after,
+.navLinks a::after{
+  display:none!important;
+  content:none!important;
+  opacity:0!important;
+  animation:none!important;
+  box-shadow:none!important;
+  background:none!important;
+  border:0!important;
+}
+.navLinks a,
+.navLinks button{
+  text-decoration:none!important;
+  border-bottom-color:transparent!important;
+}

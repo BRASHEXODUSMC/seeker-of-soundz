@@ -1,0 +1,29 @@
+SEEKER OF SOUNDZ v4.19.2 SETUP
+
+1. Upload the v4.19.2 website files to GitHub Pages.
+
+2. In Supabase open SQL Editor.
+
+3. Open this ZIP file:
+   supabase/patch-v4.19.2-owner-brashexodus.sql
+
+4. Copy and run the complete SQL file.
+
+5. Confirm the result row shows:
+   email: brashexodus@gmail.com
+   role: owner
+   rank_name: Owner
+   is_banned: false
+
+6. Sign out of Seeker Of SoundZ completely.
+
+7. Press Ctrl + F5 and sign back in with brashexodus@gmail.com.
+
+8. Open Admin Hub > Members.
+   The Owner account can manage Owner and Administrator roles.
+
+9. Open Profile Settings > Loader Builder.
+   Loader completion swipe now appears inside that section.
+   Disable it for the normal fade exit or enable it for the final swipe.
+
+No converter Edge Function update is required for this particular release.

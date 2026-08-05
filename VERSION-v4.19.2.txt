@@ -1,0 +1,36 @@
+Seeker Of SoundZ v4.19.2
+OWNER, MEMBERS ACCESS, LOADER SWIPE & NAVIGATION FIXES
+
+Owner account:
+- Adds supabase/patch-v4.19.2-owner-brashexodus.sql.
+- Assigns brashexodus@gmail.com the Owner role.
+- Owner includes all Administrator permissions.
+- Adds owner/admin flags to authenticated app metadata.
+- Enables Collaboration Studio access.
+- Clears accidental ban state.
+- Preserves existing username/display name unless either is empty.
+
+Members Access:
+- Removes the broken negative-margin layout from v4.19.1.
+- Restores the full “Your private frequency.” heading without narrow word wrapping.
+- Places the hero copy on the left and login/register module on the upper-right.
+- Uses a stable two-column desktop grid.
+- Returns to a single-column layout on tablets and mobile.
+- Keeps long registration forms scrollable without moving them below the visible page.
+- Does not change authentication or registration JavaScript.
+
+Loader completion swipe:
+- Moves the completion-swipe switch inside Profile Settings > Loader Builder.
+- Disabled means no line, scan, gate or completion swipe.
+- Enabled means the swipe appears only when loading reaches completion.
+- The setting remains saved per signed-in member through the existing experience system.
+- Loader preview remains connected to the switch.
+
+Navigation:
+- Removes the purple signal track, active glider and link-dot highlight.
+- Preserves the navigation container, buttons, profile avatar, notification glow,
+  mobile menu and other navigation functionality.
+
+Supabase:
+- Run patch-v4.19.2-owner-brashexodus.sql once in SQL Editor.
+- No new table, bucket or Edge Function is required.

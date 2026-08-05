@@ -97,6 +97,7 @@
   <link rel="stylesheet" href="css/v4.22.0-producer-advanced-editing.css?v=4.22.0">
   <link rel="stylesheet" href="css/v4.23.0-producer-multi-layer-editor.css?v=4.23.0">
   <link rel="stylesheet" href="css/v4.23.1-music-upload-realtime-layers.css?v=4.23.1">
+  <link rel="stylesheet" href="css/v4.24.0-producer-multiclip-effects.css?v=4.24.0">
 </head>
  <body>
   <div id="loader">
@@ -185,7 +186,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 4.2.1</p>
+      <p class="sectionEyebrow">Producer Hub 4.3</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -446,6 +447,19 @@
       <section class="producerSidebarViewV4190" data-producer-sidebar-view="videos">
        <div class="producerMediaShelfV4190" id="producerVideoShelfV4190"><p>No video loaded.</p></div>
        <button class="secondaryButton" type="button" data-open-module="create">Choose or Import Video</button>
+       <label class="primaryButton producerAddClipsV4240">+ Add Multiple Video Clips
+        <input id="producerAddVideoClipsV4240" type="file" accept="video/*" multiple>
+       </label>
+       <section class="producerClipManagerV4240">
+        <header><div><strong>Video Clip Manager</strong><small>Add Video 1, Video 2, Video 3, or more. Drag to reorder.</small></div></header>
+        <div id="producerVideoClipListV4240"><p>No extra clips added.</p></div>
+        <div class="producerClipActionsV4240">
+         <button class="smallAction" id="muteAllVideoClipsV4240" type="button">Mute All Clips</button>
+         <button class="smallAction" id="unmuteAllVideoClipsV4240" type="button">Unmute All</button>
+         <button class="smallAction" id="clearVideoClipsV4240" type="button">Clear Clips</button>
+        </div>
+        <p id="producerClipStatusV4240">The first imported video becomes Video 1. Additional clips play sequentially.</p>
+       </section>
       </section>
 
       <section class="producerSidebarViewV4190" data-producer-sidebar-view="music">
@@ -533,6 +547,19 @@
       <div class="timelineZoomV4190"><button type="button" id="timelineZoomOutV4190">−</button><input id="timelineZoomV4190" type="range" min="1" max="4" step=".25" value="1"><button type="button" id="timelineZoomInV4190">+</button></div>
      </header>
      <div class="timelineRulerV4190" id="timelineRulerV4190"></div>
+     <section class="timelineEffectEditorV4240">
+      <div><strong>Timed Effects</strong><small>Start and stop individual effects at exact timeline positions.</small></div>
+      <div class="timelineEffectControlsV4240">
+       <select id="timelineEffectSelectV4240"><option value="">Choose an effect</option></select><label class="timelineSnapToggleV4240"><input id="snapEffectsToBeatsV4240" type="checkbox" checked> Snap to nearest beat marker</label>
+       <button class="smallAction" id="markEffectStartV4240" type="button">Mark Effect Start</button>
+       <button class="smallAction" id="markEffectEndV4240" type="button">Mark Effect End</button>
+       <button class="smallAction" id="addTimedEffectV4240" type="button" disabled>Add Effect Region</button>
+       <button class="smallAction" id="muteAllEffectsV4240" type="button">Mute Effects</button>
+       <button class="smallAction" id="unmuteAllEffectsV4240" type="button">Unmute Effects</button>
+       <button class="smallAction" id="clearTimedEffectsV4240" type="button">Clear Regions</button>
+      </div>
+      <p id="timelineEffectStatusV4240">Choose an effect, mark its start and end, then add it to the Effects lane.</p>
+     </section>
      <section class="timelineEditToolbarV4220">
       <div><strong>Cut &amp; Edit</strong><small>Non-destructive cuts can be undone or redone.</small></div>
       <div class="timelineEditActionsV4220">
@@ -546,9 +573,9 @@
       <p id="timelineEditStatusV4220">Move the playhead, mark a start and end, then remove that section.</p>
      </section>
      <div class="timelineTracksV4190" id="timelineTracksV4190">
-      <article data-track="video"><header><i>🎬</i><span>Video</span></header><div class="timelineLaneV4190"><div class="timelineClipV4190 videoClipV4190" id="timelineVideoClipV4190">Video clip</div></div></article>
-      <article data-track="music"><header><i>🎵</i><span>Music</span></header><div class="timelineLaneV4190"><div class="timelineClipV4190 musicClipV4190" id="timelineMusicClipV4190">Music track</div><canvas id="timelineWaveformV4190" width="1200" height="90"></canvas></div></article>
-      <article data-track="effects"><header><i>✨</i><span>Effects</span></header><div class="timelineLaneV4190" id="timelineEffectsLaneV4190"></div></article>
+      <article data-track="video"><header><i>🎬</i><span>Video Clips</span><button class="timelineMuteButtonV4240" id="timelineMuteVideosV4240" type="button" title="Mute or unmute all video clips">🔊</button></header><div class="timelineLaneV4190 timelineVideoLaneV4240" id="timelineVideoLaneV4240"><div class="timelineClipV4190 videoClipV4190" id="timelineVideoClipV4190">Video 1</div></div></article>
+      <article data-track="music"><header><i>🎵</i><span>Music</span><button class="timelineMuteButtonV4240" id="timelineMuteMusicV4240" type="button" title="Mute or unmute music">🔊</button></header><div class="timelineLaneV4190"><div class="timelineClipV4190 musicClipV4190" id="timelineMusicClipV4190">Music track</div><canvas id="timelineWaveformV4190" width="1200" height="90"></canvas></div></article>
+      <article data-track="effects"><header><i>✨</i><span>Timed Effects</span><button class="timelineMuteButtonV4240" id="timelineMuteEffectsV4240" type="button" title="Mute or unmute effects">✨</button></header><div class="timelineLaneV4190" id="timelineEffectsLaneV4190"></div></article>
       <article data-track="markers"><header><i>◆</i><span>Beat Markers</span></header><div class="timelineLaneV4190" id="timelineMarkerLaneV4190"></div></article>
      </div>
      <div class="timelinePlayheadV4190" id="timelinePlayheadV4190"></div>
@@ -563,7 +590,7 @@
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
      <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 4.0 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn the editor, direct music uploads, continuous mouse dragging and rotation, multi-layer text and images, layer transitions and effects, camera motion, cuts, waveforms, YouTube tools, and export workflow.</small></span></button>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn the editor, contained logo/text tools, multiple video clips, clip muting, timed effect regions, beat snapping, direct music uploads, multi-layer editing, cuts, waveforms, YouTube tools, and export workflow.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -1190,12 +1217,13 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.23.0.js?v=4.23.0"></script>
+  <script src="js/direct-video-composer-v4.24.0.js?v=4.24.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
-  <script src="js/producer-hub-v4.22.0.js?v=4.22.0"></script>
+  <script src="js/producer-hub-v4.24.0.js?v=4.24.0"></script>
   <script src="js/producer-layer-editor-v4.23.1.js?v=4.23.1"></script>
+  <script src="js/producer-multiclip-effects-v4.24.0.js?v=4.24.0"></script>
 </body>
 </html>

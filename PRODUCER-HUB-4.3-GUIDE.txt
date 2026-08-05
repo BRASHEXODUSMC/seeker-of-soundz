@@ -1,0 +1,34 @@
+PRODUCER HUB 4.3 QUICK GUIDE
+
+LAYER EDITOR
+1. Open Assets.
+2. The logo/text and multi-layer controls now remain inside the sidebar.
+3. Scroll inside the selected-layer editor to reach every property.
+4. Drag and rotate layers over the preview as before.
+
+MULTIPLE VIDEOS
+1. Open Videos.
+2. Import Video 1 with the normal chooser.
+3. Select Add Multiple Video Clips to add Video 2, Video 3, or more.
+4. Drag clip cards to reorder them.
+5. Click a clip card or timeline segment to preview it.
+6. The project previews and renders every clip in order.
+
+MUTING
+- Select the speaker beside an individual clip to mute only that clip.
+- Use Mute All Clips or the Video timeline speaker for every clip.
+- Use the Music timeline speaker for uploaded music.
+- Use the Effects timeline button for timed effects.
+
+TIMED EFFECTS
+1. Move the playhead to the desired start.
+2. Choose an effect.
+3. Select Mark Effect Start.
+4. Move the playhead to the ending position.
+5. Select Mark Effect End.
+6. Select Add Effect Region.
+7. Keep Snap to nearest beat marker enabled for beat-aligned timing.
+8. Click a region to mute it, or select × to delete it.
+
+CUTS
+Existing cut, undo and redo tools now use the combined multiclip timeline.

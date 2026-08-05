@@ -1,0 +1,52 @@
+Seeker Of SoundZ v4.24.0
+PRODUCER HUB 4.3 — MULTICLIP, TIMED EFFECTS & SIDEBAR FIX
+
+Layer editor containment:
+- Repairs the logo and text layer manager extending outside the Assets sidebar
+- Forces every layer module, input, select, textarea and button to remain within the sidebar
+- Changes the layer manager to a single-column layout inside the narrow sidebar
+- Adds internal vertical scrolling to the selected-layer property editor
+- Keeps every layer control selectable on desktop, tablet and mobile
+- Preserves real-time dragging, rotation and direct canvas rendering
+
+Multiple video clips:
+- Adds multiple video selection to the Videos sidebar
+- Supports Video 1, Video 2, Video 3 and additional clips
+- Displays clip filename and duration
+- Clips can be selected and reordered by drag and drop
+- Timeline segments use proportional widths based on clip duration
+- Clips preview sequentially
+- Direct rendering continues across clip boundaries
+- Total project duration combines every clip
+- Timeline seeking and cuts use global multiclip time
+- Individual clips can be removed
+
+Mute and unmute:
+- Every video clip has its own mute/unmute button
+- Adds Mute All Clips and Unmute All
+- Video timeline header mutes or unmutes all video clips
+- Music timeline header mutes or unmutes the uploaded music
+- Effects timeline header mutes or unmutes timed effect regions
+- All mute controls are reversible
+
+Timed effect regions:
+- Select any existing visual effect
+- Mark Effect Start and Mark Effect End from the current global playhead
+- Add the effect as a visible region in the Effects timeline lane
+- Timed effects activate only inside their assigned range
+- Effect regions can be individually muted or deleted
+- All timed effects can be muted, unmuted or cleared
+- Optional snapping uses the nearest generated beat marker
+- Timed effects are included in preview and direct rendering
+
+Preserved:
+- Existing 48 visual effects
+- Multi-layer text and image editor
+- Camera motion and transitions
+- Timeline cuts, undo and redo
+- Direct finished-video rendering
+- Waveform tools
+- YouTube search, preview and converter
+- Theatre View, custom cursor and access system
+
+No Supabase update is required.

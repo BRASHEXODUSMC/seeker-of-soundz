@@ -1,0 +1,14 @@
+Seeker Of SoundZ v4.19.3
+MEMBERS PAGE LAYOUT FIX
+
+Fixed:
+- Login/register card no longer stays visible after a successful sign-in.
+- The hidden attribute now overrides the high-specificity Members layout CSS.
+- Signed-in members receive a full-width dashboard instead of a narrow right-side column.
+- The “Your private frequency.” hero is hidden after sign-in so it does not compete with the dashboard.
+- Dashboard profile, cards, settings, achievements, loader preferences, and other modules retain their existing behavior.
+- Long names and profile content no longer clip horizontally.
+- Signed-out desktop keeps the hero on the left and login/register card on the right.
+- Tablet and mobile use a clean single-column layout.
+
+No Supabase SQL, Edge Function, Storage, authentication, role, or RLS changes are required.

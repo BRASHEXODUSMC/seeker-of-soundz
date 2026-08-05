@@ -1,0 +1,26 @@
+SEEKER OF SOUNDZ v4.21.2 SETUP
+
+WEBSITE:
+1. Upload every file from this ZIP to GitHub.
+2. Replace existing files.
+3. Wait for GitHub Pages deployment.
+4. Press Ctrl + F5 on video-effects-studio.html.
+
+DIRECT RENDER:
+5. Import a local video.
+6. Add effects, logo, text and optional music.
+7. Select Render Project.
+8. Keep the tab open while the progress bar runs.
+9. The finished file downloads automatically.
+
+YOUTUBE SEARCH:
+10. Open Supabase > Edge Functions.
+11. Create or deploy a function named youtube-search.
+12. Use:
+    supabase/functions/youtube-search/index.ts
+13. Add this Edge Function secret:
+    YOUTUBE_DATA_API_KEY
+14. Set it to your YouTube Data API key.
+15. Deploy the function and reload Producer Hub.
+
+No SQL update is required.

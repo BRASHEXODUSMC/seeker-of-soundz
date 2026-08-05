@@ -93,6 +93,7 @@
   <link rel="stylesheet" href="css/v4.19.9-producer-hub-3.css?v=4.19.9">
   <link rel="stylesheet" href="css/v4.21.0-producer-hub-4.css?v=4.21.0">
   <link rel="stylesheet" href="css/v4.21.1-producer-hub-fixes.css?v=4.21.1">
+  <link rel="stylesheet" href="css/v4.21.2-producer-hub-render-cursor-youtube.css?v=4.21.2">
 </head>
  <body>
   <div id="loader">
@@ -216,22 +217,20 @@
         <input id="producerYoutubeSearchV4210" type="search" placeholder="Search YouTube for videos, tutorials, visuals, or artists">
         <button class="secondaryButton" id="searchProducerYoutubeV4210" type="button">Search YouTube ↗</button>
        </div>
-       <section class="producerYoutubeEmbeddedSearchV4211">
+       <section class="producerYoutubeEmbeddedSearchV4212">
         <header>
-         <div><strong>Embedded YouTube Search</strong><small>Search and browse a compact YouTube playlist directly inside Producer Hub.</small></div>
+         <div><strong>YouTube Search &amp; Preview</strong><small>Search from Producer Hub, select a result, then preview it in the existing YouTube player.</small></div>
          <div>
-          <button class="smallAction" id="openYoutubeSearchTabV4211" type="button" disabled>Open Full Search ↗</button>
-          <button class="smallAction" id="copyYoutubeSearchQueryV4211" type="button" disabled>Copy Search</button>
-          <button class="smallAction" id="clearYoutubeSearchV4211" type="button">Clear</button>
+          <button class="smallAction" id="openYoutubeSearchTabV4212" type="button">Open YouTube ↗</button>
+          <button class="smallAction" id="clearYoutubeSearchV4212" type="button">Clear Results</button>
          </div>
         </header>
-        <div class="producerYoutubeSearchFrameWrapV4211">
-         <iframe id="producerYoutubeSearchFrameV4211" title="Embedded YouTube search results" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
-         <div class="producerYoutubeSearchEmptyV4211" id="producerYoutubeSearchEmptyV4211">
-          <i>⌕</i><strong>Search YouTube inside Producer Hub</strong><span>Enter a search above to load a compact embedded result playlist.</span>
-         </div>
+        <div class="producerYoutubeSearchStateV4212" id="producerYoutubeSearchStateV4212">
+         <i>⌕</i><strong>Search YouTube inside Producer Hub</strong>
+         <span>Results will appear here as selectable video cards. Selecting one loads it into the embedded preview below.</span>
         </div>
-        <p id="producerYoutubeSearchStatusV4211">Search YouTube without leaving Producer Hub.</p>
+        <div class="producerYoutubeResultsV4212" id="producerYoutubeResultsV4212"></div>
+        <p id="producerYoutubeSearchStatusV4212">Ready to search. The included Supabase function keeps the YouTube API key off the public website.</p>
        </section>
        <div class="producerYoutubeInputRowV4199">
         <input id="producerYoutubeUrlV4199" type="url" inputmode="url" placeholder="Paste a YouTube URL here">
@@ -240,7 +239,7 @@
         <button class="secondaryButton" id="clearProducerYoutubeV4199" type="button">Clear</button>
        </div>
        <div class="producerYoutubePreviewV4199">
-        <iframe id="producerYoutubeFrameV4199" title="YouTube project preview" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe id="producerYoutubeFrameV4199" title="YouTube project preview" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <div class="producerYoutubeEmptyV4199" id="producerYoutubeEmptyV4199">
          <i>▶</i><strong>No YouTube reference loaded</strong><span>Paste a supported YouTube link above.</span>
         </div>
@@ -519,8 +518,14 @@
       <label>End time <input id="composerEndV4180" type="number" min="0" step=".01" value="0"></label>
       <label>Output <select id="composerFormatV4180"><option value="auto">Best supported</option><option value="video/webm;codecs=vp9,opus">WEBM VP9</option><option value="video/webm;codecs=vp8,opus">WEBM VP8</option><option value="video/mp4">MP4 when supported</option></select></label>
       <button class="primaryButton" id="composerPreviewButtonV4180" type="button" disabled>Preview Project</button>
-      <button class="primaryButton finishComposerV4180" id="composerRenderButtonV4180" type="button" disabled>Build & Download Finished Video</button>
-      <p class="formMessage" id="composerStatusV4180">Choose a video and licensed music to begin.</p>
+      <button class="primaryButton finishComposerV4180" id="composerRenderButtonV4180" type="button" disabled>Generate & Download Finished Video</button>
+      <section class="directRenderStatusV4212" id="directRenderStatusV4212" hidden>
+       <header><strong>Direct Project Renderer</strong><span id="directRenderPercentV4212">0%</span></header>
+       <div class="directRenderProgressV4212"><i id="directRenderProgressV4212"></i></div>
+       <p id="directRenderMessageV4212">Preparing the canvas, audio mix, effects, logo, and text layers…</p>
+       <button class="secondaryButton" id="cancelDirectRenderV4212" type="button">Cancel Render</button>
+      </section>
+      <p class="formMessage" id="composerStatusV4180">Choose a video to begin. Music is optional.</p>
      </aside>
     </div>
    </section>
@@ -1074,11 +1079,11 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.21.1.js?v=4.21.1"></script>
+  <script src="js/direct-video-composer-v4.21.2.js?v=4.21.2"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
-  <script src="js/producer-hub-v4.21.1.js?v=4.21.1"></script>
+  <script src="js/producer-hub-v4.21.2.js?v=4.21.2"></script>
 </body>
 </html>

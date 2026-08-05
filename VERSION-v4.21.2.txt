@@ -1,0 +1,35 @@
+Seeker Of SoundZ v4.21.2
+PRODUCER HUB 4.0 — CUSTOM CURSOR, DIRECT RENDER & YOUTUBE SEARCH
+
+Custom cursor:
+- Producer Hub no longer disables the member-selected custom cursor.
+- The existing profile setting remains in control.
+- Custom cursor layers are forced above Theatre View, editor panels and overlays.
+- The cursor remains non-blocking.
+- When custom cursor is disabled, buttons and links use the native pointing hand.
+- Text fields, sliders and disabled controls use the appropriate native cursor.
+
+Direct finished-video renderer:
+- The main Render Project button now starts the direct project renderer.
+- Uses the editor canvas and mixed media tracks.
+- Does not use tab capture or screen recording.
+- Includes selected effects, uploaded logo, text layers and mixed audio.
+- Adds progress percentage and progress bar.
+- Adds Cancel Render.
+- Automatically downloads the finished MP4 when supported, otherwise WEBM.
+- Uses Standard, High or Maximum bitrate from the Export inspector.
+- Music remains optional.
+
+YouTube search:
+- Removes the blank unsupported embedded-search iframe.
+- Adds real in-site YouTube search result cards.
+- Search is handled by the included Supabase Edge Function named youtube-search.
+- Results include thumbnail, title, channel, description, Load Preview and Copy URL.
+- Load Preview sends the selected video to the existing embedded YouTube player.
+- Existing converter and URL-preview tools remain unchanged.
+- Includes a fallback Open YouTube button.
+
+Required YouTube setup:
+- Deploy supabase/functions/youtube-search/index.ts.
+- Add YOUTUBE_DATA_API_KEY to Supabase Edge Function Secrets.
+- No SQL or RLS changes are required.

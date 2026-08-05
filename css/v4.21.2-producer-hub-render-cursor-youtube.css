@@ -1,0 +1,275 @@
+/* Seeker Of SoundZ v4.21.2 — custom cursor, direct render, YouTube results */
+
+/* Keep the member-selected custom cursor enabled inside Producer Hub. */
+html:not(.nativeCursor) #producerHubV4190,
+html:not(.nativeCursor) #producerHubV4190 *{
+  cursor:none!important;
+}
+html:not(.nativeCursor) #cursor{
+  display:block!important;
+  visibility:visible!important;
+  z-index:2147483647!important;
+  pointer-events:none!important;
+}
+html:not(.nativeCursor) #cursorDot{
+  display:block!important;
+  visibility:visible!important;
+  z-index:2147483647!important;
+  pointer-events:none!important;
+}
+html:not(.nativeCursor) #cursorRing{
+  display:block!important;
+  visibility:visible!important;
+  z-index:2147483646!important;
+  pointer-events:none!important;
+}
+
+/* When the member turns the custom cursor off, native pointer states work correctly. */
+html.nativeCursor #producerHubV4190 a,
+html.nativeCursor #producerHubV4190 button,
+html.nativeCursor #producerHubV4190 [role="button"],
+html.nativeCursor #producerHubV4190 summary,
+html.nativeCursor #producerHubV4190 label:has(input[type="file"]),
+html.nativeCursor #producerHubV4190 input[type="checkbox"],
+html.nativeCursor #producerHubV4190 input[type="radio"],
+html.nativeCursor #producerHubV4190 select{
+  cursor:pointer!important;
+}
+html.nativeCursor #producerHubV4190 input[type="text"],
+html.nativeCursor #producerHubV4190 input[type="search"],
+html.nativeCursor #producerHubV4190 input[type="url"],
+html.nativeCursor #producerHubV4190 input[type="number"],
+html.nativeCursor #producerHubV4190 textarea{
+  cursor:text!important;
+}
+html.nativeCursor #producerHubV4190 input[type="range"],
+html.nativeCursor #producerHubV4190 #timelinePlayheadV4190{
+  cursor:ew-resize!important;
+}
+html.nativeCursor #producerHubV4190 button:disabled,
+html.nativeCursor #producerHubV4190 input:disabled{
+  cursor:not-allowed!important;
+}
+
+/* Direct renderer */
+.directRenderStatusV4212{
+  display:grid;
+  gap:8px;
+  margin-top:8px;
+  padding:11px;
+  border:1px solid rgba(104,239,174,.18);
+  border-radius:13px;
+  background:
+    radial-gradient(circle at 10% 0,rgba(61,185,127,.11),transparent 42%),
+    rgba(255,255,255,.014);
+}
+.directRenderStatusV4212[hidden]{
+  display:none!important;
+}
+.directRenderStatusV4212>header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.directRenderStatusV4212>header span{
+  color:#7af1b2;
+  font-weight:800;
+}
+.directRenderProgressV4212{
+  height:8px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:999px;
+  background:rgba(0,0,0,.34);
+}
+.directRenderProgressV4212 i{
+  display:block;
+  width:0;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#7432b3,#c58cff,#67efad);
+  box-shadow:0 0 14px rgba(104,239,174,.28);
+  transition:width .12s linear;
+}
+.directRenderStatusV4212 p{
+  margin:0;
+  color:#9d93a1;
+  font-size:.6rem;
+  line-height:1.45;
+}
+.directRenderStatusV4212 button{
+  width:100%!important;
+  margin:0!important;
+}
+
+/* Working in-site YouTube search results */
+.producerYoutubeEmbeddedSearchV4212{
+  display:grid;
+  gap:9px;
+  padding:10px;
+  border:1px solid rgba(202,158,255,.13);
+  border-radius:14px;
+  background:
+    radial-gradient(circle at 5% 0,rgba(132,56,198,.1),transparent 40%),
+    rgba(255,255,255,.012);
+}
+.producerYoutubeEmbeddedSearchV4212>header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+}
+.producerYoutubeEmbeddedSearchV4212>header>div:first-child{
+  display:grid;
+  gap:2px;
+}
+.producerYoutubeEmbeddedSearchV4212>header small{
+  color:#918795;
+  font-size:.58rem;
+  line-height:1.4;
+}
+.producerYoutubeEmbeddedSearchV4212>header>div:last-child{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.producerYoutubeEmbeddedSearchV4212 button{
+  margin:0!important;
+}
+.producerYoutubeSearchStateV4212{
+  min-height:160px;
+  display:grid;
+  place-content:center;
+  justify-items:center;
+  gap:6px;
+  padding:20px;
+  border:1px dashed rgba(202,158,255,.14);
+  border-radius:13px;
+  color:#938997;
+  text-align:center;
+}
+.producerYoutubeSearchStateV4212[hidden]{
+  display:none!important;
+}
+.producerYoutubeSearchStateV4212 i{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(202,158,255,.15);
+  border-radius:13px;
+  background:rgba(132,56,198,.08);
+  color:#d2b0f2;
+  font-style:normal;
+  font-size:1.15rem;
+}
+.producerYoutubeSearchStateV4212 span{
+  max-width:500px;
+  font-size:.62rem;
+  line-height:1.45;
+}
+.producerYoutubeResultsV4212{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+}
+.producerYoutubeResultCardV4212{
+  min-width:0;
+  overflow:hidden;
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:13px;
+  background:rgba(255,255,255,.014);
+}
+.producerYoutubeThumbV4212{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#000!important;
+}
+.producerYoutubeThumbV4212 img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+.producerYoutubeThumbV4212 i{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:50%;
+  background:rgba(0,0,0,.68);
+  color:#fff;
+  font-style:normal;
+}
+.producerYoutubeResultCardV4212>div:nth-child(2){
+  min-width:0;
+  display:grid;
+  gap:3px;
+  padding:9px;
+}
+.producerYoutubeResultCardV4212 strong,
+.producerYoutubeResultCardV4212 small,
+.producerYoutubeResultCardV4212 p{
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.producerYoutubeResultCardV4212 strong{
+  display:-webkit-box;
+  font-size:.68rem;
+  line-height:1.35;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.producerYoutubeResultCardV4212 small{
+  color:#c29de7;
+  font-size:.55rem;
+  white-space:nowrap;
+}
+.producerYoutubeResultCardV4212 p{
+  margin:2px 0 0;
+  color:#8e8492;
+  font-size:.55rem;
+  line-height:1.4;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.producerYoutubeResultActionsV4212{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  padding:0 9px 9px;
+}
+#producerYoutubeSearchStatusV4212{
+  margin:0;
+  color:#8f8492;
+  font-size:.6rem;
+  line-height:1.4;
+}
+
+@media(max-width:980px){
+  .producerYoutubeResultsV4212{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:650px){
+  .producerYoutubeEmbeddedSearchV4212>header{
+    flex-direction:column;
+  }
+  .producerYoutubeResultsV4212{
+    grid-template-columns:1fr;
+  }
+}

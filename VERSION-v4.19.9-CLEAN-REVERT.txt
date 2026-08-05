@@ -1,0 +1,24 @@
+Seeker Of SoundZ — Producer Hub v4.19.9 Clean Revert
+
+This package uses the exact uploaded v4.19.9 Producer Hub 3.0 as the source of truth.
+
+Kept:
+- Producer Hub 2.0 foundation
+- Producer Hub 3.0 interface
+- Complete editor
+- 48 effect controls
+- Embedded YouTube preview
+- Embedded converter
+- Assets, Videos, Music, Waveforms, Downloads and Preset Packs
+- Inspector
+- Timeline and playhead
+- Beat analysis
+- Auto-Sync Effects
+- Rendering and provider systems
+
+Removed:
+- All v4.20.x Producer Hub CSS overrides
+- All v4.20.x Producer Hub JavaScript overrides
+- Later visibility and restructuring hotfixes
+
+No Supabase changes are required.

@@ -91,7 +91,6 @@
   <link rel="stylesheet" href="css/v4.19.7-toasts-collaboration-sounds-socials.css?v=4.19.7">
   <link rel="stylesheet" href="css/v4.19.8-default-loader-admin-overview-theme.css?v=4.19.8">
   <link rel="stylesheet" href="css/v4.19.9-producer-hub-3.css?v=4.19.9">
-  <link rel="stylesheet" href="css/v4.20.3-producer-hub-safe-upgrades.css?v=4.20.3">
 </head>
  <body>
   <div id="loader">
@@ -187,7 +186,6 @@
      <div class="producerHubHeaderActionsV4190">
       <button class="secondaryButton" id="newProducerProjectV4190" type="button">New Project</button>
       <button class="secondaryButton" id="saveProducerProjectV4190" type="button">Save Project</button>
-      <button class="secondaryButton" id="producerTheatreViewV4200" type="button" aria-pressed="false">Theatre View</button>
       <button class="primaryButton" id="renderProducerProjectV4190" type="button">Render Project</button>
      </div>
     </header>
@@ -211,10 +209,6 @@
        <button type="button" data-youtube-tool-tab="help">How to Import</button>
       </div>
       <section class="producerYoutubeToolPanelV4199 isActive" data-youtube-tool-panel="preview">
-       <div class="producerYoutubeSearchRowV4200">
-        <input id="producerYoutubeSearchV4200" type="search" placeholder="Search YouTube for a video, artist, tutorial, or visual">
-        <button class="secondaryButton" id="searchProducerYoutubeV4200" type="button">Search YouTube ↗</button>
-       </div>
        <div class="producerYoutubeInputRowV4199">
         <input id="producerYoutubeUrlV4199" type="url" inputmode="url" placeholder="Paste a YouTube URL here">
         <button class="primaryButton" id="loadProducerYoutubeV4199" type="button">Load Preview</button>
@@ -263,15 +257,6 @@
      </div>
     </section>
 
-    <nav class="producerWorkflowV4200" aria-label="Producer Hub 3.1 workflow">
-     <button type="button" class="isActive" data-producer-workflow="workspace"><i>1</i><span><strong>Workspace</strong><small>Video editor and timeline</small></span></button>
-     <button type="button" data-producer-workflow="assets"><i>2</i><span><strong>Assets &amp; Layers</strong><small>Effects, logos and text</small></span></button>
-     <button type="button" data-producer-workflow="youtube"><i>3</i><span><strong>YouTube &amp; Converter</strong><small>Search, preview and import</small></span></button>
-     <button type="button" data-producer-workflow="audio"><i>4</i><span><strong>Audio &amp; Waveforms</strong><small>Music, analysis and downloads</small></span></button>
-     <button type="button" data-producer-workflow="timeline"><i>5</i><span><strong>Theatre &amp; Timeline</strong><small>Focus, seek and arrange</small></span></button>
-     <button type="button" data-producer-workflow="export"><i>6</i><span><strong>Export</strong><small>Render finished project</small></span></button>
-    </nav>
-
     <div class="producerHubWorkspaceV4190">
      <aside class="producerSidebarV4190">
       <div class="producerPanelTitleV4190"><strong>Project</strong><button type="button" id="collapseProducerSidebarV4190" aria-label="Collapse project sidebar">‹</button></div>
@@ -307,40 +292,6 @@
         <button type="button" data-asset-category="retro">Retro</button>
        </div>
        <div class="assetLibraryGridV4190" id="assetLibraryGridV4190"></div>
-       <section class="producerLayerStudioV4200">
-        <header><div><strong>Logo &amp; Text Layers</strong><small>Add branded overlays directly into preview and export.</small></div></header>
-        <label class="producerLogoUploadV4200">
-         <input id="producerLogoInputV4200" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
-         <i>◎</i><span><strong>Upload Logo</strong><small id="producerLogoNameV4200">PNG, JPG, WEBP, or GIF</small></span>
-        </label>
-        <div class="producerLayerGridV4200">
-         <label>Logo position<select id="producerLogoPositionV4200"><option value="top-left">Top Left</option><option value="top-right">Top Right</option><option value="bottom-left">Bottom Left</option><option value="bottom-right" selected>Bottom Right</option><option value="center">Center</option></select></label>
-         <label>Logo size<input id="producerLogoSizeV4200" type="range" min=".08" max=".5" step=".01" value=".2"></label>
-         <label>Logo opacity<input id="producerLogoOpacityV4200" type="range" min="0" max="1" step=".05" value=".9"></label>
-         <label class="checkLine"><input id="producerLogoEnabledV4200" type="checkbox" checked> Show logo layer</label>
-        </div>
-        <div class="producerTextEditorV4200">
-         <label>Overlay text<input id="producerOverlayTextV4200" type="text" maxlength="100" placeholder="SEEKER OF SOUNDZ"></label>
-         <div class="producerLayerGridV4200">
-          <label>Text style<select id="producerTextStyleV4200"><option value="retro">Retro Future</option><option value="arcade">Arcade Pixel</option><option value="cyber">Cyber EDM</option><option value="rave">Rave Glow</option><option value="minimal">Minimal Wide</option><option value="terminal">Terminal</option></select></label>
-          <label>Position<select id="producerTextPositionV4200"><option value="top">Top</option><option value="center">Center</option><option value="bottom" selected>Bottom</option><option value="lower-third">Lower Third</option></select></label>
-          <label>Text size<input id="producerTextSizeV4200" type="range" min="20" max="120" step="2" value="54"></label>
-          <label>Text opacity<input id="producerTextOpacityV4200" type="range" min="0" max="1" step=".05" value=".95"></label>
-         </div>
-        </div>
-        <div class="producerLayerActionsV4200">
-         <button class="secondaryButton" id="clearProducerLogoV4200" type="button">Remove Logo</button>
-         <button class="secondaryButton" id="clearProducerTextV4200" type="button">Clear Text</button>
-        </div>
-       </section>
-       <section class="allEffectsAssetV4200">
-        <header><div><strong>Complete Effects Library</strong><small>Every existing effect is available here without removing the original controls.</small></div><span id="allEffectsCountV4200">0 effects</span></header>
-        <div class="allEffectsFiltersV4200">
-         <input id="allEffectsSearchV4200" type="search" placeholder="Search every effect">
-         <button class="smallAction" id="clearAllEffectsV4200" type="button">Clear All</button>
-        </div>
-        <div class="allEffectsGridV4200" id="allEffectsGridV4200"></div>
-       </section>
       </section>
 
       <section class="producerSidebarViewV4190" data-producer-sidebar-view="videos">
@@ -357,15 +308,6 @@
        <div class="producerWaveformSummaryV4190" id="producerWaveformSummaryV4190"><strong>No waveform generated</strong><small>Upload music and run Analyze Beats.</small></div>
        <button class="secondaryButton" id="downloadTimelineWaveformV4190" type="button" disabled>Download Waveform PNG</button>
        <button class="secondaryButton" id="exportBeatMarkersV4190" type="button" disabled>Export Beat Markers JSON</button>
-       <div class="waveformExportStudioV4200">
-        <strong>Waveform Export Studio</strong>
-        <small>Generate downloads from an imported local MP4 or audio file.</small>
-        <button class="secondaryButton" id="exportWaveformSvgV4200" type="button" disabled>Download Waveform SVG</button>
-        <button class="secondaryButton" id="exportWaveformCsvV4200" type="button" disabled>Download Waveform CSV</button>
-        <button class="secondaryButton" id="exportWaveformWavV4200" type="button" disabled>Extract Audio as WAV</button>
-        <button class="secondaryButton" id="exportWaveformJsonV4200" type="button" disabled>Download Analysis JSON</button>
-        <p id="waveformExportStatusV4200">Import a local video or audio file, then analyze it.</p>
-       </div>
       </section>
 
       <section class="producerSidebarViewV4190" data-producer-sidebar-view="downloads">
@@ -1063,15 +1005,14 @@
   <script src="js/legacy-achievement-sync-v4.13.33.js?v=4.13.33"></script>
   <script src="js/navigation-integrity-v4.15.3.js?v=4.15.3"></script>
   <script src="js/loader-transition-integrity-v4.15.4.js?v=4.15.4"></script>
-  <script src="js/video-effects-studio-v4.20.4.js?v=4.20.4"></script>
+  <script src="js/video-effects-studio-v4.17.13.js?v=4.17.13"></script>
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.20.0.js?v=4.20.0"></script>
+  <script src="js/direct-video-composer-v4.19.0.js?v=4.19.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
-  <script src="js/producer-hub-v4.20.0.js?v=4.20.0"></script>
 </body>
 </html>

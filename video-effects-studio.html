@@ -90,6 +90,7 @@
   <link rel="stylesheet" href="css/v4.19.6-toasts-loader-fx-collaboration.css?v=4.19.6">
   <link rel="stylesheet" href="css/v4.19.7-toasts-collaboration-sounds-socials.css?v=4.19.7">
   <link rel="stylesheet" href="css/v4.19.8-default-loader-admin-overview-theme.css?v=4.19.8">
+  <link rel="stylesheet" href="css/v4.19.9-producer-hub-3.css?v=4.19.9">
 </head>
  <body>
   <div id="loader">
@@ -178,9 +179,9 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 2.0</p>
-      <h2>Unified music-video workspace</h2>
-      <p>Organize footage, music, effects, markers, assets, downloads, and exports in one compact editor.</p>
+      <p class="sectionEyebrow">Producer Hub 3.0</p>
+      <h2>Unified music-video production workspace</h2>
+      <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
      <div class="producerHubHeaderActionsV4190">
       <button class="secondaryButton" id="newProducerProjectV4190" type="button">New Project</button>
@@ -188,6 +189,73 @@
       <button class="primaryButton" id="renderProducerProjectV4190" type="button">Render Project</button>
      </div>
     </header>
+
+    <section class="producerYoutubeDockV4199 isCollapsed" id="producerYoutubeDockV4199">
+     <header class="producerYoutubeDockHeadV4199">
+      <div>
+       <p class="sectionEyebrow">YouTube Workspace</p>
+       <h3>Preview, reference, and prepare authorized footage</h3>
+       <p>Paste a YouTube link for an embedded preview, or open the external MP4 converter for media you own or have permission to use.</p>
+      </div>
+      <div class="producerYoutubeDockActionsV4199">
+       <button class="secondaryButton" id="toggleProducerYoutubeV4199" type="button" aria-expanded="false">Open YouTube Tools</button>
+       <button class="secondaryButton" id="openExternalConverterV4199" type="button">Open Converter ↗</button>
+      </div>
+     </header>
+     <div class="producerYoutubeDockBodyV4199" id="producerYoutubeDockBodyV4199" hidden>
+      <div class="producerYoutubeTabsV4199" role="tablist" aria-label="YouTube workspace tools">
+       <button class="isActive" type="button" data-youtube-tool-tab="preview">YouTube Preview</button>
+       <button type="button" data-youtube-tool-tab="converter">MP4 Converter</button>
+       <button type="button" data-youtube-tool-tab="help">How to Import</button>
+      </div>
+      <section class="producerYoutubeToolPanelV4199 isActive" data-youtube-tool-panel="preview">
+       <div class="producerYoutubeInputRowV4199">
+        <input id="producerYoutubeUrlV4199" type="url" inputmode="url" placeholder="Paste a YouTube URL here">
+        <button class="primaryButton" id="loadProducerYoutubeV4199" type="button">Load Preview</button>
+        <button class="secondaryButton" id="pasteProducerYoutubeV4199" type="button">Paste</button>
+        <button class="secondaryButton" id="clearProducerYoutubeV4199" type="button">Clear</button>
+       </div>
+       <div class="producerYoutubePreviewV4199">
+        <iframe id="producerYoutubeFrameV4199" title="YouTube project preview" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="producerYoutubeEmptyV4199" id="producerYoutubeEmptyV4199">
+         <i>▶</i><strong>No YouTube reference loaded</strong><span>Paste a supported YouTube link above.</span>
+        </div>
+       </div>
+       <div class="producerYoutubeProjectActionsV4199">
+        <button class="secondaryButton" id="saveYoutubeReferenceV4199" type="button" disabled>Save Reference to Project</button>
+        <button class="secondaryButton" id="copyYoutubeReferenceV4199" type="button" disabled>Copy URL</button>
+        <span id="producerYoutubeStatusV4199">YouTube embeds are reference previews. Import an authorized local file to render effects.</span>
+       </div>
+      </section>
+      <section class="producerYoutubeToolPanelV4199" data-youtube-tool-panel="converter">
+       <div class="producerConverterNoticeV4199">
+        <strong>External conversion tool</strong>
+        <p>Use only videos you own, created, or are authorized to download. The converter runs on its own website and is not controlled by Seeker Of SoundZ.</p>
+       </div>
+       <div class="producerConverterFrameWrapV4199">
+        <iframe id="producerConverterFrameV4199" title="External YouTube to MP4 converter" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads"></iframe>
+        <div class="producerConverterFallbackV4199" id="producerConverterFallbackV4199">
+         <i>↗</i><strong>Converter not loaded yet</strong>
+         <span>Select Load Embedded Converter. If the provider refuses iframe embedding, use Open in New Tab.</span>
+        </div>
+       </div>
+       <div class="producerConverterActionsV4199">
+        <button class="primaryButton" id="loadConverterEmbedV4199" type="button">Load Embedded Converter</button>
+        <button class="secondaryButton" id="openConverterTabV4199" type="button">Open in New Tab ↗</button>
+        <button class="secondaryButton" id="hideConverterEmbedV4199" type="button">Unload Embed</button>
+       </div>
+       <p class="formMessage" id="producerConverterStatusV4199">The downloaded MP4 must be selected or dragged into Choose Video before it can be edited and rendered.</p>
+      </section>
+      <section class="producerYoutubeToolPanelV4199" data-youtube-tool-panel="help">
+       <div class="producerImportStepsV4199">
+        <article><span>1</span><div><strong>Preview or convert</strong><small>Preview a YouTube reference, or use the external converter only for authorized media.</small></div></article>
+        <article><span>2</span><div><strong>Save the MP4</strong><small>Download the file to your computer through the external provider.</small></div></article>
+        <article><span>3</span><div><strong>Import into Producer Hub</strong><small>Select Choose or Import Video and pick the downloaded MP4.</small></div></article>
+        <article><span>4</span><div><strong>Edit and render</strong><small>Use the timeline, music, effects, markers, and Render Project controls.</small></div></article>
+       </div>
+      </section>
+     </div>
+    </section>
 
     <div class="producerHubWorkspaceV4190">
      <aside class="producerSidebarV4190">
@@ -945,5 +1013,6 @@
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
+  <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
 </body>
 </html>

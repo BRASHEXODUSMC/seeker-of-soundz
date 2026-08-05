@@ -1,0 +1,30 @@
+PRODUCER HUB 3.0 QUICK GUIDE
+
+LOCAL EDITING:
+1. Open Video Effects Studio.
+2. Select Choose or Import Video.
+3. Pick an MP4, WEBM, MOV or other browser-readable video.
+4. Add licensed music.
+5. Use the timeline to seek, play, pause, restart and drag the playhead.
+6. Select effects or preset packs.
+7. Select Render Project.
+
+YOUTUBE REFERENCE:
+1. Open YouTube Tools.
+2. Paste a YouTube video URL.
+3. Select Load Preview.
+4. Select Save Reference to Project when useful.
+
+EXTERNAL CONVERTER:
+1. Open YouTube Tools > MP4 Converter.
+2. Select Load Embedded Converter.
+3. When the embedded page is refused or unusable, select Open in New Tab.
+4. Use only content you own or have permission to download and edit.
+5. Save the downloaded MP4 to the computer.
+6. Return to Producer Hub and select Choose or Import Video.
+7. Import the MP4 into the local editor.
+
+IMPORTANT:
+- A YouTube iframe cannot become a local render source because browser security keeps it separate.
+- Producer Hub renders local files selected by the member.
+- The external converter is not operated or controlled by Seeker Of SoundZ.

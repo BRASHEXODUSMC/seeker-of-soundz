@@ -1,0 +1,50 @@
+Seeker Of SoundZ v4.19.9
+PRODUCER HUB 3.0
+
+Producer Hub controls:
+- Repairs Choose or Import Video so it opens the local video file picker.
+- Repairs Browse Licensed Music so it opens the Libraries module.
+- Adds resilient switching for Start, Create, Effects, Libraries, Capture and Export.
+- Keeps existing Direct Composer, effects, provider jobs, render queue and project settings.
+- New Project now resets local video, music, selected effects and the active YouTube reference.
+- Render Project now asks for a local video when none has been imported.
+
+Timeline:
+- Play, Pause and Restart control the actual local video/audio preview.
+- Video and uploaded music stay synchronized while playing, pausing and seeking.
+- Clicking the timeline ruler or tracks seeks to that position.
+- The playhead can be dragged.
+- Keyboard playhead movement supports Arrow Left, Arrow Right, Home and End.
+- Shift + Arrow seeks five seconds.
+- Timeline end values refresh from loaded video metadata.
+- Existing zoom, beat markers, waveform and effect tracks remain.
+
+YouTube Workspace:
+- Adds a minimizable YouTube section directly inside Producer Hub 3.0.
+- Paste a YouTube URL and load a privacy-enhanced YouTube preview.
+- Save a YouTube URL as a project reference.
+- Copy and clear the current reference.
+- YouTube references are previews only and are not passed directly into the local renderer.
+- To render effects, import a local video file that you own or are authorized to use.
+
+External MP4 converter:
+- Adds the requested v1.y2mate.com.se converter as an optional embedded external-tool module.
+- Adds an Open in New Tab fallback.
+- Adds Unload Embed.
+- The iframe is sandboxed and isolated from the rest of Seeker Of SoundZ.
+- Some third-party sites can refuse iframe display; the new-tab option remains available.
+- After downloading an authorized MP4, use Choose or Import Video to load it into Producer Hub.
+
+Preserved:
+- Producer Hub 2.0 foundation
+- Direct local rendering
+- Video Download API integration
+- Supabase authentication and premium gate
+- Effects, presets and beat analysis
+- Licensed media libraries
+- Capture tools
+- Render queue
+- Existing website navigation, loaders, profiles and admin systems
+
+Supabase:
+- No new SQL, Edge Function, Storage bucket, secret or RLS update is required.

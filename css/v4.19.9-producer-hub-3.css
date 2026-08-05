@@ -1,0 +1,352 @@
+/* Seeker Of SoundZ v4.19.9 — Producer Hub 3.0 */
+
+.producerHubV4190{
+  --producer-accent:#c493ff;
+  --producer-green:#66efac;
+}
+.producerHubHeaderV4190{
+  position:relative;
+  overflow:hidden;
+}
+.producerHubHeaderV4190::after{
+  content:"";
+  position:absolute;
+  inset:auto -10% -70% 35%;
+  height:180px;
+  pointer-events:none;
+  background:radial-gradient(circle,rgba(137,57,205,.14),transparent 68%);
+}
+.producerYoutubeDockV4199{
+  display:grid;
+  gap:10px;
+  min-width:0;
+  padding:12px;
+  border:1px solid rgba(204,160,255,.16);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 5% 0,rgba(133,55,201,.12),transparent 42%),
+    rgba(0,0,0,.16);
+  box-shadow:0 18px 45px rgba(0,0,0,.22);
+}
+.producerYoutubeDockHeadV4199{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.producerYoutubeDockHeadV4199 h3{
+  margin:2px 0 4px;
+  font-size:clamp(1.15rem,2.3vw,1.55rem);
+}
+.producerYoutubeDockHeadV4199 p:last-child{
+  max-width:780px;
+  margin:0;
+  color:#9f94a3;
+  font-size:.72rem;
+  line-height:1.5;
+}
+.producerYoutubeDockActionsV4199{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:7px;
+}
+.producerYoutubeDockActionsV4199 button{
+  margin:0!important;
+}
+.producerYoutubeDockV4199.isCollapsed{
+  padding-block:10px;
+}
+.producerYoutubeDockBodyV4199{
+  display:grid;
+  gap:10px;
+  min-width:0;
+}
+.producerYoutubeDockBodyV4199[hidden]{
+  display:none!important;
+}
+.producerYoutubeTabsV4199{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.producerYoutubeTabsV4199 button{
+  min-height:36px;
+  padding:7px 11px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;
+  background:rgba(255,255,255,.018);
+  color:#a99fab;
+  cursor:pointer;
+  transition:.18s ease;
+}
+.producerYoutubeTabsV4199 button:hover,
+.producerYoutubeTabsV4199 button.isActive{
+  border-color:rgba(202,158,255,.32);
+  background:rgba(133,56,198,.11);
+  color:#fff;
+}
+.producerYoutubeToolPanelV4199{
+  display:none;
+  gap:10px;
+}
+.producerYoutubeToolPanelV4199.isActive{
+  display:grid;
+}
+.producerYoutubeInputRowV4199{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto auto auto;
+  gap:7px;
+}
+.producerYoutubeInputRowV4199 input{
+  min-width:0;
+  min-height:42px;
+  padding:0 12px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:11px;
+  background:#09070c;
+  color:#fff;
+}
+.producerYoutubeInputRowV4199 button{
+  margin:0!important;
+}
+.producerYoutubePreviewV4199{
+  position:relative;
+  width:100%;
+  min-height:300px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:16px;
+  background:#000;
+}
+.producerYoutubePreviewV4199 iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.producerYoutubeEmptyV4199{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-content:center;
+  justify-items:center;
+  gap:6px;
+  padding:20px;
+  color:#988e9c;
+  text-align:center;
+  pointer-events:none;
+}
+.producerYoutubeEmptyV4199[hidden]{
+  display:none!important;
+}
+.producerYoutubeEmptyV4199 i{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(205,161,255,.15);
+  border-radius:16px;
+  background:rgba(132,56,198,.08);
+  color:#d3b0f3;
+  font-style:normal;
+  font-size:1.2rem;
+}
+.producerYoutubeProjectActionsV4199,
+.producerConverterActionsV4199{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:7px;
+}
+.producerYoutubeProjectActionsV4199 button,
+.producerConverterActionsV4199 button{
+  margin:0!important;
+}
+.producerYoutubeProjectActionsV4199 span{
+  flex:1 1 280px;
+  color:#8f8492;
+  font-size:.62rem;
+  line-height:1.45;
+}
+.producerConverterNoticeV4199{
+  padding:11px 13px;
+  border:1px solid rgba(255,199,95,.16);
+  border-radius:13px;
+  background:rgba(150,100,24,.055);
+}
+.producerConverterNoticeV4199 p{
+  margin:4px 0 0;
+  color:#ac9d9a;
+  font-size:.66rem;
+  line-height:1.5;
+}
+.producerConverterFrameWrapV4199{
+  position:relative;
+  width:100%;
+  min-height:460px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:16px;
+  background:#fff;
+}
+.producerConverterFrameWrapV4199 iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#fff;
+}
+.producerConverterFallbackV4199{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-content:center;
+  justify-items:center;
+  gap:7px;
+  padding:22px;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(136,58,203,.12),transparent 42%),
+    #09070c;
+  color:#a99eac;
+  text-align:center;
+}
+.producerConverterFallbackV4199[hidden]{
+  display:none!important;
+}
+.producerConverterFallbackV4199 i{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(204,160,255,.16);
+  border-radius:15px;
+  background:rgba(132,56,198,.08);
+  color:#d9b7f8;
+  font-style:normal;
+  font-size:1.1rem;
+}
+.producerImportStepsV4199{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+}
+.producerImportStepsV4199 article{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  gap:8px;
+  align-items:start;
+  padding:11px;
+  border:1px solid rgba(255,255,255,.065);
+  border-radius:13px;
+  background:rgba(255,255,255,.015);
+}
+.producerImportStepsV4199 article>span{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(202,158,255,.14);
+  border-radius:10px;
+  background:rgba(132,56,198,.08);
+  color:#d8b5f7;
+  font-weight:800;
+}
+.producerImportStepsV4199 article>div{
+  min-width:0;
+  display:grid;
+  gap:3px;
+}
+.producerImportStepsV4199 small{
+  color:#918694;
+  line-height:1.4;
+}
+
+/* Make Hub controls visibly interactive and prevent hidden overlays from blocking them. */
+.producerHubV4190 button{
+  pointer-events:auto!important;
+  cursor:pointer;
+}
+.producerHubV4190 button:disabled{
+  cursor:not-allowed;
+}
+.producerSidebarV4190,
+.producerCenterV4190,
+.producerInspectorV4190,
+.producerTimelineV4190{
+  isolation:isolate;
+}
+.producerComposerMountV4190,
+.producerComposerMountV4190>*{
+  min-width:0;
+}
+#timelinePlayheadV4190{
+  cursor:ew-resize!important;
+  pointer-events:auto!important;
+}
+#timelinePlayheadV4190:focus-visible{
+  outline:2px solid rgba(207,166,255,.75);
+  outline-offset:3px;
+}
+.timelineLaneV4190,
+#timelineRulerV4190{
+  cursor:crosshair;
+}
+.timelineTracksV4190{
+  user-select:none;
+}
+.producerSidebarViewV4190 .secondaryButton{
+  width:100%;
+}
+.producerYoutubeDockV4199 .formMessage{
+  margin:0;
+}
+
+@media(max-width:950px){
+  .producerYoutubeDockHeadV4199{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .producerYoutubeDockActionsV4199{
+    width:100%;
+    justify-content:stretch;
+  }
+  .producerYoutubeDockActionsV4199 button{
+    flex:1 1 180px;
+  }
+  .producerImportStepsV4199{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:700px){
+  .producerYoutubeInputRowV4199{
+    grid-template-columns:1fr 1fr;
+  }
+  .producerYoutubeInputRowV4199 input{
+    grid-column:1/-1;
+  }
+  .producerYoutubePreviewV4199{
+    min-height:230px;
+  }
+  .producerConverterFrameWrapV4199{
+    min-height:520px;
+  }
+  .producerImportStepsV4199{
+    grid-template-columns:1fr;
+  }
+}
+@media(max-width:480px){
+  .producerYoutubeInputRowV4199{
+    grid-template-columns:1fr;
+  }
+  .producerYoutubeProjectActionsV4199,
+  .producerConverterActionsV4199{
+    display:grid;
+  }
+  .producerYoutubeProjectActionsV4199 button,
+  .producerConverterActionsV4199 button{
+    width:100%;
+  }
+}

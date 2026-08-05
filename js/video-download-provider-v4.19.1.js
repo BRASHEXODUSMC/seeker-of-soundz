@@ -1,0 +1,35 @@
+/* Seeker Of SoundZ v4.18.3 — Video Download API provider */
+(()=>{
+'use strict';
+const $=s=>document.querySelector(s);
+const test=$('#testVideoDownloadProviderV4183'),open=$('#openVideoDownloadConverterV4183'),form=$('#videoDownloadConverterV4183');
+if(!test||!open||!form)return;
+const close=$('#closeVideoDownloadConverterV4183'),providerStatus=$('#videoDownloadProviderStatusV4183'),message=$('#videoDownloadStatusV4183'),result=$('#videoDownloadResultV4183');
+const progress=$('#videoDownloadProgressV4183'),progressFill=$('#videoDownloadProgressFillV4183'),progressLabel=$('#videoDownloadProgressLabelV4183'),progressStep=$('#videoDownloadProgressStepV4183');
+const list=$('#downloadJobListV4183'),clearJobs=$('#clearDownloadJobsV4183');
+const STORAGE='sos_video_download_jobs_v4183';
+let activePoll=null,lastProgress=-1,stalledPolls=0;
+function supabase(){return window.SOS_SUPABASE?.client||window.SOS_SUPABASE?.requireClient?.()||null}
+function setProvider(state,text){providerStatus.className=`providerStatusV4182 ${state}`;providerStatus.textContent=text}
+async function invoke(body){const client=supabase();if(!client)throw new Error('Supabase is not connected.');const {data,error}=await client.functions.invoke('video-download-api',{body});if(error)throw error;if(!data?.ok)throw new Error(data?.error||'Provider request failed.');return data}
+function jobs(){try{return JSON.parse(localStorage.getItem(STORAGE)||'[]')}catch{return []}}
+function saveJobs(rows){localStorage.setItem(STORAGE,JSON.stringify(rows.slice(0,20)));renderJobs()}
+function updateJob(job){const rows=jobs();const index=rows.findIndex(row=>row.id===job.id);if(index>=0)rows[index]={...rows[index],...job};else rows.unshift(job);saveJobs(rows)}
+function esc(value=''){return String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
+function renderJobs(){const rows=jobs();list.innerHTML=rows.length?rows.map(job=>`<article class="downloadJobV4183 ${esc(job.status||'queued')}"><div><strong>${esc(job.title||job.format||'Conversion job')}</strong><small>${esc(job.statusText||job.status||'Queued')}</small></div><span>${Math.round(Number(job.progress||0)/10)}%</span>${job.downloadUrl?`<a class="smallAction" href="${esc(job.downloadUrl)}" target="_blank" rel="noopener">Download</a>`:''}</article>`).join(''):'<p>No conversion jobs yet.</p>'}
+function setProgress(value,step){const pct=Math.max(0,Math.min(100,Number(value||0)/10));progress.hidden=false;progressFill.style.width=`${pct}%`;progressLabel.textContent=`${Math.round(pct)}%`;progressStep.textContent=step||'Processing'}
+async function pollJob(id,baseJob){clearInterval(activePoll);let attempts=0;lastProgress=-1;stalledPolls=0;const tick=async()=>{attempts++;try{const data=await invoke({action:'progress',id});const value=Number(data.progress||0),failed=data.failed||data.success===0;
+if(value===lastProgress)stalledPolls++;else{lastProgress=value;stalledPolls=0}
+if(data.code==='PROVIDER_ACCOUNT_NOT_ENABLED'||/contact us|use our api|video-download-api\.com|protonmail|api access|wallet|credit/i.test(String(data.text||''))){
+ throw new Error('The provider account is connected to Supabase, but conversion access is not enabled for this API key. Open video-download-api.com, verify the key, and confirm API access or wallet credit with the provider.');
+}
+if(stalledPolls>=6&&value<=50){
+ throw new Error('The provider job is stalled at the starting stage. This usually means the API key can reach the service but the provider has not enabled conversion access or available credit for the account.');
+}setProgress(value,data.text||data.status||'Processing');updateJob({...baseJob,id,progress:value,status:failed?'failed':value>=1000?'ready':'processing',statusText:failed?(data.error||data.text||'Failed'):value>=1000?'Ready to download':data.text||'Processing',downloadUrl:data.downloadUrl||''});if(failed)throw new Error(data.error||data.text||'The conversion failed.');if(value>=1000&&data.downloadUrl){clearInterval(activePoll);activePoll=null;message.textContent='Conversion is ready. Provider download links may expire.';result.innerHTML=`<div><strong>${esc(data.title||baseJob.title||'Conversion ready')}</strong><small>Open the finished file, then upload it into Create for editing.</small></div><a class="primaryButton" href="${esc(data.downloadUrl)}" target="_blank" rel="noopener">Open Finished Download</a>`;result.hidden=false;setProgress(1000,'Ready');window.dispatchEvent(new CustomEvent('sos:provider-download-ready',{detail:{id,downloadUrl:data.downloadUrl,title:data.title||baseJob.title||'Converted media',format:baseJob.format}}));return}if(attempts>240)throw new Error('The conversion timed out after 20 minutes.');}catch(error){clearInterval(activePoll);activePoll=null;message.textContent=error.message;}};await tick();if(activePoll===null&&Number(jobs().find(j=>j.id===id)?.progress||0)<1000)return;activePoll=setInterval(tick,5000)}
+test.addEventListener('click',async event=>{event.preventDefault();setProvider('isChecking','Testing…');try{const data=await invoke({action:'status'});setProvider(data.configured?'isOnline':'isOffline',data.configured?'Secret connected':'Needs setup');window.SOS?.toast?.(data.configured?'Supabase can read the provider key. A real conversion is still required to confirm account activation and credit.':(data.message||'Provider setup is incomplete.'),{title:'Video Download API',icon:data.configured?'✓':'!'});}catch(error){setProvider('isOffline','Unavailable');window.SOS?.toast?.(error.message,{title:'Video Download API',icon:'!'})}});
+open.addEventListener('click',event=>{event.preventDefault();form.hidden=false;form.scrollIntoView({behavior:'smooth',block:'center'})});
+close?.addEventListener('click',()=>{form.hidden=true;result.hidden=true;progress.hidden=true});
+form.addEventListener('submit',async event=>{event.preventDefault();const url=$('#videoDownloadUrlV4183').value.trim(),format=$('#videoDownloadFormatV4183').value,audioQuality=$('#videoDownloadAudioQualityV4183').value,permission=$('#videoDownloadPermissionV4183').checked;if(!permission)return message.textContent='Confirm that you are authorized to use this media.';message.textContent='Creating a secure conversion job…';result.hidden=true;setProgress(0,'Submitting');try{const data=await invoke({action:'create',url,format,audioQuality,permissionConfirmed:true});if(!data.id)throw new Error('The provider did not return a job ID.');const job={id:data.id,title:data.title||'Video Download API job',format,url,status:'queued',statusText:'Queued',progress:0,createdAt:new Date().toISOString()};updateJob(job);message.textContent='Job accepted. Progress is updating automatically.';await pollJob(data.id,job);}catch(error){message.textContent=error.message;progressStep.textContent='Failed';}});
+clearJobs?.addEventListener('click',()=>saveJobs(jobs().filter(job=>!['ready','failed'].includes(job.status))));
+renderJobs();
+})();

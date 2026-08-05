@@ -1,0 +1,38 @@
+Seeker Of SoundZ v4.19.1
+CONVERTER, OWNER ACCESS, AUTH LAYOUT, LOADER CUSTOMIZATION & TUTORIAL FIXES
+
+Video Download API:
+- Detects provider marketing/activation messages instead of presenting them as successful 5% conversion progress.
+- Stops jobs that remain stalled at the starting stage.
+- Explains the difference between a Supabase secret connection and an activated provider account.
+- Preserves completed-job auto-import into Producer Hub when CORS permits it.
+- Keeps the secure manual-download fallback.
+- Requires redeploying the included video-download-api Edge Function.
+
+Owner access:
+- Includes patch-v4.19.1-owner-romerojoseph95.sql.
+- Assigns romerojoseph95@gmail.com the Owner app_role and Owner rank.
+- Clears accidental ban state.
+- Updates the legacy Admin Hub gate to accept owner and administrator dbRole values.
+- The role repair must be run in Supabase SQL Editor; frontend code cannot securely grant ownership.
+
+Members access:
+- Moves the login/register card into a top-right desktop layout.
+- Keeps the large Members Access hero copy on the left.
+- Restores a single-column mobile layout.
+- Limits tall registration cards to the viewport with internal scrolling on desktop.
+
+Loader customization:
+- Logo animations: Frequency Pulse, Flat Circle Spin, 3D Coin Spin, 3D Tilt Orbit, Floating Signal, Digital Glitch, and No Motion.
+- Logo speeds: Slow, Balanced, and Fast.
+- Loader backgrounds: Original Cosmic, Pure Void, Violet, Blue, Crimson, Emerald, Monochrome, Aurora, and Cyber Grid.
+- Background motion: Still, Drift, Pulse, Rotate, and Frequency Waves.
+- Settings remain attached to each signed-in profile using the existing member experience preference system.
+- Updates the real loader and the Profile Settings preview.
+
+Producer Hub tutorial:
+- Forces the tutorial dialog into the true center of the viewport.
+- Prevents ancestor layout or transforms from placing it in the upper-left.
+- Preserves native tutorial cursor fixes and mobile scrolling.
+
+No new database table or Storage bucket is required.

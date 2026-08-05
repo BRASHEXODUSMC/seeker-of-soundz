@@ -1,0 +1,30 @@
+SEEKER OF SOUNDZ v4.19.1 SETUP
+
+1. Upload the website files to GitHub Pages.
+
+2. Owner repair:
+   - Open Supabase > SQL Editor.
+   - Open supabase/patch-v4.19.1-owner-romerojoseph95.sql from this ZIP.
+   - Copy and run the full SQL file.
+   - Sign out of the website, hard refresh, and sign back in.
+   - Open Admin Hub > Members and verify your role is Owner.
+
+3. Converter backend update:
+   - Open Supabase > Edge Functions > video-download-api > Code.
+   - Replace index.ts with:
+     supabase/functions/video-download-api/index.ts
+   - Select Deploy updates.
+   - Keep VIDEO_DOWNLOAD_API_KEY only under Edge Functions > Secrets.
+
+4. Provider account:
+   - “Secret connected” only means Supabase can read your key.
+   - If a conversion reports that application/API access is not enabled, sign into video-download-api.com.
+   - Verify that the key belongs to the correct account and that the provider has enabled API access or wallet credit.
+   - The website cannot activate the external provider account itself.
+
+5. Test:
+   - Sign into Seeker Of SoundZ.
+   - Open Video Effects Studio > Export.
+   - Select Test Connection.
+   - Run one authorized conversion.
+   - Completed files will attempt automatic import; if CORS blocks it, save the download and drag it into Create.

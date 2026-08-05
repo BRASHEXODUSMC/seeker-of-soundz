@@ -1,0 +1,126 @@
+/* Seeker Of SoundZ v4.19.1 — auth, tutorial, loader, converter fixes */
+
+/* Members access: hero copy left, login/register card at the top-right. */
+body.membersPage .pageHero,
+.membersPage .pageHero{
+  padding-bottom:18px;
+}
+#authArea.authShell{
+  width:min(1180px,100%);
+  margin:-168px auto 0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(360px,470px);
+  justify-items:end;
+  align-items:start;
+  position:relative;
+  z-index:8;
+}
+#authArea .authCard{
+  grid-column:2;
+  width:100%;
+  max-height:min(760px,calc(100vh - 90px));
+  overflow:auto;
+  border-color:rgba(202,158,255,.26);
+  box-shadow:0 24px 65px rgba(0,0,0,.42),0 0 30px rgba(139,62,205,.11);
+}
+.membersPage .pageHeroContent{
+  max-width:620px;
+  padding-right:500px;
+}
+@media(max-width:980px){
+  #authArea.authShell{margin:0 auto;grid-template-columns:1fr;justify-items:stretch}
+  #authArea .authCard{grid-column:1;max-height:none}
+  .membersPage .pageHeroContent{padding-right:0}
+}
+@media(max-width:620px){
+  #authArea .authCard{padding:16px}
+}
+
+/* Tutorial must be in the true viewport center, not positioned by an ancestor. */
+#studioTutorialV4180{
+  position:fixed!important;
+  inset:50% auto auto 50%!important;
+  transform:translate(-50%,-50%)!important;
+  margin:0!important;
+  max-height:min(780px,calc(100vh - 28px))!important;
+  overflow:auto!important;
+  z-index:2147483500!important;
+}
+#studioTutorialV4180[open]{display:block!important}
+#studioTutorialV4180::backdrop{
+  position:fixed!important;
+  inset:0!important;
+  background:rgba(2,1,4,.82)!important;
+  backdrop-filter:blur(7px);
+}
+
+/* Loader logo animations */
+html.sos-loader-logo-spin #loader .loaderLogoImage,
+.loaderProfilePreviewV4162[data-logo-motion="spin"] .loaderPreviewLogoV4162 img{
+  animation:sosLoaderFlatSpin var(--sos-loader-logo-duration,4.5s) linear infinite!important;
+}
+html.sos-loader-logo-coin #loader .loaderLogoImage,
+.loaderProfilePreviewV4162[data-logo-motion="coin"] .loaderPreviewLogoV4162 img{
+  animation:sosLoaderCoinSpin var(--sos-loader-logo-duration,4.5s) linear infinite!important;
+  transform-style:preserve-3d;
+  backface-visibility:visible;
+}
+html.sos-loader-logo-tilt #loader .loaderLogoImage,
+.loaderProfilePreviewV4162[data-logo-motion="tilt"] .loaderPreviewLogoV4162 img{
+  animation:sosLoaderTilt var(--sos-loader-logo-duration,4.5s) ease-in-out infinite!important;
+  transform-style:preserve-3d;
+}
+html.sos-loader-logo-float #loader .loaderLogoImage,
+.loaderProfilePreviewV4162[data-logo-motion="float"] .loaderPreviewLogoV4162 img{
+  animation:sosLoaderFloat var(--sos-loader-logo-duration,4.5s) ease-in-out infinite!important;
+}
+html.sos-loader-logo-glitch #loader .loaderLogoImage,
+.loaderProfilePreviewV4162[data-logo-motion="glitch"] .loaderPreviewLogoV4162 img{
+  animation:sosLoaderGlitch var(--sos-loader-logo-duration,4.5s) steps(1,end) infinite!important;
+}
+html.sos-loader-logo-none #loader .loaderLogoImage,
+.loaderProfilePreviewV4162[data-logo-motion="none"] .loaderPreviewLogoV4162 img{animation:none!important}
+@keyframes sosLoaderFlatSpin{to{transform:rotate(360deg)}}
+@keyframes sosLoaderCoinSpin{0%{transform:perspective(700px) rotateY(0)}50%{transform:perspective(700px) rotateY(180deg) scale(.88)}100%{transform:perspective(700px) rotateY(360deg)}}
+@keyframes sosLoaderTilt{0%,100%{transform:perspective(700px) rotateX(-10deg) rotateY(-18deg)}50%{transform:perspective(700px) rotateX(12deg) rotateY(18deg) scale(1.07)}}
+@keyframes sosLoaderFloat{0%,100%{transform:translateY(0) scale(.96)}50%{transform:translateY(-18px) scale(1.05)}}
+@keyframes sosLoaderGlitch{0%,88%,100%{transform:none;filter:none}90%{transform:translate(-6px,2px) skewX(8deg);filter:hue-rotate(80deg)}93%{transform:translate(7px,-2px) skewX(-8deg);filter:hue-rotate(240deg)}96%{transform:translate(-2px,1px)}}
+
+/* Loader backgrounds */
+html.sos-loader-bg-void #loader{background:#000!important}
+html.sos-loader-bg-violet #loader{background:radial-gradient(circle at 50% 42%,rgba(172,75,255,.27),transparent 38%),linear-gradient(150deg,#170021,#030006 70%)!important}
+html.sos-loader-bg-blue #loader{background:radial-gradient(circle at 50% 42%,rgba(65,139,255,.24),transparent 40%),linear-gradient(150deg,#02152d,#00030a 70%)!important}
+html.sos-loader-bg-crimson #loader{background:radial-gradient(circle at 50% 42%,rgba(255,58,105,.21),transparent 40%),linear-gradient(150deg,#25020d,#050002 70%)!important}
+html.sos-loader-bg-emerald #loader{background:radial-gradient(circle at 50% 42%,rgba(48,232,163,.2),transparent 40%),linear-gradient(150deg,#031d15,#000503 70%)!important}
+html.sos-loader-bg-monochrome #loader{background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.12),transparent 40%),linear-gradient(150deg,#151518,#010102 70%)!important}
+html.sos-loader-bg-aurora #loader{background:radial-gradient(circle at 25% 35%,rgba(163,55,255,.24),transparent 37%),radial-gradient(circle at 75% 62%,rgba(37,220,194,.18),transparent 38%),linear-gradient(145deg,#08000f,#000)!important}
+html.sos-loader-bg-grid #loader{background-color:#030006!important;background-image:linear-gradient(rgba(165,83,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(165,83,255,.08) 1px,transparent 1px),radial-gradient(circle at 50% 45%,rgba(133,56,210,.18),transparent 40%)!important;background-size:42px 42px,42px 42px,auto!important}
+html.sos-loader-bg-motion-still #loader .loaderCosmos{animation:none!important}
+html.sos-loader-bg-motion-drift #loader .loaderCosmos{animation:sosLoaderBgDrift 12s ease-in-out infinite alternate!important}
+html.sos-loader-bg-motion-pulse #loader .loaderCosmos{animation:sosLoaderBgPulse 5s ease-in-out infinite!important}
+html.sos-loader-bg-motion-rotate #loader .loaderCosmos{animation:sosLoaderBgRotate 24s linear infinite!important}
+html.sos-loader-bg-motion-waves #loader::after{
+  content:"";position:absolute;inset:-20%;pointer-events:none;
+  background:repeating-radial-gradient(ellipse at 50% 50%,transparent 0 42px,rgba(180,105,255,.06) 44px 46px);
+  animation:sosLoaderWaves 6s linear infinite;
+}
+@keyframes sosLoaderBgDrift{to{transform:translate3d(2.5%,-1.5%,0) scale(1.04)}}
+@keyframes sosLoaderBgPulse{50%{opacity:.7;transform:scale(1.08)}}
+@keyframes sosLoaderBgRotate{to{transform:rotate(360deg) scale(1.15)}}
+@keyframes sosLoaderWaves{to{transform:scale(1.18);opacity:.15}}
+
+/* Loader builder preview backgrounds */
+.loaderProfilePreviewV4162[data-background-style="void"]{background:#000!important}
+.loaderProfilePreviewV4162[data-background-style="violet"]{background:radial-gradient(circle,rgba(165,70,255,.28),transparent 50%),#09000e!important}
+.loaderProfilePreviewV4162[data-background-style="blue"]{background:radial-gradient(circle,rgba(65,139,255,.25),transparent 50%),#010916!important}
+.loaderProfilePreviewV4162[data-background-style="crimson"]{background:radial-gradient(circle,rgba(255,58,105,.22),transparent 50%),#120006!important}
+.loaderProfilePreviewV4162[data-background-style="emerald"]{background:radial-gradient(circle,rgba(48,232,163,.22),transparent 50%),#00110b!important}
+.loaderProfilePreviewV4162[data-background-style="monochrome"]{background:radial-gradient(circle,rgba(255,255,255,.12),transparent 50%),#050506!important}
+.loaderProfilePreviewV4162[data-background-style="aurora"]{background:radial-gradient(circle at 20% 30%,rgba(161,58,255,.28),transparent 43%),radial-gradient(circle at 80% 70%,rgba(43,220,194,.2),transparent 42%),#030006!important}
+.loaderProfilePreviewV4162[data-background-style="grid"]{background-color:#030006!important;background-image:linear-gradient(rgba(165,83,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(165,83,255,.1) 1px,transparent 1px)!important;background-size:20px 20px!important}
+
+/* Converter diagnostics */
+.videoDownloadConverterV4183 .providerActivationNoticeV4191{
+  padding:11px 13px;border:1px solid rgba(255,183,82,.22);border-radius:12px;background:rgba(158,102,22,.08);color:#efcf93;line-height:1.5;
+}
+.downloadJobV4183.failed{border-color:rgba(255,90,120,.26)!important;background:rgba(151,31,61,.07)!important}

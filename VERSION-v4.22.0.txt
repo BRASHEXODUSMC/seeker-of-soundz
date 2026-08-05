@@ -1,0 +1,53 @@
+Seeker Of SoundZ v4.22.0
+PRODUCER HUB 4.1 — ADVANCED EDITING
+
+Preserved:
+- Working Producer Hub 4.0 foundation
+- Existing effects, direct renderer, custom cursor, Theatre View, YouTube search,
+  converter, timeline, inspector, layers, waveform exports, access system and render queue
+- Existing 48 effect controls
+- No broad visibility or layout replacement rules
+
+Advanced text and logo layers:
+- Adds Neon Script, Techno Block, Synthwave Chrome, Hologram, Industrial,
+  EDM Graffiti, Cinematic Title and Festival Bubble text styles
+- Adds top-left, top-right, bottom-left, bottom-right and custom X/Y positions
+- Adds text color, outline color, glow color and background color
+- Adds background opacity, letter spacing and rotation
+- Adds custom logo X/Y coordinates and logo rotation
+- Existing logo size, opacity and preset positions remain
+
+Audio waveform overlay:
+- Uploaded audio remains visible in the timeline waveform
+- Adds optional waveform directly over the video
+- Line, bars, mirrored and circular waveform styles
+- Custom position, color, height and opacity
+- Waveform reacts during preview and final rendering
+
+True camera motion:
+- Camera motion transforms the actual video frame before overlays are drawn
+- Handheld, Bass Shake, Impact Punch, Earthquake, Glitch Jitter,
+  Cinematic Drift, Orbit and Zoom Pulse
+- Adjustable motion strength
+- Existing overlay effects remain above the transformed video
+
+Intro and outro transitions:
+- Separate beginning and ending transition controls
+- Fade, Zoom, Blur, Wipe Left, Center Split, Glitch and White Flash
+- Adjustable intro and outro durations
+- Transitions appear in preview and finished rendering
+
+Timeline cutting:
+- Mark Cut Start and Mark Cut End from the current playhead
+- Remove the selected range non-destructively
+- Cut regions display directly on the video timeline
+- Clicking a cut region restores it
+- Undo, Redo and Clear Cuts
+- Ctrl/Cmd+Z undo, Shift+Ctrl/Cmd+Z or Ctrl/Cmd+Y redo
+- Preview and final render skip removed ranges
+
+Tutorial:
+- Updated with camera motion, transitions, cuts, undo/redo,
+  advanced text/logo styling and waveform-overlay instructions
+
+No Supabase SQL, Edge Function, Storage, secret or RLS update is required.

@@ -1,0 +1,35 @@
+PRODUCER HUB 4.1 QUICK GUIDE
+
+TEXT AND LOGOS
+1. Open Assets.
+2. Enter text or upload a logo.
+3. Choose a font, preset position, or Custom X/Y.
+4. Set colors, outline, glow, background, rotation and spacing.
+5. Preview and render normally.
+
+WAVEFORM OVER VIDEO
+1. Upload a local audio or video file with audio.
+2. Enable Show waveform over video.
+3. Select Line, Bars, Mirrored or Circle.
+4. Choose color, position, height and opacity.
+
+CAMERA MOTION
+1. Open Camera Motion & Transitions under Assets.
+2. Select a camera-motion preset.
+3. Adjust Motion Strength.
+4. The actual video frame moves; logos, text and effects remain layered above it.
+
+TRANSITIONS
+1. Select separate Intro and Outro transitions.
+2. Adjust each duration.
+3. Preview from the beginning or near the end.
+4. Transitions are included in the direct finished-video render.
+
+CUT TOOL
+1. Move the playhead to the beginning of the unwanted section.
+2. Select Mark Cut Start.
+3. Move the playhead to the end.
+4. Select Mark Cut End.
+5. Select Remove Section.
+6. Use Undo, Redo, Clear Cuts, or click a cut region to restore it.
+7. Cuts are non-destructive and are skipped during preview and export.

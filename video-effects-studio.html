@@ -94,6 +94,7 @@
   <link rel="stylesheet" href="css/v4.21.0-producer-hub-4.css?v=4.21.0">
   <link rel="stylesheet" href="css/v4.21.1-producer-hub-fixes.css?v=4.21.1">
   <link rel="stylesheet" href="css/v4.21.2-producer-hub-render-cursor-youtube.css?v=4.21.2">
+  <link rel="stylesheet" href="css/v4.22.0-producer-advanced-editing.css?v=4.22.0">
 </head>
  <body>
   <div id="loader">
@@ -182,7 +183,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 4.0</p>
+      <p class="sectionEyebrow">Producer Hub 4.1</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -330,21 +331,84 @@
          <i>◎</i><span><strong>Upload Logo</strong><small id="producerLogoNameV4210">PNG, JPG, WEBP, or GIF</small></span>
         </label>
         <div class="producerLayerGridV4210">
-         <label>Logo position<select id="producerLogoPositionV4210"><option value="top-left">Top Left</option><option value="top-right">Top Right</option><option value="bottom-left">Bottom Left</option><option value="bottom-right" selected>Bottom Right</option><option value="center">Center</option></select></label>
+         <label>Logo position<select id="producerLogoPositionV4210"><option value="top-left">Top Left</option><option value="top-right">Top Right</option><option value="bottom-left">Bottom Left</option><option value="bottom-right" selected>Bottom Right</option><option value="center">Center</option><option value="custom">Custom X / Y</option></select></label>
          <label>Logo size<input id="producerLogoSizeV4210" type="range" min=".08" max=".5" step=".01" value=".2"></label>
          <label>Logo opacity<input id="producerLogoOpacityV4210" type="range" min="0" max="1" step=".05" value=".9"></label>
          <label class="checkLine"><input id="producerLogoEnabledV4210" type="checkbox" checked> Show logo</label>
         </div>
         <label>Overlay text<input id="producerTextV4210" type="text" maxlength="100" placeholder="SEEKER OF SOUNDZ"></label>
         <div class="producerLayerGridV4210">
-         <label>Text style<select id="producerTextStyleV4210"><option value="retro">Retro Future</option><option value="arcade">Arcade Pixel</option><option value="cyber">Cyber EDM</option><option value="rave">Rave Glow</option><option value="minimal">Minimal Wide</option><option value="terminal">Terminal</option></select></label>
-         <label>Text position<select id="producerTextPositionV4210"><option value="top">Top</option><option value="center">Center</option><option value="bottom" selected>Bottom</option><option value="lower-third">Lower Third</option></select></label>
+         <label>Text style<select id="producerTextStyleV4210"><option value="retro">Retro Future</option><option value="arcade">Arcade Pixel</option><option value="cyber">Cyber EDM</option><option value="rave">Rave Glow</option><option value="minimal">Minimal Wide</option><option value="terminal">Terminal</option>
+          <option value="neon-script">Neon Script</option>
+          <option value="techno">Techno Block</option>
+          <option value="synthwave">Synthwave Chrome</option>
+          <option value="hologram">Hologram</option>
+          <option value="industrial">Industrial</option>
+          <option value="graffiti">EDM Graffiti</option>
+          <option value="cinematic">Cinematic Title</option>
+          <option value="bubble">Festival Bubble</option></select></label>
+         <label>Text position<select id="producerTextPositionV4210"><option value="top">Top</option><option value="center">Center</option><option value="bottom" selected>Bottom</option><option value="lower-third">Lower Third</option>
+          <option value="top-left">Top Left</option>
+          <option value="top-right">Top Right</option>
+          <option value="bottom-left">Bottom Left</option>
+          <option value="bottom-right">Bottom Right</option>
+          <option value="custom">Custom X / Y</option></select></label>
          <label>Text size<input id="producerTextSizeV4210" type="range" min="20" max="120" step="2" value="54"></label>
          <label>Text opacity<input id="producerTextOpacityV4210" type="range" min="0" max="1" step=".05" value=".95"></label>
         </div>
-        <div class="producerLayerActionsV4210">
+        
+        <section class="producerAdvancedLayersV4220">
+         <strong>Advanced Layer Styling</strong>
+         <div class="producerLayerGridV4210">
+          <label>Text color<input id="producerTextColorV4220" type="color" value="#ffffff"></label>
+          <label>Outline color<input id="producerTextOutlineV4220" type="color" value="#4eeaff"></label>
+          <label>Glow color<input id="producerTextGlowV4220" type="color" value="#ff48bb"></label>
+          <label>Background color<input id="producerTextBackgroundV4220" type="color" value="#000000"></label>
+          <label>Background opacity<input id="producerTextBackgroundOpacityV4220" type="range" min="0" max="1" step=".05" value="0"></label>
+          <label>Letter spacing<input id="producerTextSpacingV4220" type="range" min="-2" max="24" step="1" value="2"></label>
+          <label>Rotation<input id="producerTextRotationV4220" type="range" min="-45" max="45" step="1" value="0"></label>
+          <label>Custom X<input id="producerTextXV4220" type="range" min="0" max="100" step="1" value="50"></label>
+          <label>Custom Y<input id="producerTextYV4220" type="range" min="0" max="100" step="1" value="50"></label>
+          <label>Logo X<input id="producerLogoXV4220" type="range" min="0" max="100" step="1" value="80"></label>
+          <label>Logo Y<input id="producerLogoYV4220" type="range" min="0" max="100" step="1" value="80"></label>
+          <label>Logo rotation<input id="producerLogoRotationV4220" type="range" min="-180" max="180" step="1" value="0"></label>
+         </div>
+        </section>
+        <section class="producerWaveformOverlayV4220">
+         <strong>Audio Waveform Overlay</strong>
+         <label class="checkLine"><input id="producerWaveformOverlayEnabledV4220" type="checkbox"> Show waveform over video</label>
+         <div class="producerLayerGridV4210">
+          <label>Waveform style<select id="producerWaveformStyleV4220"><option value="line">Line</option><option value="bars">Bars</option><option value="mirror">Mirrored</option><option value="circle">Circle</option></select></label>
+          <label>Position<select id="producerWaveformPositionV4220"><option value="bottom">Bottom</option><option value="center">Center</option><option value="top">Top</option></select></label>
+          <label>Color<input id="producerWaveformColorV4220" type="color" value="#c994ff"></label>
+          <label>Height<input id="producerWaveformHeightV4220" type="range" min=".05" max=".5" step=".01" value=".18"></label>
+          <label>Opacity<input id="producerWaveformOpacityV4220" type="range" min=".1" max="1" step=".05" value=".8"></label>
+         </div>
+        </section>
+<div class="producerLayerActionsV4210">
          <button class="secondaryButton" id="producerRemoveLogoV4210" type="button">Remove Logo</button>
          <button class="secondaryButton" id="producerClearTextV4210" type="button">Clear Text</button>
+        </div>
+       </section>
+       <section class="producerMotionTransitionsV4220">
+        <header><div><strong>Camera Motion &amp; Transitions</strong><small>Moves the actual video frame before overlays are drawn.</small></div></header>
+        <div class="producerLayerGridV4210">
+         <label>Camera motion<select id="producerCameraMotionV4220">
+          <option value="none">None</option><option value="handheld">Handheld</option><option value="bass-shake">Bass Shake</option>
+          <option value="impact">Impact Punch</option><option value="earthquake">Earthquake</option><option value="glitch-jitter">Glitch Jitter</option>
+          <option value="cinematic-drift">Cinematic Drift</option><option value="orbit">Orbit</option><option value="zoom-pulse">Zoom Pulse</option>
+         </select></label>
+         <label>Motion strength<input id="producerCameraStrengthV4220" type="range" min="0" max="2" step=".05" value=".7"></label>
+         <label>Intro transition<select id="producerIntroTransitionV4220">
+          <option value="none">None</option><option value="fade">Fade In</option><option value="zoom">Zoom In</option><option value="blur">Blur Reveal</option>
+          <option value="wipe-left">Wipe Left</option><option value="wipe-center">Center Split</option><option value="glitch">Glitch Reveal</option><option value="flash">White Flash</option>
+         </select></label>
+         <label>Intro duration<input id="producerIntroDurationV4220" type="range" min=".2" max="5" step=".1" value="1"></label>
+         <label>Outro transition<select id="producerOutroTransitionV4220">
+          <option value="none">None</option><option value="fade">Fade Out</option><option value="zoom">Zoom Out</option><option value="blur">Blur Away</option>
+          <option value="wipe-left">Wipe Left</option><option value="wipe-center">Center Split</option><option value="glitch">Glitch Exit</option><option value="flash">White Flash</option>
+         </select></label>
+         <label>Outro duration<input id="producerOutroDurationV4220" type="range" min=".2" max="5" step=".1" value="1"></label>
         </div>
        </section>
       </section>
@@ -434,6 +498,18 @@
       <div class="timelineZoomV4190"><button type="button" id="timelineZoomOutV4190">−</button><input id="timelineZoomV4190" type="range" min="1" max="4" step=".25" value="1"><button type="button" id="timelineZoomInV4190">+</button></div>
      </header>
      <div class="timelineRulerV4190" id="timelineRulerV4190"></div>
+     <section class="timelineEditToolbarV4220">
+      <div><strong>Cut &amp; Edit</strong><small>Non-destructive cuts can be undone or redone.</small></div>
+      <div class="timelineEditActionsV4220">
+       <button class="smallAction" id="markCutStartV4220" type="button">Mark Cut Start</button>
+       <button class="smallAction" id="markCutEndV4220" type="button">Mark Cut End</button>
+       <button class="smallAction" id="applyTimelineCutV4220" type="button" disabled>Remove Section</button>
+       <button class="smallAction" id="undoTimelineEditV4220" type="button" disabled>Undo</button>
+       <button class="smallAction" id="redoTimelineEditV4220" type="button" disabled>Redo</button>
+       <button class="smallAction" id="clearTimelineCutsV4220" type="button">Clear Cuts</button>
+      </div>
+      <p id="timelineEditStatusV4220">Move the playhead, mark a start and end, then remove that section.</p>
+     </section>
      <div class="timelineTracksV4190" id="timelineTracksV4190">
       <article data-track="video"><header><i>🎬</i><span>Video</span></header><div class="timelineLaneV4190"><div class="timelineClipV4190 videoClipV4190" id="timelineVideoClipV4190">Video clip</div></div></article>
       <article data-track="music"><header><i>🎵</i><span>Music</span></header><div class="timelineLaneV4190"><div class="timelineClipV4190 musicClipV4190" id="timelineMusicClipV4190">Music track</div><canvas id="timelineWaveformV4190" width="1200" height="90"></canvas></div></article>
@@ -452,7 +528,7 @@
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
      <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 4.0 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn the editor, effects, YouTube tools, timeline, Theatre View, layers, waveforms, and export workflow.</small></span></button>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn the editor, camera motion, transitions, cuts, undo/redo, advanced layers, waveforms, YouTube tools, and export workflow.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -1079,11 +1155,11 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.21.2.js?v=4.21.2"></script>
+  <script src="js/direct-video-composer-v4.22.0.js?v=4.22.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
-  <script src="js/producer-hub-v4.21.2.js?v=4.21.2"></script>
+  <script src="js/producer-hub-v4.22.0.js?v=4.22.0"></script>
 </body>
 </html>

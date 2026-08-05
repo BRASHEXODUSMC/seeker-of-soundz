@@ -1,0 +1,138 @@
+/* Seeker Of SoundZ v4.22.0 — advanced layers, camera motion, transitions and cuts */
+
+.producerAdvancedLayersV4220,
+.producerWaveformOverlayV4220,
+.producerMotionTransitionsV4220,
+.timelineEditToolbarV4220{
+  display:grid;
+  gap:10px;
+  padding:11px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;
+  background:
+    radial-gradient(circle at 8% 0,rgba(132,56,198,.09),transparent 42%),
+    rgba(255,255,255,.014);
+}
+.producerAdvancedLayersV4220>strong,
+.producerWaveformOverlayV4220>strong{
+  color:#eee4f1;
+}
+.producerMotionTransitionsV4220 header{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+.producerMotionTransitionsV4220 header>div{
+  display:grid;
+  gap:2px;
+}
+.producerMotionTransitionsV4220 small,
+.timelineEditToolbarV4220 small{
+  color:#918795;
+  font-size:.56rem;
+  line-height:1.4;
+}
+.producerAdvancedLayersV4220 input[type="color"],
+.producerWaveformOverlayV4220 input[type="color"]{
+  width:100%;
+  min-height:36px;
+  padding:3px;
+  border-radius:9px;
+  background:#09070c;
+}
+.producerAdvancedLayersV4220 input[type="range"],
+.producerWaveformOverlayV4220 input[type="range"],
+.producerMotionTransitionsV4220 input[type="range"]{
+  width:100%;
+}
+
+/* Timeline cut editing */
+.timelineEditToolbarV4220{
+  margin:8px 0;
+}
+.timelineEditToolbarV4220>div:first-child{
+  display:grid;
+  gap:2px;
+}
+.timelineEditActionsV4220{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.timelineEditActionsV4220 button{
+  margin:0!important;
+}
+#timelineEditStatusV4220{
+  margin:0;
+  color:#918795;
+  font-size:.58rem;
+  line-height:1.4;
+}
+.timelineLaneV4190{
+  position:relative!important;
+}
+.timelineCutRegionV4220{
+  position:absolute!important;
+  top:4px!important;
+  bottom:4px!important;
+  z-index:6!important;
+  min-width:5px!important;
+  display:grid!important;
+  place-content:center!important;
+  padding:3px!important;
+  overflow:hidden!important;
+  border:1px solid rgba(255,95,135,.38)!important;
+  border-radius:7px!important;
+  background:
+    repeating-linear-gradient(135deg,rgba(161,35,70,.34) 0 8px,rgba(90,18,43,.42) 8px 16px)!important;
+  color:#ffd7e2!important;
+  box-shadow:0 0 14px rgba(255,73,126,.12)!important;
+}
+.timelineCutRegionV4220 span,
+.timelineCutRegionV4220 small{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.timelineCutRegionV4220 span{
+  font-size:.52rem;
+  font-weight:800;
+}
+.timelineCutRegionV4220 small{
+  font-size:.45rem;
+  color:#f2b8c8;
+}
+
+/* Audio waveform playback indicator */
+#timelineWaveformV4190{
+  position:relative!important;
+  background:
+    linear-gradient(90deg,rgba(201,148,255,.16) 0 var(--waveform-progress,0%),transparent var(--waveform-progress,0%) 100%)!important;
+}
+
+/* Keep actual transformed video from exposing empty edges during strong camera motion. */
+#composerCanvasV4180{
+  background:#000!important;
+}
+
+/* Advanced layer sections remain compact in the existing sidebar. */
+.producerLayersV4210{
+  gap:10px!important;
+}
+.producerMotionTransitionsV4220 select,
+.producerAdvancedLayersV4220 select,
+.producerWaveformOverlayV4220 select{
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+
+@media(max-width:700px){
+  .timelineEditActionsV4220{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .timelineEditActionsV4220 button{
+    width:100%!important;
+  }
+}

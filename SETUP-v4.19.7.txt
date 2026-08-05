@@ -1,0 +1,32 @@
+SEEKER OF SOUNDZ v4.19.7 SETUP
+
+1. Upload all v4.19.7 website files to GitHub Pages.
+2. Wait for deployment and press Ctrl + F5.
+
+SOCIALS MANAGER:
+3. Open Supabase > SQL Editor.
+4. Run:
+   supabase/patch-v4.19.7-socials-manager.sql
+5. Open Admin Hub > Socials Manager.
+6. Add or edit official URLs and save.
+7. Open Socials page and confirm the updates appear.
+
+TOASTS:
+8. Save or reset a Profile Setting.
+9. Confirm the toast is compact and appears above the page.
+
+SOUNDS:
+10. Open Members > Profile Studio.
+11. Choose a notification and achievement sound.
+12. Set volume around 65–80%, preview, and save the profile.
+
+COLLABORATION:
+13. Open Collaboration Studio.
+14. Select a project you belong to.
+15. Confirm the composer appears directly below the newest reply.
+16. Send a message and verify the other project member receives a notification.
+
+VIDEO API:
+17. Use Test Connection in Video Effects Studio.
+18. If the provider reports unavailable, check the deployed Edge Function,
+    VIDEO_DOWNLOAD_API_KEY secret, and provider account credit/access.

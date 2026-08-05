@@ -1,0 +1,39 @@
+Seeker Of SoundZ v4.19.7
+TOASTS, COLLABORATION, SOUND LIBRARY & SOCIALS MANAGER
+
+Toast notifications:
+- Adds hard width and height caps in the final stylesheet layer.
+- Restores compact 330px desktop toasts.
+- Limits profile-setting notifications to 82px height.
+- Removes the old oversized fallback toast host.
+- Keeps all notifications above page modules.
+
+Collaboration Studio:
+- Removes flex expansion that pushed the reply composer to the bottom.
+- Composer now follows directly beneath the newest reply.
+- Message history scrolls internally after reaching a controlled maximum height.
+- After sending, the newest reply remains visible.
+- Approved collaboration members can enter the Studio.
+- Members added to a project can reply and upload audio.
+- Existing Supabase project notifications remain connected.
+
+Profile notification sounds:
+- Raises default volume from 42% to 68%.
+- Expands volume control to 100%.
+- Increases synthesized master gain while retaining user control.
+- Adds Frequency Ping, Bright Chime, Cosmic Confirm, Arcade Ready,
+  Message Pop, Glass Tone, Bass Signal, Laser Note, Soft Knock and Festival Rise.
+- Existing achievement and notification sounds remain available.
+
+Socials Manager:
+- Adds a Socials Manager button to the Admin Hub.
+- Adds Supabase-backed editing for platform name, category, description,
+  icon, URL, display order, featured state and visibility.
+- Socials page updates through Supabase and realtime changes.
+- Includes a refreshed Seeker Of SoundZ social-card design.
+- Requires running supabase/patch-v4.19.7-socials-manager.sql once.
+
+Video Effects Studio:
+- Static verification confirms the provider, composer, Producer Hub,
+  tab capture and Edge Function code paths are present.
+- Live provider availability cannot be guaranteed from the ZIP alone.

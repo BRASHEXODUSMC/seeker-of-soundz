@@ -1,0 +1,27 @@
+SEEKER OF SOUNDZ v4.20.3 SETUP
+
+1. Upload every file from this ZIP to the GitHub repository.
+2. Replace existing files when prompted.
+3. Wait for GitHub Pages to deploy.
+4. Open video-effects-studio.html.
+5. Press Ctrl + F5.
+
+VERIFY THE RESTORED FOUNDATION:
+- Producer Hub 3.0/3.1 workspace is visible.
+- Embedded YouTube Workspace is visible.
+- MP4 Converter tab is present.
+- Project, Assets, Videos, Music, Waveforms, Downloads and Preset Packs appear.
+- Video editor is centered.
+- Inspector is visible.
+- Timeline is visible underneath.
+- Play, Pause, Restart, Analyze Beats and Auto-Sync Effects respond.
+
+VERIFY THE UPGRADES:
+- Open Assets & Layers.
+- Enable an effect and confirm it appears over the video.
+- Upload a logo and add overlay text.
+- Test Theatre View.
+- Click timeline track headers.
+- Import a local video/audio file and test waveform exports.
+
+No Supabase update is needed.

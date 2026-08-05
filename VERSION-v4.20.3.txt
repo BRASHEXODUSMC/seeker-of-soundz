@@ -1,0 +1,50 @@
+Seeker Of SoundZ v4.20.3
+PRODUCER HUB 3.1 — SAFE FULL UPGRADE
+
+Source of truth:
+- Producer Hub 3.0 from v4.19.9 was restored first.
+- New features were added on top without replacing or hiding the main workspace.
+- The newer website files outside Video Effects Studio were preserved.
+
+Preserved from v4.19.9:
+- Producer Hub editor
+- Project sidebar
+- Assets, Videos, Music, Waveforms, Downloads and Preset Packs
+- Embedded YouTube workspace
+- YouTube preview
+- Embedded external MP4 converter
+- Converter new-tab fallback
+- Local video composer
+- Effects controls
+- Inspector
+- Timeline ruler, tracks, playhead, zoom and markers
+- Beat analysis
+- Auto-Sync Effects
+- Render queue
+- Provider download manager
+- Premium access system
+
+Added safely:
+- Effects render visibly over imported video.
+- Effects update immediately while paused and animate during playback.
+- Effects can preview without a separate music file.
+- Expanded procedural effects.
+- Native browser cursor inside Producer Hub only.
+- Complete Effects Library in Assets.
+- Search, ON/ADD status and Clear All for effects.
+- Uploadable logo layers with position, size and opacity.
+- Retro and EDM text overlays.
+- Theatre View.
+- Clickable and keyboard-accessible timeline tracks.
+- SVG, CSV, JSON and WAV waveform exports.
+- YouTube search shortcut while preserving URL preview and converter.
+- Six-step workflow navigation.
+- Wider single-column sidebar navigation to prevent clipping.
+- Exact legacy duplicate YouTube modules are hidden individually, not by hiding parent sections.
+
+Critical safety fix:
+- No broad selector hides Video Effects Studio child sections.
+- No v4.20.1 visibility override is loaded.
+- The complete v4.19.9 workspace remains present and visible.
+
+No Supabase SQL, Edge Function, Storage, API secret or RLS update is required.

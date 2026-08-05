@@ -1,0 +1,425 @@
+/* Seeker Of SoundZ v4.20.0 — Producer Hub 3.1 */
+
+body.producerCursorDisabledV4200,
+body.producerCursorDisabledV4200 *{
+  cursor:auto!important;
+}
+body.producerCursorDisabledV4200 #cursor,
+body.producerCursorDisabledV4200 #cursorDot,
+body.producerCursorDisabledV4200 #cursorRing,
+body.producerCursorDisabledV4200 .cursorDot,
+body.producerCursorDisabledV4200 .cursorRing,
+body.producerCursorDisabledV4200 .customCursor{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+}
+
+/* Legacy duplicate modules are hidden individually. Required composer sections remain available for mounting. */
+#studioCommandCenterV4180,
+.youtubeProjectPickerV4175,
+.youtubePreviewV4173,
+.youtubePreviewV4174{
+  display:none!important;
+}
+
+/* Six-step workflow */
+.producerWorkflowV4200{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:8px;
+  padding:9px;
+  border:1px solid rgba(201,156,255,.15);
+  border-radius:16px;
+  background:rgba(0,0,0,.13);
+}
+.producerWorkflowV4200 button{
+  min-width:0;
+  min-height:62px;
+  display:grid;
+  grid-template-columns:32px minmax(0,1fr);
+  gap:8px;
+  align-items:center;
+  padding:8px 9px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;
+  background:rgba(255,255,255,.015);
+  color:#aaa0ad;
+  text-align:left;
+  cursor:pointer;
+  overflow:hidden;
+}
+.producerWorkflowV4200 button:hover,
+.producerWorkflowV4200 button.isActive{
+  border-color:rgba(202,158,255,.32);
+  background:rgba(132,56,198,.11);
+  color:#fff;
+}
+.producerWorkflowV4200 button>i{
+  width:32px;height:32px;display:grid;place-items:center;
+  border:1px solid rgba(202,158,255,.16);border-radius:10px;
+  background:rgba(132,56,198,.08);font-style:normal;color:#d6b5f4;
+}
+.producerWorkflowV4200 button>span{
+  min-width:0;display:grid;gap:2px;
+}
+.producerWorkflowV4200 strong,
+.producerWorkflowV4200 small{
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.producerWorkflowV4200 small{font-size:.52rem;color:#8d8391}
+
+/* Fix sidebar clipping and spacing */
+.producerHubWorkspaceV4190{
+  grid-template-columns:270px minmax(0,1fr) 290px!important;
+}
+.producerSidebarNavV4190{
+  grid-template-columns:1fr!important;
+}
+.producerSidebarNavV4190 button{
+  min-height:42px!important;
+  width:100%!important;
+  overflow:visible!important;
+  white-space:normal!important;
+}
+.producerSidebarNavV4190 button span{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.producerSidebarV4190,
+.producerInspectorV4190{
+  overflow-x:hidden!important;
+}
+.producerSidebarViewV4190{
+  min-width:0;
+}
+.producerSidebarViewV4190>*{
+  min-width:0;
+  max-width:100%;
+}
+.producerSidebarViewV4190 input,
+.producerSidebarViewV4190 select,
+.producerSidebarViewV4190 button{
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+
+/* Logo/text layer tools */
+.producerLayerStudioV4200,
+.allEffectsAssetV4200,
+.waveformExportStudioV4200{
+  display:grid;
+  gap:10px;
+  padding:11px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;
+  background:rgba(255,255,255,.014);
+}
+.producerLayerStudioV4200 header,
+.allEffectsAssetV4200 header{
+  display:flex;justify-content:space-between;gap:10px;align-items:flex-start;
+}
+.producerLayerStudioV4200 header>div,
+.allEffectsAssetV4200 header>div{
+  display:grid;gap:2px;min-width:0;
+}
+.producerLayerStudioV4200 small,
+.allEffectsAssetV4200 small,
+.waveformExportStudioV4200 small{
+  color:#8f8593;font-size:.56rem;line-height:1.4;
+}
+.producerLogoUploadV4200{
+  min-height:58px!important;
+  display:grid!important;
+  grid-template-columns:38px minmax(0,1fr)!important;
+  gap:9px!important;
+  align-items:center!important;
+  padding:9px!important;
+  border:1px dashed rgba(202,158,255,.2)!important;
+  border-radius:12px!important;
+  background:rgba(132,56,198,.04)!important;
+  cursor:pointer!important;
+}
+.producerLogoUploadV4200 input{display:none!important}
+.producerLogoUploadV4200>i{
+  width:38px;height:38px;display:grid;place-items:center;
+  border:1px solid rgba(202,158,255,.16);border-radius:11px;
+  background:rgba(132,56,198,.08);font-style:normal;
+}
+.producerLogoUploadV4200>span{display:grid;gap:2px;min-width:0}
+.producerLogoUploadV4200 small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.producerLayerGridV4200{
+  display:grid;grid-template-columns:1fr 1fr;gap:7px;
+}
+.producerLayerGridV4200 label,
+.producerTextEditorV4200>label{
+  display:grid;gap:5px;font-size:.62rem;color:#d7cddc;
+}
+.producerLayerGridV4200 select,
+.producerLayerGridV4200 input,
+.producerTextEditorV4200 input{
+  width:100%;min-width:0;box-sizing:border-box;
+}
+.producerTextEditorV4200{display:grid;gap:8px}
+.producerLayerActionsV4200{
+  display:grid;grid-template-columns:1fr 1fr;gap:7px;
+}
+.producerLayerActionsV4200 button{width:100%!important;margin:0!important}
+
+/* Complete effects library */
+.allEffectsFiltersV4200{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;
+}
+.allEffectsFiltersV4200 input{
+  min-width:0;width:100%;box-sizing:border-box;
+}
+.allEffectsGridV4200{
+  display:grid;gap:6px;max-height:420px;overflow:auto;padding-right:3px;
+}
+.allEffectsGridV4200 button{
+  min-width:0;width:100%;display:grid;
+  grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;
+  padding:8px 9px;border:1px solid rgba(255,255,255,.06);
+  border-radius:11px;background:rgba(255,255,255,.014);
+  color:#d9cfdd;text-align:left;cursor:pointer;
+}
+.allEffectsGridV4200 button:hover,
+.allEffectsGridV4200 button.isActive{
+  border-color:rgba(203,159,255,.28);
+  background:rgba(132,56,198,.09);
+}
+.allEffectsGridV4200 button>span{display:grid;gap:2px;min-width:0}
+.allEffectsGridV4200 strong,
+.allEffectsGridV4200 small{
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.allEffectsGridV4200 b{font-size:.52rem;color:#c996f3}
+.allEffectsGridV4200 button.isActive b{color:#66efad}
+
+/* Ensure the overlay canvas is clearly visible over the video. */
+#composerCanvasV4180{
+  z-index:3!important;
+  opacity:1!important;
+  visibility:visible!important;
+  display:block!important;
+  pointer-events:none!important;
+}
+#composerPreviewVideoV4180{
+  position:relative!important;
+  z-index:1!important;
+}
+.composerAudioStatusV4182{
+  position:relative!important;
+  z-index:4!important;
+}
+.composerPreviewV4180{
+  isolation:isolate!important;
+}
+
+/* Timeline interaction */
+.timelineTracksV4190 article{
+  cursor:pointer;
+  transition:border-color .18s ease,background .18s ease;
+}
+.timelineTracksV4190 article:hover,
+.timelineTracksV4190 article.isSelectedV4200{
+  background:rgba(132,56,198,.07);
+}
+.timelineTracksV4190 article header{
+  cursor:pointer;
+}
+.timelineLaneV4190{
+  pointer-events:auto!important;
+}
+#timelinePlayheadV4190{
+  z-index:8!important;
+  width:3px!important;
+  cursor:ew-resize!important;
+}
+.waveformExportStudioV4200 button{
+  width:100%!important;margin:0!important;
+}
+.waveformExportStudioV4200 p{
+  margin:0;color:#928795;font-size:.56rem;line-height:1.4;
+}
+
+/* Theatre view */
+body.producerTheatreActiveV4200{
+  overflow:hidden!important;
+}
+body.producerTheatreActiveV4200::before{
+  content:"";
+  position:fixed;inset:0;z-index:2147482000;
+  background:rgba(0,0,0,.86);
+  backdrop-filter:blur(13px);
+}
+.producerHubV4190.isTheatreV4200{
+  position:fixed!important;
+  inset:14px!important;
+  z-index:2147482100!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:14px!important;
+  overflow:auto!important;
+  border:1px solid rgba(207,163,255,.24)!important;
+  border-radius:20px!important;
+  background:
+    radial-gradient(circle at 50% 0,rgba(132,56,198,.12),transparent 36%),
+    #07050a!important;
+  box-shadow:0 35px 100px rgba(0,0,0,.7)!important;
+}
+.producerHubV4190.isTheatreV4200 .producerSidebarV4190,
+.producerHubV4190.isTheatreV4200 .producerInspectorV4190{
+  top:8px!important;
+  max-height:calc(100vh - 70px)!important;
+}
+.producerHubV4190.isTheatreV4200 .producerComposerMountV4190 .composerPreviewV4180{
+  max-height:none!important;
+}
+.producerHubV4190.isTheatreV4200 .producerComposerMountV4190 .composerPreviewV4180 video{
+  max-height:calc(100vh - 250px)!important;
+}
+
+/* YouTube search */
+.producerYoutubeSearchRowV4200{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;
+}
+.producerYoutubeSearchRowV4200 input{
+  min-width:0;min-height:42px;padding:0 12px;
+  border:1px solid rgba(255,255,255,.09);border-radius:11px;
+  background:#09070c;color:#fff;
+}
+
+/* Better header/control spacing */
+.producerHubHeaderActionsV4190{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:7px!important;
+}
+.producerHubHeaderActionsV4190 button{
+  margin:0!important;
+  flex:0 1 auto!important;
+}
+.producerCenterToolbarV4190{
+  flex-wrap:wrap!important;
+  gap:8px!important;
+}
+.transportButtonsV4190{
+  flex:0 0 auto!important;
+}
+.producerTimeV4190{
+  min-width:130px!important;
+}
+
+@media(max-width:1250px){
+  .producerHubWorkspaceV4190{
+    grid-template-columns:245px minmax(0,1fr) 260px!important;
+  }
+  .producerWorkflowV4200{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+@media(max-width:1000px){
+  .producerHubWorkspaceV4190{
+    grid-template-columns:1fr!important;
+  }
+  .producerSidebarV4190,
+  .producerInspectorV4190{
+    position:relative!important;
+    top:auto!important;
+    max-height:none!important;
+  }
+  .producerWorkflowV4200{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:620px){
+  .producerWorkflowV4200{
+    grid-template-columns:1fr;
+  }
+  .producerLayerGridV4200,
+  .producerLayerActionsV4200,
+  .producerYoutubeSearchRowV4200{
+    grid-template-columns:1fr;
+  }
+  .producerHubV4190.isTheatreV4200{
+    inset:6px!important;
+    padding:8px!important;
+  }
+}
+
+/* v4.20.1 visibility hotfix */
+#videoEffectsStudio:not([hidden]){
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  min-height:400px!important;
+}
+#videoEffectsStudio:not([hidden]) #producerHubV4190{
+  display:grid!important;
+  visibility:visible!important;
+  opacity:1!important;
+  min-height:600px!important;
+}
+#videoEffectsStudio:not([hidden]) .producerHubWorkspaceV4190,
+#videoEffectsStudio:not([hidden]) .producerCenterV4190,
+#videoEffectsStudio:not([hidden]) .producerComposerMountV4190{
+  visibility:visible!important;
+  opacity:1!important;
+}
+#videoStudioGate:not([hidden]){
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+#directComposerV4180,
+#licensedMusicLibraryV4180,
+#licensedVideoLibraryV41712,
+.videoStudioInputV4171,
+#providerManagerV4182,
+#mediaConverterV4177,
+#tabCaptureStudioV4178,
+.videoStudioWorkspaceV4171{
+  /* These can be moved into Producer Hub by the existing scripts. */
+}
+
+/* v4.20.3 full-workspace guarantees */
+#videoEffectsStudio:not([hidden]){
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+#videoEffectsStudio #producerHubV4190{
+  display:grid!important;
+  visibility:visible!important;
+  opacity:1!important;
+  min-height:650px!important;
+}
+#videoEffectsStudio .producerHubWorkspaceV4190,
+#videoEffectsStudio .producerSidebarV4190,
+#videoEffectsStudio .producerCenterV4190,
+#videoEffectsStudio .producerInspectorV4190,
+#videoEffectsStudio .producerTimelineV4190,
+#videoEffectsStudio .producerComposerMountV4190{
+  visibility:visible!important;
+  opacity:1!important;
+}
+.youtubeProjectPickerV4175,
+.youtubePreviewV4173.youtubePreviewV4174{
+  display:none!important;
+}
+body.producerCursorDisabledV4200,
+body.producerCursorDisabledV4200 *{
+  cursor:auto!important;
+}
+body.producerCursorDisabledV4200 #cursor,
+body.producerCursorDisabledV4200 #cursorDot,
+body.producerCursorDisabledV4200 #cursorRing,
+body.producerCursorDisabledV4200 .customCursor,
+body.producerCursorDisabledV4200 .cursorDot,
+body.producerCursorDisabledV4200 .cursorRing{
+  display:none!important;
+}

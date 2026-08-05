@@ -1,0 +1,12 @@
+PRODUCER HUB 4.2 MULTI-LAYER GUIDE
+
+1. Open Assets > Multi-Layer Canvas Editor.
+2. Select + Text or + Image. The image picker accepts several files at once.
+3. Drag a selected layer directly over the video.
+4. Drag the circular ↻ handle around the layer to rotate it.
+5. Use the property editor for exact X, Y, rotation, scale and opacity.
+6. Choose independent entrance and exit transitions.
+7. Choose a per-layer visual effect.
+8. Move layers up or down to control their final stacking order.
+9. Duplicate, hide, show or delete layers as needed.
+10. Render normally. All visible extra layers are included in the download.

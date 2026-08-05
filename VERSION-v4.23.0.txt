@@ -1,0 +1,35 @@
+Seeker Of SoundZ v4.23.0
+PRODUCER HUB 4.2 — DRAGGABLE MULTI-LAYER EDITOR
+
+Built on the working v4.22.0 Producer Hub without replacing its editor.
+
+Added:
+- Unlimited extra text layers
+- Multiple image/logo uploads in one selection
+- Mouse and touch dragging directly over the video preview
+- Circular rotation handle for every selected layer
+- Numeric X, Y and rotation controls remain available
+- Independent visibility, opacity, scale, start time and end time
+- Independent entrance, exit and transition duration
+- Per-layer effects and animations
+- Layer ordering, duplication, hiding and deletion
+- Hide All, Show All and Clear Extra Layers
+- Extra layers render into the direct finished-video download
+
+Transitions:
+- Fade, directional slides, zoom, spin, bounce, glitch and flip
+
+Effects:
+- Pulse, beat pulse, float, shake, fast/slow spin, flicker, glitch,
+  bounce, zoom pulse, neon, chromatic and blur
+- Image grayscale, saturation and hue-cycle effects
+
+Preserved:
+- Original single logo and text controls
+- Camera motion and project transitions
+- Timeline cuts, undo and redo
+- Waveform tools
+- YouTube search, preview and converter
+- Direct renderer, Theatre View, custom cursor and existing effects
+
+No Supabase update is required.

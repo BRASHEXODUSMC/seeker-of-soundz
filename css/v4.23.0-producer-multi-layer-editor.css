@@ -1,0 +1,284 @@
+/* Seeker Of SoundZ v4.23.0 — draggable multi-layer editor */
+
+.producerMultiLayerManagerV4230{
+  display:grid;
+  gap:10px;
+  padding:11px;
+  border:1px solid rgba(205,161,255,.09);
+  border-radius:14px;
+  background:
+    radial-gradient(circle at 5% 0,rgba(132,56,198,.11),transparent 42%),
+    rgba(255,255,255,.014);
+}
+.producerMultiLayerManagerV4230>header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+}
+.producerMultiLayerManagerV4230>header>div:first-child{
+  display:grid;
+  gap:2px;
+}
+.producerMultiLayerManagerV4230 header small{
+  color:#918795;
+  font-size:.56rem;
+  line-height:1.4;
+}
+.producerMultiLayerAddV4230{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.producerAddImageV4230{
+  cursor:pointer!important;
+}
+.producerAddImageV4230 input{
+  display:none!important;
+}
+.producerLayerManagerGridV4230{
+  display:grid;
+  grid-template-columns:minmax(150px,.75fr) minmax(210px,1.25fr);
+  gap:8px;
+}
+.producerLayerListV4230,
+.producerSelectedLayerEditorV4230{
+  min-width:0;
+  display:grid;
+  align-content:start;
+  gap:7px;
+  padding:8px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;
+  background:rgba(0,0,0,.16);
+}
+#producerLayerListV4230{
+  display:grid;
+  gap:5px;
+  max-height:330px;
+  overflow:auto;
+}
+#producerLayerListV4230>p,
+.producerSelectedLayerEditorV4230>p{
+  margin:0;
+  padding:12px;
+  color:#8e8492;
+  font-size:.58rem;
+  text-align:center;
+}
+.producerLayerListItemV4230{
+  width:100%;
+  min-width:0;
+  display:grid;
+  grid-template-columns:30px minmax(0,1fr) 24px;
+  gap:7px;
+  align-items:center;
+  padding:7px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;
+  background:rgba(255,255,255,.014);
+  color:#ddd4e1;
+  text-align:left;
+}
+.producerLayerListItemV4230:hover,
+.producerLayerListItemV4230.isSelected{
+  border-color:rgba(203,159,255,.3);
+  background:rgba(132,56,198,.1);
+}
+.producerLayerListItemV4230>i{
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:rgba(132,56,198,.1);
+  color:#d6b3f5;
+  font-style:normal;
+}
+.producerLayerListItemV4230>span{
+  min-width:0;
+  display:grid;
+  gap:2px;
+}
+.producerLayerListItemV4230 strong,
+.producerLayerListItemV4230 small{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.producerLayerListItemV4230 small{
+  color:#8d8291;
+  font-size:.5rem;
+}
+.producerLayerListItemV4230>b{
+  color:#77efad;
+  text-align:center;
+}
+.producerLayerOrderV4230{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px;
+}
+.producerLayerOrderV4230 button{
+  width:100%!important;
+  margin:0!important;
+}
+.producerSelectedLayerEditorV4230>header{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:flex-start;
+}
+.producerSelectedLayerEditorV4230>header>div{
+  display:grid;
+  gap:2px;
+}
+.producerSelectedLayerEditorV4230>header small{
+  color:#948a98;
+  font-size:.52rem;
+}
+.producerLayerPropertyGridV4230{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+.producerLayerPropertyGridV4230 label{
+  min-width:0;
+  display:grid;
+  gap:4px;
+  color:#d7cddc;
+  font-size:.56rem;
+}
+.producerLayerPropertyGridV4230 input,
+.producerLayerPropertyGridV4230 select,
+.producerLayerPropertyGridV4230 textarea{
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+.producerLayerPropertyGridV4230 textarea{
+  min-height:56px;
+  resize:vertical;
+}
+.producerLayerHintV4230{
+  margin:0!important;
+  padding:8px!important;
+  border-radius:9px;
+  background:rgba(132,56,198,.05);
+}
+.producerLayerManagerActionsV4230{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+}
+.producerLayerManagerActionsV4230 button{
+  width:100%!important;
+  margin:0!important;
+}
+
+/* Direct manipulation overlay */
+.composerPreviewV4180{
+  position:relative!important;
+}
+.producerInteractiveLayersV4230{
+  position:absolute;
+  z-index:8;
+  overflow:visible;
+  pointer-events:none;
+  touch-action:none;
+}
+.producerInteractiveLayerV4230{
+  position:absolute;
+  pointer-events:auto;
+  touch-action:none;
+  min-width:46px;
+  min-height:32px;
+  display:grid;
+  place-items:center;
+  padding:6px 9px;
+  border:1px dashed transparent;
+  border-radius:8px;
+  background:transparent;
+  color:#fff;
+  white-space:nowrap;
+  user-select:none;
+  cursor:move!important;
+}
+.producerInteractiveLayerV4230:hover,
+.producerInteractiveLayerV4230.isSelected{
+  border-color:rgba(214,176,255,.78);
+  background:rgba(50,20,72,.16);
+  box-shadow:0 0 0 2px rgba(132,56,198,.13);
+}
+.producerInteractiveLayerV4230.isImage{
+  padding:0;
+}
+.producerInteractiveLayerV4230.isImage img{
+  width:100%;
+  height:auto;
+  display:block;
+  pointer-events:none;
+  filter:drop-shadow(0 0 10px rgba(0,0,0,.35));
+}
+.producerRotateHandleV4230{
+  position:absolute;
+  right:-17px;
+  top:-17px;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(222,191,255,.85);
+  border-radius:50%;
+  background:#160d1e;
+  color:#fff;
+  font-size:.85rem;
+  font-style:normal;
+  cursor:grab!important;
+  box-shadow:0 5px 16px rgba(0,0,0,.5),0 0 12px rgba(160,84,222,.25);
+  opacity:0;
+  transform:scale(.8);
+  transition:opacity .15s ease,transform .15s ease;
+}
+.producerInteractiveLayerV4230:hover .producerRotateHandleV4230,
+.producerInteractiveLayerV4230.isSelected .producerRotateHandleV4230{
+  opacity:1;
+  transform:scale(1);
+}
+.producerRotateHandleV4230:active{
+  cursor:grabbing!important;
+}
+
+@media(max-width:900px){
+  .producerLayerManagerGridV4230{
+    grid-template-columns:1fr;
+  }
+  #producerLayerListV4230{
+    max-height:220px;
+  }
+}
+@media(max-width:620px){
+  .producerMultiLayerManagerV4230>header{
+    flex-direction:column;
+  }
+  .producerMultiLayerAddV4230{
+    width:100%;
+  }
+  .producerMultiLayerAddV4230>*{
+    flex:1 1 120px;
+  }
+  .producerLayerPropertyGridV4230,
+  .producerLayerManagerActionsV4230{
+    grid-template-columns:1fr;
+  }
+}
+
+/* The canvas shows the real rendered layer. This interaction copy supplies only hitboxes and handles. */
+.producerInteractiveLayerV4230{
+  color:transparent!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0 transparent!important;
+}
+.producerInteractiveLayerV4230.isImage img{
+  opacity:0!important;
+}

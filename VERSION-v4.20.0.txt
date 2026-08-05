@@ -1,0 +1,79 @@
+Seeker Of SoundZ v4.20.0
+PRODUCER HUB 3.1 — EFFECTS, THEATRE, LAYERS & WAVEFORMS
+
+Producer Hub cursor:
+- Disables the custom Seeker Of SoundZ cursor only while the pointer is inside Producer Hub.
+- Restores the normal site cursor after leaving the Hub.
+- Theatre View also uses the native browser cursor.
+- Other website pages retain the member-selected custom cursor.
+
+Live visual effects:
+- Repairs the local preview canvas so selected effects appear over the imported video.
+- Effects can preview without requiring a separate music file.
+- Selecting or adjusting an effect refreshes a paused frame immediately.
+- Playing the video runs the effects continuously.
+- Effects are included in the finished local render.
+- Adds procedural support for static, VHS, scanlines, strobe, drop flash,
+  waveform, oscilloscope, particles, light leaks, glitches, digital rain,
+  cinema bars, horizon glow, grids and other existing selections.
+
+Assets & Layers:
+- Adds every existing effect from the previous Effects step to the Assets sidebar.
+- Includes search, active state, effect descriptions and Clear All.
+- Adds uploaded logo layers.
+- Logo options include position, scale, opacity and visibility.
+- Adds editable text overlays.
+- Text styles include Retro Future, Arcade Pixel, Cyber EDM, Rave Glow,
+  Minimal Wide and Terminal.
+- Text and logo layers appear in preview and finished exports.
+
+Workspace:
+- Adds a new six-step Producer Hub workflow:
+  1. Workspace
+  2. Assets & Layers
+  3. YouTube & Converter
+  4. Audio & Waveforms
+  5. Theatre & Timeline
+  6. Export
+- The old duplicate modular area remains hidden for compatibility.
+- The older YouTube Project Picker was removed.
+- The older synchronized YouTube preview is hidden.
+- The new YouTube preview and external converter remain.
+
+YouTube:
+- Adds a YouTube search field that opens YouTube search results.
+- Members can select a video, copy its URL and paste it into the existing preview.
+- The existing Copy URL button remains.
+- Cross-origin YouTube players do not allow the website to alter their native right-click menu.
+
+Timeline:
+- Timeline rows and headers are keyboard accessible and clickable.
+- Clicking Video opens video controls.
+- Clicking Music opens audio controls.
+- Clicking Effects opens Assets & Layers.
+- Clicking Beat Markers opens waveform tools.
+- Existing seek, playhead drag, transport, zoom, markers and effects lanes remain.
+
+Theatre View:
+- Adds a focused full-window editor mode.
+- Darkens and blurs the surrounding website.
+- Keeps the sidebar, inspector, editor and timeline inside the focused workspace.
+- Escape exits Theatre View.
+
+Waveforms:
+- Analyzes audio from imported local video or audio files when the browser supports the codec.
+- Adds SVG waveform export.
+- Adds CSV peak-data export.
+- Adds JSON analysis export.
+- Adds extracted mono WAV export.
+- Keeps the existing PNG waveform and beat-marker JSON downloads.
+- YouTube previews remain reference-only; exact waveform/audio exports require a local file.
+
+Layout:
+- Enlarges and spaces the left sidebar.
+- Changes clipped two-column sidebar navigation into a single-column layout.
+- Prevents Downloads, Waveforms and other labels from being cut off.
+- Improves responsive layout for tablets and mobile.
+
+Supabase:
+- No new SQL, Edge Function, Storage bucket, secret or RLS update is required.

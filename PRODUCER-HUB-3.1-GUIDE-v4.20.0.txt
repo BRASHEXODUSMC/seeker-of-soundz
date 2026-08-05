@@ -1,0 +1,48 @@
+PRODUCER HUB 3.1 QUICK GUIDE
+
+IMPORT:
+1. Open Producer Hub.
+2. Select Choose Video.
+3. Import an authorized local MP4, WEBM, MOV or browser-readable video.
+4. Music is optional for effect previews.
+
+EFFECTS:
+1. Open Assets & Layers.
+2. Search the Complete Effects Library.
+3. Select ADD to enable an effect.
+4. Play the video, or seek to a frame to see it.
+5. Adjust effect strength from the existing controls.
+
+LOGO AND TEXT:
+1. Open Assets & Layers.
+2. Upload a logo.
+3. Choose its position, size and opacity.
+4. Enter overlay text.
+5. Choose a Retro, Arcade, Cyber, Rave, Minimal or Terminal style.
+6. Logo and text are included in the finished render.
+
+YOUTUBE:
+1. Open YouTube & Converter.
+2. Search YouTube in a new tab.
+3. Copy the selected video's URL.
+4. Paste the URL into the YouTube preview.
+5. Use Copy URL whenever needed.
+6. To edit and render the footage, import an authorized local MP4.
+
+TIMELINE:
+- Click a timeline lane to seek.
+- Drag the playhead.
+- Click each track header to open its related tools.
+- Use Theatre View for a distraction-free workspace.
+
+WAVEFORMS:
+1. Import a local video or audio file.
+2. Open Audio & Waveforms.
+3. Select Analyze Beats.
+4. Export PNG, SVG, CSV, JSON, beat markers or WAV where supported.
+
+EXPORT:
+1. Confirm video, effects, text and logo.
+2. Add licensed music when desired.
+3. Open Export.
+4. Select Render Project.

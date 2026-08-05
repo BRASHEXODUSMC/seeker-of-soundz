@@ -1,0 +1,55 @@
+Seeker Of SoundZ v4.28.0
+PRODUCER HUB 5.3 — OVERLAPPING AUTO-SYNC, RENDER FOCUS & DRAGGABLE ORIGINAL TEXT
+
+Auto-Sync overlays:
+- Keeps true camera zoom, rotation, impact and shake
+- Adds selectable effect pools
+- Adds one to four overlapping overlay regions per chosen beat
+- Different effects rotate across beats instead of repeating one preset
+- Pools: glitch/RGB, light, reactive particles, fire/explosions, smoke, waveform/spectrum
+- Overlays can overlap each other and the true camera regions
+- Existing timed effect regions remain editable and visible
+
+Music-reactive particles:
+- Reactive Particle Field
+- Bass Sparks
+- Beat Dust
+- Frequency Orbs
+- Drop Confetti
+- Audio Light Trails
+- Bass, mid, high and peak energy control movement, size, brightness and color
+- Included in preview, beat placement, Auto-Sync and direct rendering
+
+Render Focus:
+- Optional focus mode activates during direct rendering
+- Hides timeline, editor sidebars and nonessential controls
+- Keeps the project canvas, render progress and cancel control visible
+- Reduces browser layout/paint work while rendering
+- Restores the full editor after completion or cancellation
+- Tutorial explains GPU/browser hardware acceleration accurately
+- Browsers may use GPU acceleration, but the browser and driver choose GPU vs CPU work
+
+Original text:
+- Original text remains one fully styled text control
+- Keeps all fonts, colors, outlines, glow, background, opacity, spacing and transitions
+- Can be dragged directly over the video
+- Has a circular rotation handle
+- Updates existing custom X/Y and rotation controls in real time
+- Existing multi-layer text system remains available
+
+Timeline:
+- Tool panels use a cleaner responsive grid
+- Timeline tracks remain separated below the editing controls
+- Beat marker pattern repeats through the full project when music loops
+- Auto-Sync can continue creating regions through the project ending
+
+Preserved:
+- Beat analysis and markers
+- Shift+K razor editing
+- Ripple cuts, snapping, undo and redo
+- Multiple videos, transitions and muting
+- Fire, explosion and smoke VFX
+- Direct rendering
+- YouTube tools, waveform tools, Theatre View and custom cursor
+
+No Supabase update is required.

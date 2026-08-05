@@ -102,6 +102,7 @@
   <link rel="stylesheet" href="css/v4.25.1-timeline-scroll-vfx.css?v=4.25.1">
   <link rel="stylesheet" href="css/v4.26.0-ripple-cuts-transport.css?v=4.26.0">
   <link rel="stylesheet" href="css/v4.27.0-beat-razor-tool.css?v=4.27.0">
+  <link rel="stylesheet" href="css/v4.28.0-autosync-render-text.css?v=4.28.0">
 </head>
  <body>
   <div id="loader">
@@ -190,7 +191,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 5.2</p>
+      <p class="sectionEyebrow">Producer Hub 5.3</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -343,7 +344,7 @@
          <label>Logo opacity<input id="producerLogoOpacityV4210" type="range" min="0" max="1" step=".05" value=".9"></label>
          <label class="checkLine"><input id="producerLogoEnabledV4210" type="checkbox" checked> Show logo</label>
         </div>
-        <label>Overlay text<input id="producerTextV4210" type="text" maxlength="100" placeholder="SEEKER OF SOUNDZ"></label>
+        <label>Overlay text<input id="producerTextV4210" type="text" maxlength="100" placeholder="SEEKER OF SOUNDZ"></label><p class="originalTextDragHintV4280">Enter text, then drag it directly over the video. Use the ↻ handle to rotate it. All existing fonts, colors, transitions, glow, spacing, and opacity controls remain.</p>
         <div class="producerLayerGridV4210">
          <label>Text style<select id="producerTextStyleV4210"><option value="retro">Retro Future</option><option value="arcade">Arcade Pixel</option><option value="cyber">Cyber EDM</option><option value="rave">Rave Glow</option><option value="minimal">Minimal Wide</option><option value="terminal">Terminal</option>
           <option value="neon-script">Neon Script</option>
@@ -600,6 +601,16 @@
        <label>Density<select id="autoSyncDensityV4250"><option value="8">Every 8 beats</option><option value="4" selected>Every 4 beats</option><option value="2">Every 2 beats</option><option value="1">Every beat</option></select></label>
        <label>Camera strength<input id="autoSyncCameraStrengthV4250" type="range" min=".2" max="2" step=".1" value=".9"></label>
        <label class="checkLine"><input id="autoSyncAddVisualsV4250" type="checkbox" checked> Add timed visual effects</label>
+       <label>Overlays per beat<select id="autoSyncOverlapV4280"><option value="1">1 effect</option><option value="2" selected>2 overlapping</option><option value="3">3 overlapping</option><option value="4">4 overlapping</option></select></label>
+       <fieldset class="autoSyncEffectPoolV4280">
+        <legend>Auto-Sync effect pool</legend>
+        <label><input type="checkbox" data-autosync-pool="glitch" checked> Glitch &amp; RGB</label>
+        <label><input type="checkbox" data-autosync-pool="light" checked> Flashes &amp; light</label>
+        <label><input type="checkbox" data-autosync-pool="particles" checked> Reactive particles</label>
+        <label><input type="checkbox" data-autosync-pool="fire"> Fire &amp; explosions</label>
+        <label><input type="checkbox" data-autosync-pool="smoke"> Smoke overlays</label>
+        <label><input type="checkbox" data-autosync-pool="waveform"> Waveforms &amp; spectrum</label>
+       </fieldset>
        <label class="checkLine"><input id="autoSyncAddCameraV4250" type="checkbox" checked> Move actual video frame</label>
        <button class="smallAction" id="clearAutoSyncV4250" type="button">Clear Auto-Sync</button>
       </div>
@@ -647,7 +658,7 @@
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
      <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 4.0 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 5.2 restored beat analysis, beat-marker Auto-Sync, Shift+K razor editing, left/right video and music deletion, ripple cuts, transport controls, VFX, layers, waveforms and export.</small></span></button>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 5.3 overlapping Auto-Sync overlays, selectable effect pools, music-reactive particles, render-focus optimization, GPU guidance, draggable original text, restored beats, razor editing, layers and export.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -695,6 +706,10 @@
      <article data-tutorial-slide><i>⚡</i><h3>Auto-Sync from detected beats</h3><p>Select Auto-Sync Effects after analysis—or select it first and analysis continues automatically. Camera moves and timed visual effects are placed directly on detected beat positions.</p></article>
      <article data-tutorial-slide><i>✂️</i><h3>Shift + K razor tool</h3><p>Hover over a video or music section and press Shift + K. The project splits exactly at the pointer. Hover the new boundary and select ×L or R× to delete the section on either side.</p></article>
      <article data-tutorial-slide><i>🎵</i><h3>Music-side deletion</h3><p>Music splits appear over the waveform. Delete a left or right section to remove it from preview and export. Double-click a removed music section to restore it.</p></article>
+     <article data-tutorial-slide><i>✨</i><h3>Overlapping Auto-Sync overlays</h3><p>Select the effect pools Auto-Sync may use, then choose one to four overlapping overlays per beat. Camera movement remains active underneath the different timed overlays.</p></article>
+     <article data-tutorial-slide><i>✦</i><h3>Music-reactive particles</h3><p>Reactive Particle Field, Bass Sparks, Beat Dust, Frequency Orbs, Drop Confetti and Audio Light Trails respond independently to bass, mids, highs and strong peaks.</p></article>
+     <article data-tutorial-slide><i>⚙️</i><h3>Render Focus and GPU guidance</h3><p>Enable Render Focus to hide the timeline and editor panels while exporting. Canvas rendering can use GPU hardware acceleration when enabled in the browser, but the browser and graphics driver decide whether each operation runs on the GPU or CPU. Keep hardware acceleration enabled and close unnecessary tabs for the best result.</p></article>
+     <article data-tutorial-slide><i>🔤</i><h3>Drag the original text</h3><p>The original text control keeps every font, color, outline, glow, transition, opacity and spacing option. Enter text, then drag its selection box over the video and use the ↻ handle to rotate it.</p></article>
      <article data-tutorial-slide><i>⬇</i><h3>Render and download</h3><p>Open Export and select Build Finished Video. The browser records the processed canvas with the uploaded soundtrack.</p></article>
      <article data-tutorial-slide><i>🖥️</i><h3>Optional screen capture</h3><p>Capture is separate and optional. Chrome or Edge is recommended for tab audio. Firefox can capture screens, but audio availability varies by operating system and source.</p></article>
     </div>
@@ -708,7 +723,7 @@
      <label class="composerDropV4180"><input id="composerAudioV4180" type="file" accept="audio/*"><i>🎵</i><span><strong>Choose Licensed Music</strong><small id="composerAudioNameV4180">MP3, WAV, OGG, M4A, or another browser-readable audio file.</small></span></label>
     </div>
     <div class="directComposerWorkspaceV4180">
-     <div class="composerPreviewV4180"><video id="composerPreviewVideoV4180" controls playsinline></video><canvas id="composerCanvasV4180" width="1280" height="720"></canvas><div class="producerInteractiveLayersV4230" id="producerInteractiveLayersV4230" aria-label="Interactive text and image layers"></div><audio id="composerPreviewAudioV4180" preload="metadata" hidden></audio>
+     <div class="composerPreviewV4180"><video id="composerPreviewVideoV4180" controls playsinline></video><canvas id="composerCanvasV4180" width="1280" height="720"></canvas><div class="producerInteractiveLayersV4230" id="producerInteractiveLayersV4230" aria-label="Interactive text and image layers"></div><div class="originalTextInteractiveV4280" id="originalTextInteractiveV4280" hidden><span id="originalTextInteractiveLabelV4280">TEXT</span><i id="originalTextRotateHandleV4280" title="Drag to rotate">↻</i></div><audio id="composerPreviewAudioV4180" preload="metadata" hidden></audio>
       <div class="composerAudioStatusV4182" id="composerAudioStatusV4182">
        <span class="composerAudioDotV4182"></span>
        <div><strong>Music track not loaded</strong><small>Your selected audio will be mixed into the single video preview and finished export.</small></div>
@@ -720,6 +735,12 @@
       <label>End time <input id="composerEndV4180" type="number" min="0" step=".01" value="0"></label>
       <label>Output <select id="composerFormatV4180"><option value="auto">Best supported</option><option value="video/webm;codecs=vp9,opus">WEBM VP9</option><option value="video/webm;codecs=vp8,opus">WEBM VP8</option><option value="video/mp4">MP4 when supported</option></select></label>
       <button class="primaryButton" id="composerPreviewButtonV4180" type="button" disabled>Preview Project</button>
+      <section class="renderOptimizationV4280">
+       <strong>Render Optimization</strong>
+       <label class="checkLine"><input id="renderFocusModeV4280" type="checkbox" checked> Show only the render workspace while exporting</label>
+       <label class="checkLine"><input id="renderHidePreviewLayersV4280" type="checkbox" checked> Hide timeline controls and editor panels during render</label>
+       <small>Modern browsers normally use GPU acceleration for canvas composition when hardware acceleration is enabled. The browser decides the final GPU/CPU path.</small>
+      </section>
       <button class="primaryButton finishComposerV4180" id="composerRenderButtonV4180" type="button" disabled>Generate & Download Finished Video</button>
       <section class="directRenderStatusV4212" id="directRenderStatusV4212" hidden>
        <header><strong>Direct Project Renderer</strong><span id="directRenderPercentV4212">0%</span></header>
@@ -1121,6 +1142,17 @@
       </div>
      </details>
      <details class="effectGroupV4172" open>
+      <summary>Music-Reactive Particles <span>6</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="reactiveParticles"><span><strong>Reactive Particle Field</strong><small>Particles accelerate, grow, and brighten with bass, mids, and highs.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="bassSparks"><span><strong>Bass Sparks</strong><small>Bright sparks launch outward on low-frequency hits.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="beatDust"><span><strong>Beat Dust</strong><small>Soft dust blooms on detected peaks and drifts between beats.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="frequencyOrbs"><span><strong>Frequency Orbs</strong><small>Bass, mid, and high-frequency orbs react independently.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="dropConfetti"><span><strong>Drop Confetti</strong><small>Colorful particles burst on strong drops and impacts.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="audioTrails"><span><strong>Audio Light Trails</strong><small>Moving light trails bend and brighten with the music.</small></span></label>
+      </div>
+     </details>
+     <details class="effectGroupV4172" open>
       <summary>Fire, Explosion &amp; Smoke VFX <span>12</span></summary>
       <div class="effectGridV4172">
        <label class="effectToggleV4171"><input type="checkbox" data-effect="drawnFire"><span><strong>Drawn Fire</strong><small>Animated hand-drawn flames rising from the bottom edge.</small></span></label>
@@ -1298,7 +1330,7 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.27.0.js?v=4.27.0"></script>
+  <script src="js/direct-video-composer-v4.28.0.js?v=4.28.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.26.0-core.js?v=4.26.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
@@ -1306,8 +1338,9 @@
   <script src="js/producer-hub-v4.26.0.js?v=4.26.0"></script>
   <script src="js/producer-layer-editor-v4.23.1.js?v=4.23.1"></script>
   <script src="js/producer-multiclip-effects-v4.27.0.js?v=4.27.0"></script>
-  <script src="js/producer-pro-timeline-v4.27.0.js?v=4.27.0"></script>
-  <script src="js/producer-beat-analysis-v4.27.0.js?v=4.27.0"></script>
+  <script src="js/producer-pro-timeline-v4.28.0.js?v=4.28.0"></script>
+  <script src="js/producer-beat-analysis-v4.28.0.js?v=4.28.0"></script>
   <script src="js/producer-razor-tool-v4.27.0.js?v=4.27.0"></script>
+  <script src="js/producer-focus-text-v4.28.0.js?v=4.28.0"></script>
 </body>
 </html>

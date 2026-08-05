@@ -1,0 +1,219 @@
+/* Seeker Of SoundZ v4.28.0 — layered Auto-Sync, render focus, draggable original text */
+
+/* Cleaner timeline organization */
+.timelineEffectEditorV4240,
+.autoSyncMotionPanelV4250,
+.timelineEditToolbarV4220{
+  margin:8px!important;
+  max-width:calc(100% - 16px)!important;
+  box-sizing:border-box!important;
+}
+.timelineEffectControlsV4240,
+.autoSyncControlsV4250,
+.timelineEditActionsV4220{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr))!important;
+  gap:7px!important;
+  align-items:end!important;
+}
+.timelineEffectControlsV4240>*,
+.autoSyncControlsV4250>*,
+.timelineEditActionsV4220>*{
+  min-width:0!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+}
+.timelineTracksV4190{
+  clear:both!important;
+  margin-top:10px!important;
+}
+.autoSyncEffectPoolV4280{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
+  gap:6px;
+  min-width:0;
+  margin:0;
+  padding:8px;
+  border:1px solid rgba(202,158,255,.09);
+  border-radius:10px;
+}
+.autoSyncEffectPoolV4280 legend{
+  padding:0 5px;
+  color:#d7cbe0;
+  font-size:.55rem;
+}
+.autoSyncEffectPoolV4280 label{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  gap:5px!important;
+  min-width:0!important;
+  font-size:.54rem!important;
+}
+#autoSyncOverlapV4280{
+  width:100%!important;
+}
+
+/* New reactive effect cards */
+.effectToggleV4171:has([data-effect="reactiveParticles"]),
+.effectToggleV4171:has([data-effect="bassSparks"]),
+.effectToggleV4171:has([data-effect="beatDust"]),
+.effectToggleV4171:has([data-effect="frequencyOrbs"]),
+.effectToggleV4171:has([data-effect="dropConfetti"]),
+.effectToggleV4171:has([data-effect="audioTrails"]){
+  background:
+    radial-gradient(circle at 8% 0,rgba(94,235,179,.09),transparent 44%),
+    radial-gradient(circle at 90% 100%,rgba(167,82,226,.08),transparent 46%),
+    rgba(255,255,255,.012)!important;
+}
+
+/* Original text becomes directly draggable like newer layers. */
+.originalTextInteractiveV4280{
+  position:absolute;
+  z-index:14;
+  min-width:54px;
+  min-height:34px;
+  display:grid;
+  place-items:center;
+  padding:7px 11px;
+  border:1px dashed rgba(218,182,255,.75);
+  border-radius:8px;
+  color:transparent;
+  background:rgba(72,26,101,.13);
+  pointer-events:auto;
+  touch-action:none;
+  cursor:move!important;
+  user-select:none;
+}
+.originalTextInteractiveV4280[hidden]{
+  display:none!important;
+}
+.originalTextInteractiveV4280 span{
+  opacity:0;
+  pointer-events:none;
+}
+.originalTextInteractiveV4280:hover{
+  background:rgba(72,26,101,.22);
+  box-shadow:0 0 0 2px rgba(148,72,207,.12);
+}
+#originalTextRotateHandleV4280{
+  position:absolute;
+  right:-17px;
+  top:-17px;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(224,194,255,.8);
+  border-radius:50%;
+  background:#160d1e;
+  color:#fff;
+  font-size:.84rem;
+  font-style:normal;
+  cursor:grab!important;
+  box-shadow:0 5px 16px rgba(0,0,0,.48),0 0 12px rgba(164,87,224,.25);
+}
+#originalTextRotateHandleV4280:active{
+  cursor:grabbing!important;
+}
+.originalTextDragHintV4280{
+  margin:0!important;
+  padding:7px 8px;
+  border:1px solid rgba(202,158,255,.07);
+  border-radius:8px;
+  background:rgba(132,56,198,.035);
+  color:#968b9a!important;
+  font-size:.53rem!important;
+  line-height:1.45!important;
+}
+
+/* Render optimization controls */
+.renderOptimizationV4280{
+  display:grid;
+  gap:7px;
+  padding:9px;
+  border:1px solid rgba(104,239,174,.1);
+  border-radius:11px;
+  background:rgba(49,164,105,.035);
+}
+.renderOptimizationV4280>strong{
+  color:#dff7e9;
+}
+.renderOptimizationV4280 small{
+  color:#92a79b;
+  font-size:.53rem;
+  line-height:1.45;
+}
+
+/* Focus mode removes editor overhead while the browser composites the render. */
+body.producerRenderFocusV4280{
+  overflow:auto!important;
+  background:#030204!important;
+}
+body.producerRenderFocusV4280>*:not(main):not(.site-toast-container):not(#cursor):not(#cursorDot):not(#cursorRing){
+  visibility:hidden!important;
+}
+body.producerRenderFocusV4280 main>*:not(#videoEffectsStudio){
+  display:none!important;
+}
+body.producerRenderFocusV4280 #videoEffectsStudio>*:not(.studioPanelV417){
+  display:none!important;
+}
+body.producerRenderFocusV4280 #videoEffectsStudio,
+body.producerRenderFocusV4280 .studioPanelV417,
+body.producerRenderFocusV4280 #producerHubV4190{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-height:100vh!important;
+  visibility:visible!important;
+}
+body.producerRenderFocusV4280 #producerHubV4190 .producerTopbarV4190,
+body.producerRenderFocusV4280 #producerHubV4190 .producerWorkspaceV4190>aside,
+body.producerRenderFocusV4280 #producerHubV4190 .producerTimelineV4190,
+body.producerRenderFocusV4280 #producerHubV4190 .producerAnalysisToolbarV4260,
+body.producerRenderFocusV4280 #producerHubV4190 .producerTransportDockV4260,
+body.producerRenderFocusV4280 #producerHubV4190 .producerSidebarV4190,
+body.producerRenderFocusV4280 #producerHubV4190 .producerInspectorV4190{
+  display:none!important;
+}
+body.producerRenderFocusV4280 #producerHubV4190 .producerWorkspaceV4190{
+  display:block!important;
+}
+body.producerRenderFocusV4280 #producerHubV4190 .producerCenterV4190{
+  width:min(1100px,96vw)!important;
+  max-width:1100px!important;
+  margin:20px auto!important;
+}
+body.producerRenderFocusV4280 #directComposerV4180{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(250px,320px)!important;
+  width:100%!important;
+}
+body.producerRenderFocusV4280 #directRenderStatusV4212{
+  display:grid!important;
+  position:sticky;
+  top:20px;
+}
+body.producerRenderFocusV4280 .licensedMusicLibraryV4180{
+  display:none!important;
+}
+
+/* GPU notice emphasis */
+.renderOptimizationV4280 small::before{
+  content:"GPU / hardware acceleration: ";
+  color:#7af1b2;
+  font-weight:800;
+}
+
+@media(max-width:760px){
+  body.producerRenderFocusV4280 #directComposerV4180{
+    grid-template-columns:1fr!important;
+  }
+  .timelineEffectControlsV4240,
+  .autoSyncControlsV4250,
+  .timelineEditActionsV4220{
+    grid-template-columns:1fr!important;
+  }
+}

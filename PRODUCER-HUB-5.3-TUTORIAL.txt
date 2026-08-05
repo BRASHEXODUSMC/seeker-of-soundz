@@ -1,0 +1,28 @@
+PRODUCER HUB 5.3 QUICK GUIDE
+
+OVERLAPPING AUTO-SYNC
+1. Upload music and analyze beats.
+2. Choose an Auto-Sync camera pattern and density.
+3. Choose one to four Overlays Per Beat.
+4. Select the effect pools Auto-Sync may use.
+5. Select Auto-Sync Effects.
+6. Camera regions move the actual video while multiple overlay regions may overlap.
+
+REACTIVE PARTICLES
+Enable Reactive Particle Field, Bass Sparks, Beat Dust, Frequency Orbs,
+Drop Confetti, or Audio Light Trails. Their movement and brightness respond
+to bass, mids, highs and peak energy.
+
+RENDER FOCUS
+1. Keep Show Only the Render Workspace enabled.
+2. Begin rendering.
+3. The timeline and editor panels hide until rendering ends.
+4. Keep browser hardware acceleration enabled.
+5. The browser and graphics driver decide which canvas operations use the GPU.
+6. Close unnecessary tabs and avoid resizing the window during rendering.
+
+ORIGINAL TEXT
+1. Enter text in Overlay Text.
+2. Use all existing font, color, outline, glow and transition controls.
+3. Drag the selection box directly over the video.
+4. Drag the circular rotation handle to rotate.

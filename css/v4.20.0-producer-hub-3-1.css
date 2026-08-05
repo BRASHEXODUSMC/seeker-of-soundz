@@ -15,10 +15,7 @@ body.producerCursorDisabledV4200 .customCursor{
   visibility:hidden!important;
 }
 
-/* Keep only the new Producer Hub workspace visible. Old compatibility modules remain in the DOM for scripts. */
-#videoEffectsStudio>section:not(#producerHubV4190){
-  display:none!important;
-}
+/* Legacy duplicate modules are hidden individually. Required composer sections remain available for mounting. */
 #studioCommandCenterV4180,
 .youtubeProjectPickerV4175,
 .youtubePreviewV4173,
@@ -352,4 +349,39 @@ body.producerTheatreActiveV4200::before{
     inset:6px!important;
     padding:8px!important;
   }
+}
+
+/* v4.20.1 visibility hotfix */
+#videoEffectsStudio:not([hidden]){
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  min-height:400px!important;
+}
+#videoEffectsStudio:not([hidden]) #producerHubV4190{
+  display:grid!important;
+  visibility:visible!important;
+  opacity:1!important;
+  min-height:600px!important;
+}
+#videoEffectsStudio:not([hidden]) .producerHubWorkspaceV4190,
+#videoEffectsStudio:not([hidden]) .producerCenterV4190,
+#videoEffectsStudio:not([hidden]) .producerComposerMountV4190{
+  visibility:visible!important;
+  opacity:1!important;
+}
+#videoStudioGate:not([hidden]){
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+#directComposerV4180,
+#licensedMusicLibraryV4180,
+#licensedVideoLibraryV41712,
+.videoStudioInputV4171,
+#providerManagerV4182,
+#mediaConverterV4177,
+#tabCaptureStudioV4178,
+.videoStudioWorkspaceV4171{
+  /* These can be moved into Producer Hub by the existing scripts. */
 }

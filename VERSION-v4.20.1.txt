@@ -1,0 +1,11 @@
+Seeker Of SoundZ v4.20.1
+PRODUCER HUB VISIBILITY HOTFIX
+
+Fixed:
+- Removed the broad CSS selector that hid required Producer Hub support sections.
+- Restored the Producer Hub container, workspace, center editor and composer visibility.
+- Added a safe access-state recovery script.
+- Owner, Administrator, Developer and Premium Member accounts reveal Producer Hub.
+- Signed-out or unauthorized accounts see the access message rather than an empty page.
+- Existing effects, Theatre View, logo/text layers, timeline and waveform systems remain.
+- No Supabase changes are required.

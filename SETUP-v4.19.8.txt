@@ -1,0 +1,25 @@
+SEEKER OF SOUNDZ v4.19.8 SETUP
+
+1. Upload all v4.19.8 files to GitHub Pages.
+2. Wait for deployment and press Ctrl + F5.
+
+DEFAULT LOADER:
+3. Reload the website.
+4. Accounts still using the clean default should see rotating floating cubes around the logo.
+5. Open Members > Settings > Loader Builder to change or disable any loader feature.
+6. Save the member settings and reload to test.
+
+ADMIN OVERVIEW:
+7. Sign in as Owner or Administrator.
+8. Open Admin Hub > Overview.
+9. Wait for the live Supabase totals to load.
+10. Select Refresh Supabase Data to update the snapshot.
+
+SOCIALS:
+11. Confirm the bottom Business & Booking button is gone.
+12. The Contact button remains available at the top of Socials.
+
+SOCIALS MANAGER:
+13. If not previously completed, run:
+    supabase/patch-v4.19.7-socials-manager.sql
+14. No new v4.19.8 SQL patch is required.

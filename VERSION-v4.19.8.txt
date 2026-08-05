@@ -1,0 +1,52 @@
+Seeker Of SoundZ v4.19.8
+DEFAULT CUBE LOADER, LIVE ADMIN OVERVIEW & ADMIN THEME
+
+Default loading screen:
+- Restores the original-style cubes floating and rotating around the SOS logo.
+- Default loader now uses:
+  - Cosmic background
+  - Slow background drift
+  - Original Spinning Cubes
+  - Logo orbit rings
+  - Logo glow
+  - Slow logo pulse
+  - Pulse loading bar
+  - No completion swipe
+- Existing members who are still using the clean v4.19.5 baseline receive the cube default once.
+- Members who already chose a customized loader are not overwritten.
+- Every loader element remains editable in Members > Settings > Loader Builder.
+
+Admin Hub Overview:
+- Replaces browser-placeholder totals with a live Supabase production snapshot.
+- Reads available totals for:
+  - Members and online members
+  - Owners and Administrators
+  - Banned accounts
+  - Forum topics, replies and reactions
+  - Collaboration projects and messages
+  - Collaboration-approved members
+  - Events and RSVP responses
+  - Music releases
+  - Gallery images
+  - Contact messages
+  - Notifications
+  - Visible social links
+  - Active quests
+- Shows restricted or unavailable sources honestly instead of inventing totals.
+- Includes a live refresh button and shortcuts to related Admin Hub sections.
+- No new SQL is required for the Overview.
+
+Socials page:
+- Removes the redundant Business & Booking button at the bottom.
+- Keeps the Contact button in the page hero.
+
+Admin Hub theme:
+- Restyles menu buttons, active states and hover states.
+- Restyles action, primary, secondary and delete buttons.
+- Restyles inputs, selects, textareas, forms and cards.
+- Preserves all existing button data attributes, IDs and JavaScript behavior.
+- Adds responsive live-overview cards matching the Seeker Of SoundZ theme.
+
+Supabase:
+- No additional SQL, Edge Function, Storage bucket or RLS update is required
+  beyond the v4.19.7 Socials Manager patch if that patch has not yet been run.

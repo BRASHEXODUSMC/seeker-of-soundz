@@ -1,0 +1,47 @@
+Seeker Of SoundZ v4.19.6
+TOASTS, MEMBER AUTH, LOADER EFFECTS & COLLABORATION FIXES
+
+Toast notifications:
+- Restores the compact original toast proportions.
+- Limits desktop toast width to 360px.
+- Reduces icon, title, message, action button and spacing sizes.
+- Keeps toasts above every page and module.
+- Applies the same compact sizing to profile-settings fallback toasts.
+
+Members login:
+- Prevents the login/register module from flashing before Supabase finishes checking the current session.
+- Shows a small “Synchronizing member frequency…” state during session resolution.
+- Signed-in members go directly to their dashboard modules.
+- Signed-out members see the login/register layout only after authentication state is confirmed.
+- Recovery and connection-error states always clear the pending screen.
+
+Loader surround effects:
+- Adds a Logo surround effect selector to the Loader Builder.
+- Options:
+  - No Surround Effect
+  - Original Spinning Cubes
+  - Circular Waveform
+  - Orbiting Signal Dots
+  - Frequency Radar
+  - Circular Equalizer
+  - Pulse Halo
+  - Spark Orbit
+  - Rotating Hex Ring
+  - Vinyl Groove
+- Effects are opt-in and remain account-scoped.
+- Existing clean loader baseline, fonts, loading bars, logo motion, backgrounds and swipe settings remain.
+
+Collaboration Studio:
+- Keeps the message composer directly below the newest reply.
+- Uses a bounded conversation workspace rather than forcing users to scroll down the whole page.
+- Messages scroll inside the conversation area.
+- After sending, the newest message remains visible and the reply field stays focused.
+- Members with Admin Hub collaboration access can open the Studio.
+- A member can reply when added to the selected project.
+- Owners and Administrators retain management and reply access.
+- Existing Supabase collaboration-message notification trigger remains untouched.
+- Sending a message continues creating notifications for the other project collaborators.
+
+Supabase:
+- No new SQL, Edge Function, bucket or RLS update is required.
+- The existing collaboration notification SQL/trigger is preserved.

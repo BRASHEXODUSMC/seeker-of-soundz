@@ -1,0 +1,14 @@
+SEEKER OF SOUNDZ v4.19.6 SETUP
+
+1. Upload all v4.19.6 files to GitHub Pages.
+2. Wait for deployment and press Ctrl + F5.
+3. Sign in and verify the Members login form does not flash before the dashboard.
+4. Open Members > Settings > Loader Builder.
+5. Choose a Logo surround effect such as Original Spinning Cubes or Circular Waveform.
+6. Save and reload to test the selected effect.
+7. Open Collaboration Studio.
+8. Select a project you belong to.
+9. Confirm the reply field appears directly beneath the newest message.
+10. Send a reply and confirm the other collaborator receives the existing project notification.
+
+No Supabase update is required.

@@ -1,0 +1,41 @@
+Seeker Of SoundZ v4.20.4
+PRODUCER HUB 3.1 — COMPLETE ACCESS FIX
+
+Built directly from the uploaded v4.19.9 Producer Hub 3.0 ZIP.
+
+Producer Hub 2.0 remains the internal foundation:
+- v4.19.0 Producer Hub 2.0 CSS and JavaScript remain loaded.
+- Producer Hub 3.0 remains loaded above that foundation.
+- The requested 3.1 additions are applied without replacing the original workspace.
+
+Critical blank-page fix:
+- Fixed the access script checking the session before the Supabase profile finished loading.
+- Added repeated access resolution while authentication loads.
+- Added session and profile-update listeners.
+- Added support for roles stored inside the nested profile object.
+- Authorized accounts now remove the hidden attribute from Video Effects Studio.
+- Signed-out or unauthorized visitors receive an access message instead of a blank page.
+
+Preserved:
+- Complete editor workspace
+- YouTube preview and converter
+- Project and Assets areas
+- Videos, Music, Waveforms, Downloads and Preset Packs
+- Inspector and timeline
+- Beat analysis and Auto-Sync Effects
+- Render queue and provider manager
+
+Added safely:
+- Live effect rendering
+- Complete Effects Library
+- Logo layers
+- Retro and EDM text layers
+- Theatre View
+- Clickable timeline tracks
+- SVG, CSV, JSON and WAV waveform exports
+- YouTube search shortcut
+- Six-step workflow navigation
+- Sidebar clipping repairs
+- Native cursor inside Producer Hub only
+
+No Supabase SQL, Edge Function, Storage, secret or RLS update is required.

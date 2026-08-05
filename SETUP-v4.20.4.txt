@@ -1,0 +1,13 @@
+SEEKER OF SOUNDZ v4.20.4 SETUP
+
+1. Upload every file from this ZIP to GitHub.
+2. Replace existing files when prompted.
+3. Wait for GitHub Pages deployment.
+4. Open video-effects-studio.html.
+5. Press Ctrl + F5.
+6. Sign in with an Owner, Administrator, Developer or Premium Member account.
+
+The access check may briefly display while Supabase loads the profile.
+It should then reveal the complete Producer Hub instead of remaining blank.
+
+No Supabase changes are required.

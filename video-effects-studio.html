@@ -104,6 +104,7 @@
   <link rel="stylesheet" href="css/v4.27.0-beat-razor-tool.css?v=4.27.0">
   <link rel="stylesheet" href="css/v4.28.0-autosync-render-text.css?v=4.28.0">
   <link rel="stylesheet" href="css/v4.29.0-render-preview-performance-text.css?v=4.29.0">
+  <link rel="stylesheet" href="css/v4.30.0-playback-range-bassdrop.css?v=4.30.0">
 </head>
  <body>
   <div id="loader">
@@ -192,7 +193,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 5.4</p>
+      <p class="sectionEyebrow">Producer Hub 5.5</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -577,7 +578,13 @@
      </header>
      <div class="timelineViewportV4250" id="timelineViewportV4250">
      <div class="timelineContentV4250" id="timelineContentV4250">
-     <div class="timelineRulerV4190" id="timelineRulerV4190"></div>
+     <div class="timelineRulerV4190" id="timelineRulerV4190"></div><div class="timelineProjectRangeV4300" id="timelineProjectRangeV4300">
+      <div class="timelineRangeShadeV4300 isBefore" id="timelineRangeShadeBeforeV4300"></div>
+      <div class="timelineRangeSelectionV4300" id="timelineRangeSelectionV4300"></div>
+      <div class="timelineRangeShadeV4300 isAfter" id="timelineRangeShadeAfterV4300"></div>
+      <button class="timelineRangeHandleV4300 isStart" id="timelineStartHandleV4300" type="button" aria-label="Drag project start"><i></i><span id="timelineStartLabelV4300">Start 00:00.00</span></button>
+      <button class="timelineRangeHandleV4300 isEnd" id="timelineEndHandleV4300" type="button" aria-label="Drag project end"><i></i><span id="timelineEndLabelV4300">End 00:00.00</span></button>
+     </div>
      <section class="timelineEffectEditorV4240">
       <div><strong>Timed Effects</strong><small>Start and stop individual effects at exact timeline positions.</small></div>
       <div class="timelineEffectControlsV4240">
@@ -598,7 +605,7 @@
      <section class="autoSyncMotionPanelV4250">
       <div><strong>Auto-Sync Camera &amp; Effects</strong><small>Generates real video-frame zoom, rotation, shake and effect regions from analyzed beats.</small></div>
       <div class="autoSyncControlsV4250">
-       <label>Pattern<select id="autoSyncPatternV4250"><option value="balanced">Balanced</option><option value="heavy">Heavy Drop</option><option value="cinematic">Cinematic</option><option value="chaos">Glitch Chaos</option></select></label>
+       <label>Pattern<select id="autoSyncPatternV4250"><option value="balanced">Balanced</option><option value="heavy">Heavy Drop</option><option value="cinematic">Cinematic</option><option value="chaos">Glitch Chaos</option><option value="bass-distortion">Bass Drop Distortion</option><option value="bass-warp">Bass Warp &amp; Crush</option><option value="drop-impact">Drop Impact Cinema</option></select></label>
        <label>Density<select id="autoSyncDensityV4250"><option value="8">Every 8 beats</option><option value="4" selected>Every 4 beats</option><option value="2">Every 2 beats</option><option value="1">Every beat</option></select></label>
        <label>Camera strength<input id="autoSyncCameraStrengthV4250" type="range" min=".2" max="2" step=".1" value=".9"></label>
        <label class="checkLine"><input id="autoSyncAddVisualsV4250" type="checkbox" checked> Add timed visual effects</label>
@@ -613,6 +620,8 @@
         <label><input type="checkbox" data-autosync-pool="waveform"> Waveforms &amp; spectrum</label>
        </fieldset>
        <label class="checkLine"><input id="autoSyncAddCameraV4250" type="checkbox" checked> Move actual video frame</label>
+       <label class="checkLine"><input id="autoSyncBassDistortionV4300" type="checkbox" checked> Distort picture on strong bass drops</label>
+       <label>Drop distortion<select id="autoSyncDropDistortionV4300"><option value="mixed" selected>Mixed distortions</option><option value="warp">Wave warp</option><option value="crush">Digital crush</option><option value="lens">Lens punch</option><option value="twist">Twist &amp; rotate</option></select></label>
        <button class="smallAction" id="clearAutoSyncV4250" type="button">Clear Auto-Sync</button>
       </div>
       <p id="autoSyncStatusV4250">Analyze the beat, then select Auto-Sync Effects.</p>
@@ -659,7 +668,7 @@
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
      <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 4.0 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 5.4 visible Render Focus preview, batched Auto-Sync performance, accurately aligned real-time text dragging, restored beats, razor editing, effects, layers and export.</small></span></button>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 5.5 reliable playback tracking, trimmed-video preview, draggable project start/end range, bass-drop picture distortion, Auto-Sync presets, razor editing, effects, layers and export.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -714,6 +723,10 @@
      <article data-tutorial-slide><i>🖥️</i><h3>Visible Render Focus preview</h3><p>Render Focus now moves the complete composer into its own full-screen workspace without hiding or collapsing the canvas. The processed video remains visible beside render progress and Cancel Render.</p></article>
      <article data-tutorial-slide><i>⚡</i><h3>Smoother Auto-Sync loading</h3><p>Auto-Sync now collects all camera and overlay regions first, sorts them once, and rebuilds the Effects lane once. This reduces repeated layout work while preserving every generated region.</p></article>
      <article data-tutorial-slide><i>↔</i><h3>Accurate real-time text movement</h3><p>The original text selection box now measures the visible canvas directly. Dragging and rotation update continuously without releasing or selecting the text again.</p></article>
+     <article data-tutorial-slide><i>▶</i><h3>Reliable timeline playback</h3><p>The playhead now follows combined project time across Video 1, trimmed pieces, Video 2, and later clips. It continues through clip changes instead of using only the current source file time.</p></article>
+     <article data-tutorial-slide><i>✂️</i><h3>Preview only surviving footage</h3><p>Ripple cuts and Shift+K splits preserve each segment’s source start and end. Preview and final render seek to the surviving source position before playback, so deleted footage is not shown first.</p></article>
+     <article data-tutorial-slide><i>↔</i><h3>Project start and end handles</h3><p>Drag the green Start handle and red End handle under the ruler. These set the exact preview and render range. Handles can snap to clip edges and detected beats.</p></article>
+     <article data-tutorial-slide><i>💥</i><h3>Bass-drop distortion presets</h3><p>Choose Bass Drop Distortion, Bass Warp &amp; Crush, or Drop Impact Cinema. Strong detected drops can wave-warp, digitally crush, lens-punch, twist, zoom, rotate, or shake the actual picture while overlays continue above it.</p></article>
      <article data-tutorial-slide><i>⬇</i><h3>Render and download</h3><p>Open Export and select Build Finished Video. The browser records the processed canvas with the uploaded soundtrack.</p></article>
      <article data-tutorial-slide><i>🖥️</i><h3>Optional screen capture</h3><p>Capture is separate and optional. Chrome or Edge is recommended for tab audio. Firefox can capture screens, but audio availability varies by operating system and source.</p></article>
     </div>
@@ -1334,17 +1347,18 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.28.0.js?v=4.28.0"></script>
+  <script src="js/direct-video-composer-v4.30.0.js?v=4.30.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.26.0-core.js?v=4.26.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
   <script src="js/producer-hub-v4.26.0.js?v=4.26.0"></script>
   <script src="js/producer-layer-editor-v4.23.1.js?v=4.23.1"></script>
-  <script src="js/producer-multiclip-effects-v4.29.0.js?v=4.29.0"></script>
-  <script src="js/producer-pro-timeline-v4.29.0.js?v=4.29.0"></script>
+  <script src="js/producer-multiclip-effects-v4.30.0.js?v=4.30.0"></script>
+  <script src="js/producer-pro-timeline-v4.30.0.js?v=4.30.0"></script>
   <script src="js/producer-beat-analysis-v4.28.0.js?v=4.28.0"></script>
   <script src="js/producer-razor-tool-v4.27.0.js?v=4.27.0"></script>
   <script src="js/producer-focus-text-v4.29.0.js?v=4.29.0"></script>
+  <script src="js/producer-range-playhead-v4.30.0.js?v=4.30.0"></script>
 </body>
 </html>

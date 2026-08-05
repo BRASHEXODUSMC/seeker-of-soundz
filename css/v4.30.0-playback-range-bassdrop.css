@@ -1,0 +1,163 @@
+/* Seeker Of SoundZ v4.30.0 — playback playhead, project range and bass-drop presets */
+
+/* Reliable playhead follows combined project time across every trimmed clip. */
+.timelinePlayheadV4190{
+  position:absolute!important;
+  z-index:75!important;
+  top:36px!important;
+  bottom:0!important;
+  width:2px!important;
+  margin:0!important;
+  background:linear-gradient(to bottom,#fff,#d073ff 48%,#5ce6a5)!important;
+  box-shadow:0 0 11px rgba(203,113,255,.68)!important;
+  pointer-events:none!important;
+  will-change:left!important;
+}
+.timelinePlayheadV4190::before{
+  content:"";
+  position:absolute;
+  top:-5px;
+  left:50%;
+  width:10px;
+  height:10px;
+  transform:translateX(-50%) rotate(45deg);
+  border-radius:2px;
+  background:#fff;
+  box-shadow:0 0 8px rgba(210,128,255,.7);
+}
+
+/* Draggable project start/end range directly under the ruler. */
+.timelineProjectRangeV4300{
+  position:relative;
+  z-index:45;
+  height:42px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:
+    linear-gradient(180deg,rgba(125,58,173,.035),rgba(0,0,0,.06)),
+    #09070c;
+  overflow:visible;
+  touch-action:none;
+}
+.timelineRangeShadeV4300,
+.timelineRangeSelectionV4300{
+  position:absolute;
+  top:8px;
+  bottom:8px;
+  pointer-events:none;
+}
+.timelineRangeShadeV4300{
+  background:
+    repeating-linear-gradient(135deg,rgba(13,10,17,.7) 0 7px,rgba(33,20,43,.58) 7px 14px);
+}
+.timelineRangeSelectionV4300{
+  border-top:1px solid rgba(99,239,174,.35);
+  border-bottom:1px solid rgba(99,239,174,.35);
+  background:linear-gradient(90deg,rgba(91,46,128,.19),rgba(53,167,111,.12));
+  box-shadow:inset 0 0 18px rgba(113,225,171,.05);
+}
+.timelineRangeHandleV4300{
+  position:absolute!important;
+  z-index:12!important;
+  top:3px!important;
+  width:22px!important;
+  height:36px!important;
+  margin:0!important;
+  padding:0!important;
+  transform:translateX(-50%)!important;
+  border:1px solid rgba(222,190,255,.38)!important;
+  border-radius:8px!important;
+  background:#17101e!important;
+  color:#fff!important;
+  cursor:ew-resize!important;
+  box-shadow:0 4px 14px rgba(0,0,0,.42),0 0 10px rgba(152,75,205,.15)!important;
+}
+.timelineRangeHandleV4300 i{
+  position:absolute;
+  top:8px;
+  bottom:8px;
+  left:50%;
+  width:3px;
+  transform:translateX(-50%);
+  border-left:1px solid rgba(255,255,255,.55);
+  border-right:1px solid rgba(255,255,255,.3);
+}
+.timelineRangeHandleV4300 span{
+  position:absolute;
+  top:3px;
+  min-width:108px;
+  padding:4px 6px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:7px;
+  background:rgba(10,7,13,.94);
+  color:#d9cde0;
+  font-size:.46rem;
+  line-height:1.2;
+  white-space:nowrap;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .15s ease;
+}
+.timelineRangeHandleV4300.isStart span{
+  left:25px;
+}
+.timelineRangeHandleV4300.isEnd span{
+  right:25px;
+}
+.timelineRangeHandleV4300:hover span,
+body.isDraggingTimelineRangeV4300 .timelineRangeHandleV4300 span{
+  opacity:1;
+}
+.timelineRangeHandleV4300.isStart{
+  border-color:rgba(100,237,171,.4)!important;
+}
+.timelineRangeHandleV4300.isEnd{
+  border-color:rgba(255,112,151,.38)!important;
+}
+body.isDraggingTimelineRangeV4300,
+body.isDraggingTimelineRangeV4300 *{
+  cursor:ew-resize!important;
+  user-select:none!important;
+}
+
+/* Bass-drop distortion controls match Auto-Sync layout. */
+#autoSyncDropDistortionV4300,
+#autoSyncPatternV4250{
+  width:100%!important;
+}
+.autoSyncControlsV4250 label:has(#autoSyncBassDistortionV4300){
+  border:1px solid rgba(255,113,70,.1);
+  border-radius:9px;
+  padding:7px;
+  background:rgba(180,54,24,.035);
+}
+
+/* Trimmed clips remain visually contiguous after ripple cuts. */
+.timelineVideoSegmentV4240{
+  background-clip:padding-box!important;
+}
+.timelineVideoSubLaneV4250{
+  margin:0!important;
+}
+.timelineVideoSegmentV4240.isTrimmedV4300::after{
+  content:"Trimmed";
+  position:absolute;
+  right:4px;
+  top:3px;
+  padding:2px 4px;
+  border-radius:5px;
+  background:rgba(0,0,0,.55);
+  color:#8df0b9;
+  font-size:.4rem;
+}
+
+/* Keep the range visible while vertically scrolling timeline lanes. */
+.timelineProjectRangeV4300{
+  position:sticky!important;
+  top:36px!important;
+}
+
+@media(max-width:700px){
+  .timelineRangeHandleV4300 span{
+    min-width:88px;
+  }
+}

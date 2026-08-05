@@ -1,0 +1,48 @@
+Seeker Of SoundZ v4.30.0
+PRODUCER HUB 5.5 — PLAYBACK, PROJECT RANGE & BASS-DROP DISTORTION
+
+Timeline playhead:
+- Playhead now reads combined project time instead of only the current source-video time
+- Continues moving through trimmed segments and clip changes
+- Uses a dedicated animation loop and exact percentage positioning
+- Updates current project time and total duration continuously
+- Stops preview automatically at the selected project end
+
+Trimmed and ripple-cut playback:
+- Preview and rendering always use the managed multiclip sequence when clips exist
+- Works even when only one surviving trimmed segment remains
+- Waits for the source video to finish seeking before playback begins
+- Starts each segment at its preserved sourceStart
+- Advances at sourceEnd
+- Removed footage is not played before the surviving segment
+- Direct rendering uses the same trimmed sequence
+
+Project start/end handles:
+- Adds draggable Start and End handles beneath the ruler
+- Handles update existing composer start/end inputs
+- Selected range is visibly highlighted
+- Footage before and after the range is shaded
+- Handles can snap to clip edges and beat markers
+- Preview starts at Start and pauses at End
+- Direct rendering uses the selected range
+
+Bass-drop Auto-Sync:
+- Adds Bass Drop Distortion
+- Adds Bass Warp & Crush
+- Adds Drop Impact Cinema
+- Optional picture distortion on strong detected drops
+- Mixed, wave warp, digital crush, lens punch, and twist/rotate distortion modes
+- Distorts the actual source picture before overlays and text are drawn
+- Existing camera movement and overlapping Auto-Sync overlays remain
+
+Preserved:
+- Beat analysis and Auto-Sync
+- Render Focus
+- Shift+K razor and ripple cuts
+- Multiple videos, transitions, mute controls
+- Text/logo/image layers
+- Reactive particles and procedural VFX
+- Direct rendering, waveform and YouTube tools
+- Theatre View and custom cursor
+
+No Supabase update is required.

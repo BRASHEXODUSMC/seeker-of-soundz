@@ -1,0 +1,24 @@
+PRODUCER HUB 5.5 QUICK GUIDE
+
+PLAYBACK
+1. Select Play beneath the video.
+2. The playhead follows the complete edited project.
+3. It continues across trimmed segments and later videos.
+
+START AND END RANGE
+1. Drag the green Start handle beneath the timeline ruler.
+2. Drag the red End handle.
+3. Preview and finished rendering use only the highlighted range.
+4. Snapping can align the handles to clip edges or detected beats.
+
+TRIMMED VIDEO
+Ripple-cut and Shift+K sections preserve their original source positions.
+Preview and rendering seek to the surviving position before playback begins,
+so deleted footage is not shown.
+
+BASS-DROP DISTORTION
+1. Analyze Beats.
+2. Choose Bass Drop Distortion, Bass Warp & Crush, or Drop Impact Cinema.
+3. Keep Distort Picture on Strong Bass Drops enabled.
+4. Choose Mixed, Wave Warp, Digital Crush, Lens Punch, or Twist & Rotate.
+5. Select Auto-Sync Effects.

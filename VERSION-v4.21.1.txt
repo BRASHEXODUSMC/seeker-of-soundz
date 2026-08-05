@@ -1,0 +1,41 @@
+Seeker Of SoundZ v4.21.1
+PRODUCER HUB 4.0 — CURSOR, EFFECT VISIBILITY, EMPTY TIMELINE & YOUTUBE SEARCH
+
+Preserved:
+- Working v4.21.0 Producer Hub 4.0 foundation
+- Producer Hub 2.0 and 3.0 runtimes
+- Existing editor, effects, timeline, Theatre View, layers, converter and access system
+- Existing 48 effect controls
+- Existing four timeline tracks
+
+Cursor:
+- Native browser cursor remains active inside Producer Hub.
+- Buttons, links, labels, checkboxes, selects and timeline controls now show the pointing-hand cursor.
+- Text fields use the text cursor.
+- Range controls and the timeline playhead use the horizontal-resize cursor.
+- Disabled controls use the unavailable cursor.
+- The member-selected custom cursor returns after leaving Producer Hub.
+
+Effects:
+- Raises the minimum visible effect strength.
+- Raises fallback frequency levels when no analyser data is available.
+- Makes static and procedural overlays more visible.
+- Adds stronger contrast and saturation while effects are active.
+- Keeps the original effect slider and controls.
+
+Timeline:
+- The playhead can move before a video is loaded.
+- An empty project uses a temporary 60-second planning timeline.
+- Clicking a lane or ruler moves the playhead.
+- Dragging the playhead works without media.
+- Keyboard seeking works without media.
+- Loading a real video resets the playhead and switches to the media duration.
+
+Embedded YouTube search:
+- Search results load beneath the search field inside Producer Hub.
+- Uses a compact privacy-enhanced YouTube embedded search playlist.
+- Includes Open Full Search, Copy Search and Clear controls.
+- Existing URL preview and MP4 converter remain unchanged.
+- The module is responsive and themed to match Seeker Of SoundZ.
+
+No Supabase changes are required.

@@ -1,0 +1,181 @@
+/* Seeker Of SoundZ v4.21.1 — cursor, stronger effects, empty timeline and embedded YouTube search */
+
+/* Native cursor behavior: arrow by default, pointing hand on interactive controls. */
+body.producerNativeCursorV4210,
+body.producerNativeCursorV4210 *{
+  cursor:default!important;
+}
+body.producerNativeCursorV4210 a,
+body.producerNativeCursorV4210 button,
+body.producerNativeCursorV4210 [role="button"],
+body.producerNativeCursorV4210 label[for],
+body.producerNativeCursorV4210 label:has(input[type="file"]),
+body.producerNativeCursorV4210 input[type="checkbox"],
+body.producerNativeCursorV4210 input[type="radio"],
+body.producerNativeCursorV4210 select,
+body.producerNativeCursorV4210 summary,
+body.producerNativeCursorV4210 .timelineLaneV4190,
+body.producerNativeCursorV4210 #timelinePlayheadV4190{
+  cursor:pointer!important;
+}
+body.producerNativeCursorV4210 input[type="text"],
+body.producerNativeCursorV4210 input[type="search"],
+body.producerNativeCursorV4210 input[type="url"],
+body.producerNativeCursorV4210 input[type="number"],
+body.producerNativeCursorV4210 textarea{
+  cursor:text!important;
+}
+body.producerNativeCursorV4210 input[type="range"],
+body.producerNativeCursorV4210 #timelinePlayheadV4190{
+  cursor:ew-resize!important;
+}
+body.producerNativeCursorV4210 button:disabled,
+body.producerNativeCursorV4210 input:disabled{
+  cursor:not-allowed!important;
+}
+
+/* Make selected effects visually stronger without changing project layout. */
+#composerCanvasV4180{
+  opacity:1!important;
+  filter:contrast(1.06) saturate(1.08)!important;
+  mix-blend-mode:normal!important;
+}
+.composerPreviewV4180:has([data-effect]:checked) #composerCanvasV4180,
+#composerCanvasV4180.isEffectsActiveV4211{
+  filter:contrast(1.1) saturate(1.14) brightness(1.035)!important;
+}
+.producerEffectsGridV4210 button.isActive{
+  box-shadow:inset 0 0 0 1px rgba(104,239,174,.18),0 0 14px rgba(132,56,198,.12)!important;
+}
+
+/* Playhead remains draggable before media is loaded. */
+#timelinePlayheadV4190{
+  min-width:4px!important;
+  pointer-events:auto!important;
+  touch-action:none!important;
+}
+#timelinePlayheadV4190::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:-10px;
+  width:24px;
+  background:transparent;
+}
+.timelineRulerV4190,
+.timelineLaneV4190{
+  cursor:crosshair!important;
+}
+.timelineTracksV4190{
+  position:relative!important;
+}
+
+/* Compact embedded YouTube search module. */
+.producerYoutubeEmbeddedSearchV4211{
+  display:grid;
+  gap:8px;
+  padding:10px;
+  border:1px solid rgba(202,158,255,.12);
+  border-radius:14px;
+  background:
+    radial-gradient(circle at 5% 0,rgba(132,56,198,.1),transparent 40%),
+    rgba(255,255,255,.012);
+}
+.producerYoutubeEmbeddedSearchV4211>header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+}
+.producerYoutubeEmbeddedSearchV4211>header>div:first-child{
+  display:grid;
+  gap:2px;
+}
+.producerYoutubeEmbeddedSearchV4211>header small{
+  color:#908694;
+  font-size:.58rem;
+  line-height:1.4;
+}
+.producerYoutubeEmbeddedSearchV4211>header>div:last-child{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:6px;
+}
+.producerYoutubeEmbeddedSearchV4211 button{
+  margin:0!important;
+}
+.producerYoutubeSearchFrameWrapV4211{
+  position:relative;
+  width:100%;
+  min-height:260px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:13px;
+  background:#050407;
+}
+.producerYoutubeSearchFrameWrapV4211 iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#000;
+}
+.producerYoutubeSearchFrameWrapV4211 iframe[hidden]{
+  display:none!important;
+}
+.producerYoutubeSearchEmptyV4211{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-content:center;
+  justify-items:center;
+  gap:6px;
+  padding:20px;
+  color:#948a98;
+  text-align:center;
+}
+.producerYoutubeSearchEmptyV4211[hidden]{
+  display:none!important;
+}
+.producerYoutubeSearchEmptyV4211 i{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(203,159,255,.15);
+  border-radius:14px;
+  background:rgba(132,56,198,.08);
+  color:#d2b1f1;
+  font-style:normal;
+  font-size:1.2rem;
+}
+.producerYoutubeSearchEmptyV4211 span{
+  max-width:420px;
+  font-size:.62rem;
+  line-height:1.45;
+}
+#producerYoutubeSearchStatusV4211{
+  margin:0;
+  color:#8f8492;
+  font-size:.6rem;
+  line-height:1.4;
+}
+
+@media(max-width:760px){
+  .producerYoutubeEmbeddedSearchV4211>header{
+    flex-direction:column;
+  }
+  .producerYoutubeEmbeddedSearchV4211>header>div:last-child{
+    width:100%;
+    justify-content:stretch;
+  }
+  .producerYoutubeEmbeddedSearchV4211>header button{
+    flex:1 1 130px;
+  }
+  .producerYoutubeSearchFrameWrapV4211{
+    min-height:220px;
+  }
+}

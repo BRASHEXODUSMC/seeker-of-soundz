@@ -1,0 +1,70 @@
+Seeker Of SoundZ v4.19.0
+PRODUCER HUB 2.0
+
+Major unified editor:
+- Adds a compact three-column workspace with Project sidebar, unified center composer, and Inspector.
+- Adds collapsible side panels and responsive one-column mobile behavior.
+- Keeps the existing modular Start/Create/Effects/Libraries/Capture/Export navigation.
+- Reuses the existing Direct Composer as the single master preview and renderer.
+
+Project sidebar:
+- Project name and readiness slots for video, music, and effects.
+- Recent local project settings with Save, Restore, New Project, and Clear.
+- Searchable Asset Library.
+- Separate Videos, Music, Waveforms, Downloads, and Preset Packs views.
+- Provider download history is read from the existing Video Download API job storage.
+- Completed provider files attempt automatic browser import; when CORS blocks import, the secure download opens with instructions to save and drag it into Create.
+
+Inspector:
+- Video start/end timing.
+- Preview scale and rotation.
+- Music and source-video volume.
+- Mix normalization.
+- Effect layer list with enable/disable, opacity, and remove controls.
+- Export format and quality controls.
+- Add to Render Queue.
+
+Timeline:
+- Video, music, effects, and beat-marker tracks.
+- Live playhead tied to the master preview.
+- Zoom controls.
+- Generated audio waveform.
+- Clickable beat markers.
+- Effect clips showing currently enabled layers.
+
+Audio analysis:
+- Browser-side waveform generation from the uploaded music.
+- Energy-based beat/drop candidate detection.
+- Beat marker JSON export.
+- Waveform PNG export.
+- Auto-Sync enables a curated beat-reactive effect set.
+- This is a lightweight browser analysis foundation rather than full studio-grade stem separation or machine-learning classification.
+
+Preset packs:
+- Dubstep, Melodic Dubstep, Riddim, Color Bass, Drum & Bass, Hardstyle, Cinematic, Anime, Retro, Low-Poly, 16-Bit, VHS/CRT, Cyberpunk, Fantasy, and Block World.
+- Apply, favorite, and export preset packs as JSON.
+- Existing individual effects and old presets remain.
+
+Render queue:
+- Tracks local video rendering, provider downloads, and beat analysis.
+- Displays queued, processing, completed, and failed states.
+- Provides progress indicators and Clear Finished.
+
+Video Download API integration:
+- Existing connected Supabase Edge Function remains unchanged.
+- Completed jobs dispatch an import event to Producer Hub 2.0.
+- Automatic import depends on the provider download URL allowing browser CORS.
+- If direct import is blocked, the download opens securely and can be dragged into the composer.
+- No API key is added to frontend code.
+
+Preserved:
+- Supabase Auth and premium access.
+- Video Download API provider and job polling.
+- Local composer and finished-video downloads.
+- YouTube project picker.
+- Licensed video/music libraries.
+- Tab capture and WAV tools.
+- All existing effects, loaders, transitions, navigation, and site theme.
+
+Supabase:
+- No new SQL, table, bucket, RLS, secret, or Edge Function deployment is required if video-download-api is already connected.

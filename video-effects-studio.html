@@ -82,6 +82,7 @@
   <link rel="stylesheet" href="css/v4.18.1-tutorial-cursor-epic-polish.css?v=4.18.1">
   <link rel="stylesheet" href="css/v4.18.2-single-preview-provider-manager.css?v=4.18.2">
   <link rel="stylesheet" href="css/v4.18.3-video-download-provider.css?v=4.18.3">
+  <link rel="stylesheet" href="css/v4.19.0-producer-hub-2.css?v=4.19.0">
 </head>
  <body>
   <div id="loader">
@@ -161,6 +162,149 @@
    <div><p class="sectionEyebrow">Members Access</p><h2>Checking premium access…</h2><p>Administrators, owners, developers, and premium members can use this studio.</p></div>
   </div>
   <div id="videoEffectsStudio" class="videoEffectsStudioV4171" hidden>
+
+   
+   <section class="producerHubV4190" id="producerHubV4190">
+    <header class="producerHubHeaderV4190">
+     <div>
+      <p class="sectionEyebrow">Producer Hub 2.0</p>
+      <h2>Unified music-video workspace</h2>
+      <p>Organize footage, music, effects, markers, assets, downloads, and exports in one compact editor.</p>
+     </div>
+     <div class="producerHubHeaderActionsV4190">
+      <button class="secondaryButton" id="newProducerProjectV4190" type="button">New Project</button>
+      <button class="secondaryButton" id="saveProducerProjectV4190" type="button">Save Project</button>
+      <button class="primaryButton" id="renderProducerProjectV4190" type="button">Render Project</button>
+     </div>
+    </header>
+
+    <div class="producerHubWorkspaceV4190">
+     <aside class="producerSidebarV4190">
+      <div class="producerPanelTitleV4190"><strong>Project</strong><button type="button" id="collapseProducerSidebarV4190" aria-label="Collapse project sidebar">‹</button></div>
+      <nav class="producerSidebarNavV4190">
+       <button type="button" class="isActive" data-producer-view="project"><i>▣</i><span>Project</span></button>
+       <button type="button" data-producer-view="assets"><i>✦</i><span>Assets</span></button>
+       <button type="button" data-producer-view="videos"><i>🎬</i><span>Videos</span></button>
+       <button type="button" data-producer-view="music"><i>🎵</i><span>Music</span></button>
+       <button type="button" data-producer-view="waveforms"><i>〰</i><span>Waveforms</span></button>
+       <button type="button" data-producer-view="downloads"><i>↓</i><span>Downloads</span></button>
+       <button type="button" data-producer-view="presets"><i>⚡</i><span>Preset Packs</span></button>
+      </nav>
+
+      <section class="producerSidebarViewV4190 isActive" data-producer-sidebar-view="project">
+       <label>Project name<input id="producerProjectNameV4190" type="text" value="Untitled Frequency Project"></label>
+       <div class="projectAssetSlotsV4190">
+        <article><i>🎬</i><div><strong>Video</strong><small id="producerVideoSlotV4190">No video loaded</small></div></article>
+        <article><i>🎵</i><div><strong>Music</strong><small id="producerAudioSlotV4190">No music loaded</small></div></article>
+        <article><i>✨</i><div><strong>Effects</strong><small id="producerEffectSlotV4190">No effects selected</small></div></article>
+       </div>
+       <div class="recentProjectsV4190">
+        <div class="producerMiniHeadingV4190"><strong>Recent projects</strong><button type="button" id="clearProducerProjectsV4190">Clear</button></div>
+        <div id="recentProducerProjectsV4190"><p>No saved projects yet.</p></div>
+       </div>
+      </section>
+
+      <section class="producerSidebarViewV4190" data-producer-sidebar-view="assets">
+       <input id="assetSearchV4190" type="search" placeholder="Search overlays and effects">
+       <div class="assetCategoryRowV4190">
+        <button type="button" class="isActive" data-asset-category="all">All</button>
+        <button type="button" data-asset-category="overlay">Overlays</button>
+        <button type="button" data-asset-category="atmosphere">Atmosphere</button>
+        <button type="button" data-asset-category="retro">Retro</button>
+       </div>
+       <div class="assetLibraryGridV4190" id="assetLibraryGridV4190"></div>
+      </section>
+
+      <section class="producerSidebarViewV4190" data-producer-sidebar-view="videos">
+       <div class="producerMediaShelfV4190" id="producerVideoShelfV4190"><p>No video loaded.</p></div>
+       <button class="secondaryButton" type="button" data-open-module="create">Choose or Import Video</button>
+      </section>
+
+      <section class="producerSidebarViewV4190" data-producer-sidebar-view="music">
+       <div class="producerMediaShelfV4190" id="producerMusicShelfV4190"><p>No music loaded.</p></div>
+       <button class="secondaryButton" type="button" data-open-module="library">Browse Licensed Music</button>
+      </section>
+
+      <section class="producerSidebarViewV4190" data-producer-sidebar-view="waveforms">
+       <div class="producerWaveformSummaryV4190" id="producerWaveformSummaryV4190"><strong>No waveform generated</strong><small>Upload music and run Analyze Beats.</small></div>
+       <button class="secondaryButton" id="downloadTimelineWaveformV4190" type="button" disabled>Download Waveform PNG</button>
+       <button class="secondaryButton" id="exportBeatMarkersV4190" type="button" disabled>Export Beat Markers JSON</button>
+      </section>
+
+      <section class="producerSidebarViewV4190" data-producer-sidebar-view="downloads">
+       <div id="producerDownloadListV4190"><p>No provider downloads yet.</p></div>
+      </section>
+
+      <section class="producerSidebarViewV4190" data-producer-sidebar-view="presets">
+       <div class="presetPackGridV4190" id="presetPackGridV4190"></div>
+      </section>
+     </aside>
+
+     <main class="producerCenterV4190">
+      <div class="producerCenterToolbarV4190">
+       <div class="transportButtonsV4190">
+        <button type="button" id="producerPlayV4190" title="Play preview">▶</button>
+        <button type="button" id="producerPauseV4190" title="Pause preview">Ⅱ</button>
+        <button type="button" id="producerRestartV4190" title="Restart preview">↺</button>
+       </div>
+       <div class="producerTimeV4190"><span id="producerCurrentTimeV4190">00:00.00</span><b>/</b><span id="producerDurationV4190">00:00.00</span></div>
+       <button class="smallAction" id="analyzeBeatsV4190" type="button">Analyze Beats</button>
+       <button class="smallAction" id="autoSyncEffectsV4190" type="button">Auto-Sync Effects</button>
+      </div>
+      <div class="producerComposerMountV4190" id="producerComposerMountV4190"></div>
+     </main>
+
+     <aside class="producerInspectorV4190">
+      <div class="producerPanelTitleV4190"><strong>Inspector</strong><button type="button" id="collapseProducerInspectorV4190" aria-label="Collapse inspector">›</button></div>
+      <div class="inspectorTabsV4190">
+       <button type="button" class="isActive" data-inspector-tab="video">Video</button>
+       <button type="button" data-inspector-tab="audio">Audio</button>
+       <button type="button" data-inspector-tab="effects">Effects</button>
+       <button type="button" data-inspector-tab="export">Export</button>
+      </div>
+      <section class="inspectorPanelV4190 isActive" data-inspector-panel="video">
+       <label>Start time<input id="inspectorStartV4190" type="number" min="0" step=".01" value="0"></label>
+       <label>End time<input id="inspectorEndV4190" type="number" min="0" step=".01" value="0"></label>
+       <label>Scale<input id="inspectorScaleV4190" type="range" min=".75" max="1.25" step=".01" value="1"></label>
+       <label>Rotation<input id="inspectorRotationV4190" type="range" min="-8" max="8" step=".1" value="0"></label>
+      </section>
+      <section class="inspectorPanelV4190" data-inspector-panel="audio">
+       <label>Music volume<input id="inspectorMusicVolumeV4190" type="range" min="0" max="1" step=".01" value="1"></label>
+       <label>Original audio<input id="inspectorSourceVolumeV4190" type="range" min="0" max="1" step=".01" value="0"></label>
+       <button class="secondaryButton" id="normalizeAudioV4190" type="button">Normalize Mix</button>
+      </section>
+      <section class="inspectorPanelV4190" data-inspector-panel="effects">
+       <div class="effectLayerListV4190" id="effectLayerListV4190"></div>
+       <button class="secondaryButton" id="addEffectLayerV4190" type="button">Add Effect Layer</button>
+      </section>
+      <section class="inspectorPanelV4190" data-inspector-panel="export">
+       <label>Format<select id="inspectorFormatV4190"><option value="auto">Best supported</option><option value="video/webm;codecs=vp9,opus">WEBM VP9</option><option value="video/webm;codecs=vp8,opus">WEBM VP8</option><option value="video/mp4">MP4 when supported</option></select></label>
+       <label>Quality<select id="inspectorQualityV4190"><option value="standard">Standard</option><option value="high" selected>High</option><option value="maximum">Maximum</option></select></label>
+       <button class="primaryButton" id="inspectorRenderV4190" type="button">Add to Render Queue</button>
+      </section>
+     </aside>
+    </div>
+
+    <section class="producerTimelineV4190">
+     <header class="timelineHeaderV4190">
+      <div><strong>Timeline</strong><small id="timelineStatusV4190">Load video and music to begin</small></div>
+      <div class="timelineZoomV4190"><button type="button" id="timelineZoomOutV4190">−</button><input id="timelineZoomV4190" type="range" min="1" max="4" step=".25" value="1"><button type="button" id="timelineZoomInV4190">+</button></div>
+     </header>
+     <div class="timelineRulerV4190" id="timelineRulerV4190"></div>
+     <div class="timelineTracksV4190" id="timelineTracksV4190">
+      <article data-track="video"><header><i>🎬</i><span>Video</span></header><div class="timelineLaneV4190"><div class="timelineClipV4190 videoClipV4190" id="timelineVideoClipV4190">Video clip</div></div></article>
+      <article data-track="music"><header><i>🎵</i><span>Music</span></header><div class="timelineLaneV4190"><div class="timelineClipV4190 musicClipV4190" id="timelineMusicClipV4190">Music track</div><canvas id="timelineWaveformV4190" width="1200" height="90"></canvas></div></article>
+      <article data-track="effects"><header><i>✨</i><span>Effects</span></header><div class="timelineLaneV4190" id="timelineEffectsLaneV4190"></div></article>
+      <article data-track="markers"><header><i>◆</i><span>Beat Markers</span></header><div class="timelineLaneV4190" id="timelineMarkerLaneV4190"></div></article>
+     </div>
+     <div class="timelinePlayheadV4190" id="timelinePlayheadV4190"></div>
+    </section>
+
+    <section class="renderQueueV4190">
+     <header><div><p class="sectionEyebrow">Render Queue</p><h3>Project tasks</h3></div><button class="secondaryButton" id="clearRenderQueueV4190" type="button">Clear Finished</button></header>
+     <div id="renderQueueListV4190"><p>No queued tasks.</p></div>
+    </section>
+   </section>
 
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
@@ -786,7 +930,9 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/video-download-provider-v4.18.3.js?v=4.18.3"></script>
+  <script src="js/direct-video-composer-v4.19.0.js?v=4.19.0"></script>
+  <script src="js/video-download-provider-v4.19.0.js?v=4.19.0"></script>
+  <script src="js/producer-hub-v4.19.0.js?v=4.19.0"></script>
+  <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
 </body>
 </html>

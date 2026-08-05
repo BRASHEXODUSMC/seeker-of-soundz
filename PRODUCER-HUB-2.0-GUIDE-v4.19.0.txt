@@ -1,0 +1,15 @@
+PRODUCER HUB 2.0 QUICK GUIDE
+
+1. Open Video Effects Studio and choose Create.
+2. Upload a video and a licensed music file.
+3. Open Preset Packs or Assets in the left sidebar and apply effects.
+4. Select Analyze Beats to generate waveform and beat markers.
+5. Use Auto-Sync Effects for a quick beat-reactive setup.
+6. Adjust timing, volume, layers, and export settings in Inspector.
+7. Use Render Project or Add to Render Queue.
+8. Completed Video Download API jobs appear under Downloads and attempt Import.
+
+Browser guidance:
+- Chrome/Edge: strongest rendering and tab-audio capture support.
+- Firefox: local upload, waveform, effects, timeline, WEBM rendering, and project tools are supported; tab audio capture depends on OS/source.
+- MP4 export only appears when MediaRecorder reports support; WEBM remains the reliable fallback.

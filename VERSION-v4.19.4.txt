@@ -1,0 +1,31 @@
+Seeker Of SoundZ v4.19.4
+PROFILE SETTINGS, TOASTS, LOADER & NAVIGATION POLISH
+
+Saved-setting notifications:
+- Adds a visible success toast when profile settings are saved and applied.
+- Adds notifications for reset-to-default and undo-preview actions.
+- Raises the existing toast stack above profile modules.
+- Includes a themed fallback toast when the global toast system is unavailable.
+
+Profile and Members page:
+- Preserves the v4.19.3 signed-in/signed-out layout repair.
+- Keeps the login form hidden after sign-in.
+- Makes member dashboard, settings and profile modules width-safe.
+- Compacts Profile Settings without removing fields or behavior.
+- Compacts background controls and profile modules into themed cards.
+- Prevents long profile content from clipping or forcing horizontal overflow.
+
+Loader Builder:
+- Compacts loader controls into a two-column control panel with a dedicated preview.
+- Keeps the Loader completion swipe switch inside Loader Builder.
+- Removes legacy scan, horizon and frequency-gate animations.
+- Only the custom completion swipe can appear, and only when the saved switch is enabled.
+- Disabled means a normal loader fade with no swipe.
+
+Navigation:
+- Restores a hover/focus/current-page highlight bar beneath navigation links.
+- Does not restore the permanent purple signal track or glider.
+- Preserves navigation buttons, profile controls, notifications, search and mobile menu.
+
+Supabase:
+- No new SQL, Edge Function, Storage bucket or RLS update is required.

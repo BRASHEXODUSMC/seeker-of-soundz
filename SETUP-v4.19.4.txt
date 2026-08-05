@@ -1,0 +1,14 @@
+SEEKER OF SOUNDZ v4.19.4 SETUP
+
+1. Upload the v4.19.4 files to GitHub Pages.
+2. Wait for GitHub Pages to deploy.
+3. Open the website and press Ctrl + F5.
+4. Sign in and open Members > Profile Settings.
+5. Change a setting and select Save & apply to my account.
+6. Confirm a success toast appears.
+7. In Loader Builder, disable Loader completion swipe and save.
+8. Reload the site. No legacy scan or swipe should cross the loader.
+9. Enable it and save only when you want the custom final completion swipe.
+10. Hover over navigation links to confirm the bottom highlight appears only while hovered, focused, active, or on the current page.
+
+No Supabase update is needed.

@@ -1,0 +1,21 @@
+PRODUCER HUB 4.2.1 QUICK GUIDE
+
+UPLOAD YOUR OWN MUSIC
+1. Open the Music tab.
+2. Select Upload Your Own Music.
+3. Choose an MP3, WAV, OGG, M4A or browser-readable audio file.
+4. You can also drag the audio directly onto the Music shelf.
+5. The track becomes available for waveform analysis, preview and export.
+
+REAL-TIME LAYER MOVEMENT
+1. Select a text, logo or image layer.
+2. Hold the mouse button and drag continuously.
+3. Do not release until the layer is in position.
+4. The canvas and X/Y values update while moving.
+
+REAL-TIME ROTATION
+1. Select or hover over a layer.
+2. Hold the circular ↻ handle.
+3. Drag around the layer continuously.
+4. The layer rotates without requiring another click.
+5. The exact rotation value updates during movement.

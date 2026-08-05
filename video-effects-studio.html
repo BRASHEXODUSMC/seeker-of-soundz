@@ -96,6 +96,7 @@
   <link rel="stylesheet" href="css/v4.21.2-producer-hub-render-cursor-youtube.css?v=4.21.2">
   <link rel="stylesheet" href="css/v4.22.0-producer-advanced-editing.css?v=4.22.0">
   <link rel="stylesheet" href="css/v4.23.0-producer-multi-layer-editor.css?v=4.23.0">
+  <link rel="stylesheet" href="css/v4.23.1-music-upload-realtime-layers.css?v=4.23.1">
 </head>
  <body>
   <div id="loader">
@@ -184,7 +185,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 4.2</p>
+      <p class="sectionEyebrow">Producer Hub 4.2.1</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -448,8 +449,13 @@
       </section>
 
       <section class="producerSidebarViewV4190" data-producer-sidebar-view="music">
-       <div class="producerMediaShelfV4190" id="producerMusicShelfV4190"><p>No music loaded.</p></div>
+       <div class="producerMediaShelfV4190 producerMusicDropV4231" id="producerMusicShelfV4190" tabindex="0">
+        <p>No music loaded.</p>
+        <small>Drop your own MP3, WAV, OGG, M4A, or browser-readable audio here.</small>
+       </div>
        <button class="secondaryButton" type="button" data-open-module="library">Browse Licensed Music</button>
+       <button class="primaryButton producerOwnMusicButtonV4231" id="uploadOwnMusicV4231" type="button">Upload Your Own Music</button>
+       <p class="producerOwnMusicStatusV4231" id="producerOwnMusicStatusV4231">Your uploaded track stays local in the browser and is mixed into preview and export.</p>
       </section>
 
       <section class="producerSidebarViewV4190" data-producer-sidebar-view="waveforms">
@@ -557,7 +563,7 @@
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
      <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 4.0 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn the editor, draggable multi-layer text and images, rotation handles, layer transitions and effects, camera motion, cuts, waveforms, YouTube tools, and export workflow.</small></span></button>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn the editor, direct music uploads, continuous mouse dragging and rotation, multi-layer text and images, layer transitions and effects, camera motion, cuts, waveforms, YouTube tools, and export workflow.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -1190,6 +1196,6 @@
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
   <script src="js/producer-hub-v4.22.0.js?v=4.22.0"></script>
-  <script src="js/producer-layer-editor-v4.23.0.js?v=4.23.0"></script>
+  <script src="js/producer-layer-editor-v4.23.1.js?v=4.23.1"></script>
 </body>
 </html>

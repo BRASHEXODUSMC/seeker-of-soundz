@@ -1,0 +1,30 @@
+Seeker Of SoundZ v4.23.1
+PRODUCER HUB 4.2.1 — MUSIC UPLOAD & REAL-TIME LAYERS
+
+Preserved:
+- Working v4.23.0 Producer Hub multi-layer editor
+- Direct renderer, timeline cuts, transitions, camera motion, effects,
+  YouTube tools, Theatre View, waveform exports, custom cursor and access system
+- Existing single and multi-layer text/image systems
+
+Music tab:
+- Adds Upload Your Own Music beneath Browse Licensed Music
+- Opens the existing local audio picker
+- Supports MP3, WAV, OGG, M4A and other browser-readable audio
+- Supports dragging an audio file onto the Music shelf
+- Uploaded audio remains local in the browser
+- Track is connected to waveform analysis, project preview and finished export
+- Music status updates with the selected filename
+
+Real-time layer interaction:
+- Selecting a text, logo or image no longer rebuilds its interaction element
+  before pointer capture starts
+- Dragging continues smoothly without clicking the layer again
+- Rotation continues smoothly from the circular rotate handle
+- The selected layer stays selected throughout the interaction
+- X, Y and rotation property values update continuously
+- The rendered canvas updates continuously
+- Pointer release outside the layer safely completes the interaction
+- Final layer list and property controls resynchronize after release
+
+No Supabase update is required.

@@ -1,0 +1,23 @@
+PRODUCER HUB 5.0.1 QUICK GUIDE
+
+TIMELINE NAVIGATION
+- Mouse wheel: scroll vertically through timeline lanes.
+- Shift + mouse wheel: scroll horizontally.
+- Horizontal trackpad gesture: scroll horizontally.
+- Ctrl/Cmd + wheel: zoom around the playhead.
+- Hold middle mouse button and drag: pan horizontally and vertically.
+- The ruler remains visible while scrolling down.
+
+FIND BEAT MARKERS
+1. Open the Timeline.
+2. Scroll downward with the normal mouse wheel.
+3. Beat Markers are located beneath Timed Effects.
+4. Click a marker to select it and place effects directly on that beat.
+
+FIRE, EXPLOSION AND SMOKE
+1. Open Assets or the Effects module.
+2. Find Fire, Explosion & Smoke VFX.
+3. Enable one or more procedural effects.
+4. Preview normally.
+5. These effects are included in the direct final render.
+6. They can also be added as timed effect regions or placed on one beat.

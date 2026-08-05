@@ -99,6 +99,7 @@
   <link rel="stylesheet" href="css/v4.23.1-music-upload-realtime-layers.css?v=4.23.1">
   <link rel="stylesheet" href="css/v4.24.0-producer-multiclip-effects.css?v=4.24.0">
   <link rel="stylesheet" href="css/v4.25.0-producer-pro-timeline.css?v=4.25.0">
+  <link rel="stylesheet" href="css/v4.25.1-timeline-scroll-vfx.css?v=4.25.1">
 </head>
  <body>
   <div id="loader">
@@ -187,7 +188,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 5.0</p>
+      <p class="sectionEyebrow">Producer Hub 5.0.1</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -629,7 +630,7 @@
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
      <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 4.0 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn the pro timeline, separate clip lanes, thumbnail clips, draggable transitions, lane resizing, playhead-centered zoom, beat-perfect effects, true camera auto-sync, multi-layer editing, cuts, waveforms, YouTube tools, and export workflow.</small></span></button>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn the two-axis scrolling timeline, middle-mouse panning, visible beat-marker lane, procedural fire, explosions and smoke VFX, separate clip lanes, transitions, beat-perfect effects, true camera auto-sync, layers, cuts, waveforms and export.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -1095,6 +1096,23 @@
        <label class="effectToggleV4171"><input type="checkbox" data-effect="sparkles"><span><strong>Sparkle Hits</strong><small>Bright star hits on transients.</small></span></label>
       </div>
      </details>
+     <details class="effectGroupV4172" open>
+      <summary>Fire, Explosion &amp; Smoke VFX <span>12</span></summary>
+      <div class="effectGridV4172">
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="drawnFire"><span><strong>Drawn Fire</strong><small>Animated hand-drawn flames rising from the bottom edge.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="fireBurst"><span><strong>Fire Burst</strong><small>Beat-reactive radial flame burst from the frame center.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="emberStorm"><span><strong>Ember Storm</strong><small>Glowing embers drifting and reacting to audio peaks.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="cartoonExplosion"><span><strong>Drawn Explosion</strong><small>Layered comic-style explosion with expanding shock rings.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="impactExplosion"><span><strong>Impact Explosion</strong><small>Short bass-triggered explosion flashes and debris sparks.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="shockwave"><span><strong>Explosion Shockwave</strong><small>Expanding distortion-style rings around the impact point.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="rollingSmoke"><span><strong>Rolling Smoke</strong><small>Soft procedural smoke clouds moving across the frame.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="smokeSwipeLeft"><span><strong>Smoke Swipe Left</strong><small>Dense smoke transition sweeping from right to left.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="smokeSwipeRight"><span><strong>Smoke Swipe Right</strong><small>Dense smoke transition sweeping from left to right.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="smokeRise"><span><strong>Smoke Rise</strong><small>Layered smoke plumes rising from the bottom.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="purpleSmoke"><span><strong>Purple Rave Smoke</strong><small>Colored EDM smoke with purple and blue illumination.</small></span></label>
+       <label class="effectToggleV4171"><input type="checkbox" data-effect="fireSmokeCombo"><span><strong>Fire &amp; Smoke Combo</strong><small>Combined flames, glowing embers, and dark rolling smoke.</small></span></label>
+      </div>
+     </details>
      <details class="effectGroupV4172">
      <summary>Atmosphere Effects <span>6</span></summary>
      <div class="effectGridV4172">
@@ -1256,7 +1274,7 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.25.0.js?v=4.25.0"></script>
+  <script src="js/direct-video-composer-v4.25.1.js?v=4.25.1"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.19.0.js?v=4.19.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
@@ -1264,6 +1282,6 @@
   <script src="js/producer-hub-v4.24.0.js?v=4.24.0"></script>
   <script src="js/producer-layer-editor-v4.23.1.js?v=4.23.1"></script>
   <script src="js/producer-multiclip-effects-v4.25.0.js?v=4.25.0"></script>
-  <script src="js/producer-pro-timeline-v4.25.0.js?v=4.25.0"></script>
+  <script src="js/producer-pro-timeline-v4.25.1.js?v=4.25.1"></script>
 </body>
 </html>

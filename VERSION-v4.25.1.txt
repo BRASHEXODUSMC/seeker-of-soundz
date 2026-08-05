@@ -1,0 +1,51 @@
+Seeker Of SoundZ v4.25.1
+PRODUCER HUB 5.0.1 — TIMELINE SCROLLING & PROCEDURAL VFX
+
+Timeline scrolling:
+- Timeline viewport now scrolls vertically and horizontally
+- Normal mouse wheel scrolls down through all timeline lanes
+- Shift + wheel scrolls sideways
+- Horizontal trackpad movement remains supported
+- Ctrl/Cmd + wheel zooms around the playhead
+- Middle mouse button can be held and dragged to pan in any direction
+- Smooth inertial movement remains for both axes
+- Vertical and horizontal scrollbars remain inside the timeline module
+- Timeline ruler stays visible while scrolling down
+- Beat Marker lane has increased minimum height and remains reachable
+- Clicking a beat marker scrolls its lane into view
+- Existing timeline containment, zoom, cuts, lane resizing and clip lanes remain
+
+New built-in procedural VFX:
+- Drawn Fire
+- Fire Burst
+- Ember Storm
+- Drawn Explosion
+- Impact Explosion
+- Explosion Shockwave
+- Rolling Smoke
+- Smoke Swipe Left
+- Smoke Swipe Right
+- Smoke Rise
+- Purple Rave Smoke
+- Fire & Smoke Combo
+
+VFX behavior:
+- Effects are generated in the browser with the existing canvas renderer
+- No external copyrighted footage or downloaded overlay files are included
+- Effects animate during preview and direct project rendering
+- Effects can be used globally, inside timed effect regions, on selected beats,
+  and with the existing Auto-Sync workflow
+- Effects react to bass, mids, highs and peak energy where appropriate
+
+Preserved:
+- Pro timeline
+- True camera Auto-Sync
+- Multiple video lanes and clip transitions
+- Direct finished-video rendering
+- Timed effects and beat placement
+- Multilayer text, logo and image editor
+- Waveform tools
+- YouTube tools
+- Theatre View and custom cursor
+
+No Supabase update is required.

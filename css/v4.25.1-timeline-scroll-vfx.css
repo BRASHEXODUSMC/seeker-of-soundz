@@ -1,0 +1,111 @@
+/* Seeker Of SoundZ v4.25.1 — two-axis timeline scrolling and procedural VFX */
+
+/* Timeline can now scroll down through every lane and sideways while zoomed. */
+.timelineViewportV4250{
+  max-height:min(72vh,760px)!important;
+  overflow:auto!important;
+  overscroll-behavior:contain!important;
+  scrollbar-gutter:stable both-edges!important;
+  touch-action:pan-x pan-y!important;
+}
+.timelineContentV4250{
+  min-height:max-content!important;
+  padding-bottom:10px!important;
+}
+.timelineRulerV4190{
+  position:sticky!important;
+  top:0!important;
+  z-index:40!important;
+  background:#08060b!important;
+  box-shadow:0 8px 16px rgba(0,0,0,.28)!important;
+}
+.timelineTracksV4190{
+  overflow:visible!important;
+  padding-bottom:8px!important;
+}
+.timelineViewportV4250::-webkit-scrollbar{
+  width:12px;
+  height:12px;
+}
+.timelineViewportV4250::-webkit-scrollbar-track{
+  background:#08060b;
+  border:1px solid rgba(255,255,255,.045);
+}
+.timelineViewportV4250::-webkit-scrollbar-thumb{
+  border:3px solid #08060b;
+  border-radius:999px;
+  background:linear-gradient(180deg,#8e4fbd,#68408d);
+}
+.timelineViewportV4250::-webkit-scrollbar-corner{
+  background:#08060b;
+}
+.timelineViewportV4250{
+  scrollbar-color:#8451ad #08060b;
+  scrollbar-width:auto;
+}
+.timelineViewportV4250.isMiddlePanningV4251,
+.timelineViewportV4250.isMiddlePanningV4251 *{
+  cursor:grabbing!important;
+  user-select:none!important;
+}
+.timelineViewportV4250::after{
+  content:"Wheel: vertical · Shift+wheel: horizontal · Middle-drag: pan · Ctrl+wheel: zoom";
+  position:sticky;
+  left:10px;
+  bottom:5px;
+  z-index:42;
+  display:inline-block;
+  margin:6px 8px 0;
+  padding:5px 8px;
+  border:1px solid rgba(200,157,255,.1);
+  border-radius:8px;
+  background:rgba(8,6,11,.88);
+  color:#8f8494;
+  font-size:.48rem;
+  pointer-events:none;
+}
+
+/* Beat marker lane remains reachable and easy to identify. */
+.timelineTracksV4190 [data-track="markers"]{
+  min-height:max(var(--lane-height,82px),82px)!important;
+}
+#timelineMarkerLaneV4190{
+  min-height:70px!important;
+  background:
+    linear-gradient(180deg,rgba(131,58,183,.035),transparent),
+    rgba(255,255,255,.006)!important;
+}
+.beatMarkerV4190{
+  min-height:52px!important;
+}
+
+/* New procedural effects use the existing effect-card theme. */
+.effectToggleV4171:has([data-effect="drawnFire"]),
+.effectToggleV4171:has([data-effect="fireBurst"]),
+.effectToggleV4171:has([data-effect="emberStorm"]),
+.effectToggleV4171:has([data-effect="cartoonExplosion"]),
+.effectToggleV4171:has([data-effect="impactExplosion"]),
+.effectToggleV4171:has([data-effect="shockwave"]){
+  background:
+    radial-gradient(circle at 10% 0,rgba(255,105,30,.09),transparent 44%),
+    rgba(255,255,255,.012)!important;
+}
+.effectToggleV4171:has([data-effect="rollingSmoke"]),
+.effectToggleV4171:has([data-effect="smokeSwipeLeft"]),
+.effectToggleV4171:has([data-effect="smokeSwipeRight"]),
+.effectToggleV4171:has([data-effect="smokeRise"]),
+.effectToggleV4171:has([data-effect="purpleSmoke"]),
+.effectToggleV4171:has([data-effect="fireSmokeCombo"]){
+  background:
+    radial-gradient(circle at 10% 0,rgba(126,77,169,.08),transparent 44%),
+    rgba(255,255,255,.012)!important;
+}
+
+@media(max-width:800px){
+  .timelineViewportV4250{
+    max-height:68vh!important;
+  }
+  .timelineViewportV4250::after{
+    content:"Wheel: down · Shift: sideways";
+  }
+}

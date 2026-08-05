@@ -80,6 +80,8 @@
   <link rel="stylesheet" href="css/v4.17.13-retro-presets-cc-cinema.css?v=4.17.13">
   <link rel="stylesheet" href="css/v4.18.0-modular-video-studio.css?v=4.18.0">
   <link rel="stylesheet" href="css/v4.18.1-tutorial-cursor-epic-polish.css?v=4.18.1">
+  <link rel="stylesheet" href="css/v4.18.2-single-preview-provider-manager.css?v=4.18.2">
+  <link rel="stylesheet" href="css/v4.18.3-video-download-provider.css?v=4.18.3">
 </head>
  <body>
   <div id="loader">
@@ -217,7 +219,11 @@
      <label class="composerDropV4180"><input id="composerAudioV4180" type="file" accept="audio/*"><i>🎵</i><span><strong>Choose Licensed Music</strong><small id="composerAudioNameV4180">MP3, WAV, OGG, M4A, or another browser-readable audio file.</small></span></label>
     </div>
     <div class="directComposerWorkspaceV4180">
-     <div class="composerPreviewV4180"><video id="composerPreviewVideoV4180" controls playsinline></video><canvas id="composerCanvasV4180" width="1280" height="720"></canvas><audio id="composerPreviewAudioV4180" controls></audio></div>
+     <div class="composerPreviewV4180"><video id="composerPreviewVideoV4180" controls playsinline></video><canvas id="composerCanvasV4180" width="1280" height="720"></canvas><audio id="composerPreviewAudioV4180" preload="metadata" hidden></audio>
+      <div class="composerAudioStatusV4182" id="composerAudioStatusV4182">
+       <span class="composerAudioDotV4182"></span>
+       <div><strong>Music track not loaded</strong><small>Your selected audio will be mixed into the single video preview and finished export.</small></div>
+      </div></div>
      <aside class="composerControlsV4180">
       <label>Music volume <input id="composerMusicVolumeV4180" type="range" min="0" max="1" step=".05" value="1"></label>
       <label>Original video audio <input id="composerSourceVolumeV4180" type="range" min="0" max="1" step=".05" value="0"></label>
@@ -347,7 +353,39 @@
     <div class="videoUrlRowV4171"><input id="videoUrlV4171" type="url" placeholder="Paste YouTube, MP4, WEBM, or another video URL"><button id="loadVideoUrlV4171" class="secondaryButton" type="button">Check & Load URL</button></div>
    </section>
 
-    <section class="mediaConverterV4177" id="mediaConverterV4177">
+    
+   <section class="providerManagerV4182 videoDownloadProviderV4183" id="providerManagerV4182">
+    <div class="sectionHeading">
+     <p class="sectionEyebrow">Secure Media Provider Manager</p>
+     <h2>Connected conversion and media providers</h2>
+     <p>The Video Download API key is stored only in Supabase Edge Function secrets. It is never placed in GitHub, HTML, browser JavaScript, localStorage, or public database tables.</p>
+    </div>
+    <div class="providerGridV4182">
+     <article data-provider-card="local"><i>🎬</i><div><span class="providerStatusV4182 isOnline">Built in</span><h3>Local Upload Composer</h3><p>Upload a video and licensed music, preview effects, and render locally without an external service.</p><button class="accountFeatureActionV417" type="button" data-open-module="create"><i>▶</i><span><strong>Open Composer</strong><small>Recommended and most reliable workflow.</small></span></button></div></article>
+     <article data-provider-card="capture"><i>🖥️</i><div><span class="providerStatusV4182 isOnline">Permission based</span><h3>Authorized Tab Capture</h3><p>Capture a browser tab the member explicitly shares. Shared-tab audio works best in Chrome and Edge.</p><button class="accountFeatureActionV417" type="button" data-open-module="capture"><i>●</i><span><strong>Open Capture</strong><small>Optional advanced workflow.</small></span></button></div></article>
+     <article data-provider-card="video-download-api"><i>⚡</i><div><span class="providerStatusV4182 isChecking" id="videoDownloadProviderStatusV4183">Not tested</span><h3>Video Download API</h3><p>Creates MP4 or MP3 jobs through a secure Supabase adapter, polls progress, and returns the provider's finished download URL.</p><div class="providerActionsV4182"><button class="accountFeatureActionV417" id="testVideoDownloadProviderV4183" type="button"><i>✓</i><span><strong>Test Connection</strong><small>Verify the Edge Function and secret key.</small></span></button><button class="accountFeatureActionV417" id="openVideoDownloadConverterV4183" type="button"><i>↗</i><span><strong>Open Converter</strong><small>Create an authorized MP4 or MP3 job.</small></span></button></div></div></article>
+    </div>
+    <form class="rapidApiConverterV4182 videoDownloadConverterV4183" id="videoDownloadConverterV4183" hidden>
+     <div class="rapidApiConverterHeadV4182"><div><p class="sectionEyebrow">Video Download API Request</p><h3>Authorized media conversion</h3></div><button type="button" id="closeVideoDownloadConverterV4183">×</button></div>
+     <label>YouTube URL<input id="videoDownloadUrlV4183" type="url" placeholder="https://www.youtube.com/watch?v=..." required></label>
+     <div class="rapidApiFormatRowV4182">
+      <label>Output<select id="videoDownloadFormatV4183"><option value="720">MP4 720p</option><option value="1080">MP4 1080p</option><option value="360">MP4 360p</option><option value="1440">MP4 1440p</option><option value="mp44k">MP4 4K</option><option value="mp48k">MP4 8K</option><option value="mp3">MP3 audio</option></select></label>
+      <label>MP3 bitrate<select id="videoDownloadAudioQualityV4183"><option value="320">320 kbps</option><option value="256">256 kbps</option><option value="192">192 kbps</option><option value="128">128 kbps</option></select></label>
+     </div>
+     <label class="rapidPermissionV4182"><input id="videoDownloadPermissionV4183" type="checkbox" required><span>I own this media, have permission to convert it, or verified that its license permits this use.</span></label>
+     <button class="primaryButton" type="submit">Start Secure Conversion</button>
+     <p class="formMessage" id="videoDownloadStatusV4183">The request is sent through Supabase. Production conversions may use provider wallet credit.</p>
+     <div class="downloadProgressV4183" id="videoDownloadProgressV4183" hidden><div><span id="videoDownloadProgressFillV4183"></span></div><strong id="videoDownloadProgressLabelV4183">0%</strong><small id="videoDownloadProgressStepV4183">Waiting</small></div>
+     <div class="rapidApiResultV4182" id="videoDownloadResultV4183" hidden></div>
+    </form>
+    <section class="downloadManagerV4183" id="downloadManagerV4183">
+     <div><p class="sectionEyebrow">Download Manager</p><h3>Recent conversion jobs</h3></div>
+     <button class="smallAction" id="clearDownloadJobsV4183" type="button">Clear Finished Jobs</button>
+     <div class="downloadJobListV4183" id="downloadJobListV4183"><p>No conversion jobs yet.</p></div>
+    </section>
+   </section>
+
+   <section class="mediaConverterV4177" id="mediaConverterV4177">
      <div class="sectionHeading">
       <p class="sectionEyebrow">On-Page Media Converter</p>
       <h2>Convert media you own or upload</h2>
@@ -747,7 +785,8 @@
   <script src="js/video-effects-studio-v4.17.13.js?v=4.17.13"></script>
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
-  <script src="js/video-studio-modules-v4.18.1.js?v=4.18.1"></script>
-  <script src="js/direct-video-composer-v4.18.0.js?v=4.18.0"></script>
+  <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
+  <script src="js/direct-video-composer-v4.18.2.js?v=4.18.2"></script>
+  <script src="js/video-download-provider-v4.18.3.js?v=4.18.3"></script>
 </body>
 </html>

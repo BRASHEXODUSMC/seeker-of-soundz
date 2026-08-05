@@ -1,0 +1,22 @@
+Seeker Of SoundZ v4.18.3
+VIDEO DOWNLOAD API PROVIDER
+
+- Removes the RapidAPI provider and its Edge Function.
+- Adds Video Download API using the documented p.savenow.to job workflow.
+- Creates secure MP4/MP3 jobs through Supabase.
+- Supports MP4 360p, 720p, 1080p, 1440p, 4K, 8K and MP3 128/192/256/320 kbps.
+- Polls progress from 0 to 1000 every five seconds.
+- Shows a progress bar, job state, failures and finished download links.
+- Adds a browser-local Download Manager for recent jobs.
+- Requires ownership/permission/license confirmation.
+- Stores only VIDEO_DOWNLOAD_API_KEY in Supabase secrets.
+- No RapidAPI key, host or endpoint is used.
+- Production conversions may require provider wallet credit.
+
+Supabase setup:
+1. Create a key at video-download-api.com.
+2. Run: supabase secrets set VIDEO_DOWNLOAD_API_KEY="YOUR_KEY"
+3. Run: supabase functions deploy video-download-api
+4. Open Export > Provider Manager > Test Connection.
+
+No database or RLS update is required.

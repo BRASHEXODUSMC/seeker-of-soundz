@@ -1,0 +1,37 @@
+Seeker Of SoundZ v4.18.2
+SINGLE PREVIEW + SECURE PROVIDER MANAGER
+
+Duplicate preview repair:
+- Removes the visible native audio-player controls from Direct Composer.
+- Keeps one visible master video preview.
+- The separate music element remains internal for mixing and export.
+- Adds a compact Music Track status row instead of a second media-control bar.
+- The preview canvas remains over the single video.
+- Existing volume controls, music synchronization and finished rendering remain.
+
+Secure Provider Manager:
+- Adds Local Upload Composer, Authorized Tab Capture and RapidAPI provider cards.
+- Adds provider status and Test Connection.
+- Adds an authorized conversion form for MP4/MP3 requests.
+- Requires the member to confirm ownership, permission, or a reusable license.
+- Sends requests through a Supabase Edge Function.
+- Never stores or exposes the RapidAPI key in GitHub or browser JavaScript.
+- Adds a generic response mapper for common download-link response fields.
+- The exact RapidAPI host and endpoint remain configurable because provider endpoints can change.
+
+Supabase Edge Function:
+- Adds supabase/functions/youtube-converter/index.ts.
+- Requires an authenticated Supabase session.
+- Reads RAPIDAPI_YT_KEY, RAPIDAPI_YT_HOST and RAPIDAPI_YT_ENDPOINT from Supabase secrets.
+- Adds status and convert actions.
+- Includes deployment and secrets instructions in the function README.
+
+Required setup after GitHub deployment:
+1. Subscribe to the desired RapidAPI plan.
+2. Copy the current X-RapidAPI-Host and full endpoint from RapidAPI's code example.
+3. Store the key, host and endpoint as Supabase secrets.
+4. Deploy the youtube-converter Edge Function.
+5. Use Test Connection in the Provider Manager.
+6. If the provider changes parameter names or response fields, update the server-side adapter rather than frontend code.
+
+No database table or RLS update is required.

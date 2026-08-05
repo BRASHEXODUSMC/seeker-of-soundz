@@ -1,0 +1,42 @@
+Seeker Of SoundZ v4.29.0
+PRODUCER HUB 5.4 — VISIBLE RENDER PREVIEW, PERFORMANCE & TEXT DRAG FIX
+
+Render Focus preview:
+- Fixes the blank preview shown when direct rendering begins
+- Moves the complete Direct Composer to a temporary top-level full-screen workspace
+- Does not hide, collapse, or set display:none on any canvas ancestor
+- Keeps the processed canvas visible at a stable 16:9 size
+- Keeps render percentage, progress, status, and Cancel Render visible
+- Restores the composer to its exact original DOM location after rendering or cancellation
+- Triggers resize and redraw updates after entering and leaving Render Focus
+- Existing finished-video canvas capture remains unchanged
+
+Auto-Sync performance:
+- Auto-Sync gathers every overlay region in memory first
+- Regions are sorted once
+- The Effects lane is rebuilt once instead of once per generated region
+- Camera regions are rendered once after generation
+- Generation begins after two animation frames so the loading status can appear first
+- Adds layout/paint containment to large effect lanes
+- Preserves overlapping overlays, full-project beats, camera motion, and every generated effect
+
+Original text movement:
+- Selection box now measures the actual visible canvas rectangle
+- Position is calculated relative to the canvas rather than the larger preview container
+- Box width is measured from the current text, font, size, and canvas scale
+- Dragging updates X and Y continuously
+- Rotation updates continuously from the circular handle
+- Box remains selected throughout pointer movement
+- Existing fonts, colors, outlines, glow, opacity, spacing, transitions, and custom coordinates remain
+
+Preserved:
+- Beat analysis and Auto-Sync
+- Shift+K razor tool
+- Ripple cuts and snapping
+- Multiple videos, transitions, and muting
+- Reactive particles, fire, explosion, and smoke VFX
+- Direct rendering
+- YouTube and waveform tools
+- Theatre View and custom cursor
+
+No Supabase update is required.

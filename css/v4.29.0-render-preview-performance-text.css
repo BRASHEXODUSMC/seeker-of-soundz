@@ -1,0 +1,177 @@
+/* Seeker Of SoundZ v4.29.0 — visible render focus, batched Auto-Sync, text alignment */
+
+/* Render Focus moves the complete composer to a fixed top-level overlay.
+   No canvas ancestor is hidden or given zero dimensions. */
+body.producerRenderFocusV4290{
+  overflow:hidden!important;
+  background:#020103!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290{
+  position:fixed!important;
+  z-index:2147482000!important;
+  inset:0!important;
+  display:grid!important;
+  grid-template-rows:auto minmax(0,1fr)!important;
+  width:100vw!important;
+  height:100vh!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:14px!important;
+  overflow:auto!important;
+  box-sizing:border-box!important;
+  visibility:visible!important;
+  background:
+    radial-gradient(circle at 50% 0,rgba(117,49,164,.14),transparent 42%),
+    #040306!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .sectionHeading,
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .directComposerInputsV4180,
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .licensedMusicLibraryV4180{
+  display:none!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .directComposerWorkspaceV4180{
+  width:min(1400px,100%)!important;
+  min-height:0!important;
+  margin:auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(260px,330px)!important;
+  gap:14px!important;
+  align-items:start!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .composerPreviewV4180{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  min-height:320px!important;
+  aspect-ratio:16/9!important;
+  overflow:hidden!important;
+  border:1px solid rgba(205,164,255,.16)!important;
+  border-radius:14px!important;
+  background:#000!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 #composerCanvasV4180{
+  position:absolute!important;
+  z-index:4!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  visibility:visible!important;
+  opacity:1!important;
+  background:#000!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 #composerPreviewVideoV4180{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  opacity:.001!important;
+  pointer-events:none!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .composerAudioStatusV4182{
+  position:absolute!important;
+  z-index:8!important;
+  left:10px!important;
+  right:10px!important;
+  bottom:10px!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .composerControlsV4180{
+  display:grid!important;
+  align-content:start!important;
+  gap:8px!important;
+  max-height:calc(100vh - 28px)!important;
+  overflow:auto!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .composerControlsV4180>label,
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .composerControlsV4180>#composerPreviewButtonV4180,
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .composerControlsV4180>#composerRenderButtonV4180,
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .renderOptimizationV4280{
+  display:none!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 #directRenderStatusV4212{
+  display:grid!important;
+  position:sticky!important;
+  top:0!important;
+  visibility:visible!important;
+}
+body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 #composerStatusV4180{
+  display:block!important;
+}
+
+/* The original text hitbox is aligned to the actual canvas rectangle. */
+.composerPreviewV4180{
+  position:relative!important;
+}
+.originalTextInteractiveV4280{
+  box-sizing:border-box!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:visible!important;
+  opacity:1!important;
+  will-change:left,top,width,height,transform!important;
+}
+.originalTextInteractiveV4280::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border:1px dashed rgba(224,191,255,.88);
+  border-radius:8px;
+  background:rgba(104,43,145,.08);
+  box-shadow:0 0 0 2px rgba(154,83,205,.08);
+  pointer-events:none;
+}
+.originalTextInteractiveV4280 span{
+  display:block!important;
+  width:100%;
+  overflow:hidden;
+  color:transparent!important;
+  opacity:0!important;
+  white-space:nowrap;
+  pointer-events:none;
+}
+.originalTextInteractiveV4280:active{
+  cursor:grabbing!important;
+}
+#originalTextRotateHandleV4280{
+  z-index:3!important;
+  pointer-events:auto!important;
+}
+
+/* Batched Auto-Sync avoids hundreds of immediate lane rebuilds. */
+.autoSyncMotionPanelV4250.isGeneratingV4290{
+  pointer-events:none;
+  opacity:.78;
+}
+.autoSyncMotionPanelV4250.isGeneratingV4290::after{
+  content:"Building camera and overlay regions…";
+  grid-column:1/-1;
+  padding:7px;
+  border-radius:8px;
+  background:rgba(0,0,0,.2);
+  color:#80efb5;
+  font-size:.55rem;
+  text-align:center;
+}
+#timelineEffectsLaneV4190,
+#timelineCameraLaneV4250{
+  contain:layout paint!important;
+}
+
+/* Keep timeline layout stable while many Auto-Sync regions are inserted. */
+.timelineViewportV4250{
+  contain:layout!important;
+}
+.timedEffectRegionV4240{
+  contain:layout paint!important;
+}
+
+@media(max-width:800px){
+  body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .directComposerWorkspaceV4180{
+    grid-template-columns:1fr!important;
+  }
+  body.producerRenderFocusV4290 #directComposerV4180.isRenderFocusV4290 .composerControlsV4180{
+    max-height:none!important;
+  }
+}

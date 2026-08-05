@@ -1,0 +1,22 @@
+PRODUCER HUB 5.4 QUICK GUIDE
+
+VISIBLE RENDER FOCUS
+1. Keep Show Only the Render Workspace enabled.
+2. Start the finished-video render.
+3. The processed video canvas remains visible in the full-screen render workspace.
+4. Progress and Cancel Render remain beside it.
+5. The complete editor returns after completion or cancellation.
+
+SMOOTHER AUTO-SYNC
+1. Analyze Beats.
+2. Choose camera, effect pools, overlap, and density.
+3. Select Auto-Sync Effects.
+4. A preparation message appears before generation.
+5. All regions are collected, sorted, and added to the timeline in one batch.
+
+ORIGINAL TEXT
+1. Enter text using Overlay Text.
+2. The selection box appears over the exact rendered text location.
+3. Drag continuously to reposition it.
+4. Drag the circular rotate handle continuously to rotate it.
+5. Existing text fonts, colors, glow, outline, transitions, and spacing remain available.

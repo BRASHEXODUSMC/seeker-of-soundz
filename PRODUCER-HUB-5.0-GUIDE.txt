@@ -1,0 +1,32 @@
+PRODUCER HUB 5.0 QUICK GUIDE
+
+AUTO-SYNC CAMERA AND EFFECTS
+1. Upload music and video.
+2. Select Analyze Beats.
+3. Select an Auto-Sync pattern, density and camera strength.
+4. Select Auto-Sync Effects.
+5. If beat analysis was not finished, Auto-Sync continues automatically afterward.
+6. Green camera regions show actual video-frame movement.
+7. Purple regions show timed visual effects.
+
+PLACE AN EFFECT ON ONE BEAT
+1. Click a beat marker in the Beat Markers lane.
+2. Choose an effect.
+3. Choose Beat Length.
+4. Select Place on Selected Beat.
+
+TIMELINE ZOOM
+- Use + and − or the zoom slider.
+- Zoom stays centered around the playhead.
+- Select Fit to show the complete project.
+- Scroll horizontally with the wheel while zoomed.
+
+RESIZE LANES
+- Drag the thin divider under Video, Music, Effects, or Beat Markers.
+- Video height also expands automatically for V1, V2, V3, and later lanes.
+
+CLIP TRANSITIONS
+1. Open Videos.
+2. Drag a transition preset.
+3. Drop it onto the connector between two clip blocks.
+4. Click a configured connector to remove its transition.

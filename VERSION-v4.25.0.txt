@@ -1,0 +1,65 @@
+Seeker Of SoundZ v4.25.0
+PRODUCER HUB 5.0 — PROFESSIONAL TIMELINE & TRUE CAMERA AUTO-SYNC
+
+Professional timeline:
+- Timeline remains contained inside the Producer Hub editor
+- Automatically resizes when the Assets sidebar or Inspector collapses
+- Every lane has a draggable height divider
+- Zoom expands to 800%
+- Zoom remains centered around the current playhead position
+- Fit button returns the complete project to view
+- Smooth inertial horizontal scrolling when zoomed
+- Ruler ticks adapt to the visible timeline width
+- Beat markers remain aligned with their exact ruler time
+
+Video clip lanes:
+- Each video has a separate V1, V2, V3, or later sublane
+- Lane height expands automatically as videos are added
+- Clip blocks display generated thumbnail backgrounds
+- Clip colors and active/muted states remain visible
+- Individual clip mute buttons remain available
+- Timeline clips remain selectable and reorderable
+
+Clip transitions:
+- Crossfade
+- Dip Black
+- Flash
+- Zoom
+- Spin
+- Glitch
+- Wipe
+- Drag a transition from the Videos sidebar onto the connector between clips
+- Connectors show the selected transition
+- Transitions are drawn into preview and direct rendering
+
+Beat-perfect effect placement:
+- Click a generated beat marker to select it
+- Choose a visual effect and Beat Length
+- Select Place on Selected Beat
+- The effect appears precisely on that marker in the Effects lane
+- Existing start/end effect regions and nearest-beat snapping remain
+
+True Auto-Sync camera movement:
+- Analyze Beats can continue automatically into Auto-Sync
+- Auto-Sync generates timed camera regions from detected beats
+- Camera patterns include actual video-frame zoom in, zoom out, rotation,
+  impact punch and camera shake
+- Camera transforms happen before overlays and layers are drawn
+- These are real project-canvas transforms, not decorative overlay movement
+- Adjustable pattern, density and camera strength
+- Balanced, Heavy Drop, Cinematic and Glitch Chaos patterns
+- Optional visual effect regions generated alongside camera movement
+- Clear Auto-Sync removes generated camera and visual regions
+
+Preserved:
+- Timeline cuts, undo and redo
+- Timed effects and effect muting
+- Direct finished-video rendering
+- Multilayer text, logo and image editor
+- Camera controls and project transitions
+- Waveform tools
+- YouTube search, preview and converter
+- Theatre View, custom cursor and access system
+- Existing visual effect library
+
+No Supabase update is required.

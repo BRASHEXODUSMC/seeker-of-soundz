@@ -336,3 +336,11 @@
     grid-column:1/-1;
   }
 }
+
+/* v4.24.1 Timeline containment */
+.timelineWorkspaceV4190,.timelineViewportV4190,.timelineScrollerV4190,.timelineBodyV4190{
+width:100%!important;max-width:100%!important;overflow:hidden!important;box-sizing:border-box!important;}
+.timelineRulerV4190{width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;}
+.timelineTracksV4190,.timelineLaneV4190,.timelineVideoLaneV4240,#timelineEffectsLaneV4190,#timelineMarkerLaneV4190{
+width:100%!important;max-width:100%!important;overflow:hidden!important;box-sizing:border-box!important;}
+.timelinePlayheadV4190{pointer-events:none!important;}

@@ -1,0 +1,131 @@
+/* Seeker Of SoundZ v4.26.0 — ripple editing, clip snapping and transport dock */
+
+/* Analysis remains compact above the preview. */
+.producerAnalysisToolbarV4260{
+  justify-content:flex-end!important;
+  min-height:auto!important;
+  padding-bottom:8px!important;
+}
+
+/* Playback controls now sit directly below the preview and above the timeline. */
+.producerTransportDockV4260{
+  display:grid;
+  grid-template-columns:auto minmax(150px,1fr) auto;
+  align-items:center;
+  gap:12px;
+  margin-top:9px;
+  padding:9px 11px;
+  border:1px solid rgba(203,159,255,.1);
+  border-radius:13px;
+  background:
+    radial-gradient(circle at 12% 0,rgba(132,56,198,.09),transparent 42%),
+    rgba(255,255,255,.014);
+  box-shadow:0 12px 32px rgba(0,0,0,.18);
+}
+.producerTransportDockV4260 .transportButtonsV4190{
+  display:flex!important;
+  gap:6px!important;
+  align-items:center!important;
+}
+.producerTransportDockV4260 .transportButtonsV4190 button{
+  min-width:40px!important;
+  height:38px!important;
+  margin:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid rgba(203,159,255,.13)!important;
+  border-radius:10px!important;
+  background:rgba(132,56,198,.055)!important;
+  color:#eee4f2!important;
+}
+.producerTransportDockV4260 #producerPlayV4190{
+  min-width:52px!important;
+  border-color:rgba(104,239,174,.24)!important;
+  background:rgba(47,162,104,.08)!important;
+  color:#8bf4bc!important;
+}
+.producerTransportDockV4260 .producerTimeV4190{
+  justify-self:center;
+  display:flex!important;
+  align-items:center!important;
+  gap:7px!important;
+  padding:7px 12px;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:10px;
+  background:rgba(0,0,0,.18);
+  font-variant-numeric:tabular-nums;
+}
+.transportSnapV4260{
+  display:flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  color:#a99eac!important;
+  font-size:.55rem!important;
+  white-space:nowrap;
+}
+
+/* Ripple and clip-edge controls remain inside Cut & Edit. */
+.timelineCutOptionV4260{
+  display:flex!important;
+  align-items:center!important;
+  gap:5px!important;
+  padding:7px 9px!important;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:9px;
+  color:#b5aabb!important;
+  font-size:.54rem!important;
+  background:rgba(255,255,255,.012);
+}
+.timelineCutToleranceV4260{
+  display:grid!important;
+  gap:3px!important;
+  min-width:100px;
+  color:#aaa0ad!important;
+  font-size:.52rem!important;
+}
+.timelineCutToleranceV4260 select{
+  min-width:100px!important;
+}
+.timelineEditActionsV4220{
+  align-items:end!important;
+}
+
+/* Ripple-generated segments visually join with no empty gap. */
+.timelineVideoSegmentV4240{
+  box-sizing:border-box!important;
+}
+.timelineVideoSubLaneV4250{
+  overflow:visible!important;
+}
+.timelineVideoSegmentV4240+ .clipTransitionDropV4250{
+  margin-left:0!important;
+}
+
+/* Highlight trimmed source segments. */
+.producerClipItemV4240 small{
+  line-height:1.3!important;
+}
+.timelineVideoSegmentV4240 small{
+  opacity:.88;
+}
+
+@media(max-width:900px){
+  .producerTransportDockV4260{
+    grid-template-columns:1fr;
+  }
+  .producerTransportDockV4260 .transportButtonsV4190,
+  .producerTransportDockV4260 .producerTimeV4190,
+  .transportSnapV4260{
+    justify-self:center;
+  }
+}
+@media(max-width:560px){
+  .producerTransportDockV4260 .transportButtonsV4190{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .producerTransportDockV4260 .transportButtonsV4190 button{
+    flex:1 1 48px;
+  }
+}

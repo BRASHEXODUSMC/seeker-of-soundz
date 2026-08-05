@@ -1,0 +1,48 @@
+Seeker Of SoundZ v4.26.0
+PRODUCER HUB 5.1 — RIPPLE CUTS, CLIP SNAPPING & TRANSPORT DOCK
+
+Ripple multiclip editing:
+- Cut ranges modify the video sequence rather than only hiding playback time
+- Remaining source portions become accurate trimmed segments
+- Following videos move left immediately and fill the removed gap
+- Cuts can begin in one video and end inside another video
+- A middle cut can split one source video into two surviving segments
+- Source start and end positions are preserved for preview and final rendering
+- Combined project duration shrinks after ripple deletion
+- Timeline widths update to the edited duration
+- Clip transitions and mute states remain attached to surviving segments
+
+Cut controls:
+- Ripple Close Gaps can be enabled or disabled
+- Snap Cuts to Video Edges can be enabled or disabled
+- Tight, Normal and Wide snap ranges
+- Snap to Video 1, Video 2, Video 3, and later clip boundaries
+- Existing non-destructive cut behavior remains when ripple mode is disabled
+
+Undo and redo:
+- Ripple edits use project snapshots
+- Existing Undo and Redo controls restore or repeat ripple changes
+- Original uploaded source files remain untouched
+
+Transport dock:
+- Controls moved below the video preview and closer to the timeline
+- Restart
+- Rewind five seconds
+- Play
+- Pause
+- Forward five seconds
+- Combined project time and duration
+- Optional playhead snapping to clip edges
+
+Preserved:
+- Pro timeline scrolling and middle-mouse panning
+- Multiple video lanes and clip transitions
+- Timed effects and beat placement
+- True camera Auto-Sync
+- Fire, explosion and smoke VFX
+- Direct rendering
+- Multilayer text, logo and image editing
+- Waveform and YouTube tools
+- Theatre View and custom cursor
+
+No Supabase update is required.

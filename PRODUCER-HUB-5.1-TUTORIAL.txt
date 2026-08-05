@@ -1,0 +1,36 @@
+PRODUCER HUB 5.1 TUTORIAL
+
+RIPPLE CUT A RANGE
+1. Load Video 1 and any additional videos.
+2. Move the playhead to the unwanted section's beginning.
+3. Select Mark Cut Start.
+4. Move the playhead to its ending.
+5. Select Mark Cut End.
+6. Keep Ripple Close Gaps enabled.
+7. Select Remove Section.
+8. The remaining footage and later videos move left to fill the gap.
+
+CUT ACROSS VIDEOS
+- Mark the start near the end of one video.
+- Mark the end inside the following video.
+- Remove the section.
+- The surviving first-video footage connects directly to the surviving
+  portion of the following video.
+
+SNAPPING
+- Snap Cuts to Video Edges aligns cut marks near clip boundaries.
+- Tight, Normal and Wide control the snapping range.
+- Disable cut snapping for unrestricted placement.
+- Snap Playhead to Clip Edges controls transport and timeline movement.
+
+UNDO AND REDO
+- Undo restores the earlier multiclip sequence.
+- Redo applies the ripple edit again.
+- Uploaded source files are not permanently modified.
+
+TRANSPORT
+- Restart returns to project time zero.
+- Rewind moves backward five seconds.
+- Play previews the edited multiclip project.
+- Pause stops video and music.
+- Forward moves ahead five seconds.

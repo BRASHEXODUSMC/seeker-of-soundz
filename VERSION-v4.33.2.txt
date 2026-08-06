@@ -1,0 +1,24 @@
+Seeker Of SoundZ v4.33.2
+PRODUCER HUB 6.1.2 — CLICKABLE BUTTONS & CURRENT VERSION TEXT
+
+Resolution sizing:
+- All five sizing choices are now visible themed button cards
+- Added solid backgrounds, borders, hover feedback, focus feedback, and pressed state
+- Forced pointer input above modal layers
+- Child text cannot intercept button clicks
+- Match, Keep, Fit, Fill/Crop, and Stretch remain connected to existing logic
+
+SOS Project Files:
+- Replaced fixed auto-width layout with flexible equal columns
+- Long .sosproject and .sospreset labels wrap inside their buttons
+- Buttons cannot overflow the project bar
+- Responsive two-column and one-column layouts added
+- Existing save/import actions remain unchanged
+
+Version text:
+- Compact Modular Workflow now says Producer Hub 6.1.2
+- Guided Tutorial description now reflects precision timeline, native sizing,
+  music trimming, AI Camera Director, GPU cache, keyframes, curves,
+  multicamera, SOS project files, YouTube tools, and rendering
+
+No Supabase update is required.

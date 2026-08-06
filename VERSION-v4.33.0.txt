@@ -1,0 +1,20 @@
+Seeker Of SoundZ v4.33.0
+PRODUCER HUB 6.1 — PRECISION TIMELINE, MEDIA SETTINGS & SOS FILES
+
+- Shared timeline coordinate system for Shift+K, razor guide, and playhead dragging
+- Razor guide stays directly beneath the pointer and above timeline layers
+- Playhead can be clicked and dragged over the real track area
+- Detects uploaded video width, height, and aspect ratio
+- Match native project resolution, keep project settings, fit, fill/crop, or stretch
+- Viewer remains compact while output canvas dimensions change
+- Music source-start, source-end, and project-offset controls
+- Draggable music trim handles
+- Preview and rendering begin from the selected music source position
+- Prominent SOS Project Files bar below transport controls
+- Quick save/import for .sosproject and .sospreset
+- Project files include media sizing and music-trim metadata
+- Tutorial expanded to 13 steps
+- YouTube tools tutorial includes authorization/copyright guidance and safe
+  third-party-site/content-blocker guidance without encouraging unauthorized use
+
+No Supabase update is required.

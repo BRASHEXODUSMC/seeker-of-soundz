@@ -1,0 +1,131 @@
+/* Seeker Of SoundZ v4.33.0 — precision timeline, media sizing, music trim, SOS files */
+.timelineContentV4250{
+  --precision-pointer-x:0px;
+}
+.timelineContentV4250.isRazorHoverV4270::before{
+  left:var(--precision-pointer-x)!important;
+  transform:translateX(-1px)!important;
+  z-index:120!important;
+}
+.timelineContentV4250.isRazorHoverV4270::after{
+  left:var(--precision-pointer-x)!important;
+  z-index:121!important;
+}
+.timelinePlayheadV4190{
+  z-index:115!important;
+  pointer-events:none!important;
+}
+.timelineRulerV4190,
+.timelineLaneV4190{
+  cursor:crosshair;
+}
+.sosProjectQuickBarV4330{
+  display:grid;
+  grid-template-columns:minmax(190px,1fr) repeat(4,auto);
+  gap:7px;
+  align-items:center;
+  margin-top:8px;
+  padding:9px;
+  border:1px solid rgba(104,239,174,.12);
+  border-radius:12px;
+  background:linear-gradient(135deg,rgba(36,145,95,.05),rgba(112,54,154,.05));
+}
+.sosProjectQuickBarV4330>div{display:grid;gap:2px}
+.sosProjectQuickBarV4330 small{color:#938899;font-size:.52rem}
+.sosProjectQuickBarV4330 button{
+  min-width:0!important;
+  margin:0!important;
+  padding:7px 9px!important;
+  white-space:nowrap;
+}
+.videoSettingsDialogV4330{
+  width:min(720px,calc(100vw - 28px));
+  border:1px solid rgba(203,159,255,.18);
+  border-radius:16px;
+  background:#0a0710;
+  color:#eee7f2;
+  padding:14px;
+}
+.videoSettingsDialogV4330::backdrop{background:rgba(0,0,0,.78);backdrop-filter:blur(7px)}
+.videoSettingsDialogV4330 header{display:flex;justify-content:space-between;align-items:center}
+.videoSettingsDialogV4330 header button{width:38px;height:38px}
+.videoMetadataV4330{padding:10px;border:1px solid rgba(255,255,255,.07);border-radius:10px;background:rgba(255,255,255,.015)}
+.videoMetadataV4330 p{margin:4px 0 0;color:#a297a6}
+.videoSizingOptionsV4330{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.videoSizingOptionsV4330 button{display:grid!important;gap:3px!important;text-align:left!important;padding:10px!important}
+.videoSizingOptionsV4330 small{color:#938899;font-size:.52rem;line-height:1.4}
+.composerPreviewV4180{
+  aspect-ratio:var(--producer-video-aspect,16/9)!important;
+  max-height:min(68vh,720px)!important;
+}
+#composerCanvasV4180,
+#composerPreviewVideoV4180{
+  object-fit:contain!important;
+}
+.timelineMusicLaneV4270{position:relative!important}
+.musicTrimOverlayV4330{
+  position:absolute;
+  z-index:26;
+  inset:3px 0;
+  pointer-events:none;
+}
+.musicTrimSelectionV4330{
+  position:absolute;
+  top:2px;
+  bottom:2px;
+  border-top:2px solid rgba(103,239,174,.65);
+  border-bottom:2px solid rgba(103,239,174,.65);
+  background:rgba(61,184,119,.07);
+  pointer-events:none;
+}
+.musicTrimHandleV4330{
+  position:absolute!important;
+  z-index:30!important;
+  top:0!important;
+  bottom:0!important;
+  width:14px!important;
+  height:auto!important;
+  padding:0!important;
+  margin:0!important;
+  transform:translateX(-50%)!important;
+  border:1px solid rgba(223,192,255,.75)!important;
+  border-radius:5px!important;
+  background:linear-gradient(180deg,#efe4f6,#8750aa)!important;
+  cursor:ew-resize!important;
+  pointer-events:auto!important;
+  touch-action:none!important;
+}
+.musicTrimControlsV4330{
+  position:absolute;
+  z-index:40;
+  left:6px;
+  right:6px;
+  bottom:5px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  align-items:end;
+  padding:5px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:8px;
+  background:rgba(5,3,8,.88);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .15s ease;
+}
+.timelineMusicLaneV4270:hover .musicTrimControlsV4330,
+.musicTrimControlsV4330:focus-within{
+  opacity:1;
+  pointer-events:auto;
+}
+.musicTrimControlsV4330 label{display:grid;gap:2px;font-size:.44rem}
+.musicTrimControlsV4330 input{width:92px!important;min-width:0!important;padding:4px!important}
+.musicTrimControlsV4330 button{margin:0!important;padding:5px 7px!important}
+@media(max-width:920px){
+  .sosProjectQuickBarV4330{grid-template-columns:repeat(2,1fr)}
+  .sosProjectQuickBarV4330>div{grid-column:1/-1}
+}
+@media(max-width:620px){
+  .videoSizingOptionsV4330{grid-template-columns:1fr}
+  .sosProjectQuickBarV4330{grid-template-columns:1fr}
+}

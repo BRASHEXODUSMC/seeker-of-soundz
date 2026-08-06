@@ -109,6 +109,7 @@
   <link rel="stylesheet" href="css/v4.31.1-range-trim-fix.css?v=4.31.1">
   <link rel="stylesheet" href="css/v4.32.0-pro-suite.css?v=4.32.0">
   <link rel="stylesheet" href="css/v4.32.1-gpu-cache-label-fix.css?v=4.32.1">
+  <link rel="stylesheet" href="css/v4.33.0-precision-media-sos.css?v=4.33.0">
 </head>
  <body>
   <div id="loader">
@@ -197,7 +198,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 6.0.1</p>
+      <p class="sectionEyebrow">Producer Hub 6.1</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -536,6 +537,13 @@
        <div class="producerTimeV4190"><span id="producerCurrentTimeV4190">00:00.00</span><b>/</b><span id="producerDurationV4190">00:00.00</span></div>
        <label class="transportSnapV4260"><input id="snapPlayheadToClipEdgesV4260" type="checkbox" checked> Snap playhead to clip edges</label>
       </div>
+      <section class="sosProjectQuickBarV4330" id="sosProjectQuickBarV4330">
+       <div><strong>SOS Project Files</strong><small>Save your full edit or settings and continue later.</small></div>
+       <button type="button" id="quickSaveProjectV4330">Save .sosproject</button>
+       <button type="button" id="quickImportProjectV4330">Import .sosproject</button>
+       <button type="button" id="quickSavePresetV4330">Save .sospreset</button>
+       <button type="button" id="quickImportPresetV4330">Import .sospreset</button>
+      </section>
       <section class="producerTimelineV4190">
      <header class="timelineHeaderV4190">
       <div><strong>Timeline</strong><small id="timelineStatusV4190">Load video and music to begin</small></div>
@@ -568,7 +576,17 @@
       <article data-track="music"><header><i>🎵</i><span>Music</span><button class="timelineMuteButtonV4240" id="timelineMuteMusicV4240" type="button" title="Mute or unmute music">🔊</button></header><div class="timelineLaneV4190 timelineMusicLaneV4270" id="timelineMusicLaneV4270">
        <div class="timelineClipV4190 musicClipV4190" id="timelineMusicClipV4190">Music track</div>
        <canvas id="timelineWaveformV4190" width="1200" height="90"></canvas>
-       <div class="timelineMusicSegmentsV4270" id="timelineMusicSegmentsV4270"></div>
+       <div class="timelineMusicSegmentsV4270" id="timelineMusicSegmentsV4270"></div><div class="musicTrimOverlayV4330" id="musicTrimOverlayV4330">
+        <button type="button" class="musicTrimHandleV4330 isStart" id="musicTrimStartV4330" aria-label="Trim music start"></button>
+        <div class="musicTrimSelectionV4330" id="musicTrimSelectionV4330"></div>
+        <button type="button" class="musicTrimHandleV4330 isEnd" id="musicTrimEndV4330" aria-label="Trim music end"></button>
+       </div>
+       <div class="musicTrimControlsV4330">
+        <label>Music source start <input id="musicSourceStartV4330" type="number" min="0" step=".01" value="0"></label>
+        <label>Music source end <input id="musicSourceEndV4330" type="number" min="0" step=".01" value="0"></label>
+        <label>Project start offset <input id="musicProjectOffsetV4330" type="number" min="0" step=".01" value="0"></label>
+        <button type="button" id="resetMusicTrimV4330">Reset music trim</button>
+       </div>
       </div><button class="laneResizeHandleV4250" type="button" aria-label="Resize music lane"></button></article>
       <article data-track="effects"><header><i>✨</i><span>Timed Effects</span><button class="timelineMuteButtonV4240" id="timelineMuteEffectsV4240" type="button" title="Mute or unmute effects">✨</button></header><div class="timelineLaneV4190" id="timelineEffectsLaneV4190"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize effects lane"></button></article>
       <article data-track="camera"><header><i>🎥</i><span>Camera &amp; Motion</span><button class="timelineMuteButtonV4240" id="timelineMuteCameraV4310" type="button" title="Mute camera motion">🎥</button></header><div class="timelineLaneV4190" id="timelineCameraLaneV4310"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize camera lane"></button></article>
@@ -807,9 +825,11 @@
      <article data-tutorial-slide><i>8</i><h3>Audio ducking</h3><p>Enable ducking to lower music automatically during voice or strong source-audio activity. Adjust threshold, amount, attack, and release.</p></article>
      <article data-tutorial-slide><i>9</i><h3>Multicamera editing</h3><p>Use the camera grid or Camera 1–4 buttons during playback. Angle changes can be recorded as timeline cuts, and AI Director can generate them from drops.</p></article>
      <article data-tutorial-slide><i>10</i><h3>Save and continue later</h3><p>Download a settings preset or a full .sosproject file. Portable projects may embed local video and audio but can become very large; settings-only projects require re-linking media after import.</p></article>
-     <article data-tutorial-slide><i>11</i><h3>Render and download</h3><p>Use Render Focus for a cleaner export workspace. Keep hardware acceleration enabled and close unnecessary tabs. The processed canvas, keyframes, camera direction, effects, audio ducking, and layers are included in the render.</p></article>
+     <article data-tutorial-slide><i>11</i><h3>YouTube tools and authorized downloads</h3><p>Use the YouTube search and preview tools to find references, copy a URL, and open the external converter module. Download only videos you own, have permission to use, or whose license allows downloading and editing. Third-party converter sites may contain intrusive advertising; a reputable browser content blocker can reduce pop-ups, but always review the site and never install unexpected software.</p></article>
+     <article data-tutorial-slide><i>12</i><h3>SOS project files</h3><p>Use the SOS Project Files bar beneath the transport controls to save or import .sosproject and .sospreset files. A portable project may embed local media and become very large; a settings-only project requires re-linking the original files.</p></article>
+     <article data-tutorial-slide><i>13</i><h3>Render and download</h3><p>Use Render Focus for a cleaner export workspace. Keep hardware acceleration enabled and close unnecessary tabs. The processed canvas, keyframes, camera direction, effects, audio ducking, and layers are included in the render.</p></article>
     </div>
-    <div class="tutorialActionsV4180"><button class="secondaryButton" id="tutorialPrevV4180" type="button">Previous</button><span id="tutorialCountV4180">1 / 11</span><button class="primaryButton" id="tutorialNextV4180" type="button">Next</button></div>
+    <div class="tutorialActionsV4180"><button class="secondaryButton" id="tutorialPrevV4180" type="button">Previous</button><span id="tutorialCountV4180">1 / 13</span><button class="primaryButton" id="tutorialNextV4180" type="button">Next</button></div>
    </dialog>
 
    <section class="directComposerV4180" id="directComposerV4180">
@@ -1426,7 +1446,7 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.32.0.js?v=4.32.0"></script>
+  <script src="js/direct-video-composer-v4.33.0.js?v=4.33.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.26.0-core.js?v=4.26.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
@@ -1440,6 +1460,21 @@
   <script src="js/producer-focus-text-v4.29.0.js?v=4.29.0"></script>
   <script src="js/producer-range-playhead-v4.32.0.js?v=4.32.0"></script>
   <script src="js/producer-professional-timeline-v4.31.1.js?v=4.31.1"></script>
-  <script src="js/producer-pro-suite-v4.32.1.js?v=4.32.1"></script>
+  <script src="js/producer-pro-suite-v4.33.0.js?v=4.33.0"></script>
+<dialog class="videoSettingsDialogV4330" id="videoSettingsDialogV4330">
+    <header><div><p class="sectionEyebrow">Video detected</p><h3>Choose project sizing</h3></div><button type="button" id="closeVideoSettingsV4330">×</button></header>
+    <div class="videoMetadataV4330">
+     <strong id="videoMetadataTitleV4330">Video information</strong>
+     <p id="videoMetadataDetailsV4330">Resolution and aspect ratio</p>
+    </div>
+    <div class="videoSizingOptionsV4330">
+     <button type="button" data-video-sizing-v4330="match"><strong>Match video settings</strong><small>Use the uploaded video’s native resolution and aspect ratio.</small></button>
+     <button type="button" data-video-sizing-v4330="keep"><strong>Keep project settings</strong><small>Keep the existing output resolution.</small></button>
+     <button type="button" data-video-sizing-v4330="fit"><strong>Fit inside frame</strong><small>Show the whole video with letterboxing when needed.</small></button>
+     <button type="button" data-video-sizing-v4330="fill"><strong>Fill and crop</strong><small>Fill the output frame while cropping excess edges.</small></button>
+     <button type="button" data-video-sizing-v4330="stretch"><strong>Stretch to frame</strong><small>Force the video to fill the output dimensions.</small></button>
+    </div>
+   </dialog>
+  <script src="js/producer-media-precision-v4.33.0.js?v=4.33.0"></script>
 </body>
 </html>

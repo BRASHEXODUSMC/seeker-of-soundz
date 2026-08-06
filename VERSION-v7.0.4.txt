@@ -1,0 +1,14 @@
+Seeker Of SoundZ v7.0.4
+PRODUCER HUB — GITHUB READY RELEASE
+
+This release preserves the working v7.0.3 editor code and updates the public
+release version for GitHub Pages deployment.
+
+Deployment:
+1. Extract this ZIP.
+2. Copy the extracted files into the root of your GitHub repository.
+3. Commit the changes.
+4. Push to the branch used by GitHub Pages.
+5. Wait for deployment and hard-refresh with Ctrl+F5.
+
+No Supabase update is required.

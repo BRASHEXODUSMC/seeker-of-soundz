@@ -1,0 +1,30 @@
+/* Seeker Of SoundZ v4.32.1 — GPU cache label cleanup */
+#gpuTimelineToggleV4320{
+  width:34px!important;
+  min-width:34px!important;
+  height:30px!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  border-color:rgba(124,236,177,.2)!important;
+  color:#7cecb1!important;
+  background:rgba(47,156,103,.06)!important;
+}
+#gpuTimelineToggleV4320 span{
+  display:block;
+  line-height:1;
+  font-size:.72rem;
+}
+#gpuTimelineToggleV4320:not(.isActive){
+  color:#8d828f!important;
+  border-color:rgba(255,255,255,.08)!important;
+  background:rgba(255,255,255,.012)!important;
+  opacity:.72;
+}
+#gpuTimelineStatusV4320{
+  color:#7cecb1!important;
+  font-size:.5rem!important;
+  white-space:nowrap!important;
+  text-transform:none!important;
+}

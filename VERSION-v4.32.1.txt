@@ -1,0 +1,11 @@
+Seeker Of SoundZ v4.32.1
+PRODUCER HUB 6.0.1 — GPU CACHE LABEL FIX
+
+- Removed the duplicate white “GPU Cache ON/OFF” text.
+- Kept the green live cache status text.
+- Replaced the toggle label with a compact lightning icon.
+- GPU cache toggle behavior remains unchanged.
+- Added aria-label and aria-pressed accessibility state.
+- Timeline, Pro Suite, rendering, project save, and tutorial remain unchanged.
+
+No Supabase update is required.

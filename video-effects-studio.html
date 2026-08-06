@@ -108,6 +108,7 @@
   <link rel="stylesheet" href="css/v4.31.0-professional-timeline.css?v=4.31.0">
   <link rel="stylesheet" href="css/v4.31.1-range-trim-fix.css?v=4.31.1">
   <link rel="stylesheet" href="css/v4.32.0-pro-suite.css?v=4.32.0">
+  <link rel="stylesheet" href="css/v4.32.1-gpu-cache-label-fix.css?v=4.32.1">
 </head>
  <body>
   <div id="loader">
@@ -196,7 +197,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 6.0</p>
+      <p class="sectionEyebrow">Producer Hub 6.0.1</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -544,7 +545,7 @@
        <input id="timelineZoomV4190" type="range" min="1" max="8" step=".25" value="1">
        <button type="button" id="timelineZoomInV4190">+</button>
        <span id="timelineZoomLabelV4250">100%</span>
-       <button type="button" id="gpuTimelineToggleV4320" class="isActive" title="Cache timeline thumbnails and effect previews">GPU Cache ON</button>
+       <button type="button" id="gpuTimelineToggleV4320" class="isActive" title="Toggle GPU timeline cache" aria-label="Toggle GPU timeline cache"><span aria-hidden="true">⚡</span></button>
        <span id="gpuTimelineStatusV4320">Ready</span>
       </div>
      </header>
@@ -1439,6 +1440,6 @@
   <script src="js/producer-focus-text-v4.29.0.js?v=4.29.0"></script>
   <script src="js/producer-range-playhead-v4.32.0.js?v=4.32.0"></script>
   <script src="js/producer-professional-timeline-v4.31.1.js?v=4.31.1"></script>
-  <script src="js/producer-pro-suite-v4.32.0.js?v=4.32.0"></script>
+  <script src="js/producer-pro-suite-v4.32.1.js?v=4.32.1"></script>
 </body>
 </html>

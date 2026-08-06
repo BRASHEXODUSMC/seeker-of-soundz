@@ -1,0 +1,23 @@
+Seeker Of SoundZ v4.31.1
+PRODUCER HUB 5.6.1 — RANGE PLACEMENT & TRIM FIX
+
+Range placement:
+- Timed Effects, Auto-Sync, Cut & Edit, and Professional tools now sit outside
+  the scrolling timeline viewport
+- Project Start/End range sits beneath those controls and directly above tracks
+- Playhead begins at the track area and does not cross editor controls
+- Range handles use the exact visible range rectangle
+- Removed duplicate legacy range-drag listeners
+
+Clip trimming:
+- Left and right trim handles receive reliable pointer input
+- Trim movement uses the exact visible timeline width
+- Normal and Ripple modes trim freely
+- Magnetic mode snaps to other clip edges and beat markers
+- The clip's own current edge is excluded from snap candidates
+- Source start/end values update correctly
+- Trimmed clip reloads from its new source start
+- Status reports the new clip duration
+- Undo remains supported
+
+No Supabase update is required.

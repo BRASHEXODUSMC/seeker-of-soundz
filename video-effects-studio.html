@@ -106,6 +106,7 @@
   <link rel="stylesheet" href="css/v4.29.0-render-preview-performance-text.css?v=4.29.0">
   <link rel="stylesheet" href="css/v4.30.0-playback-range-bassdrop.css?v=4.30.0">
   <link rel="stylesheet" href="css/v4.31.0-professional-timeline.css?v=4.31.0">
+  <link rel="stylesheet" href="css/v4.31.1-range-trim-fix.css?v=4.31.1">
 </head>
  <body>
   <div id="loader">
@@ -194,7 +195,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 5.6</p>
+      <p class="sectionEyebrow">Producer Hub 5.6.1</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -577,9 +578,7 @@
        <span id="timelineZoomLabelV4250">100%</span>
       </div>
      </header>
-     <div class="timelineViewportV4250" id="timelineViewportV4250">
-     <div class="timelineContentV4250" id="timelineContentV4250">
-     <div class="timelineRulerV4190" id="timelineRulerV4190"></div>
+     <div class="timelineControlStackV4311" id="timelineControlStackV4311">
      <section class="timelineEffectEditorV4240">
       <div><strong>Timed Effects</strong><small>Start and stop individual effects at exact timeline positions.</small></div>
       <div class="timelineEffectControlsV4240">
@@ -638,13 +637,8 @@
       </div>
       <p id="timelineEditStatusV4220">Move the playhead, mark a start and end, then ripple-delete the section so the following video closes the gap.</p>
       <p class="timelineRazorHintV4270"><kbd>Shift</kbd> + <kbd>K</kbd> splits the video or music exactly where your pointer is hovering. Hover a new split boundary to delete its left or right side.</p>
-     </section><div class="timelineProjectRangeV4300" id="timelineProjectRangeV4300">
-      <div class="timelineRangeShadeV4300 isBefore" id="timelineRangeShadeBeforeV4300"></div>
-      <div class="timelineRangeSelectionV4300" id="timelineRangeSelectionV4300"></div>
-      <div class="timelineRangeShadeV4300 isAfter" id="timelineRangeShadeAfterV4300"></div>
-      <button class="timelineRangeHandleV4300 isStart" id="timelineStartHandleV4300" type="button" aria-label="Drag project start"><i></i><span id="timelineStartLabelV4300">Start 00:00.00</span></button>
-      <button class="timelineRangeHandleV4300 isEnd" id="timelineEndHandleV4300" type="button" aria-label="Drag project end"><i></i><span id="timelineEndLabelV4300">End 00:00.00</span></button>
-     </div><section class="timelineProfessionalToolbarV4310">
+     </section>
+     <section class="timelineProfessionalToolbarV4310">
       <div class="timelineEditModesV4310">
        <strong>Edit Mode</strong>
        <button type="button" class="isActive" data-edit-mode-v4310="normal">Normal</button>
@@ -659,6 +653,20 @@
       </div>
       <p id="timelineProfessionalStatusV4310">Select clips, drag trim handles, or choose Razor and click a clip to split it.</p>
      </section>
+    </div>
+    <div class="timelineViewportV4250" id="timelineViewportV4250">
+     <div class="timelineContentV4250" id="timelineContentV4250">
+     <div class="timelineRulerV4190" id="timelineRulerV4190"></div>
+     <div class="timelineProjectRangeV4300" id="timelineProjectRangeV4300">
+      <div class="timelineRangeShadeV4300 isBefore" id="timelineRangeShadeBeforeV4300"></div>
+      <div class="timelineRangeSelectionV4300" id="timelineRangeSelectionV4300"></div>
+      <div class="timelineRangeShadeV4300 isAfter" id="timelineRangeShadeAfterV4300"></div>
+      <button class="timelineRangeHandleV4300 isStart" id="timelineStartHandleV4300" type="button" aria-label="Drag project start"><i></i><span id="timelineStartLabelV4300">Start 00:00.00</span></button>
+      <button class="timelineRangeHandleV4300 isEnd" id="timelineEndHandleV4300" type="button" aria-label="Drag project end"><i></i><span id="timelineEndLabelV4300">End 00:00.00</span></button>
+     </div>
+     
+     
+     
      <div class="timelineTracksV4190" id="timelineTracksV4190">
       <article data-track="video"><header><i>🎬</i><span>Video Clips</span><button class="timelineMuteButtonV4240" id="timelineMuteVideosV4240" type="button" title="Mute or unmute all video clips">🔊</button></header><div class="timelineLaneV4190 timelineVideoLaneV4240" id="timelineVideoLaneV4240"><div class="timelineClipV4190 videoClipV4190" id="timelineVideoClipV4190">Video 1</div></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize video lanes"></button></article>
       <article data-track="music"><header><i>🎵</i><span>Music</span><button class="timelineMuteButtonV4240" id="timelineMuteMusicV4240" type="button" title="Mute or unmute music">🔊</button></header><div class="timelineLaneV4190 timelineMusicLaneV4270" id="timelineMusicLaneV4270">
@@ -747,6 +755,7 @@
      <article data-tutorial-slide><i>↔</i><h3>Clip trimming handles</h3><p>Select a clip, then drag its left or right edge to trim source footage without deleting the uploaded file. Undo restores the earlier trim.</p></article>
      <article data-tutorial-slide><i>✨</i><h3>Move effect blocks</h3><p>Drag timed effect blocks along the Effects lane. Magnetic mode snaps them near detected beats and clip edges.</p></article>
      <article data-tutorial-slide><i>🎥</i><h3>Camera and beat lanes</h3><p>Auto-Sync camera moves now appear in their own lane. Beat markers are classified as Kick, Snare, Bass, Hat, or Drop to make the generated edit easier to understand.</p></article>
+     <article data-tutorial-slide><i>↔</i><h3>Range and trim controls fixed</h3><p>The project Start/End range now sits below Timed Effects, Auto-Sync, Cut & Edit, and the professional toolbar. Drag clip-edge handles to change the true source start or source end; trimming updates after release and remains undoable.</p></article>
      <article data-tutorial-slide><i>⬇</i><h3>Render and download</h3><p>Open Export and select Build Finished Video. The browser records the processed canvas with the uploaded soundtrack.</p></article>
      <article data-tutorial-slide><i>🖥️</i><h3>Optional screen capture</h3><p>Capture is separate and optional. Chrome or Edge is recommended for tab audio. Firefox can capture screens, but audio availability varies by operating system and source.</p></article>
     </div>
@@ -1374,12 +1383,12 @@
   <script src="js/producer-hub-v4.19.9.js?v=4.19.9"></script>
   <script src="js/producer-hub-v4.26.0.js?v=4.26.0"></script>
   <script src="js/producer-layer-editor-v4.23.1.js?v=4.23.1"></script>
-  <script src="js/producer-multiclip-effects-v4.31.0.js?v=4.31.0"></script>
+  <script src="js/producer-multiclip-effects-v4.31.1.js?v=4.31.1"></script>
   <script src="js/producer-pro-timeline-v4.30.0.js?v=4.30.0"></script>
   <script src="js/producer-beat-analysis-v4.28.0.js?v=4.28.0"></script>
   <script src="js/producer-razor-tool-v4.27.0.js?v=4.27.0"></script>
   <script src="js/producer-focus-text-v4.29.0.js?v=4.29.0"></script>
-  <script src="js/producer-range-playhead-v4.30.0.js?v=4.30.0"></script>
-  <script src="js/producer-professional-timeline-v4.31.0.js?v=4.31.0"></script>
+  <script src="js/producer-range-playhead-v4.31.1.js?v=4.31.1"></script>
+  <script src="js/producer-professional-timeline-v4.31.1.js?v=4.31.1"></script>
 </body>
 </html>

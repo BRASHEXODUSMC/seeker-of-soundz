@@ -114,6 +114,7 @@
   <link rel="stylesheet" href="css/v4.33.2-clickable-buttons-version-fix.css?v=4.33.2">
   <link rel="stylesheet" href="css/v4.34.0-range-playback-safe-save.css?v=4.34.0">
   <link rel="stylesheet" href="css/v4.35.0-direct-range-sliders.css?v=4.35.0">
+  <link rel="stylesheet" href="css/v7.0.0-professional-suite.css?v=7.0.0">
 </head>
  <body>
   <div id="loader">
@@ -202,7 +203,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 6.3</p>
+      <p class="sectionEyebrow">Producer Hub 7.0</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -712,7 +713,7 @@
        <button type="button" class="isActive" data-inspector-tab="video">Video</button>
        <button type="button" data-inspector-tab="audio">Audio</button>
        <button type="button" data-inspector-tab="effects">Effects</button>
-       <button type="button" data-inspector-tab="pro">Pro Suite</button><button type="button" data-inspector-tab="export">Export</button>
+       <button type="button" data-inspector-tab="pro">Pro Suite</button><button type="button" data-inspector-tab="studio7">Studio+</button><button type="button" data-inspector-tab="export">Export</button>
       </div>
       <section class="inspectorPanelV4190 isActive" data-inspector-panel="video">
        <label>Start time<input id="inspectorStartV4190" type="number" min="0" step=".01" value="0"></label>
@@ -786,6 +787,111 @@
         <p id="projectStatusV4320">Project save captures timeline, selected effects, keyframes, curves, camera direction, ducking, and multicamera cuts.</p>
        </section>
       </section>
+      <section class="inspectorPanelV4190 studioPlusV700" data-inspector-panel="studio7">
+       <div class="studioPlusTabsV700">
+        <button type="button" class="isActive" data-studio7-tab="tracks">Tracks</button>
+        <button type="button" data-studio7-tab="visual">Visual</button>
+        <button type="button" data-studio7-tab="audio">Audio</button>
+        <button type="button" data-studio7-tab="analysis">Analyze</button>
+        <button type="button" data-studio7-tab="performance">Performance</button>
+        <button type="button" data-studio7-tab="assets">Assets</button>
+        <button type="button" data-studio7-tab="export">Export</button>
+        <button type="button" data-studio7-tab="plugins">Plugins</button>
+       </div>
+
+       <section class="studioPlusPanelV700 isActive" data-studio7-panel="tracks">
+        <h4>Professional Track Controls</h4>
+        <div id="studioTrackListV700"></div>
+        <div class="studioButtonGridV700">
+         <button type="button" id="createCompoundClipV700">Create Compound Clip</button>
+         <button type="button" id="createNestedSequenceV700">Create Nested Sequence</button>
+         <button type="button" id="addAdjustmentLayerV700">Add Adjustment Layer</button>
+         <button type="button" id="colorSelectedClipV700">Color Selected Clip</button>
+        </div>
+        <label>Clip color<select id="clipColorV700"><option value="purple">Purple</option><option value="blue">Blue</option><option value="green">Green</option><option value="orange">Orange</option><option value="red">Red</option><option value="yellow">Yellow</option></select></label>
+        <p id="trackToolsStatusV700">Lock, mute, solo, color, compound, and nested-sequence controls are project-local.</p>
+       </section>
+
+       <section class="studioPlusPanelV700" data-studio7-panel="visual">
+        <h4>Color, Compositing &amp; Masks</h4>
+        <label>Blend mode<select id="studioBlendModeV700"><option value="source-over">Normal</option><option value="screen">Screen</option><option value="multiply">Multiply</option><option value="overlay">Overlay</option><option value="soft-light">Soft Light</option><option value="hard-light">Hard Light</option><option value="difference">Difference</option><option value="lighten">Lighten</option><option value="darken">Darken</option><option value="color-dodge">Color Dodge</option><option value="color-burn">Color Burn</option></select></label>
+        <label>Exposure<input id="studioExposureV700" type="range" min=".4" max="1.8" step=".02" value="1"></label>
+        <label>Contrast<input id="studioContrastV700" type="range" min=".4" max="2" step=".02" value="1"></label>
+        <label>Saturation<input id="studioSaturationV700" type="range" min="0" max="2.5" step=".02" value="1"></label>
+        <label>Hue<input id="studioHueV700" type="range" min="-180" max="180" step="1" value="0"></label>
+        <label>Blur<input id="studioBlurV700" type="range" min="0" max="24" step=".2" value="0"></label>
+        <label>Vignette<input id="studioVignetteV700" type="range" min="0" max="1" step=".02" value="0"></label>
+        <label class="checkLine"><input id="studioMotionBlurV700" type="checkbox"> Velocity motion blur</label>
+        <label>Mask<select id="studioMaskV700"><option value="none">None</option><option value="circle">Circle</option><option value="rectangle">Rectangle</option><option value="cinema">Cinema crop</option><option value="spotlight">Spotlight</option></select></label>
+        <label class="checkLine"><input id="studioChromaEnabledV700" type="checkbox"> Chroma-key preview</label>
+        <label>Key color<input id="studioChromaColorV700" type="color" value="#00ff00"></label>
+        <label>Key tolerance<input id="studioChromaToleranceV700" type="range" min="0" max="1" step=".01" value=".28"></label>
+        <label>LUT / look file<input id="studioLutFileV700" type="file" accept=".cube,.3dl,.look,.json"></label>
+        <p id="studioVisualStatusV700">Adjustment values update preview and final canvas rendering.</p>
+       </section>
+
+       <section class="studioPlusPanelV700" data-studio7-panel="audio">
+        <h4>Professional Audio Suite</h4>
+        <label>Bass EQ<input id="studioBassV700" type="range" min="-12" max="12" step=".5" value="0"></label>
+        <label>Mid EQ<input id="studioMidV700" type="range" min="-12" max="12" step=".5" value="0"></label>
+        <label>Treble EQ<input id="studioTrebleV700" type="range" min="-12" max="12" step=".5" value="0"></label>
+        <label>Compressor<input id="studioCompressorV700" type="range" min="0" max="1" step=".02" value=".2"></label>
+        <label>Limiter<input id="studioLimiterV700" type="range" min=".3" max="1" step=".01" value=".95"></label>
+        <label>Stereo width<input id="studioWidthV700" type="range" min="0" max="2" step=".02" value="1"></label>
+        <label>Reverb<input id="studioReverbV700" type="range" min="0" max="1" step=".02" value="0"></label>
+        <label>Delay<input id="studioDelayV700" type="range" min="0" max="1" step=".02" value="0"></label>
+        <label class="checkLine"><input id="studioNoiseReductionV700" type="checkbox"> Noise reduction</label>
+        <label class="checkLine"><input id="studioVoiceIsolationV700" type="checkbox"> Voice clarity</label>
+        <button type="button" id="studioAnalyzeAudioV700">Analyze BPM &amp; song structure</button>
+        <div id="studioAudioAnalysisV700"><p>No structure analysis yet.</p></div>
+       </section>
+
+       <section class="studioPlusPanelV700" data-studio7-panel="analysis">
+        <h4>Smart Analysis</h4>
+        <button type="button" id="studioSceneDetectV700">Detect Scene Changes</button>
+        <button type="button" id="studioStructureDetectV700">Detect Intro / Build / Drop / Outro</button>
+        <button type="button" id="studioSmartEffectsV700">Generate Smart Effect Plan</button>
+        <button type="button" id="studioTrackingFoundationV700">Create Tracking Marker</button>
+        <div id="studioAnalysisResultsV700"><p>Run an analysis to create editable markers.</p></div>
+        <small>Object and subject tracking use a browser-safe marker workflow. Full neural subject segmentation is not bundled into this static GitHub build.</small>
+       </section>
+
+       <section class="studioPlusPanelV700" data-studio7-panel="performance">
+        <h4>Performance &amp; Recovery</h4>
+        <label class="checkLine"><input id="studioProxyModeV700" type="checkbox"> Proxy preview mode</label>
+        <label>Proxy quality<select id="studioProxyQualityV700"><option value=".5">Half resolution</option><option value=".25">Quarter resolution</option><option value=".75">Three-quarter resolution</option></select></label>
+        <label class="checkLine"><input id="studioBackgroundCacheV700" type="checkbox" checked> Background timeline cache</label>
+        <label class="checkLine"><input id="studioAutosaveV700" type="checkbox" checked> Recovery autosave every 30 seconds</label>
+        <button type="button" id="studioSaveRecoveryV700">Save Recovery Point</button>
+        <button type="button" id="studioRestoreRecoveryV700">Restore Recovery Point</button>
+        <button type="button" id="studioClearRecoveryV700">Clear Recovery Data</button>
+        <div id="studioPerformanceStatusV700">Performance tools are ready.</div>
+       </section>
+
+       <section class="studioPlusPanelV700" data-studio7-panel="assets">
+        <h4>Asset Manager</h4>
+        <label class="studioAssetDropV700">Import assets<input id="studioAssetInputV700" type="file" multiple accept="video/*,audio/*,image/*,.cube,.3dl,.look"></label>
+        <label>Collection<input id="studioAssetCollectionV700" type="text" value="Favorites"></label>
+        <div id="studioAssetLibraryV700"><p>No Studio+ assets yet.</p></div>
+        <button type="button" id="studioClearAssetsV700">Clear Asset Library</button>
+       </section>
+
+       <section class="studioPlusPanelV700" data-studio7-panel="export">
+        <h4>Export Studio</h4>
+        <label>Platform preset<select id="studioExportPresetV700"><option value="youtube-1080">YouTube 1080p</option><option value="youtube-4k">YouTube 4K</option><option value="tiktok">TikTok / Reels 1080×1920</option><option value="instagram-square">Instagram Square 1080×1080</option><option value="spotify-canvas">Spotify Canvas 1080×1920</option><option value="discord">Discord Compact</option><option value="lossless">Lossless Master</option><option value="audio">Audio Only</option><option value="gif">Animated GIF plan</option><option value="png-sequence">PNG Sequence plan</option></select></label>
+        <button type="button" id="studioApplyExportPresetV700">Apply Export Preset</button>
+        <button type="button" id="studioAddRenderQueueV700">Add Current Project to Render Queue</button>
+        <div id="studioExportStatusV700">Choose a preset to configure the existing renderer.</div>
+       </section>
+
+       <section class="studioPlusPanelV700" data-studio7-panel="plugins">
+        <h4>Plugin SDK</h4>
+        <label>Install local plugin manifest<input id="studioPluginInputV700" type="file" accept=".json,application/json"></label>
+        <button type="button" id="studioExportPluginTemplateV700">Download Plugin Template</button>
+        <div id="studioPluginListV700"><p>No local plugins installed.</p></div>
+        <small>Plugins are local JSON manifests and cannot access secret keys. Collaboration features are intentionally excluded.</small>
+       </section>
+      </section>
       <section class="inspectorPanelV4190" data-inspector-panel="export">
        <label>Format<select id="inspectorFormatV4190"><option value="auto">Best supported</option><option value="video/webm;codecs=vp9,opus">WEBM VP9</option><option value="video/webm;codecs=vp8,opus">WEBM VP8</option><option value="video/mp4">MP4 when supported</option></select></label>
        <label>Quality<select id="inspectorQualityV4190"><option value="standard">Standard</option><option value="high" selected>High</option><option value="maximum">Maximum</option></select></label>
@@ -804,8 +910,8 @@
 
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
-     <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 6.3 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 6.3 direct video and music range sliders, native video sizing, music trimming, AI Camera Director, GPU timeline cache, keyframes, curves, multicamera tools, SOS project files, YouTube tools, and rendering.</small></span></button>
+     <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 7.0 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 7.0 professional timeline, color, audio, analysis, performance, assets, export, and plugin tools, native video sizing, music trimming, AI Camera Director, GPU timeline cache, keyframes, curves, multicamera tools, SOS project files, YouTube tools, and rendering.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -854,9 +960,10 @@
      <article data-tutorial-slide><i>10</i><h3>Save and continue later</h3><p>Download a settings preset or a full .sosproject file. Portable projects may embed local video and audio but can become very large; settings-only projects require re-linking media after import.</p></article>
      <article data-tutorial-slide><i>11</i><h3>YouTube tools and authorized downloads</h3><p>Use the YouTube search and preview tools to find references, copy a URL, and open the external converter module. Download only videos you own, have permission to use, or whose license allows downloading and editing. Third-party converter sites may contain intrusive advertising; a reputable browser content blocker can reduce pop-ups, but always review the site and never install unexpected software.</p></article>
      <article data-tutorial-slide><i>12</i><h3>Safe SOS project files</h3><p>Use the SOS Project Files bar beneath the transport controls to save or import .sosproject and .sospreset files. Settings-only saves are lightweight and safest. Portable media is embedded only when the selected files fit the browser’s memory-safe limit; otherwise Producer Hub automatically downloads a settings-only project and asks you to re-link the original media later.</p></article>
-     <article data-tutorial-slide><i>13</i><h3>Render and download</h3><p>Use Render Focus for a cleaner export workspace. Keep hardware acceleration enabled and close unnecessary tabs. The processed canvas, keyframes, camera direction, effects, audio ducking, and layers are included in the render.</p></article>
+     <article data-tutorial-slide><i>13</i><h3>Studio+ professional tools</h3><p>Open Inspector → Studio+ for track locks and solo, compound and nested sequences, adjustment layers, blend modes, color controls, masks, audio processing, scene and song analysis, proxy mode, recovery autosave, asset collections, export presets, and local plugin manifests. Collaboration is intentionally excluded.</p></article>
+     <article data-tutorial-slide><i>14</i><h3>Render and download</h3><p>Use Render Focus for a cleaner export workspace. Keep hardware acceleration enabled and close unnecessary tabs. The processed canvas, keyframes, camera direction, effects, audio ducking, and layers are included in the render.</p></article>
     </div>
-    <div class="tutorialActionsV4180"><button class="secondaryButton" id="tutorialPrevV4180" type="button">Previous</button><span id="tutorialCountV4180">1 / 13</span><button class="primaryButton" id="tutorialNextV4180" type="button">Next</button></div>
+    <div class="tutorialActionsV4180"><button class="secondaryButton" id="tutorialPrevV4180" type="button">Previous</button><span id="tutorialCountV4180">1 / 14</span><button class="primaryButton" id="tutorialNextV4180" type="button">Next</button></div>
    </dialog>
 
    <section class="directComposerV4180" id="directComposerV4180">
@@ -1473,7 +1580,7 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.34.0.js?v=4.34.0"></script>
+  <script src="js/direct-video-composer-v7.0.0.js?v=7.0.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.26.0-core.js?v=4.26.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
@@ -1503,5 +1610,6 @@
     </div>
    </dialog>
   <script src="js/producer-media-precision-v4.35.0.js?v=4.35.0"></script>
+  <script src="js/producer-professional-suite-v7.0.0.js?v=7.0.0"></script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+Seeker Of SoundZ v7.0.0 — Producer Hub Professional Suite
+
+Added without collaboration:
+- Track lock, mute, solo, colors
+- Compound clips, nested sequences, adjustment-layer records
+- Blend modes, exposure, contrast, saturation, hue, blur, vignette, masks
+- LUT/look file registration and motion-blur option
+- Audio EQ controls, compressor, limiter, width, reverb, delay, noise reduction, voice clarity
+- BPM/song-structure summary, scene markers, smart effect plan, tracking markers
+- Proxy preview, timeline cache, 30-second recovery autosave
+- Asset collections and favorites-style local library
+- Export presets and render-queue connection
+- Local JSON plugin manifest SDK and template
+- Existing keyframes, curves, AI Camera Director, multicamera, trim sliders,
+  Auto-Sync, effects, rendering, project files, YouTube tools, and tutorial preserved
+
+Important:
+- Browser-safe static GitHub architecture is preserved.
+- Full neural object segmentation and native desktop codec/plugin execution are not bundled.
+- No Supabase update is required.

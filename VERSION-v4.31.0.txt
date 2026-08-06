@@ -1,0 +1,17 @@
+Seeker Of SoundZ v4.31.0
+PRODUCER HUB 5.6 — PROFESSIONAL TIMELINE
+
+- Project Start/End range moved below Cut & Edit
+- Range handles use the exact visible range rectangle under the pointer
+- Normal, Ripple, and Magnetic edit modes
+- Select, Razor, Trim, and Snap tools
+- Click-selectable video clips
+- Draggable left/right clip trim handles
+- Existing source files remain unchanged
+- Timed effect blocks can be dragged on the Effects lane
+- Dedicated Camera & Motion timeline lane
+- Beat classifications: Kick, Snare, Bass, Hat, Drop
+- Existing Auto-Sync camera, bass distortion, particles, VFX, razor,
+  ripple cuts, rendering, text layers, waveforms, and YouTube tools preserved
+
+No Supabase update is required.

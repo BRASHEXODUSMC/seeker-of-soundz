@@ -1,0 +1,194 @@
+/* Seeker Of SoundZ v4.31.0 — professional timeline */
+
+/* Range module now lives below Cut & Edit and never overlays Timed Effects/Auto-Sync. */
+.timelineProjectRangeV4300{
+  position:relative!important;
+  top:auto!important;
+  z-index:18!important;
+  margin:10px 8px 8px!important;
+  width:calc(100% - 16px)!important;
+  box-sizing:border-box!important;
+  border:1px solid rgba(203,159,255,.09)!important;
+  border-radius:11px!important;
+  overflow:visible!important;
+}
+.timelineProjectRangeV4300::before{
+  content:"Project In / Out Range";
+  position:absolute;
+  left:10px;
+  top:-17px;
+  padding:2px 6px;
+  border:1px solid rgba(203,159,255,.08);
+  border-radius:6px;
+  background:#0a0710;
+  color:#9f93a4;
+  font-size:.48rem;
+}
+.timelinePlayheadV4190{
+  top:0!important;
+  z-index:60!important;
+}
+.timelineRangeHandleV4300{
+  touch-action:none!important;
+}
+
+/* Professional toolbar */
+.timelineProfessionalToolbarV4310{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:8px;
+  margin:8px;
+  padding:9px;
+  border:1px solid rgba(109,237,176,.1);
+  border-radius:12px;
+  background:linear-gradient(135deg,rgba(46,145,99,.035),rgba(121,55,164,.035));
+}
+.timelineEditModesV4310,
+.timelineProfessionalActionsV4310{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  align-items:center;
+}
+.timelineEditModesV4310 strong{
+  margin-right:4px;
+  color:#ddd1e3;
+  font-size:.57rem;
+}
+.timelineProfessionalToolbarV4310 button{
+  min-width:0!important;
+  margin:0!important;
+  padding:7px 10px!important;
+  border:1px solid rgba(202,158,255,.1)!important;
+  border-radius:8px!important;
+  background:rgba(255,255,255,.014)!important;
+  color:#cfc2d6!important;
+}
+.timelineProfessionalToolbarV4310 button.isActive{
+  border-color:rgba(101,238,174,.35)!important;
+  background:rgba(48,164,105,.08)!important;
+  color:#8df2bb!important;
+  box-shadow:0 0 12px rgba(75,206,142,.08)!important;
+}
+#timelineProfessionalStatusV4310{
+  grid-column:1/-1;
+  margin:0;
+  color:#918796;
+  font-size:.54rem;
+}
+
+/* Selected clips and true trim handles */
+.timelineVideoSegmentV4240{
+  outline:0 solid transparent;
+  transition:outline-color .14s ease,box-shadow .14s ease,filter .14s ease;
+}
+.timelineVideoSegmentV4240.isSelectedV4310{
+  outline:2px solid rgba(101,239,173,.8)!important;
+  box-shadow:0 0 0 3px rgba(101,239,173,.1),0 0 18px rgba(101,239,173,.18)!important;
+}
+.clipTrimHandleV4310{
+  position:absolute;
+  z-index:12;
+  top:2px;
+  bottom:2px;
+  width:10px;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:4px;
+  background:linear-gradient(180deg,#f2e7fa,#8d56ae);
+  cursor:ew-resize!important;
+  opacity:.22;
+  transition:opacity .14s ease,width .14s ease;
+}
+.clipTrimHandleV4310.isLeft{left:2px}
+.clipTrimHandleV4310.isRight{right:2px}
+.timelineVideoSegmentV4240:hover .clipTrimHandleV4310,
+.timelineVideoSegmentV4240.isSelectedV4310 .clipTrimHandleV4310{
+  opacity:1;
+  width:12px;
+}
+.timelineVideoSegmentV4240.isTrimmingV4310{
+  filter:brightness(1.18);
+  box-shadow:0 0 20px rgba(205,143,255,.24)!important;
+}
+.timelineContentV4250[data-timeline-tool="razor"] .timelineVideoSegmentV4240{
+  cursor:crosshair!important;
+}
+.timelineContentV4250[data-timeline-tool="trim"] .timelineVideoSegmentV4240{
+  cursor:ew-resize!important;
+}
+
+/* Camera lane */
+#timelineCameraLaneV4310{
+  position:relative!important;
+  min-height:48px!important;
+  overflow:hidden!important;
+  background:linear-gradient(180deg,rgba(56,174,117,.025),transparent)!important;
+}
+.cameraRegionV4310{
+  position:absolute;
+  top:5px;
+  bottom:5px;
+  min-width:4px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border:1px solid rgba(88,226,165,.28);
+  border-radius:6px;
+  background:linear-gradient(135deg,rgba(39,154,104,.28),rgba(66,46,113,.32));
+  color:#b9f4d8;
+  font-size:.43rem;
+  white-space:nowrap;
+}
+.cameraRegionV4310.isDrop{
+  border-color:rgba(255,133,71,.38);
+  background:linear-gradient(135deg,rgba(190,65,27,.3),rgba(78,32,92,.34));
+  color:#ffd0b6;
+}
+
+/* Beat classification */
+#timelineMarkerLaneV4190 [data-beat-type]::after{
+  content:attr(data-beat-type);
+  position:absolute;
+  top:2px;
+  left:50%;
+  transform:translateX(-50%) rotate(-90deg);
+  transform-origin:center;
+  color:#9e90a3;
+  font-size:.38rem;
+  letter-spacing:.04em;
+}
+#timelineMarkerLaneV4190 [data-beat-type="DROP"]::after{color:#75efb2;font-weight:800}
+#timelineMarkerLaneV4190 [data-beat-type="KICK"]::after{color:#d28cff}
+#timelineMarkerLaneV4190 [data-beat-type="SNARE"]::after{color:#75bfff}
+#timelineMarkerLaneV4190 [data-beat-type="BASS"]::after{color:#ff9b67}
+
+/* Draggable effect blocks */
+.timedEffectRegionV4240{
+  cursor:grab!important;
+}
+.timedEffectRegionV4240:active{
+  cursor:grabbing!important;
+}
+.timedEffectRegionV4240:hover{
+  z-index:18!important;
+  filter:brightness(1.14);
+  box-shadow:0 0 14px rgba(176,95,230,.22);
+}
+
+/* Keep controls separated and timeline readable */
+.timelineEffectEditorV4240,
+.autoSyncMotionPanelV4250,
+.timelineEditToolbarV4220,
+.timelineProfessionalToolbarV4310,
+.timelineProjectRangeV4300{
+  clear:both!important;
+}
+.timelineTracksV4190{
+  margin-top:12px!important;
+}
+.timelineTracksV4190 article{
+  border-bottom:1px solid rgba(255,255,255,.045)!important;
+}
+@media(max-width:800px){
+  .timelineProfessionalToolbarV4310{grid-template-columns:1fr}
+}

@@ -113,6 +113,7 @@
   <link rel="stylesheet" href="css/v4.33.1-dialog-buttons-editmode-fix.css?v=4.33.1">
   <link rel="stylesheet" href="css/v4.33.2-clickable-buttons-version-fix.css?v=4.33.2">
   <link rel="stylesheet" href="css/v4.34.0-range-playback-safe-save.css?v=4.34.0">
+  <link rel="stylesheet" href="css/v4.35.0-direct-range-sliders.css?v=4.35.0">
 </head>
  <body>
   <div id="loader">
@@ -201,7 +202,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 6.2</p>
+      <p class="sectionEyebrow">Producer Hub 6.3</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -584,11 +585,31 @@
         <div class="musicTrimSelectionV4330" id="musicTrimSelectionV4330"></div>
         <button type="button" class="musicTrimHandleV4330 isEnd" id="musicTrimEndV4330" aria-label="Trim music end"></button>
        </div>
-       <div class="musicTrimControlsV4330">
-        <label>Music source start <input id="musicSourceStartV4330" type="number" min="0" step=".01" value="0"></label>
-        <label>Music source end <input id="musicSourceEndV4330" type="number" min="0" step=".01" value="0"></label>
-        <label>Project start offset <input id="musicProjectOffsetV4330" type="number" min="0" step=".01" value="0"></label>
-        <button type="button" id="resetMusicTrimV4330">Reset music trim</button>
+       <div class="musicRangeUtilityV4350" id="musicRangeUtilityV4350">
+        <label>Music offset
+         <select id="musicOffsetPresetV4350">
+          <option value="0">Start at project beginning</option>
+          <option value="1">Start after 1 second</option>
+          <option value="2">Start after 2 seconds</option>
+          <option value="5">Start after 5 seconds</option>
+          <option value="10">Start after 10 seconds</option>
+          <option value="custom">Custom offset…</option>
+         </select>
+        </label>
+        <label class="musicCustomOffsetV4350" id="musicCustomOffsetWrapV4350" hidden>Custom seconds
+         <input id="musicCustomOffsetV4350" type="number" min="0" step=".01" value="0">
+        </label>
+        <button type="button" id="previewMusicRangeV4350">▶ Preview range</button><button type="button" id="resetMusicTrimV4330">Reset range</button>
+       </div>
+       <div class="musicTrimStateV4350" aria-live="polite">
+        <span id="musicRangeStartLabelV4350">Start 00:00.00</span>
+        <strong>Playable music range</strong>
+        <span id="musicRangeEndLabelV4350">End 00:00.00</span>
+       </div>
+       <div class="musicTrimHiddenStateV4350" aria-hidden="true">
+        <input id="musicSourceStartV4330" type="number" min="0" step=".01" value="0" tabindex="-1">
+        <input id="musicSourceEndV4330" type="number" min="0" step=".01" value="0" tabindex="-1">
+        <input id="musicProjectOffsetV4330" type="number" min="0" step=".01" value="0" tabindex="-1">
        </div>
       </div><button class="laneResizeHandleV4250" type="button" aria-label="Resize music lane"></button></article>
       <article data-track="effects"><header><i>✨</i><span>Timed Effects</span><button class="timelineMuteButtonV4240" id="timelineMuteEffectsV4240" type="button" title="Mute or unmute effects">✨</button></header><div class="timelineLaneV4190" id="timelineEffectsLaneV4190"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize effects lane"></button></article>
@@ -610,10 +631,10 @@
       <div class="timelineProfessionalActionsV4310">
        <button type="button" id="timelineSelectToolV4310" class="isActive">↖ Select</button>
        <button type="button" id="timelineRazorToolV4310">✂ Razor</button>
-       <button type="button" id="timelineTrimToolV4310">↔ Trim</button>
+       <button type="button" id="timelineTrimToolV4310" title="Optional precision trim mode; clip edge handles always work">↔ Precision Trim</button>
        <button type="button" id="timelineSnapToggleV4310" class="isActive">🧲 Snap</button>
       </div>
-      <p id="timelineProfessionalStatusV4310">Select clips, drag trim handles, or choose Razor and click a clip to split it.</p>
+      <p id="timelineProfessionalStatusV4310">Drag video or music edge handles at any time. Select, Razor, and Precision Trim remain available for detailed editing.</p>
      </section>
       </section>
       <section class="producerAdvancedDockV4320" id="producerAdvancedDockV4320">
@@ -783,8 +804,8 @@
 
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
-     <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 6.2 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 6.2 range-based video and music trimming, native video sizing, music trimming, AI Camera Director, GPU timeline cache, keyframes, curves, multicamera tools, SOS project files, YouTube tools, and rendering.</small></span></button>
+     <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 6.3 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 6.3 direct video and music range sliders, native video sizing, music trimming, AI Camera Director, GPU timeline cache, keyframes, curves, multicamera tools, SOS project files, YouTube tools, and rendering.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -823,12 +844,12 @@
     <div class="tutorialSlidesV4180">
      <article data-tutorial-slide><i>1</i><h3>Load your project</h3><p>Upload Video 1, add more camera angles or sequential clips, then upload licensed music. The timeline appears directly beneath the transport controls.</p></article>
      <article data-tutorial-slide><i>2</i><h3>Timeline and advanced tools</h3><p>Play, pause, rewind, and forward above the timeline. Edit Mode, Select, Razor, Trim, and Snap sit directly beneath the timeline. Open Advanced Timeline Tools only when you need Timed Effects, Auto-Sync, or Cut & Edit.</p></article>
-     <article data-tutorial-slide><i>3</i><h3>Range-based video trimming</h3><p>Each video clip has a left Start handle and right End handle. Drag either side to choose the only part of the source video that may play. While dragging, the preview seeks to that frame. After release, playback starts at the selected left handle and stops at the selected right handle. Removed footage remains silent and excluded from preview and export.</p></article>
+     <article data-tutorial-slide><i>3</i><h3>Direct video range sliders</h3><p>The left and right handles on every video clip are always active—you do not need to select Trim first. Drag the left edge to choose the first playable frame and the right edge to choose the last. The preview follows the handle while dragging, and footage outside the selected range is excluded from playback and export.</p></article>
      <article data-tutorial-slide><i>4</i><h3>AI Camera Director</h3><p>Analyze beats, choose a director style and intensity, then generate camera motion, optional keyframes, and multicamera switches across the project.</p></article>
      <article data-tutorial-slide><i>5</i><h3>GPU Timeline cache</h3><p>GPU Cache reduces timeline layout and paint work and uses OffscreenCanvas support when available. Browser hardware acceleration should remain enabled, although the browser controls the final GPU/CPU path.</p></article>
      <article data-tutorial-slide><i>6</i><h3>Professional keyframes</h3><p>Add keyframes at the playhead for camera scale, rotation, position, original text movement, opacity, and music volume. Select a keyframe to edit or remove it.</p></article>
      <article data-tutorial-slide><i>7</i><h3>Curves editor</h3><p>Apply Linear, Ease, Bounce, Elastic, or Cubic interpolation to selected keyframes or the entire animation pass.</p></article>
-     <article data-tutorial-slide><i>8</i><h3>Music range, offset, and audio ducking</h3><p>Drag the music Start and End handles to choose the only audible source range. Set Project Start Offset to decide when that selected music begins. Audio stays paused and muted before the offset and after the End handle. Dragging a music handle briefly auditions the selected source position. Audio ducking can still lower the active music during voice or strong source-audio activity.</p></article>
+     <article data-tutorial-slide><i>8</i><h3>Direct music sliders and offset</h3><p>Use the two handles directly on the waveform to choose the only audible part of the song. The large source-start and source-end fields were removed from the waveform. Use the compact Music Offset menu beside the lane to start the selected range at the project beginning, after a preset delay, or at a custom time. Audio remains muted before the offset and after the right handle.</p></article>
      <article data-tutorial-slide><i>9</i><h3>Multicamera editing</h3><p>Use the camera grid or Camera 1–4 buttons during playback. Angle changes can be recorded as timeline cuts, and AI Director can generate them from drops.</p></article>
      <article data-tutorial-slide><i>10</i><h3>Save and continue later</h3><p>Download a settings preset or a full .sosproject file. Portable projects may embed local video and audio but can become very large; settings-only projects require re-linking media after import.</p></article>
      <article data-tutorial-slide><i>11</i><h3>YouTube tools and authorized downloads</h3><p>Use the YouTube search and preview tools to find references, copy a URL, and open the external converter module. Download only videos you own, have permission to use, or whose license allows downloading and editing. Third-party converter sites may contain intrusive advertising; a reputable browser content blocker can reduce pop-ups, but always review the site and never install unexpected software.</p></article>
@@ -1481,6 +1502,6 @@
      <button type="button" data-video-sizing-v4330="stretch"><strong>Stretch to frame</strong><small>Force the video to fill the output dimensions.</small></button>
     </div>
    </dialog>
-  <script src="js/producer-media-precision-v4.34.0.js?v=4.34.0"></script>
+  <script src="js/producer-media-precision-v4.35.0.js?v=4.35.0"></script>
 </body>
 </html>

@@ -1,0 +1,179 @@
+/* Seeker Of SoundZ v4.35.0 — direct video/music range sliders */
+
+/* Video clip edges are always active, regardless of selected editing tool. */
+.timelineVideoSegmentV4240{
+  position:absolute!important;
+  overflow:visible!important;
+}
+.timelineVideoSegmentV4240 .clipTrimHandleV4310{
+  display:block!important;
+  pointer-events:auto!important;
+  touch-action:none!important;
+  cursor:ew-resize!important;
+  opacity:1!important;
+  width:16px!important;
+  z-index:80!important;
+}
+.timelineVideoSegmentV4240 .clipTrimHandleV4310:hover,
+.timelineVideoSegmentV4240 .clipTrimHandleV4310:active{
+  width:18px!important;
+  border-color:#79efb3!important;
+  box-shadow:0 0 15px rgba(101,239,174,.45)!important;
+}
+.timelineContentV4250[data-timeline-tool="select"] .clipTrimHandleV4310,
+.timelineContentV4250[data-timeline-tool="razor"] .clipTrimHandleV4310,
+.timelineContentV4250[data-timeline-tool="trim"] .clipTrimHandleV4310{
+  pointer-events:auto!important;
+}
+
+/* Music waveform uses only direct edge sliders. */
+.timelineMusicLaneV4270{
+  position:relative!important;
+  min-height:96px!important;
+  padding:0!important;
+  overflow:visible!important;
+}
+.musicTrimOverlayV4330{
+  inset:3px 0!important;
+  z-index:35!important;
+}
+.musicTrimSelectionV4330{
+  top:2px!important;
+  bottom:2px!important;
+  border:2px solid rgba(100,239,174,.72)!important;
+  background:linear-gradient(90deg,rgba(44,180,111,.11),rgba(108,52,159,.08))!important;
+  pointer-events:none!important;
+}
+.musicTrimHandleV4330{
+  top:0!important;
+  bottom:0!important;
+  width:18px!important;
+  height:auto!important;
+  z-index:42!important;
+  pointer-events:auto!important;
+  touch-action:none!important;
+  cursor:ew-resize!important;
+}
+.musicTrimHandleV4330:hover,
+.musicTrimHandleV4330:active{
+  width:20px!important;
+  border-color:#79efb3!important;
+  box-shadow:0 0 15px rgba(101,239,174,.45)!important;
+}
+.musicTrimStateV4350{
+  position:absolute;
+  z-index:38;
+  left:24px;
+  right:24px;
+  top:6px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  pointer-events:none;
+  color:#9af2c1;
+  font-size:.46rem;
+}
+.musicTrimStateV4350 strong{
+  padding:3px 7px;
+  border-radius:999px;
+  background:rgba(4,8,6,.72);
+  color:#b4f6d2;
+  white-space:nowrap;
+}
+.musicTrimHiddenStateV4350{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+  clip:rect(0 0 0 0)!important;
+  clip-path:inset(50%)!important;
+  white-space:nowrap!important;
+}
+
+/* Compact offset control sits at the right edge instead of covering the waveform. */
+.musicRangeUtilityV4350{
+  position:absolute;
+  z-index:50;
+  right:5px;
+  top:5px;
+  display:flex;
+  align-items:end;
+  gap:5px;
+  max-width:min(430px,72%);
+  padding:5px;
+  border:1px solid rgba(203,159,255,.14);
+  border-radius:9px;
+  background:rgba(7,4,10,.92);
+  box-shadow:0 6px 18px rgba(0,0,0,.28);
+  opacity:.2;
+  transition:opacity .15s ease,transform .15s ease;
+}
+.timelineMusicLaneV4270:hover .musicRangeUtilityV4350,
+.musicRangeUtilityV4350:focus-within{
+  opacity:1;
+}
+.musicRangeUtilityV4350 label{
+  display:grid;
+  gap:2px;
+  min-width:0;
+  color:#b9aebf;
+  font-size:.45rem;
+}
+.musicRangeUtilityV4350 select,
+.musicRangeUtilityV4350 input{
+  width:150px!important;
+  min-width:0!important;
+  padding:5px 7px!important;
+  font-size:.55rem!important;
+}
+.musicCustomOffsetV4350 input{
+  width:88px!important;
+}
+.musicRangeUtilityV4350 button{
+  min-width:0!important;
+  margin:0!important;
+  padding:6px 8px!important;
+  white-space:nowrap!important;
+  font-size:.52rem!important;
+}
+.musicRangeUtilityV4350 button:first-of-type{
+  border-color:rgba(99,239,174,.25)!important;
+  color:#8ff0bb!important;
+}
+
+/* Precision Trim remains optional; edge handles do not depend on it. */
+#timelineTrimToolV4310::after{
+  content:" optional";
+  color:#8f8494;
+  font-size:.45rem;
+  font-weight:400;
+}
+
+/* Music waveform remains readable under the compact overlay. */
+#timelineWaveformV4190{
+  display:block!important;
+  width:100%!important;
+  height:90px!important;
+}
+.timelineMusicSegmentsV4270{
+  inset:0!important;
+}
+
+@media(max-width:780px){
+  .musicRangeUtilityV4350{
+    position:relative!important;
+    right:auto!important;
+    top:auto!important;
+    max-width:none!important;
+    margin:4px!important;
+    opacity:1!important;
+    flex-wrap:wrap!important;
+  }
+  .timelineMusicLaneV4270{
+    min-height:145px!important;
+  }
+  .musicTrimOverlayV4330{
+    bottom:50px!important;
+  }
+}

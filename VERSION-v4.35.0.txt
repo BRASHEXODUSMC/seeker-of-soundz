@@ -1,0 +1,29 @@
+Seeker Of SoundZ v4.35.0
+PRODUCER HUB 6.3 — DIRECT RANGE SLIDERS
+
+Video:
+- Left and right clip handles are always active
+- No need to select Trim before changing a clip range
+- Handles remain usable in Select, Razor, and Precision Trim modes
+- Dragging previews the exact source frame
+- Playback and export use only the selected source range
+
+Music:
+- Removed visible source-start/source-end fields from over the waveform
+- Start and End sliders remain directly on the waveform
+- Slider labels show the selected source times
+- Compact Music Offset menu sits at the side
+- Presets: beginning, 1s, 2s, 5s, 10s, and custom
+- Preview Range button auditions the current selection
+- Reset Range restores the full track
+- Audio remains muted before the offset and after the End handle
+- Hidden compatibility inputs preserve project save/import and existing scripts
+
+Additional:
+- Precision Trim remains as an optional detailed mode
+- Tutorial updated for direct video and music sliders
+- Visible workflow version updated to Producer Hub 6.3
+- Existing Auto-Sync, AI Camera Director, keyframes, curves, multicamera,
+  effects, rendering, SOS save/import, and YouTube tools remain intact
+
+No Supabase update is required.

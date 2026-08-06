@@ -1,0 +1,129 @@
+/* Seeker Of SoundZ v4.33.1 — centered media dialog, visible cursor, button styling, nearby edit mode */
+
+/* Native dialog is always centered in the viewport instead of inheriting page positioning. */
+#videoSettingsDialogV4330.videoSettingsDialogV4330{
+  position:fixed!important;
+  inset:50% auto auto 50%!important;
+  transform:translate(-50%,-50%)!important;
+  width:min(720px,calc(100vw - 32px))!important;
+  max-width:720px!important;
+  max-height:calc(100vh - 32px)!important;
+  margin:0!important;
+  overflow:auto!important;
+  z-index:2147483000!important;
+  box-sizing:border-box!important;
+  cursor:default!important;
+}
+#videoSettingsDialogV4330[open]{
+  display:block!important;
+}
+#videoSettingsDialogV4330,
+#videoSettingsDialogV4330 *{
+  cursor:auto!important;
+}
+#videoSettingsDialogV4330 button,
+#videoSettingsDialogV4330 [role="button"]{
+  cursor:pointer!important;
+}
+#videoSettingsDialogV4330::backdrop{
+  background:rgba(0,0,0,.8)!important;
+  backdrop-filter:blur(8px)!important;
+  cursor:default!important;
+}
+/* Keep the site's custom cursor layer from covering the dialog. */
+body:has(#videoSettingsDialogV4330[open]) #cursor,
+body:has(#videoSettingsDialogV4330[open]) #cursorDot,
+body:has(#videoSettingsDialogV4330[open]) #cursorRing,
+body:has(#videoSettingsDialogV4330[open]) .customCursor,
+body:has(#videoSettingsDialogV4330[open]) [data-custom-cursor]{
+  display:none!important;
+}
+body:has(#videoSettingsDialogV4330[open]){
+  cursor:default!important;
+}
+body:has(#videoSettingsDialogV4330[open]) *{
+  cursor:auto!important;
+}
+body:has(#videoSettingsDialogV4330[open]) button{
+  cursor:pointer!important;
+}
+
+/* Project file controls now read clearly as themed action buttons. */
+#sosProjectQuickBarV4330.sosProjectQuickBarV4330{
+  border:1px solid rgba(146,86,205,.3)!important;
+  background:
+    radial-gradient(circle at 10% 0,rgba(117,48,164,.12),transparent 46%),
+    linear-gradient(135deg,rgba(31,16,43,.96),rgba(12,8,17,.98))!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.025)!important;
+}
+#sosProjectQuickBarV4330 button{
+  min-height:40px!important;
+  padding:9px 12px!important;
+  border:1px solid rgba(197,143,239,.34)!important;
+  border-radius:10px!important;
+  background:linear-gradient(180deg,rgba(113,52,154,.3),rgba(52,26,72,.3))!important;
+  color:#f2e9f7!important;
+  font-weight:800!important;
+  letter-spacing:.015em!important;
+  box-shadow:0 6px 15px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.04)!important;
+  cursor:pointer!important;
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease,background .15s ease!important;
+}
+#sosProjectQuickBarV4330 button:hover{
+  transform:translateY(-1px)!important;
+  border-color:rgba(110,239,175,.55)!important;
+  background:linear-gradient(180deg,rgba(68,162,116,.28),rgba(50,72,67,.28))!important;
+  box-shadow:0 8px 20px rgba(0,0,0,.3),0 0 14px rgba(97,226,165,.12)!important;
+}
+#sosProjectQuickBarV4330 button:active{
+  transform:translateY(0)!important;
+}
+#sosProjectQuickBarV4330 button:nth-of-type(1)::before{content:"💾 ";font-weight:400}
+#sosProjectQuickBarV4330 button:nth-of-type(2)::before{content:"📂 ";font-weight:400}
+#sosProjectQuickBarV4330 button:nth-of-type(3)::before{content:"⚙ ";font-weight:400}
+#sosProjectQuickBarV4330 button:nth-of-type(4)::before{content:"↥ ";font-weight:400}
+
+/* Edit Mode now remains immediately beneath the timeline. */
+#timelineQuickEditDockV4331.timelineQuickEditDockV4331{
+  display:block!important;
+  width:100%!important;
+  margin:8px 0 10px!important;
+  position:relative!important;
+  z-index:15!important;
+}
+#timelineQuickEditDockV4331 .timelineProfessionalToolbarV4310{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  gap:8px!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:9px!important;
+  box-sizing:border-box!important;
+  border:1px solid rgba(104,239,174,.13)!important;
+  border-radius:12px!important;
+  background:linear-gradient(135deg,rgba(41,149,100,.045),rgba(117,52,159,.045))!important;
+}
+#timelineQuickEditDockV4331 .timelineEditModesV4310,
+#timelineQuickEditDockV4331 .timelineProfessionalActionsV4310{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:6px!important;
+}
+#timelineQuickEditDockV4331 #timelineProfessionalStatusV4310{
+  grid-column:1/-1!important;
+}
+#producerAdvancedTimelineToolsV4320 summary small{
+  /* The moved edit modes are no longer described as hidden in this drawer. */
+  font-size:0!important;
+}
+#producerAdvancedTimelineToolsV4320 summary small::after{
+  content:"Timed Effects, Auto-Sync, and Cut & Edit";
+  font-size:.54rem!important;
+}
+@media(max-width:760px){
+  #timelineQuickEditDockV4331 .timelineProfessionalToolbarV4310{
+    grid-template-columns:1fr!important;
+  }
+}

@@ -1,0 +1,24 @@
+Seeker Of SoundZ v4.33.1
+PRODUCER HUB 6.1.1 — DIALOG, PROJECT BUTTONS & EDIT MODE FIX
+
+Video settings dialog:
+- Forced to the exact center of the browser viewport
+- Added viewport-safe maximum width and height
+- Added internal scrolling on smaller screens
+- Temporarily hides the custom cursor while the modal is open
+- Restores the normal system cursor inside the dialog
+- Keeps pointer cursor on dialog buttons
+
+SOS Project Files:
+- Restyled save/import controls as visible themed buttons
+- Added borders, depth, hover feedback, icons, and active feedback
+- Existing .sosproject and .sospreset actions remain connected
+
+Edit Mode:
+- Moved Normal, Ripple, Magnetic, Select, Razor, Trim, and Snap directly
+  beneath the timeline
+- Timed Effects, Auto-Sync, and Cut & Edit remain inside Advanced Tools
+- Existing IDs and JavaScript behavior remain unchanged
+- Tutorial wording updated to match the current layout
+
+No Supabase update is required.

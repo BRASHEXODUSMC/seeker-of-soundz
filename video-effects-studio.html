@@ -110,6 +110,7 @@
   <link rel="stylesheet" href="css/v4.32.0-pro-suite.css?v=4.32.0">
   <link rel="stylesheet" href="css/v4.32.1-gpu-cache-label-fix.css?v=4.32.1">
   <link rel="stylesheet" href="css/v4.33.0-precision-media-sos.css?v=4.33.0">
+  <link rel="stylesheet" href="css/v4.33.1-dialog-buttons-editmode-fix.css?v=4.33.1">
 </head>
  <body>
   <div id="loader">
@@ -198,7 +199,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 6.1</p>
+      <p class="sectionEyebrow">Producer Hub 6.1.1</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -596,6 +597,23 @@
      </div>
      </div>
     </section>
+      <section class="timelineQuickEditDockV4331" id="timelineQuickEditDockV4331">
+       <section class="timelineProfessionalToolbarV4310">
+      <div class="timelineEditModesV4310">
+       <strong>Edit Mode</strong>
+       <button type="button" class="isActive" data-edit-mode-v4310="normal">Normal</button>
+       <button type="button" data-edit-mode-v4310="ripple">Ripple</button>
+       <button type="button" data-edit-mode-v4310="magnetic">Magnetic</button>
+      </div>
+      <div class="timelineProfessionalActionsV4310">
+       <button type="button" id="timelineSelectToolV4310" class="isActive">↖ Select</button>
+       <button type="button" id="timelineRazorToolV4310">✂ Razor</button>
+       <button type="button" id="timelineTrimToolV4310">↔ Trim</button>
+       <button type="button" id="timelineSnapToggleV4310" class="isActive">🧲 Snap</button>
+      </div>
+      <p id="timelineProfessionalStatusV4310">Select clips, drag trim handles, or choose Razor and click a clip to split it.</p>
+     </section>
+      </section>
       <section class="producerAdvancedDockV4320" id="producerAdvancedDockV4320">
        <details id="producerAdvancedTimelineToolsV4320">
         <summary><span><strong>Advanced Timeline Tools</strong><small>Timed Effects, Auto-Sync, Cut & Edit, and professional edit modes</small></span><b>Open</b></summary>
@@ -659,21 +677,7 @@
       <p id="timelineEditStatusV4220">Move the playhead, mark a start and end, then ripple-delete the section so the following video closes the gap.</p>
       <p class="timelineRazorHintV4270"><kbd>Shift</kbd> + <kbd>K</kbd> splits the video or music exactly where your pointer is hovering. Hover a new split boundary to delete its left or right side.</p>
      </section>
-     <section class="timelineProfessionalToolbarV4310">
-      <div class="timelineEditModesV4310">
-       <strong>Edit Mode</strong>
-       <button type="button" class="isActive" data-edit-mode-v4310="normal">Normal</button>
-       <button type="button" data-edit-mode-v4310="ripple">Ripple</button>
-       <button type="button" data-edit-mode-v4310="magnetic">Magnetic</button>
-      </div>
-      <div class="timelineProfessionalActionsV4310">
-       <button type="button" id="timelineSelectToolV4310" class="isActive">↖ Select</button>
-       <button type="button" id="timelineRazorToolV4310">✂ Razor</button>
-       <button type="button" id="timelineTrimToolV4310">↔ Trim</button>
-       <button type="button" id="timelineSnapToggleV4310" class="isActive">🧲 Snap</button>
-      </div>
-      <p id="timelineProfessionalStatusV4310">Select clips, drag trim handles, or choose Razor and click a clip to split it.</p>
-     </section>
+     
     </div></div>
        </details>
       </section>
@@ -816,7 +820,7 @@
     <div class="tutorialProgressV4180"><span id="tutorialProgressV4180"></span></div>
     <div class="tutorialSlidesV4180">
      <article data-tutorial-slide><i>1</i><h3>Load your project</h3><p>Upload Video 1, add more camera angles or sequential clips, then upload licensed music. The timeline appears directly beneath the transport controls.</p></article>
-     <article data-tutorial-slide><i>2</i><h3>Timeline and advanced tools</h3><p>Play, pause, rewind, and forward above the timeline. Open Advanced Timeline Tools only when you need Timed Effects, Auto-Sync, Cut & Edit, or professional edit modes.</p></article>
+     <article data-tutorial-slide><i>2</i><h3>Timeline and advanced tools</h3><p>Play, pause, rewind, and forward above the timeline. Edit Mode, Select, Razor, Trim, and Snap sit directly beneath the timeline. Open Advanced Timeline Tools only when you need Timed Effects, Auto-Sync, or Cut & Edit.</p></article>
      <article data-tutorial-slide><i>3</i><h3>Trim, razor, ripple, and magnetic editing</h3><p>Select clips, drag trim handles, use Shift+K or Razor to split, and choose Normal, Ripple, or Magnetic behavior. The playhead follows the actual clip bars rather than the lane labels.</p></article>
      <article data-tutorial-slide><i>4</i><h3>AI Camera Director</h3><p>Analyze beats, choose a director style and intensity, then generate camera motion, optional keyframes, and multicamera switches across the project.</p></article>
      <article data-tutorial-slide><i>5</i><h3>GPU Timeline cache</h3><p>GPU Cache reduces timeline layout and paint work and uses OffscreenCanvas support when available. Browser hardware acceleration should remain enabled, although the browser controls the final GPU/CPU path.</p></article>

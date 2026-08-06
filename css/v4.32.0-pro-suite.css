@@ -1,0 +1,37 @@
+/* Seeker Of SoundZ v4.32.0 — Pro Suite workspace */
+.producerCenterV4190>.producerTimelineV4190{margin-top:10px!important;width:100%!important;max-width:100%!important}
+.producerAdvancedDockV4320{margin-top:10px}
+.producerAdvancedDockV4320 details{border:1px solid rgba(190,130,255,.12);border-radius:12px;background:rgba(255,255,255,.012);overflow:hidden}
+.producerAdvancedDockV4320 summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px;cursor:pointer}
+.producerAdvancedDockV4320 summary span{display:grid;gap:2px}.producerAdvancedDockV4320 summary small{color:#938899;font-size:.54rem}
+.producerAdvancedDockBodyV4320{display:grid;gap:8px;padding:8px}
+.producerAdvancedDockBodyV4320 .timelineControlStackV4311{display:grid!important}
+.producerWorkspaceV4190{align-items:start!important}
+.producerCenterV4190{min-width:0!important}
+.timelineContentV4250{--timeline-label-width:120px}
+.timelinePlayheadV4190{top:78px!important}
+#timelineZoomV4190{min-width:110px}
+#gpuTimelineToggleV4320{white-space:nowrap}
+#gpuTimelineStatusV4320{color:#7cecb1;font-size:.5rem;white-space:nowrap}
+body.gpuTimelineEnabledV4320 .timelineTracksV4190,
+body.gpuTimelineEnabledV4320 .timedEffectRegionV4240,
+body.gpuTimelineEnabledV4320 .cameraRegionV4310{contain:layout paint;will-change:transform}
+.inspectorTabsV4190{flex-wrap:wrap!important}
+.producerProSuiteV4320{gap:8px}
+.proSuiteTabsV4320{display:grid;grid-template-columns:repeat(2,1fr);gap:5px}
+.proSuiteTabsV4320 button{min-width:0!important;padding:6px!important}
+.proSuiteTabsV4320 button.isActive{border-color:rgba(99,239,174,.35)!important;color:#80efb5!important}
+.proSuitePanelV4320{display:none;gap:8px}.proSuitePanelV4320.isActive{display:grid}
+.proSuitePanelV4320 label{display:grid;gap:4px}
+#keyframeListV4320{display:grid;gap:5px;max-height:260px;overflow:auto}
+.keyframeRowV4320{display:flex!important;justify-content:space-between!important;text-align:left!important;padding:7px!important}
+.keyframeRowV4320 span{display:grid}.keyframeRowV4320 small{color:#918795;font-size:.48rem}
+.keyframeRowV4320.isSelected{border-color:#70eeb0!important}
+#curveEditorCanvasV4320{width:100%;height:auto;border:1px solid rgba(255,255,255,.07);border-radius:9px}
+#multiCamViewerV4320{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;max-height:280px;overflow:auto}
+.multiCamTileV4320{min-height:80px!important;background-size:cover!important;background-position:center!important;display:grid!important;align-content:end!important;text-align:left!important}
+.multiCamTileV4320 small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.multiCamActionsV4320{display:grid;grid-template-columns:repeat(2,1fr);gap:5px}
+.projectImportButtonV4320{display:grid!important;place-items:center;cursor:pointer}.projectImportButtonV4320 input{display:none}
+.cameraRegionV4310.isDirectorV4320{border-color:rgba(81,180,255,.45);background:linear-gradient(135deg,rgba(31,105,180,.35),rgba(94,38,142,.35));color:#cce8ff}
+@media(max-width:1050px){.producerWorkspaceV4190{grid-template-columns:minmax(0,1fr)!important}.producerSidebarV4190,.producerInspectorV4190{position:relative!important;width:100%!important}.timelineContentV4250{--timeline-label-width:90px}}

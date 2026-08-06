@@ -107,6 +107,7 @@
   <link rel="stylesheet" href="css/v4.30.0-playback-range-bassdrop.css?v=4.30.0">
   <link rel="stylesheet" href="css/v4.31.0-professional-timeline.css?v=4.31.0">
   <link rel="stylesheet" href="css/v4.31.1-range-trim-fix.css?v=4.31.1">
+  <link rel="stylesheet" href="css/v4.32.0-pro-suite.css?v=4.32.0">
 </head>
  <body>
   <div id="loader">
@@ -195,7 +196,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 5.6.1</p>
+      <p class="sectionEyebrow">Producer Hub 6.0</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -534,40 +535,7 @@
        <div class="producerTimeV4190"><span id="producerCurrentTimeV4190">00:00.00</span><b>/</b><span id="producerDurationV4190">00:00.00</span></div>
        <label class="transportSnapV4260"><input id="snapPlayheadToClipEdgesV4260" type="checkbox" checked> Snap playhead to clip edges</label>
       </div>
-     </main>
-
-     <aside class="producerInspectorV4190">
-      <div class="producerPanelTitleV4190"><strong>Inspector</strong><button type="button" id="collapseProducerInspectorV4190" aria-label="Collapse inspector">›</button></div>
-      <div class="inspectorTabsV4190">
-       <button type="button" class="isActive" data-inspector-tab="video">Video</button>
-       <button type="button" data-inspector-tab="audio">Audio</button>
-       <button type="button" data-inspector-tab="effects">Effects</button>
-       <button type="button" data-inspector-tab="export">Export</button>
-      </div>
-      <section class="inspectorPanelV4190 isActive" data-inspector-panel="video">
-       <label>Start time<input id="inspectorStartV4190" type="number" min="0" step=".01" value="0"></label>
-       <label>End time<input id="inspectorEndV4190" type="number" min="0" step=".01" value="0"></label>
-       <label>Scale<input id="inspectorScaleV4190" type="range" min=".75" max="1.25" step=".01" value="1"></label>
-       <label>Rotation<input id="inspectorRotationV4190" type="range" min="-8" max="8" step=".1" value="0"></label>
-      </section>
-      <section class="inspectorPanelV4190" data-inspector-panel="audio">
-       <label>Music volume<input id="inspectorMusicVolumeV4190" type="range" min="0" max="1" step=".01" value="1"></label>
-       <label>Original audio<input id="inspectorSourceVolumeV4190" type="range" min="0" max="1" step=".01" value="0"></label>
-       <button class="secondaryButton" id="normalizeAudioV4190" type="button">Normalize Mix</button>
-      </section>
-      <section class="inspectorPanelV4190" data-inspector-panel="effects">
-       <div class="effectLayerListV4190" id="effectLayerListV4190"></div>
-       <button class="secondaryButton" id="addEffectLayerV4190" type="button">Add Effect Layer</button>
-      </section>
-      <section class="inspectorPanelV4190" data-inspector-panel="export">
-       <label>Format<select id="inspectorFormatV4190"><option value="auto">Best supported</option><option value="video/webm;codecs=vp9,opus">WEBM VP9</option><option value="video/webm;codecs=vp8,opus">WEBM VP8</option><option value="video/mp4">MP4 when supported</option></select></label>
-       <label>Quality<select id="inspectorQualityV4190"><option value="standard">Standard</option><option value="high" selected>High</option><option value="maximum">Maximum</option></select></label>
-       <button class="primaryButton" id="inspectorRenderV4190" type="button">Add to Render Queue</button>
-      </section>
-     </aside>
-    </div>
-
-    <section class="producerTimelineV4190">
+      <section class="producerTimelineV4190">
      <header class="timelineHeaderV4190">
       <div><strong>Timeline</strong><small id="timelineStatusV4190">Load video and music to begin</small></div>
       <div class="timelineZoomV4190">
@@ -576,9 +544,43 @@
        <input id="timelineZoomV4190" type="range" min="1" max="8" step=".25" value="1">
        <button type="button" id="timelineZoomInV4190">+</button>
        <span id="timelineZoomLabelV4250">100%</span>
+       <button type="button" id="gpuTimelineToggleV4320" class="isActive" title="Cache timeline thumbnails and effect previews">GPU Cache ON</button>
+       <span id="gpuTimelineStatusV4320">Ready</span>
       </div>
      </header>
-     <div class="timelineControlStackV4311" id="timelineControlStackV4311">
+     
+    <div class="timelineViewportV4250" id="timelineViewportV4250">
+     <div class="timelineContentV4250" id="timelineContentV4250">
+     <div class="timelineRulerV4190" id="timelineRulerV4190"></div>
+     <div class="timelineProjectRangeV4300" id="timelineProjectRangeV4300">
+      <div class="timelineRangeShadeV4300 isBefore" id="timelineRangeShadeBeforeV4300"></div>
+      <div class="timelineRangeSelectionV4300" id="timelineRangeSelectionV4300"></div>
+      <div class="timelineRangeShadeV4300 isAfter" id="timelineRangeShadeAfterV4300"></div>
+      <button class="timelineRangeHandleV4300 isStart" id="timelineStartHandleV4300" type="button" aria-label="Drag project start"><i></i><span id="timelineStartLabelV4300">Start 00:00.00</span></button>
+      <button class="timelineRangeHandleV4300 isEnd" id="timelineEndHandleV4300" type="button" aria-label="Drag project end"><i></i><span id="timelineEndLabelV4300">End 00:00.00</span></button>
+     </div>
+     
+     
+     
+     <div class="timelineTracksV4190" id="timelineTracksV4190">
+      <article data-track="video"><header><i>🎬</i><span>Video Clips</span><button class="timelineMuteButtonV4240" id="timelineMuteVideosV4240" type="button" title="Mute or unmute all video clips">🔊</button></header><div class="timelineLaneV4190 timelineVideoLaneV4240" id="timelineVideoLaneV4240"><div class="timelineClipV4190 videoClipV4190" id="timelineVideoClipV4190">Video 1</div></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize video lanes"></button></article>
+      <article data-track="music"><header><i>🎵</i><span>Music</span><button class="timelineMuteButtonV4240" id="timelineMuteMusicV4240" type="button" title="Mute or unmute music">🔊</button></header><div class="timelineLaneV4190 timelineMusicLaneV4270" id="timelineMusicLaneV4270">
+       <div class="timelineClipV4190 musicClipV4190" id="timelineMusicClipV4190">Music track</div>
+       <canvas id="timelineWaveformV4190" width="1200" height="90"></canvas>
+       <div class="timelineMusicSegmentsV4270" id="timelineMusicSegmentsV4270"></div>
+      </div><button class="laneResizeHandleV4250" type="button" aria-label="Resize music lane"></button></article>
+      <article data-track="effects"><header><i>✨</i><span>Timed Effects</span><button class="timelineMuteButtonV4240" id="timelineMuteEffectsV4240" type="button" title="Mute or unmute effects">✨</button></header><div class="timelineLaneV4190" id="timelineEffectsLaneV4190"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize effects lane"></button></article>
+      <article data-track="camera"><header><i>🎥</i><span>Camera &amp; Motion</span><button class="timelineMuteButtonV4240" id="timelineMuteCameraV4310" type="button" title="Mute camera motion">🎥</button></header><div class="timelineLaneV4190" id="timelineCameraLaneV4310"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize camera lane"></button></article>
+      <article data-track="markers"><header><i>◆</i><span>Beat Markers</span></header><div class="timelineLaneV4190" id="timelineMarkerLaneV4190"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize beat marker lane"></button></article>
+     </div>
+     <div class="timelinePlayheadV4190" id="timelinePlayheadV4190"></div>
+     </div>
+     </div>
+    </section>
+      <section class="producerAdvancedDockV4320" id="producerAdvancedDockV4320">
+       <details id="producerAdvancedTimelineToolsV4320">
+        <summary><span><strong>Advanced Timeline Tools</strong><small>Timed Effects, Auto-Sync, Cut & Edit, and professional edit modes</small></span><b>Open</b></summary>
+        <div class="producerAdvancedDockBodyV4320"><div class="timelineControlStackV4311" id="timelineControlStackV4311">
      <section class="timelineEffectEditorV4240">
       <div><strong>Timed Effects</strong><small>Start and stop individual effects at exact timeline positions.</small></div>
       <div class="timelineEffectControlsV4240">
@@ -653,35 +655,100 @@
       </div>
       <p id="timelineProfessionalStatusV4310">Select clips, drag trim handles, or choose Razor and click a clip to split it.</p>
      </section>
+    </div></div>
+       </details>
+      </section>
+     </main>
+
+     <aside class="producerInspectorV4190">
+      <div class="producerPanelTitleV4190"><strong>Inspector</strong><button type="button" id="collapseProducerInspectorV4190" aria-label="Collapse inspector">›</button></div>
+      <div class="inspectorTabsV4190">
+       <button type="button" class="isActive" data-inspector-tab="video">Video</button>
+       <button type="button" data-inspector-tab="audio">Audio</button>
+       <button type="button" data-inspector-tab="effects">Effects</button>
+       <button type="button" data-inspector-tab="pro">Pro Suite</button><button type="button" data-inspector-tab="export">Export</button>
+      </div>
+      <section class="inspectorPanelV4190 isActive" data-inspector-panel="video">
+       <label>Start time<input id="inspectorStartV4190" type="number" min="0" step=".01" value="0"></label>
+       <label>End time<input id="inspectorEndV4190" type="number" min="0" step=".01" value="0"></label>
+       <label>Scale<input id="inspectorScaleV4190" type="range" min=".75" max="1.25" step=".01" value="1"></label>
+       <label>Rotation<input id="inspectorRotationV4190" type="range" min="-8" max="8" step=".1" value="0"></label>
+      </section>
+      <section class="inspectorPanelV4190" data-inspector-panel="audio">
+       <label>Music volume<input id="inspectorMusicVolumeV4190" type="range" min="0" max="1" step=".01" value="1"></label>
+       <label>Original audio<input id="inspectorSourceVolumeV4190" type="range" min="0" max="1" step=".01" value="0"></label>
+       <button class="secondaryButton" id="normalizeAudioV4190" type="button">Normalize Mix</button>
+      </section>
+      <section class="inspectorPanelV4190" data-inspector-panel="effects">
+       <div class="effectLayerListV4190" id="effectLayerListV4190"></div>
+       <button class="secondaryButton" id="addEffectLayerV4190" type="button">Add Effect Layer</button>
+      </section>
+      <section class="inspectorPanelV4190 producerProSuiteV4320" data-inspector-panel="pro">
+       <div class="proSuiteTabsV4320">
+        <button type="button" class="isActive" data-pro-suite-tab="director">AI Director</button>
+        <button type="button" data-pro-suite-tab="keyframes">Keyframes</button>
+        <button type="button" data-pro-suite-tab="curves">Curves</button>
+        <button type="button" data-pro-suite-tab="audio">Ducking</button>
+        <button type="button" data-pro-suite-tab="multicam">Multicam</button>
+        <button type="button" data-pro-suite-tab="project">Project</button>
+       </div>
+       <section class="proSuitePanelV4320 isActive" data-pro-suite-panel="director">
+        <label>Director style<select id="aiDirectorStyleV4320"><option value="balanced">Balanced EDM</option><option value="cinematic">Cinematic</option><option value="aggressive">Aggressive Drops</option><option value="minimal">Minimal Motion</option><option value="chaos">Glitch Chaos</option></select></label>
+        <label>Intensity<input id="aiDirectorIntensityV4320" type="range" min=".25" max="2" step=".05" value="1"></label>
+        <label class="checkLine"><input id="aiDirectorUseCutsV4320" type="checkbox" checked> Create multicamera cuts</label>
+        <label class="checkLine"><input id="aiDirectorUseKeyframesV4320" type="checkbox" checked> Create camera keyframes</label>
+        <button class="primaryButton" id="generateCameraDirectorV4320" type="button">Generate Camera Direction</button>
+        <button class="secondaryButton" id="clearCameraDirectorV4320" type="button">Clear Director Pass</button>
+        <p id="aiDirectorStatusV4320">Analyze beats first, then generate a full camera pass.</p>
+       </section>
+       <section class="proSuitePanelV4320" data-pro-suite-panel="keyframes">
+        <label>Property<select id="keyframePropertyV4320"><option value="cameraScale">Camera Scale</option><option value="cameraRotation">Camera Rotation</option><option value="cameraX">Camera X</option><option value="cameraY">Camera Y</option><option value="textX">Text X</option><option value="textY">Text Y</option><option value="textRotation">Text Rotation</option><option value="textOpacity">Text Opacity</option><option value="musicVolume">Music Volume</option></select></label>
+        <label>Value<input id="keyframeValueV4320" type="number" step=".01" value="1"></label>
+        <button class="primaryButton" id="addKeyframeV4320" type="button">Add Keyframe at Playhead</button>
+        <button class="secondaryButton" id="deleteSelectedKeyframeV4320" type="button">Delete Selected</button>
+        <div id="keyframeListV4320"><p>No keyframes yet.</p></div>
+       </section>
+       <section class="proSuitePanelV4320" data-pro-suite-panel="curves">
+        <label>Interpolation<select id="curvePresetV4320"><option value="linear">Linear</option><option value="ease">Ease In/Out</option><option value="ease-in">Ease In</option><option value="ease-out">Ease Out</option><option value="bounce">Bounce</option><option value="elastic">Elastic</option><option value="cubic">Cubic</option></select></label>
+        <canvas id="curveEditorCanvasV4320" width="520" height="220"></canvas>
+        <button class="secondaryButton" id="applyCurveV4320" type="button">Apply Curve to Selected Keyframes</button>
+       </section>
+       <section class="proSuitePanelV4320" data-pro-suite-panel="audio">
+        <label class="checkLine"><input id="audioDuckingEnabledV4320" type="checkbox"> Enable automatic audio ducking</label>
+        <label>Detection source<select id="audioDuckingSourceV4320"><option value="video">Original video audio / voice</option><option value="music">Music peaks</option></select></label>
+        <label>Duck amount<input id="audioDuckingAmountV4320" type="range" min=".05" max=".95" step=".05" value=".55"></label>
+        <label>Threshold<input id="audioDuckingThresholdV4320" type="range" min=".05" max=".95" step=".05" value=".3"></label>
+        <label>Attack<input id="audioDuckingAttackV4320" type="range" min=".02" max="1" step=".02" value=".12"></label>
+        <label>Release<input id="audioDuckingReleaseV4320" type="range" min=".05" max="2" step=".05" value=".5"></label>
+        <p id="audioDuckingStatusV4320">Music remains unchanged until ducking is enabled.</p>
+       </section>
+       <section class="proSuitePanelV4320" data-pro-suite-panel="multicam">
+        <label>Layout<select id="multiCamLayoutV4320"><option value="grid">Grid Preview</option><option value="single">Single Active Camera</option></select></label>
+        <div id="multiCamViewerV4320"><p>Add multiple videos to create camera angles.</p></div>
+        <div class="multiCamActionsV4320"><button type="button" data-multicam-angle="0">Camera 1</button><button type="button" data-multicam-angle="1">Camera 2</button><button type="button" data-multicam-angle="2">Camera 3</button><button type="button" data-multicam-angle="3">Camera 4</button></div>
+        <label class="checkLine"><input id="multiCamRecordCutsV4320" type="checkbox" checked> Record angle changes as timeline cuts</label>
+        <button class="secondaryButton" id="clearMultiCamCutsV4320" type="button">Clear Multicam Cuts</button>
+       </section>
+       <section class="proSuitePanelV4320" data-pro-suite-panel="project">
+        <label>Project name<input id="projectNameV4320" type="text" maxlength="80" value="Seeker Of SoundZ Project"></label>
+        <label class="checkLine"><input id="embedProjectMediaV4320" type="checkbox"> Embed local video/audio in portable project</label>
+        <small>Embedded projects can be very large. Settings-only projects require re-linking the original media after import.</small>
+        <button class="primaryButton" id="saveProjectV4320" type="button">Download Project File</button>
+        <label class="secondaryButton projectImportButtonV4320">Import Project File<input id="importProjectV4320" type="file" accept=".sosproject,.json,application/json"></label>
+        <button class="secondaryButton" id="savePresetV4320" type="button">Download Settings Preset</button>
+        <label class="secondaryButton projectImportButtonV4320">Import Settings Preset<input id="importPresetV4320" type="file" accept=".sospreset,.json,application/json"></label>
+        <p id="projectStatusV4320">Project save captures timeline, selected effects, keyframes, curves, camera direction, ducking, and multicamera cuts.</p>
+       </section>
+      </section>
+      <section class="inspectorPanelV4190" data-inspector-panel="export">
+       <label>Format<select id="inspectorFormatV4190"><option value="auto">Best supported</option><option value="video/webm;codecs=vp9,opus">WEBM VP9</option><option value="video/webm;codecs=vp8,opus">WEBM VP8</option><option value="video/mp4">MP4 when supported</option></select></label>
+       <label>Quality<select id="inspectorQualityV4190"><option value="standard">Standard</option><option value="high" selected>High</option><option value="maximum">Maximum</option></select></label>
+       <button class="primaryButton" id="inspectorRenderV4190" type="button">Add to Render Queue</button>
+      </section>
+     </aside>
     </div>
-    <div class="timelineViewportV4250" id="timelineViewportV4250">
-     <div class="timelineContentV4250" id="timelineContentV4250">
-     <div class="timelineRulerV4190" id="timelineRulerV4190"></div>
-     <div class="timelineProjectRangeV4300" id="timelineProjectRangeV4300">
-      <div class="timelineRangeShadeV4300 isBefore" id="timelineRangeShadeBeforeV4300"></div>
-      <div class="timelineRangeSelectionV4300" id="timelineRangeSelectionV4300"></div>
-      <div class="timelineRangeShadeV4300 isAfter" id="timelineRangeShadeAfterV4300"></div>
-      <button class="timelineRangeHandleV4300 isStart" id="timelineStartHandleV4300" type="button" aria-label="Drag project start"><i></i><span id="timelineStartLabelV4300">Start 00:00.00</span></button>
-      <button class="timelineRangeHandleV4300 isEnd" id="timelineEndHandleV4300" type="button" aria-label="Drag project end"><i></i><span id="timelineEndLabelV4300">End 00:00.00</span></button>
-     </div>
-     
-     
-     
-     <div class="timelineTracksV4190" id="timelineTracksV4190">
-      <article data-track="video"><header><i>🎬</i><span>Video Clips</span><button class="timelineMuteButtonV4240" id="timelineMuteVideosV4240" type="button" title="Mute or unmute all video clips">🔊</button></header><div class="timelineLaneV4190 timelineVideoLaneV4240" id="timelineVideoLaneV4240"><div class="timelineClipV4190 videoClipV4190" id="timelineVideoClipV4190">Video 1</div></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize video lanes"></button></article>
-      <article data-track="music"><header><i>🎵</i><span>Music</span><button class="timelineMuteButtonV4240" id="timelineMuteMusicV4240" type="button" title="Mute or unmute music">🔊</button></header><div class="timelineLaneV4190 timelineMusicLaneV4270" id="timelineMusicLaneV4270">
-       <div class="timelineClipV4190 musicClipV4190" id="timelineMusicClipV4190">Music track</div>
-       <canvas id="timelineWaveformV4190" width="1200" height="90"></canvas>
-       <div class="timelineMusicSegmentsV4270" id="timelineMusicSegmentsV4270"></div>
-      </div><button class="laneResizeHandleV4250" type="button" aria-label="Resize music lane"></button></article>
-      <article data-track="effects"><header><i>✨</i><span>Timed Effects</span><button class="timelineMuteButtonV4240" id="timelineMuteEffectsV4240" type="button" title="Mute or unmute effects">✨</button></header><div class="timelineLaneV4190" id="timelineEffectsLaneV4190"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize effects lane"></button></article>
-      <article data-track="camera"><header><i>🎥</i><span>Camera &amp; Motion</span><button class="timelineMuteButtonV4240" id="timelineMuteCameraV4310" type="button" title="Mute camera motion">🎥</button></header><div class="timelineLaneV4190" id="timelineCameraLaneV4310"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize camera lane"></button></article>
-      <article data-track="markers"><header><i>◆</i><span>Beat Markers</span></header><div class="timelineLaneV4190" id="timelineMarkerLaneV4190"></div><button class="laneResizeHandleV4250" type="button" aria-label="Resize beat marker lane"></button></article>
-     </div>
-     <div class="timelinePlayheadV4190" id="timelinePlayheadV4190"></div>
-     </div>
-     </div>
-    </section>
+
+    
 
     <section class="renderQueueV4190">
      <header><div><p class="sectionEyebrow">Render Queue</p><h3>Project tasks</h3></div><button class="secondaryButton" id="clearRenderQueueV4190" type="button">Clear Finished</button></header>
@@ -729,37 +796,19 @@
     <div class="studioTutorialHeadV4180"><div><p class="sectionEyebrow">Producer Hub 4.0</p><h2>Guided production tutorial</h2></div><button type="button" id="closeStudioTutorialV4180" aria-label="Close tutorial">×</button></div>
     <div class="tutorialProgressV4180"><span id="tutorialProgressV4180"></span></div>
     <div class="tutorialSlidesV4180">
-     <article data-tutorial-slide class="isActive"><i>🎬</i><h3>Start with footage</h3><p>Use the Create module to upload a local video. This is the fastest and most reliable workflow in Chrome, Edge, and Firefox.</p></article>
-     <article data-tutorial-slide><i>🎵</i><h3>Add licensed music</h3><p>Upload an audio file you are allowed to use. The direct composer replaces or mixes the source audio and renders it into the finished project.</p></article>
-     <article data-tutorial-slide><i>✨</i><h3>Choose effects</h3><p>Open Effects, select a preset, and watch the compact preview. Presets no longer move the page or send you to another section.</p></article>
-     <article data-tutorial-slide><i>📚</i><h3>Find reusable assets</h3><p>The Libraries module links to official licensed stock-video and music sources. Always review the individual asset license before publishing.</p></article>
-     <article data-tutorial-slide><i>✂️</i><h3>Ripple-delete video sections</h3><p>Mark a cut start and end, then remove the range. When Ripple Close Gaps is enabled, the remaining part of the current video and every following video shift left immediately, so the next clip fills the removed space.</p></article>
-     <article data-tutorial-slide><i>🧲</i><h3>Snap cuts and playhead to clip edges</h3><p>Keep snapping enabled to align cut points and playhead movement with the beginning or ending edge of Video 1, Video 2, Video 3, or later segments. Disable snapping whenever you need unrestricted placement.</p></article>
-     <article data-tutorial-slide><i>⏯️</i><h3>Transport controls below the preview</h3><p>Restart, rewind five seconds, play, pause, and move forward five seconds directly beneath the video. The controls use the combined multiclip timeline and stay close to the timeline editor.</p></article>
-     <article data-tutorial-slide><i>◆</i><h3>Restore and analyze beat markers</h3><p>Upload music and select Analyze Beats. Producer Hub rebuilds the waveform, detects strong and normal beats, places every marker in the Beat Markers lane, and reconnects those markers to Auto-Sync.</p></article>
-     <article data-tutorial-slide><i>⚡</i><h3>Auto-Sync from detected beats</h3><p>Select Auto-Sync Effects after analysis—or select it first and analysis continues automatically. Camera moves and timed visual effects are placed directly on detected beat positions.</p></article>
-     <article data-tutorial-slide><i>✂️</i><h3>Shift + K razor tool</h3><p>Hover over a video or music section and press Shift + K. The project splits exactly at the pointer. Hover the new boundary and select ×L or R× to delete the section on either side.</p></article>
-     <article data-tutorial-slide><i>🎵</i><h3>Music-side deletion</h3><p>Music splits appear over the waveform. Delete a left or right section to remove it from preview and export. Double-click a removed music section to restore it.</p></article>
-     <article data-tutorial-slide><i>✨</i><h3>Overlapping Auto-Sync overlays</h3><p>Select the effect pools Auto-Sync may use, then choose one to four overlapping overlays per beat. Camera movement remains active underneath the different timed overlays.</p></article>
-     <article data-tutorial-slide><i>✦</i><h3>Music-reactive particles</h3><p>Reactive Particle Field, Bass Sparks, Beat Dust, Frequency Orbs, Drop Confetti and Audio Light Trails respond independently to bass, mids, highs and strong peaks.</p></article>
-     <article data-tutorial-slide><i>⚙️</i><h3>Render Focus and GPU guidance</h3><p>Enable Render Focus to hide the timeline and editor panels while exporting. Canvas rendering can use GPU hardware acceleration when enabled in the browser, but the browser and graphics driver decide whether each operation runs on the GPU or CPU. Keep hardware acceleration enabled and close unnecessary tabs for the best result.</p></article>
-     <article data-tutorial-slide><i>🔤</i><h3>Drag the original text</h3><p>The original text control keeps every font, color, outline, glow, transition, opacity and spacing option. Enter text, then drag its selection box over the video and use the ↻ handle to rotate it.</p></article>
-     <article data-tutorial-slide><i>🖥️</i><h3>Visible Render Focus preview</h3><p>Render Focus now moves the complete composer into its own full-screen workspace without hiding or collapsing the canvas. The processed video remains visible beside render progress and Cancel Render.</p></article>
-     <article data-tutorial-slide><i>⚡</i><h3>Smoother Auto-Sync loading</h3><p>Auto-Sync now collects all camera and overlay regions first, sorts them once, and rebuilds the Effects lane once. This reduces repeated layout work while preserving every generated region.</p></article>
-     <article data-tutorial-slide><i>↔</i><h3>Accurate real-time text movement</h3><p>The original text selection box now measures the visible canvas directly. Dragging and rotation update continuously without releasing or selecting the text again.</p></article>
-     <article data-tutorial-slide><i>▶</i><h3>Reliable timeline playback</h3><p>The playhead now follows combined project time across Video 1, trimmed pieces, Video 2, and later clips. It continues through clip changes instead of using only the current source file time.</p></article>
-     <article data-tutorial-slide><i>✂️</i><h3>Preview only surviving footage</h3><p>Ripple cuts and Shift+K splits preserve each segment’s source start and end. Preview and final render seek to the surviving source position before playback, so deleted footage is not shown first.</p></article>
-     <article data-tutorial-slide><i>↔</i><h3>Project start and end handles</h3><p>Drag the green Start handle and red End handle under the ruler. These set the exact preview and render range. Handles can snap to clip edges and detected beats.</p></article>
-     <article data-tutorial-slide><i>💥</i><h3>Bass-drop distortion presets</h3><p>Choose Bass Drop Distortion, Bass Warp &amp; Crush, or Drop Impact Cinema. Strong detected drops can wave-warp, digitally crush, lens-punch, twist, zoom, rotate, or shake the actual picture while overlays continue above it.</p></article>
-     <article data-tutorial-slide><i>🎛️</i><h3>Professional timeline modes</h3><p>Normal keeps independent placement, Ripple closes gaps, and Magnetic combines ripple editing with clip-edge and beat snapping.</p></article>
-     <article data-tutorial-slide><i>↔</i><h3>Clip trimming handles</h3><p>Select a clip, then drag its left or right edge to trim source footage without deleting the uploaded file. Undo restores the earlier trim.</p></article>
-     <article data-tutorial-slide><i>✨</i><h3>Move effect blocks</h3><p>Drag timed effect blocks along the Effects lane. Magnetic mode snaps them near detected beats and clip edges.</p></article>
-     <article data-tutorial-slide><i>🎥</i><h3>Camera and beat lanes</h3><p>Auto-Sync camera moves now appear in their own lane. Beat markers are classified as Kick, Snare, Bass, Hat, or Drop to make the generated edit easier to understand.</p></article>
-     <article data-tutorial-slide><i>↔</i><h3>Range and trim controls fixed</h3><p>The project Start/End range now sits below Timed Effects, Auto-Sync, Cut & Edit, and the professional toolbar. Drag clip-edge handles to change the true source start or source end; trimming updates after release and remains undoable.</p></article>
-     <article data-tutorial-slide><i>⬇</i><h3>Render and download</h3><p>Open Export and select Build Finished Video. The browser records the processed canvas with the uploaded soundtrack.</p></article>
-     <article data-tutorial-slide><i>🖥️</i><h3>Optional screen capture</h3><p>Capture is separate and optional. Chrome or Edge is recommended for tab audio. Firefox can capture screens, but audio availability varies by operating system and source.</p></article>
+     <article data-tutorial-slide><i>1</i><h3>Load your project</h3><p>Upload Video 1, add more camera angles or sequential clips, then upload licensed music. The timeline appears directly beneath the transport controls.</p></article>
+     <article data-tutorial-slide><i>2</i><h3>Timeline and advanced tools</h3><p>Play, pause, rewind, and forward above the timeline. Open Advanced Timeline Tools only when you need Timed Effects, Auto-Sync, Cut & Edit, or professional edit modes.</p></article>
+     <article data-tutorial-slide><i>3</i><h3>Trim, razor, ripple, and magnetic editing</h3><p>Select clips, drag trim handles, use Shift+K or Razor to split, and choose Normal, Ripple, or Magnetic behavior. The playhead follows the actual clip bars rather than the lane labels.</p></article>
+     <article data-tutorial-slide><i>4</i><h3>AI Camera Director</h3><p>Analyze beats, choose a director style and intensity, then generate camera motion, optional keyframes, and multicamera switches across the project.</p></article>
+     <article data-tutorial-slide><i>5</i><h3>GPU Timeline cache</h3><p>GPU Cache reduces timeline layout and paint work and uses OffscreenCanvas support when available. Browser hardware acceleration should remain enabled, although the browser controls the final GPU/CPU path.</p></article>
+     <article data-tutorial-slide><i>6</i><h3>Professional keyframes</h3><p>Add keyframes at the playhead for camera scale, rotation, position, original text movement, opacity, and music volume. Select a keyframe to edit or remove it.</p></article>
+     <article data-tutorial-slide><i>7</i><h3>Curves editor</h3><p>Apply Linear, Ease, Bounce, Elastic, or Cubic interpolation to selected keyframes or the entire animation pass.</p></article>
+     <article data-tutorial-slide><i>8</i><h3>Audio ducking</h3><p>Enable ducking to lower music automatically during voice or strong source-audio activity. Adjust threshold, amount, attack, and release.</p></article>
+     <article data-tutorial-slide><i>9</i><h3>Multicamera editing</h3><p>Use the camera grid or Camera 1–4 buttons during playback. Angle changes can be recorded as timeline cuts, and AI Director can generate them from drops.</p></article>
+     <article data-tutorial-slide><i>10</i><h3>Save and continue later</h3><p>Download a settings preset or a full .sosproject file. Portable projects may embed local video and audio but can become very large; settings-only projects require re-linking media after import.</p></article>
+     <article data-tutorial-slide><i>11</i><h3>Render and download</h3><p>Use Render Focus for a cleaner export workspace. Keep hardware acceleration enabled and close unnecessary tabs. The processed canvas, keyframes, camera direction, effects, audio ducking, and layers are included in the render.</p></article>
     </div>
-    <div class="tutorialActionsV4180"><button class="secondaryButton" id="tutorialPrevV4180" type="button">Previous</button><span id="tutorialCountV4180">1 / 6</span><button class="primaryButton" id="tutorialNextV4180" type="button">Next</button></div>
+    <div class="tutorialActionsV4180"><button class="secondaryButton" id="tutorialPrevV4180" type="button">Previous</button><span id="tutorialCountV4180">1 / 11</span><button class="primaryButton" id="tutorialNextV4180" type="button">Next</button></div>
    </dialog>
 
    <section class="directComposerV4180" id="directComposerV4180">
@@ -1376,7 +1425,7 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.30.0.js?v=4.30.0"></script>
+  <script src="js/direct-video-composer-v4.32.0.js?v=4.32.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.26.0-core.js?v=4.26.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
@@ -1388,7 +1437,8 @@
   <script src="js/producer-beat-analysis-v4.28.0.js?v=4.28.0"></script>
   <script src="js/producer-razor-tool-v4.27.0.js?v=4.27.0"></script>
   <script src="js/producer-focus-text-v4.29.0.js?v=4.29.0"></script>
-  <script src="js/producer-range-playhead-v4.31.1.js?v=4.31.1"></script>
+  <script src="js/producer-range-playhead-v4.32.0.js?v=4.32.0"></script>
   <script src="js/producer-professional-timeline-v4.31.1.js?v=4.31.1"></script>
+  <script src="js/producer-pro-suite-v4.32.0.js?v=4.32.0"></script>
 </body>
 </html>

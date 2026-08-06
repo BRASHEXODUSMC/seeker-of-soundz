@@ -1,0 +1,64 @@
+Seeker Of SoundZ v4.32.0
+PRODUCER HUB 6.0 — PRO SUITE & PROJECT SAVE
+
+Workspace:
+- Timeline moved immediately beneath Restart, -5, Play, Pause, and +5
+- Playhead tracks the actual clip-bar area rather than the lane-label column
+- Timed Effects, Auto-Sync, Cut & Edit, and Professional Tools moved into one
+  collapsed Advanced Timeline Tools drawer
+- Existing trim, razor, ripple, magnetic, beat, VFX, layers and rendering preserved
+
+AI Camera Director:
+- Balanced EDM, Cinematic, Aggressive Drops, Minimal Motion and Glitch Chaos
+- Generates full-project camera regions from analyzed beats
+- Optional camera keyframes
+- Optional multicamera angle switches
+- Adjustable intensity
+- Director regions appear in the Camera & Motion lane
+
+GPU Timeline:
+- Cache toggle in the timeline header
+- Uses browser OffscreenCanvas capability when available
+- Enables layout and paint containment for timeline tracks and regions
+- Reports GPU cache or optimized DOM-cache availability
+- Browser and graphics driver still choose the final GPU/CPU execution path
+
+Professional Keyframes:
+- Camera scale, rotation, X and Y
+- Original text X, Y, rotation and opacity
+- Music volume
+- Add at playhead, select, edit and delete
+- Keyframes are evaluated during preview and final rendering
+
+Curves:
+- Linear, Ease In/Out, Ease In, Ease Out, Bounce, Elastic and Cubic
+- Visual curve canvas
+- Apply to selected keyframe or the complete keyframe pass
+
+Audio Ducking:
+- Optional automatic music reduction
+- Source-audio/voice or music-peak detection
+- Amount, threshold, attack and release controls
+- Applied to preview and final rendered audio mix
+
+Multicamera:
+- Camera-angle grid from uploaded videos
+- Camera 1–4 buttons
+- Angle switches can be recorded at the current project time
+- AI Director can generate multicamera switches from drops
+- Clear multicamera cut list
+
+Project Save:
+- Download settings-only .sosproject files
+- Optional portable project with embedded local video and audio
+- Import and continue working
+- Download/import .sospreset settings files
+- Captures controls, effects, keyframes, curves, camera direction,
+  audio ducking, multicamera cuts and clip metadata
+- Large embedded projects display a browser memory warning
+
+Tutorial:
+- Rewritten as an 11-step Producer Hub 6.0 tutorial
+- Covers the current timeline placement and every new Pro Suite feature
+
+No Supabase update is required.

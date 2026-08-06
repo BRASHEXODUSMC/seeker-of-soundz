@@ -1,0 +1,43 @@
+PRODUCER HUB 6.0 QUICK GUIDE
+
+1. LOAD MEDIA
+Upload Video 1, additional videos/camera angles, and licensed music.
+
+2. TRANSPORT AND TIMELINE
+The timeline sits directly below Restart, -5, Play, Pause and +5.
+The playhead moves only across the actual clip-bar area.
+
+3. ADVANCED TIMELINE TOOLS
+Open the collapsed Advanced Timeline Tools drawer for Timed Effects,
+Auto-Sync, Cut & Edit, Normal/Ripple/Magnetic modes, Razor and Trim.
+
+4. AI CAMERA DIRECTOR
+Analyze Beats, open Inspector > Pro Suite > AI Director, choose a style and
+intensity, and generate a full camera pass.
+
+5. GPU TIMELINE
+Keep GPU Cache enabled for timeline containment and OffscreenCanvas support
+when available. Hardware acceleration must be enabled in the browser.
+
+6. KEYFRAMES AND CURVES
+Add keyframes at the playhead, then choose Linear, Ease, Bounce, Elastic or
+Cubic interpolation.
+
+7. AUDIO DUCKING
+Enable ducking and adjust amount, threshold, attack and release.
+
+8. MULTICAMERA
+Select camera angles during playback. Enable Record Angle Changes to save
+switches at the current timeline time.
+
+9. PROJECT SAVE
+Download a settings-only project or enable Embed Local Video/Audio for a
+portable project. Portable files can be extremely large.
+
+10. IMPORT
+Import .sosproject to continue a project or .sospreset to restore only
+settings and animation choices.
+
+11. RENDER
+Use Render Focus and keep hardware acceleration enabled. The browser decides
+which canvas work uses the GPU versus CPU.

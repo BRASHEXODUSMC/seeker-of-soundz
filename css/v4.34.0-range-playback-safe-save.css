@@ -1,0 +1,141 @@
+/* Seeker Of SoundZ v4.34.0 — range-first trim playback and safe SOS saving */
+
+/* Video trim handles stay obvious and define the only playable source range. */
+.timelineVideoSegmentV4240{
+  overflow:visible!important;
+}
+.timelineVideoSegmentV4240 .clipTrimHandleV4310{
+  width:16px!important;
+  min-width:16px!important;
+  opacity:1!important;
+  border:2px solid rgba(239,223,248,.9)!important;
+  background:linear-gradient(180deg,#f5eafa,#9460b7)!important;
+  box-shadow:0 0 11px rgba(192,116,232,.38)!important;
+}
+.timelineVideoSegmentV4240 .clipTrimHandleV4310.isLeft::before,
+.timelineVideoSegmentV4240 .clipTrimHandleV4310.isRight::before{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:#1a1020;
+  font-size:.55rem;
+  font-weight:900;
+  pointer-events:none;
+}
+.timelineVideoSegmentV4240 .clipTrimHandleV4310.isLeft::before{content:"▶";left:3px}
+.timelineVideoSegmentV4240 .clipTrimHandleV4310.isRight::before{content:"◀";right:3px}
+.timelineVideoSegmentV4240.isSelectedV4310{
+  background-clip:padding-box!important;
+}
+.timelineVideoSegmentV4240.isSelectedV4310::after{
+  content:"Playable video range";
+  position:absolute;
+  left:50%;
+  top:-19px;
+  transform:translateX(-50%);
+  padding:2px 6px;
+  border-radius:5px;
+  background:#0c0811;
+  color:#7defb3;
+  font-size:.42rem;
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+/* Music trim is always visible rather than hidden until hover. */
+.timelineMusicLaneV4270{
+  min-height:132px!important;
+  padding-bottom:48px!important;
+  overflow:visible!important;
+}
+.musicTrimOverlayV4330{
+  top:4px!important;
+  bottom:50px!important;
+}
+.musicTrimSelectionV4330{
+  border:2px solid rgba(93,239,169,.72)!important;
+  border-radius:7px!important;
+  background:linear-gradient(90deg,rgba(54,190,118,.13),rgba(111,60,163,.09))!important;
+  box-shadow:inset 0 0 20px rgba(80,225,151,.07)!important;
+}
+.musicTrimSelectionV4330::after{
+  content:"Audible music range";
+  position:absolute;
+  left:50%;
+  top:5px;
+  transform:translateX(-50%);
+  color:#a8f5cc;
+  font-size:.44rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+.musicTrimHandleV4330{
+  width:18px!important;
+  opacity:1!important;
+  border:2px solid rgba(243,231,250,.92)!important;
+  box-shadow:0 0 13px rgba(190,112,232,.42)!important;
+}
+.musicTrimHandleV4330.isStart::after,
+.musicTrimHandleV4330.isEnd::after{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:#1b1121;
+  font-size:.58rem;
+  font-weight:900;
+  pointer-events:none;
+}
+.musicTrimHandleV4330.isStart::after{content:"▶";left:4px}
+.musicTrimHandleV4330.isEnd::after{content:"◀";right:4px}
+.musicTrimControlsV4330{
+  position:absolute!important;
+  left:4px!important;
+  right:4px!important;
+  bottom:3px!important;
+  min-height:39px!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(115px,1fr)) auto!important;
+  gap:6px!important;
+  background:rgba(8,5,11,.96)!important;
+}
+.musicTrimControlsV4330 label{
+  min-width:0!important;
+}
+.musicTrimControlsV4330 input{
+  width:100%!important;
+  box-sizing:border-box!important;
+}
+.musicTrimControlsV4330 button{
+  align-self:end!important;
+  min-height:30px!important;
+}
+#timelineStatusV4190{
+  max-width:720px!important;
+  white-space:normal!important;
+}
+
+/* Make safe-save intent explicit. */
+#embedProjectMediaV4320:not(:checked)+*{
+  opacity:1;
+}
+#projectStatusV4320{
+  padding:8px!important;
+  border:1px solid rgba(98,234,169,.09)!important;
+  border-radius:8px!important;
+  background:rgba(44,154,101,.035)!important;
+  line-height:1.45!important;
+}
+@media(max-width:760px){
+  .musicTrimControlsV4330{
+    grid-template-columns:1fr 1fr!important;
+  }
+  .timelineMusicLaneV4270{
+    min-height:180px!important;
+    padding-bottom:96px!important;
+  }
+  .musicTrimOverlayV4330{
+    bottom:98px!important;
+  }
+}

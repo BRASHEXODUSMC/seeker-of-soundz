@@ -1,0 +1,34 @@
+Seeker Of SoundZ v4.34.0
+PRODUCER HUB 6.2 — RANGE PLAYBACK & SAFE SOS SAVING
+
+Video:
+- Left and right trim handles define the only playable source range
+- Dragging previews the exact source frame under the handle
+- Releasing reloads the clip from its selected source start
+- Playback resumes from the selected start when it was already playing
+- Source footage outside the handles is excluded from preview and render
+
+Music:
+- Always-visible Start and End slider handles
+- Always-visible numeric source-start, source-end, and project-offset controls
+- Dragging auditions the selected source position
+- Music begins only after the project offset
+- Music is paused and gain-muted before the offset and after the End handle
+- Preview and render map project time to the selected source range
+- Existing music razor, ducking, keyframes, and waveform tools remain
+
+SOS save safety:
+- Settings-only .sosproject remains the recommended default
+- Portable embedding uses a device-memory-aware safe limit
+- Files larger than the safe limit automatically fall back to settings-only
+- Individual media larger than 64 MB is not converted to a data URL
+- Browser yields between allowed media conversions
+- Import rejects project files above 160 MB instead of freezing the tab
+- Download URLs are retained long enough for reliable local saving and revoked later
+- Preset saves include error handling and completion status
+
+Tutorial:
+- Updated video trim, music range, playback, and safe project-file guidance
+- Visible workflow version updated to Producer Hub 6.2
+
+No Supabase update is required.

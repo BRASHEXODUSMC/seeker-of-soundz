@@ -112,6 +112,7 @@
   <link rel="stylesheet" href="css/v4.33.0-precision-media-sos.css?v=4.33.0">
   <link rel="stylesheet" href="css/v4.33.1-dialog-buttons-editmode-fix.css?v=4.33.1">
   <link rel="stylesheet" href="css/v4.33.2-clickable-buttons-version-fix.css?v=4.33.2">
+  <link rel="stylesheet" href="css/v4.34.0-range-playback-safe-save.css?v=4.34.0">
 </head>
  <body>
   <div id="loader">
@@ -200,7 +201,7 @@
    <section class="producerHubV4190" id="producerHubV4190">
     <header class="producerHubHeaderV4190">
      <div>
-      <p class="sectionEyebrow">Producer Hub 6.1.2</p>
+      <p class="sectionEyebrow">Producer Hub 6.2</p>
       <h2>Unified music-video production workspace</h2>
       <p>Organize local footage, YouTube references, licensed music, effects, markers, assets, downloads, and exports in one compact editor.</p>
      </div>
@@ -548,7 +549,7 @@
       </section>
       <section class="producerTimelineV4190">
      <header class="timelineHeaderV4190">
-      <div><strong>Timeline</strong><small id="timelineStatusV4190">Load video and music to begin</small></div>
+      <div><strong>Timeline</strong><small id="timelineStatusV4190">Drag the left and right clip handles to define the only playable video and music ranges.</small></div>
       <div class="timelineZoomV4190">
        <button type="button" id="timelineFitV4250" title="Fit project">Fit</button>
        <button type="button" id="timelineZoomOutV4190">−</button>
@@ -782,8 +783,8 @@
 
    <section class="studioCommandCenterV4180" id="studioCommandCenterV4180">
     <div class="studioCommandIntroV4180">
-     <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 6.1.2 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
-     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 6.1.2 precision timeline editing, native video sizing, music trimming, AI Camera Director, GPU timeline cache, keyframes, curves, multicamera tools, SOS project files, YouTube tools, and rendering.</small></span></button>
+     <div><p class="sectionEyebrow">Compact Modular Workflow</p><h2>Producer Hub 6.2 guided workflow</h2><p>Choose one module at a time. Your files, effects, trim settings, and project choices remain active while moving between modules.</p></div>
+     <button class="accountFeatureActionV417 tutorialLaunchV4180" id="openStudioTutorialV4180" type="button"><i>?</i><span><strong>Open Guided Tutorial</strong><small>Learn Producer Hub 6.2 range-based video and music trimming, native video sizing, music trimming, AI Camera Director, GPU timeline cache, keyframes, curves, multicamera tools, SOS project files, YouTube tools, and rendering.</small></span></button>
     </div>
     <nav class="studioModuleNavV4180" aria-label="Video Studio modules">
      <button type="button" data-studio-module="start" class="isActive"><i>1</i><span><strong>Start</strong><small>Tutorial & compatibility</small></span></button>
@@ -822,16 +823,16 @@
     <div class="tutorialSlidesV4180">
      <article data-tutorial-slide><i>1</i><h3>Load your project</h3><p>Upload Video 1, add more camera angles or sequential clips, then upload licensed music. The timeline appears directly beneath the transport controls.</p></article>
      <article data-tutorial-slide><i>2</i><h3>Timeline and advanced tools</h3><p>Play, pause, rewind, and forward above the timeline. Edit Mode, Select, Razor, Trim, and Snap sit directly beneath the timeline. Open Advanced Timeline Tools only when you need Timed Effects, Auto-Sync, or Cut & Edit.</p></article>
-     <article data-tutorial-slide><i>3</i><h3>Trim, razor, ripple, and magnetic editing</h3><p>Select clips, drag trim handles, use Shift+K or Razor to split, and choose Normal, Ripple, or Magnetic behavior. The playhead follows the actual clip bars rather than the lane labels.</p></article>
+     <article data-tutorial-slide><i>3</i><h3>Range-based video trimming</h3><p>Each video clip has a left Start handle and right End handle. Drag either side to choose the only part of the source video that may play. While dragging, the preview seeks to that frame. After release, playback starts at the selected left handle and stops at the selected right handle. Removed footage remains silent and excluded from preview and export.</p></article>
      <article data-tutorial-slide><i>4</i><h3>AI Camera Director</h3><p>Analyze beats, choose a director style and intensity, then generate camera motion, optional keyframes, and multicamera switches across the project.</p></article>
      <article data-tutorial-slide><i>5</i><h3>GPU Timeline cache</h3><p>GPU Cache reduces timeline layout and paint work and uses OffscreenCanvas support when available. Browser hardware acceleration should remain enabled, although the browser controls the final GPU/CPU path.</p></article>
      <article data-tutorial-slide><i>6</i><h3>Professional keyframes</h3><p>Add keyframes at the playhead for camera scale, rotation, position, original text movement, opacity, and music volume. Select a keyframe to edit or remove it.</p></article>
      <article data-tutorial-slide><i>7</i><h3>Curves editor</h3><p>Apply Linear, Ease, Bounce, Elastic, or Cubic interpolation to selected keyframes or the entire animation pass.</p></article>
-     <article data-tutorial-slide><i>8</i><h3>Audio ducking</h3><p>Enable ducking to lower music automatically during voice or strong source-audio activity. Adjust threshold, amount, attack, and release.</p></article>
+     <article data-tutorial-slide><i>8</i><h3>Music range, offset, and audio ducking</h3><p>Drag the music Start and End handles to choose the only audible source range. Set Project Start Offset to decide when that selected music begins. Audio stays paused and muted before the offset and after the End handle. Dragging a music handle briefly auditions the selected source position. Audio ducking can still lower the active music during voice or strong source-audio activity.</p></article>
      <article data-tutorial-slide><i>9</i><h3>Multicamera editing</h3><p>Use the camera grid or Camera 1–4 buttons during playback. Angle changes can be recorded as timeline cuts, and AI Director can generate them from drops.</p></article>
      <article data-tutorial-slide><i>10</i><h3>Save and continue later</h3><p>Download a settings preset or a full .sosproject file. Portable projects may embed local video and audio but can become very large; settings-only projects require re-linking media after import.</p></article>
      <article data-tutorial-slide><i>11</i><h3>YouTube tools and authorized downloads</h3><p>Use the YouTube search and preview tools to find references, copy a URL, and open the external converter module. Download only videos you own, have permission to use, or whose license allows downloading and editing. Third-party converter sites may contain intrusive advertising; a reputable browser content blocker can reduce pop-ups, but always review the site and never install unexpected software.</p></article>
-     <article data-tutorial-slide><i>12</i><h3>SOS project files</h3><p>Use the SOS Project Files bar beneath the transport controls to save or import .sosproject and .sospreset files. A portable project may embed local media and become very large; a settings-only project requires re-linking the original files.</p></article>
+     <article data-tutorial-slide><i>12</i><h3>Safe SOS project files</h3><p>Use the SOS Project Files bar beneath the transport controls to save or import .sosproject and .sospreset files. Settings-only saves are lightweight and safest. Portable media is embedded only when the selected files fit the browser’s memory-safe limit; otherwise Producer Hub automatically downloads a settings-only project and asks you to re-link the original media later.</p></article>
      <article data-tutorial-slide><i>13</i><h3>Render and download</h3><p>Use Render Focus for a cleaner export workspace. Keep hardware acceleration enabled and close unnecessary tabs. The processed canvas, keyframes, camera direction, effects, audio ducking, and layers are included in the render.</p></article>
     </div>
     <div class="tutorialActionsV4180"><button class="secondaryButton" id="tutorialPrevV4180" type="button">Previous</button><span id="tutorialCountV4180">1 / 13</span><button class="primaryButton" id="tutorialNextV4180" type="button">Next</button></div>
@@ -1451,7 +1452,7 @@
   <script src="js/tab-capture-converter-v4.17.13.js?v=4.17.13"></script>
   <script src="js/licensed-video-library-v4.17.13.js?v=4.17.13"></script>
   <script src="js/video-studio-modules-v4.18.2.js?v=4.18.2"></script>
-  <script src="js/direct-video-composer-v4.33.0.js?v=4.33.0"></script>
+  <script src="js/direct-video-composer-v4.34.0.js?v=4.34.0"></script>
   <script src="js/video-download-provider-v4.19.1.js?v=4.19.1"></script>
   <script src="js/producer-hub-v4.26.0-core.js?v=4.26.0"></script>
   <script src="js/producer-render-queue-v4.19.0.js?v=4.19.0"></script>
@@ -1464,8 +1465,8 @@
   <script src="js/producer-razor-tool-v4.27.0.js?v=4.27.0"></script>
   <script src="js/producer-focus-text-v4.29.0.js?v=4.29.0"></script>
   <script src="js/producer-range-playhead-v4.32.0.js?v=4.32.0"></script>
-  <script src="js/producer-professional-timeline-v4.31.1.js?v=4.31.1"></script>
-  <script src="js/producer-pro-suite-v4.33.0.js?v=4.33.0"></script>
+  <script src="js/producer-professional-timeline-v4.34.0.js?v=4.34.0"></script>
+  <script src="js/producer-pro-suite-v4.34.0.js?v=4.34.0"></script>
 <dialog class="videoSettingsDialogV4330" id="videoSettingsDialogV4330">
     <header><div><p class="sectionEyebrow">Video detected</p><h3>Choose project sizing</h3></div><button type="button" id="closeVideoSettingsV4330">×</button></header>
     <div class="videoMetadataV4330">
@@ -1480,6 +1481,6 @@
      <button type="button" data-video-sizing-v4330="stretch"><strong>Stretch to frame</strong><small>Force the video to fill the output dimensions.</small></button>
     </div>
    </dialog>
-  <script src="js/producer-media-precision-v4.33.0.js?v=4.33.0"></script>
+  <script src="js/producer-media-precision-v4.34.0.js?v=4.34.0"></script>
 </body>
 </html>

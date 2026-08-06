@@ -1,0 +1,55 @@
+/* Producer Hub 7.0.1 — music, offset dock, Studio+ locks/colors, queue cleanup */
+.musicOffsetDockV701{
+  display:block;
+  width:100%;
+  margin-top:6px;
+  padding:6px;
+  box-sizing:border-box;
+  border:1px solid rgba(196,137,236,.12);
+  border-radius:9px;
+  background:rgba(9,6,12,.94);
+}
+.musicOffsetDockV701 .musicRangeUtilityV4350{
+  position:relative!important;
+  inset:auto!important;
+  right:auto!important;
+  top:auto!important;
+  max-width:none!important;
+  width:100%!important;
+  opacity:1!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:end!important;
+  gap:6px!important;
+  box-sizing:border-box!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  padding:0!important;
+}
+.musicOffsetDockV701 select{min-width:190px!important}
+.musicTrimHandleV4330{pointer-events:auto!important;z-index:80!important}
+.musicTrimSelectionV4330{pointer-events:none!important}
+.timelineMusicLaneV4270{overflow:visible!important}
+.studioTrackLockedV700{
+  outline:1px solid rgba(255,190,84,.35)!important;
+  box-shadow:inset 0 0 0 2px rgba(255,190,84,.05)!important;
+}
+.studioTrackLockedV700::after{
+  content:"LOCKED";
+  position:absolute;right:6px;top:5px;
+  padding:2px 5px;border-radius:5px;
+  background:rgba(61,41,8,.9);color:#ffd78c;font-size:.4rem;
+}
+.studioClipColoredV700{
+  border-color:var(--clip-color-v700)!important;
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--clip-color-v700) 45%,transparent)!important;
+}
+.studioClipColoredV700[data-clip-color-v700="purple"]{--clip-color-v700:#b064e8}
+.studioClipColoredV700[data-clip-color-v700="blue"]{--clip-color-v700:#5aa9ff}
+.studioClipColoredV700[data-clip-color-v700="green"]{--clip-color-v700:#62e6a5}
+.studioClipColoredV700[data-clip-color-v700="orange"]{--clip-color-v700:#ff9b55}
+.studioClipColoredV700[data-clip-color-v700="red"]{--clip-color-v700:#ff667d}
+.studioClipColoredV700[data-clip-color-v700="yellow"]{--clip-color-v700:#f5df62}
+.renderQueueV4190.isEmptyV701 #renderQueueListV4190{display:none!important}
+.renderQueueV4190.isEmptyV701{padding-bottom:0!important}

@@ -1,0 +1,9 @@
+Seeker Of SoundZ v7.0.1
+- Restored reliable music playback and Web Audio graph creation
+- Music trim range initializes from actual audio duration
+- Music offset controls moved below the waveform
+- Start/end sliders and Preview Range repaired
+- Studio+ lock, mute, solo, and selected clip colors now affect timeline state
+- Clear Finished removes all completed/failed/cancelled/done task entries and hides empty details
+- Existing Producer Hub 7.0 systems preserved
+No Supabase update required.

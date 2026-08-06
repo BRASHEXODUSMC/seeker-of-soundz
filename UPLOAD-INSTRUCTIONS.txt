@@ -1,0 +1,10 @@
+USE THIS PATCH ON YOUR EXISTING WORKING GITHUB REPOSITORY
+
+1. Extract this ZIP.
+2. Copy video-effects-studio.html into the repository root.
+3. Copy the CSS file into css/.
+4. Copy the JavaScript file into js/.
+5. Copy VERSION-v7.0.6.txt into the repository root.
+6. Commit and push with GitHub Desktop.
+
+This patch changes only four website files and does not add a GitHub Actions workflow or build system.

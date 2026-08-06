@@ -1,0 +1,6 @@
+Seeker Of SoundZ v7.0.3
+- Moved Music Offset controls from the timeline to Inspector → Audio.
+- Kept waveform Start/End sliders unobstructed and fully functional.
+- Preserved offset presets, custom offset, Preview Range, Reset Range, playback, rendering, and SOS project saving.
+- Added synchronized music-range readouts in the Audio inspector.
+- No Supabase update required.

@@ -1,9 +1,0 @@
-Seeker Of SoundZ v7.0.6
-CLEAN GITHUB UPDATE
-
-- Rebuilt from the cleaner v7.0.2 package.
-- Moved Music Range & Offset to Inspector → Audio.
-- Kept waveform Start/End handles unobstructed.
-- Updated tutorial and visible version text without renaming existing assets.
-- No workflow, package manager, Jekyll, or build configuration added.
-- No Supabase update required.

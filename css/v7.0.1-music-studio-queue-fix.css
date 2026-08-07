@@ -53,29 +53,3 @@
 .studioClipColoredV700[data-clip-color-v700="yellow"]{--clip-color-v700:#f5df62}
 .renderQueueV4190.isEmptyV701 #renderQueueListV4190{display:none!important}
 .renderQueueV4190.isEmptyV701{padding-bottom:0!important}
-
-
-/* v7.0.2 music offset layout fix */
-.musicOffsetDockV701{
-  grid-column:1 / -1 !important;
-  position:relative !important;
-  margin:8px 0 10px 58px !important;
-  width:calc(100% - 58px) !important;
-  clear:both !important;
-  z-index:12 !important;
-}
-.musicOffsetDockV701 .musicRangeUtilityV4350{
-  display:grid !important;
-  grid-template-columns:minmax(220px,320px) auto auto !important;
-  align-items:center !important;
-}
-.musicOffsetDockV701 label{
-  display:flex!important;
-  flex-direction:column!important;
-}
-.timelineMusicLaneV4270{
-  position:relative!important;
-}
-.musicTrimStateV4350{
-  margin-bottom:6px!important;
-}
